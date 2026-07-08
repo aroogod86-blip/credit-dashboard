@@ -1,5 +1,145 @@
 [
   {
+    "date": "07/08",
+    "cor": "US",
+    "ighy": null,
+    "ticker": "ACN 5.3 07/10/33",
+    "issuer": "Accenture Capital Inc",
+    "sp": null,
+    "ipt": "T + 115 Area",
+    "fg": "T + 90",
+    "nic": 25.0,
+    "amt": "1.10B",
+    "ccy": "USD",
+    "coupon": 5.3,
+    "tenor": "7.0",
+    "status": "Priced",
+    "rank": "Sr Unsecured",
+    "reg": "SEC Registered",
+    "full_date": "2026/07/08",
+    "collected": "2026-07-09"
+  },
+  {
+    "date": "07/08",
+    "cor": "US",
+    "ighy": null,
+    "ticker": "ACN Float 07/10/29",
+    "issuer": "Accenture Capital Inc",
+    "sp": null,
+    "ipt": null,
+    "fg": "SOFR + 70",
+    "nic": 0.0,
+    "amt": "300.00M",
+    "ccy": "USD",
+    "coupon": 4.336,
+    "tenor": "3.0",
+    "status": "Priced",
+    "rank": "Sr Unsecured",
+    "reg": "SEC Registered",
+    "full_date": "2026/07/08",
+    "collected": "2026-07-09"
+  },
+  {
+    "date": "07/08",
+    "cor": "US",
+    "ighy": null,
+    "ticker": "ACN 5.6 07/10/36",
+    "issuer": "Accenture Capital Inc",
+    "sp": null,
+    "ipt": "T + 125 Area",
+    "fg": "T + 105",
+    "nic": 20.0,
+    "amt": "1.10B",
+    "ccy": "USD",
+    "coupon": 5.6,
+    "tenor": "10.0",
+    "status": "Priced",
+    "rank": "Sr Unsecured",
+    "reg": "SEC Registered",
+    "full_date": "2026/07/08",
+    "collected": "2026-07-09"
+  },
+  {
+    "date": "07/08",
+    "cor": "US",
+    "ighy": null,
+    "ticker": "ACN 5 07/10/31",
+    "issuer": "Accenture Capital Inc",
+    "sp": null,
+    "ipt": "T + 100 Area",
+    "fg": "T + 70",
+    "nic": 30.0,
+    "amt": "1.50B",
+    "ccy": "USD",
+    "coupon": 5.0,
+    "tenor": "5.0",
+    "status": "Priced",
+    "rank": "Sr Unsecured",
+    "reg": "SEC Registered",
+    "full_date": "2026/07/08",
+    "collected": "2026-07-09"
+  },
+  {
+    "date": "07/08",
+    "cor": "US",
+    "ighy": null,
+    "ticker": "ACN 4 3/4 07/10/29",
+    "issuer": "Accenture Capital Inc",
+    "sp": null,
+    "ipt": "T + 85 Area",
+    "fg": "T + 52",
+    "nic": 33.0,
+    "amt": "1.00B",
+    "ccy": "USD",
+    "coupon": 4.75,
+    "tenor": "3.0",
+    "status": "Priced",
+    "rank": "Sr Unsecured",
+    "reg": "SEC Registered",
+    "full_date": "2026/07/08",
+    "collected": "2026-07-09"
+  },
+  {
+    "date": "07/08",
+    "cor": "AE",
+    "ighy": null,
+    "ticker": "CBDUH 6 5/8 PERP",
+    "issuer": "Commercial Bank of Dubai PSC",
+    "sp": null,
+    "ipt": "7% Area",
+    "fg": "6.625%",
+    "nic": 37.5,
+    "amt": "550.00M",
+    "ccy": "USD",
+    "coupon": 6.625,
+    "tenor": "PERP-NC5.5",
+    "status": "Priced",
+    "rank": "Jr Subordinated",
+    "reg": "RegS",
+    "full_date": "2026/07/08",
+    "collected": "2026-07-09"
+  },
+  {
+    "date": "07/08",
+    "cor": "US",
+    "ighy": null,
+    "ticker": "OSTK 5 07/31/33",
+    "issuer": "Bed Bath & Beyond Inc",
+    "sp": null,
+    "ipt": null,
+    "fg": null,
+    "nic": 0.0,
+    "amt": "0.0",
+    "ccy": "USD",
+    "coupon": 5.0,
+    "tenor": "7.0",
+    "status": "New Deal",
+    "rank": "Sr Unsecured",
+    "reg": "144a",
+    "full_date": "2026/07/08",
+    "collected": "2026-07-09"
+  },
+  {
     "date": "07/07",
     "cor": "US",
     "ighy": "HY",
@@ -17,7 +157,7 @@
     "rank": "1st lien",
     "reg": "144a",
     "full_date": "2026/07/07",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "07/07",
@@ -37,7 +177,7 @@
     "rank": "Sr Unsecured",
     "reg": "SEC Registered",
     "full_date": "2026/07/07",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "07/07",
@@ -57,7 +197,7 @@
     "rank": "Sr Unsecured",
     "reg": "SEC Registered",
     "full_date": "2026/07/07",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "07/07",
@@ -77,7 +217,7 @@
     "rank": "Sr Unsecured",
     "reg": "SEC Registered",
     "full_date": "2026/07/07",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "07/07",
@@ -97,7 +237,7 @@
     "rank": "Sr Unsecured",
     "reg": "SEC Registered",
     "full_date": "2026/07/07",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "07/07",
@@ -117,7 +257,7 @@
     "rank": "Sr Unsecured",
     "reg": "SEC Registered",
     "full_date": "2026/07/07",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "07/07",
@@ -137,7 +277,7 @@
     "rank": "Sr Unsecured",
     "reg": "SEC Registered",
     "full_date": "2026/07/07",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "07/07",
@@ -151,13 +291,13 @@
     "nic": 0.0,
     "amt": "750.00M",
     "ccy": "USD",
-    "coupon": 4.227,
+    "coupon": 4.216,
     "tenor": "3.0",
     "status": "Priced",
     "rank": "Sr Unsecured",
     "reg": "SEC Registered",
     "full_date": "2026/07/07",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "07/07",
@@ -177,7 +317,7 @@
     "rank": "Sr Unsecured",
     "reg": "SEC Registered",
     "full_date": "2026/07/07",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "07/07",
@@ -195,9 +335,9 @@
     "tenor": "6-NC5",
     "status": "Priced",
     "rank": "Sr Unsecured",
-    "reg": null,
+    "reg": "SEC Registered",
     "full_date": "2026/07/07",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "07/07",
@@ -217,7 +357,7 @@
     "rank": "Sr Unsecured",
     "reg": "144a",
     "full_date": "2026/07/07",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "07/07",
@@ -237,7 +377,7 @@
     "rank": "Sr Unsecured",
     "reg": "RegS",
     "full_date": "2026/07/07",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "07/07",
@@ -255,9 +395,9 @@
     "tenor": "3-NC2",
     "status": "Priced",
     "rank": "Sr Unsecured",
-    "reg": null,
+    "reg": "SEC Registered",
     "full_date": "2026/07/07",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "07/07",
@@ -271,13 +411,13 @@
     "nic": 0.0,
     "amt": "300.00M",
     "ccy": "USD",
-    "coupon": 4.257,
+    "coupon": 4.246,
     "tenor": "3-NC2",
     "status": "Priced",
     "rank": "Sr Unsecured",
     "reg": "SEC Registered",
     "full_date": "2026/07/07",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "07/07",
@@ -297,7 +437,7 @@
     "rank": "Sr Unsecured",
     "reg": "SEC Registered",
     "full_date": "2026/07/07",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "07/07",
@@ -317,7 +457,7 @@
     "rank": "Sr Unsecured",
     "reg": "RegS",
     "full_date": "2026/07/07",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "07/07",
@@ -337,7 +477,7 @@
     "rank": "Sr Unsecured",
     "reg": "144a",
     "full_date": "2026/07/07",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "07/07",
@@ -357,7 +497,7 @@
     "rank": "Sr Unsecured",
     "reg": "RegS",
     "full_date": "2026/07/07",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "07/07",
@@ -377,7 +517,7 @@
     "rank": "Sr Unsecured",
     "reg": "RegS",
     "full_date": "2026/07/07",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "07/07",
@@ -397,7 +537,7 @@
     "rank": "Sr Unsecured",
     "reg": "RegS",
     "full_date": "2026/07/07",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "07/07",
@@ -417,7 +557,7 @@
     "rank": "Sr Unsecured",
     "reg": "RegS",
     "full_date": "2026/07/07",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "07/07",
@@ -437,7 +577,7 @@
     "rank": "Subordinated",
     "reg": "RegS",
     "full_date": "2026/07/07",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "07/07",
@@ -497,7 +637,47 @@
     "rank": "Sr Unsecured",
     "reg": null,
     "full_date": "2026/07/07",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
+  },
+  {
+    "date": "07/07",
+    "cor": "DE",
+    "ighy": null,
+    "ticker": "KFW 4 3/8 08/15/33",
+    "issuer": "Kreditanstalt fuer Wiederaufbau",
+    "sp": null,
+    "ipt": "SOFR MS + 41 Area",
+    "fg": "SOFR MS + 39",
+    "nic": 2.0,
+    "amt": "3.00B",
+    "ccy": "USD",
+    "coupon": 4.375,
+    "tenor": "7.0",
+    "status": "Priced",
+    "rank": "Sr Unsecured",
+    "reg": "SEC Registered",
+    "full_date": "2026/07/07",
+    "collected": "2026-07-09"
+  },
+  {
+    "date": "07/07",
+    "cor": "DE",
+    "ighy": null,
+    "ticker": "KFW 4 1/4 07/30/29",
+    "issuer": "Kreditanstalt fuer Wiederaufbau",
+    "sp": null,
+    "ipt": "SOFR MS + 25 Area",
+    "fg": "SOFR MS + 22",
+    "nic": 3.0,
+    "amt": "3.00B",
+    "ccy": "USD",
+    "coupon": 4.25,
+    "tenor": "3.0",
+    "status": "Priced",
+    "rank": "Sr Unsecured",
+    "reg": "SEC Registered",
+    "full_date": "2026/07/07",
+    "collected": "2026-07-09"
   },
   {
     "date": "07/06",
@@ -517,7 +697,7 @@
     "rank": "Sr Unsecured",
     "reg": "RegS",
     "full_date": "2026/07/06",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "07/06",
@@ -537,7 +717,7 @@
     "rank": "Sr Unsecured",
     "reg": "RegS",
     "full_date": "2026/07/06",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "07/06",
@@ -557,7 +737,7 @@
     "rank": "Sr Unsecured",
     "reg": "RegS",
     "full_date": "2026/07/06",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "07/06",
@@ -577,7 +757,7 @@
     "rank": "Sr Unsecured",
     "reg": null,
     "full_date": "2026/07/06",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "07/06",
@@ -597,7 +777,7 @@
     "rank": "Jr Subordinated",
     "reg": "RegS",
     "full_date": "2026/07/06",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "07/06",
@@ -997,7 +1177,7 @@
     "rank": "Sr Unsecured",
     "reg": "144a",
     "full_date": "2026/07/06",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "07/06",
@@ -1017,7 +1197,7 @@
     "rank": "Secured",
     "reg": "RegS",
     "full_date": "2026/07/06",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "07/01",
@@ -1037,7 +1217,7 @@
     "rank": "Sr Unsecured",
     "reg": "144a",
     "full_date": "2026/07/01",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "06/30",
@@ -1097,7 +1277,7 @@
     "rank": "Sr Unsecured",
     "reg": "RegS",
     "full_date": "2026/06/30",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "06/29",
@@ -1517,7 +1697,7 @@
     "rank": "Secured",
     "reg": "RegS",
     "full_date": "2026/06/29",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "06/27",
@@ -1537,7 +1717,7 @@
     "rank": "Sr Unsecured",
     "reg": null,
     "full_date": "2026/06/27",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "06/26",
@@ -1557,7 +1737,7 @@
     "rank": "Sr Unsecured",
     "reg": "144a",
     "full_date": "2026/06/26",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "06/25",
@@ -1577,7 +1757,7 @@
     "rank": "Sr Unsecured",
     "reg": null,
     "full_date": "2026/06/25",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "06/23",
@@ -1597,7 +1777,7 @@
     "rank": "Sr Unsecured",
     "reg": null,
     "full_date": "2026/06/23",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "06/22",
@@ -1617,7 +1797,7 @@
     "rank": "Secured",
     "reg": null,
     "full_date": "2026/06/22",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "06/17",
@@ -1840,606 +2020,6 @@
     "collected": "2026-06-18"
   },
   {
-    "date": "06/03",
-    "cor": "NZ",
-    "ighy": "IG",
-    "ticker": "BZLNZ Float 06/10/31",
-    "issuer": "Bank of New Zealand",
-    "sp": "AA-",
-    "ipt": null,
-    "fg": "SOFR + 79",
-    "nic": 0.0,
-    "amt": "500.00M",
-    "ccy": "USD",
-    "coupon": null,
-    "tenor": "Sr Unsecured",
-    "status": "Priced",
-    "rank": null,
-    "reg": "RegS",
-    "full_date": "2026/06/03",
-    "collected": "2026-06-08"
-  },
-  {
-    "date": "06/03",
-    "cor": "NZ",
-    "ighy": "IG",
-    "ticker": "BZLNZ 4.757 06/10/31",
-    "issuer": "Bank of New Zealand",
-    "sp": "AA-",
-    "ipt": "T + 85",
-    "fg": "T + 55",
-    "nic": 30.0,
-    "amt": "500.00M",
-    "ccy": "USD",
-    "coupon": 4.757,
-    "tenor": "Sr Unsecured",
-    "status": "Priced",
-    "rank": null,
-    "reg": "RegS",
-    "full_date": "2026/06/03",
-    "collected": "2026-06-08"
-  },
-  {
-    "date": "06/03",
-    "cor": "US",
-    "ighy": "IG",
-    "ticker": "D 5.35 06/15/36",
-    "issuer": "Dominion Energy Inc",
-    "sp": "BBB+",
-    "ipt": "T + 120 Area",
-    "fg": "T + 90",
-    "nic": 30.0,
-    "amt": "825.00M",
-    "ccy": "USD",
-    "coupon": 5.35,
-    "tenor": "Sr Unsecured",
-    "status": "Priced",
-    "rank": null,
-    "reg": "SEC Registered",
-    "full_date": "2026/06/03",
-    "collected": "2026-06-08"
-  },
-  {
-    "date": "06/03",
-    "cor": "CA",
-    "ighy": "IG",
-    "ticker": "FFHCN 6.2 06/08/56",
-    "issuer": "Fairfax Financial Holdings Ltd",
-    "sp": "A-",
-    "ipt": "T + 140 Area",
-    "fg": "T + 120",
-    "nic": 20.0,
-    "amt": "750.00M",
-    "ccy": "USD",
-    "coupon": 6.2,
-    "tenor": "Sr Unsecured",
-    "status": "Priced",
-    "rank": null,
-    "reg": "RegS",
-    "full_date": "2026/06/03",
-    "collected": "2026-06-08"
-  },
-  {
-    "date": "06/03",
-    "cor": "HK",
-    "ighy": null,
-    "ticker": "HKTGHD 5 1/8 06/10/36",
-    "issuer": "HKT Capital Ltd",
-    "sp": "BBB",
-    "ipt": "T + 110 Area",
-    "fg": "T + 73",
-    "nic": 37.0,
-    "amt": "650.00M",
-    "ccy": "USD",
-    "coupon": 5.125,
-    "tenor": "Sr Unsecured",
-    "status": "Priced",
-    "rank": null,
-    "reg": "RegS",
-    "full_date": "2026/06/03",
-    "collected": "2026-06-08"
-  },
-  {
-    "date": "06/02",
-    "cor": "US",
-    "ighy": "IG",
-    "ticker": "ACGL 5.95 06/15/56",
-    "issuer": "Arch Capital Group Ltd",
-    "sp": "A-",
-    "ipt": "T + 130 Area",
-    "fg": "T + 100",
-    "nic": 30.0,
-    "amt": "1.40B",
-    "ccy": "USD",
-    "coupon": 5.95,
-    "tenor": "Sr Unsecured",
-    "status": "Priced",
-    "rank": null,
-    "reg": "SEC Registered",
-    "full_date": "2026/06/02",
-    "collected": "2026-06-08"
-  },
-  {
-    "date": "06/02",
-    "cor": "IL",
-    "ighy": null,
-    "ticker": "LUMIIT 5.7398 09/09/36",
-    "issuer": "Bank Leumi Le-Israel BM",
-    "sp": "BBB-",
-    "ipt": "T + 185 Area",
-    "fg": "T + 155",
-    "nic": 30.0,
-    "amt": "1.00B",
-    "ccy": "USD",
-    "coupon": 5.74,
-    "tenor": "Subordinated",
-    "status": "Priced",
-    "rank": null,
-    "reg": "RegS & 144a",
-    "full_date": "2026/06/02",
-    "collected": "2026-06-08"
-  },
-  {
-    "date": "06/02",
-    "cor": "US",
-    "ighy": "IG",
-    "ticker": "OTF 6 1/2 10/15/29",
-    "issuer": "Blue Owl Technology Finance Corp",
-    "sp": "BBB-",
-    "ipt": "T + 300 Area",
-    "fg": "T + 265",
-    "nic": 35.0,
-    "amt": "500.00M",
-    "ccy": "USD",
-    "coupon": 6.5,
-    "tenor": "Sr Unsecured",
-    "status": "Priced",
-    "rank": null,
-    "reg": "SEC Registered",
-    "full_date": "2026/06/02",
-    "collected": "2026-06-08"
-  },
-  {
-    "date": "06/02",
-    "cor": "FR",
-    "ighy": "IG",
-    "ticker": "BPCEGP Float 06/16/31",
-    "issuer": "BPCE SA",
-    "sp": "A+",
-    "ipt": "SOFR + 115 Area",
-    "fg": null,
-    "nic": 15.0,
-    "amt": "600.00M",
-    "ccy": "USD",
-    "coupon": null,
-    "tenor": "Sr Preferred",
-    "status": "Priced",
-    "rank": null,
-    "reg": "RegS",
-    "full_date": "2026/06/02",
-    "collected": "2026-06-08"
-  },
-  {
-    "date": "06/02",
-    "cor": "MX",
-    "ighy": "IG",
-    "ticker": "CEMEX 5 3/4 06/05/36",
-    "issuer": "Cemex SAB de CV",
-    "sp": "BBB-",
-    "ipt": "T + 162.5 Area",
-    "fg": "T + 135",
-    "nic": 27.5,
-    "amt": "1.50B",
-    "ccy": "USD",
-    "coupon": 5.75,
-    "tenor": "Sr Unsecured",
-    "status": "Priced",
-    "rank": null,
-    "reg": "SEC Registered",
-    "full_date": "2026/06/02",
-    "collected": "2026-06-08"
-  },
-  {
-    "date": "06/02",
-    "cor": "US",
-    "ighy": "IG",
-    "ticker": "DUK 4.65 06/15/31",
-    "issuer": "Duke Energy Carolinas LLC",
-    "sp": "BBB+",
-    "ipt": "T + 75 Area",
-    "fg": "T + 50",
-    "nic": 25.0,
-    "amt": "400.00M",
-    "ccy": "USD",
-    "coupon": 4.65,
-    "tenor": "1st lien",
-    "status": "Priced",
-    "rank": null,
-    "reg": "SEC Registered",
-    "full_date": "2026/06/02",
-    "collected": "2026-06-08"
-  },
-  {
-    "date": "06/02",
-    "cor": "US",
-    "ighy": "IG",
-    "ticker": "DUK 5.15 06/15/36",
-    "issuer": "Duke Energy Carolinas LLC",
-    "sp": "BBB+",
-    "ipt": "T + 95 Area",
-    "fg": "T + 70",
-    "nic": 25.0,
-    "amt": "1.00B",
-    "ccy": "USD",
-    "coupon": 5.15,
-    "tenor": "1st lien",
-    "status": "Priced",
-    "rank": null,
-    "reg": "SEC Registered",
-    "full_date": "2026/06/02",
-    "collected": "2026-06-08"
-  },
-  {
-    "date": "06/02",
-    "cor": "US",
-    "ighy": "IG",
-    "ticker": "DUK 5 3/4 06/15/56",
-    "issuer": "Duke Energy Carolinas LLC",
-    "sp": "BBB+",
-    "ipt": "T + 105 Area",
-    "fg": "T + 80",
-    "nic": 25.0,
-    "amt": "1.00B",
-    "ccy": "USD",
-    "coupon": 5.75,
-    "tenor": "1st lien",
-    "status": "Priced",
-    "rank": null,
-    "reg": "SEC Registered",
-    "full_date": "2026/06/02",
-    "collected": "2026-06-08"
-  },
-  {
-    "date": "06/02",
-    "cor": "US",
-    "ighy": "IG",
-    "ticker": "HUBB 4.65 06/15/31",
-    "issuer": "Hubbell Inc",
-    "sp": "BBB+",
-    "ipt": "T + 85 Area",
-    "fg": "T + 60",
-    "nic": 25.0,
-    "amt": "500.00M",
-    "ccy": "USD",
-    "coupon": 4.65,
-    "tenor": "Sr Unsecured",
-    "status": "Priced",
-    "rank": null,
-    "reg": "SEC Registered",
-    "full_date": "2026/06/02",
-    "collected": "2026-06-08"
-  },
-  {
-    "date": "06/02",
-    "cor": "US",
-    "ighy": "IG",
-    "ticker": "HUBB 4.9 06/15/33",
-    "issuer": "Hubbell Inc",
-    "sp": "BBB+",
-    "ipt": "T + 95 Area",
-    "fg": "T + 70",
-    "nic": 25.0,
-    "amt": "700.00M",
-    "ccy": "USD",
-    "coupon": 4.9,
-    "tenor": "Sr Unsecured",
-    "status": "Priced",
-    "rank": null,
-    "reg": "SEC Registered",
-    "full_date": "2026/06/02",
-    "collected": "2026-06-08"
-  },
-  {
-    "date": "06/02",
-    "cor": "US",
-    "ighy": "IG",
-    "ticker": "HUBB 5.15 06/15/36",
-    "issuer": "Hubbell Inc",
-    "sp": "BBB+",
-    "ipt": "T + 105 Area",
-    "fg": "T + 80",
-    "nic": 25.0,
-    "amt": "700.00M",
-    "ccy": "USD",
-    "coupon": 5.15,
-    "tenor": "Sr Unsecured",
-    "status": "Priced",
-    "rank": null,
-    "reg": "SEC Registered",
-    "full_date": "2026/06/02",
-    "collected": "2026-06-08"
-  },
-  {
-    "date": "06/02",
-    "cor": "SNAT",
-    "ighy": "IG",
-    "ticker": "IADB 4 1/4 08/11/31",
-    "issuer": "Inter-American Development Bank",
-    "sp": "AAA",
-    "ipt": "SOFR MS + 32 Area",
-    "fg": "SOFR MS + 30",
-    "nic": 2.0,
-    "amt": "3.00B",
-    "ccy": "USD",
-    "coupon": 4.25,
-    "tenor": "Sr Unsecured",
-    "status": "Priced",
-    "rank": null,
-    "reg": null,
-    "full_date": "2026/06/02",
-    "collected": "2026-06-08"
-  },
-  {
-    "date": "06/02",
-    "cor": "GB",
-    "ighy": "IG",
-    "ticker": "MARGRO 7.7 PERP",
-    "issuer": "Marex Group PLC",
-    "sp": "BBB-",
-    "ipt": "8% Area",
-    "fg": "7.7%",
-    "nic": 30.0,
-    "amt": "500.00M",
-    "ccy": "USD",
-    "coupon": 7.7,
-    "tenor": "Subordinated",
-    "status": "Priced",
-    "rank": null,
-    "reg": "RegS",
-    "full_date": "2026/06/02",
-    "collected": "2026-06-08"
-  },
-  {
-    "date": "06/02",
-    "cor": "US",
-    "ighy": "IG",
-    "ticker": "NSCCLF Float 06/09/28",
-    "issuer": "National Securities Clearing Corp",
-    "sp": "AA",
-    "ipt": null,
-    "fg": "SOFR + 43",
-    "nic": 0.0,
-    "amt": "400.00M",
-    "ccy": "USD",
-    "coupon": null,
-    "tenor": "Sr Unsecured",
-    "status": "Priced",
-    "rank": null,
-    "reg": "RegS",
-    "full_date": "2026/06/02",
-    "collected": "2026-06-08"
-  },
-  {
-    "date": "06/02",
-    "cor": "US",
-    "ighy": "IG",
-    "ticker": "NSCCLF 4.35 06/09/28",
-    "issuer": "National Securities Clearing Corp",
-    "sp": "AA",
-    "ipt": "T + 60 Area",
-    "fg": "T + 33",
-    "nic": 27.0,
-    "amt": "750.00M",
-    "ccy": "USD",
-    "coupon": 4.35,
-    "tenor": "Sr Unsecured",
-    "status": "Priced",
-    "rank": null,
-    "reg": "RegS",
-    "full_date": "2026/06/02",
-    "collected": "2026-06-08"
-  },
-  {
-    "date": "06/02",
-    "cor": "US",
-    "ighy": "IG",
-    "ticker": "NSCCLF 4.7 06/09/31",
-    "issuer": "National Securities Clearing Corp",
-    "sp": "AA",
-    "ipt": "T + 80 Area",
-    "fg": "T + 53",
-    "nic": 27.0,
-    "amt": "600.00M",
-    "ccy": "USD",
-    "coupon": 4.7,
-    "tenor": "Sr Unsecured",
-    "status": "Priced",
-    "rank": null,
-    "reg": "RegS",
-    "full_date": "2026/06/02",
-    "collected": "2026-06-08"
-  },
-  {
-    "date": "06/02",
-    "cor": "US",
-    "ighy": "IG",
-    "ticker": "SAMMON 5.95 06/15/36",
-    "issuer": "Sammons Financial Group Inc",
-    "sp": "BBB+",
-    "ipt": "T + 190 Area",
-    "fg": "T + 162.5",
-    "nic": 27.5,
-    "amt": "750.00M",
-    "ccy": "USD",
-    "coupon": 5.95,
-    "tenor": "Sr Unsecured",
-    "status": "Priced",
-    "rank": null,
-    "reg": "RegS",
-    "full_date": "2026/06/02",
-    "collected": "2026-06-08"
-  },
-  {
-    "date": "06/02",
-    "cor": "US",
-    "ighy": "IG",
-    "ticker": "SANUSA 5.04 06/05/30",
-    "issuer": "Santander Holdings USA Inc",
-    "sp": "BBB+",
-    "ipt": "T + 120",
-    "fg": "T + 95",
-    "nic": 25.0,
-    "amt": "1.00B",
-    "ccy": "USD",
-    "coupon": 5.04,
-    "tenor": "Sr Unsecured",
-    "status": "Priced",
-    "rank": null,
-    "reg": "SEC Registered",
-    "full_date": "2026/06/02",
-    "collected": "2026-06-08"
-  },
-  {
-    "date": "06/02",
-    "cor": "US",
-    "ighy": "IG",
-    "ticker": "SANUSA 5.22 06/05/32",
-    "issuer": "Santander Holdings USA Inc",
-    "sp": "BBB+",
-    "ipt": "T + 130",
-    "fg": "T + 105",
-    "nic": 25.0,
-    "amt": "750.00M",
-    "ccy": "USD",
-    "coupon": 5.22,
-    "tenor": "Sr Unsecured",
-    "status": "Priced",
-    "rank": null,
-    "reg": "SEC Registered",
-    "full_date": "2026/06/02",
-    "collected": "2026-06-08"
-  },
-  {
-    "date": "06/02",
-    "cor": "US",
-    "ighy": "IG",
-    "ticker": "SANUSA 5.701 06/05/37",
-    "issuer": "Santander Holdings USA Inc",
-    "sp": "BBB+",
-    "ipt": "T + 150",
-    "fg": "T + 125",
-    "nic": 25.0,
-    "amt": "750.00M",
-    "ccy": "USD",
-    "coupon": 5.701,
-    "tenor": "Sr Unsecured",
-    "status": "Priced",
-    "rank": null,
-    "reg": "SEC Registered",
-    "full_date": "2026/06/02",
-    "collected": "2026-06-08"
-  },
-  {
-    "date": "06/02",
-    "cor": "DE",
-    "ighy": "IG",
-    "ticker": "NRW 4 1/4 06/11/31",
-    "issuer": "State of North Rhine-Westphalia Germany",
-    "sp": "AA",
-    "ipt": "SOFR MS + 37 Area",
-    "fg": "SOFR MS + 34",
-    "nic": 3.0,
-    "amt": "1.50B",
-    "ccy": "USD",
-    "coupon": 4.25,
-    "tenor": "Sr Unsecured",
-    "status": "Priced",
-    "rank": null,
-    "reg": "RegS",
-    "full_date": "2026/06/02",
-    "collected": "2026-06-08"
-  },
-  {
-    "date": "06/02",
-    "cor": "SE",
-    "ighy": "IG",
-    "ticker": "SHBASS Float 06/11/29",
-    "issuer": "Svenska Handelsbanken AB",
-    "sp": "AA-",
-    "ipt": null,
-    "fg": "SOFR + 56",
-    "nic": 0.0,
-    "amt": "450.00M",
-    "ccy": "USD",
-    "coupon": null,
-    "tenor": "Sr Preferred",
-    "status": "Priced",
-    "rank": null,
-    "reg": "RegS",
-    "full_date": "2026/06/02",
-    "collected": "2026-06-08"
-  },
-  {
-    "date": "06/02",
-    "cor": "SE",
-    "ighy": "IG",
-    "ticker": "SHBASS 4 3/8 06/11/29",
-    "issuer": "Svenska Handelsbanken AB",
-    "sp": "AA-",
-    "ipt": "T + 65 Area",
-    "fg": "T + 40",
-    "nic": 25.0,
-    "amt": "800.00M",
-    "ccy": "USD",
-    "coupon": 4.375,
-    "tenor": "Sr Preferred",
-    "status": "Priced",
-    "rank": null,
-    "reg": "RegS",
-    "full_date": "2026/06/02",
-    "collected": "2026-06-08"
-  },
-  {
-    "date": "06/02",
-    "cor": "SE",
-    "ighy": "IG",
-    "ticker": "SHBASS 4 5/8 06/11/31",
-    "issuer": "Svenska Handelsbanken AB",
-    "sp": "AA-",
-    "ipt": "T + 80 Area",
-    "fg": "T + 53",
-    "nic": 27.0,
-    "amt": "500.00M",
-    "ccy": "USD",
-    "coupon": 4.625,
-    "tenor": "Sr Preferred",
-    "status": "Priced",
-    "rank": null,
-    "reg": "RegS",
-    "full_date": "2026/06/02",
-    "collected": "2026-06-08"
-  },
-  {
-    "date": "06/02",
-    "cor": "CH",
-    "ighy": "IG",
-    "ticker": "UBS 6 7/8 PERP",
-    "issuer": "UBS Group AG",
-    "sp": "BBB-",
-    "ipt": "7.25%-7.375%",
-    "fg": "6.875%",
-    "nic": 43.75,
-    "amt": "1.50B",
-    "ccy": "USD",
-    "coupon": 6.875,
-    "tenor": "Jr Subordinated",
-    "status": "Priced",
-    "rank": null,
-    "reg": "RegS",
-    "full_date": "2026/06/02",
-    "collected": "2026-06-08"
-  },
-  {
     "date": "05/19",
     "cor": "US",
     "ighy": "IG",
@@ -2600,46 +2180,6 @@
     "collected": "2026-07-08"
   },
   {
-    "date": "05/11",
-    "cor": "AU",
-    "ighy": "IG",
-    "ticker": "AUSTC 4 1/8 06/10/31",
-    "issuer": "Export Finance & Insurance Corp",
-    "sp": "AAA",
-    "ipt": "T + 34 Area",
-    "fg": "T + 33",
-    "nic": 26.5,
-    "amt": "1.25B",
-    "ccy": "USD",
-    "coupon": 4.125,
-    "tenor": "Sr Unsecured",
-    "status": "Priced",
-    "rank": null,
-    "reg": "RegS",
-    "full_date": "2026/05/11",
-    "collected": "2026-06-08"
-  },
-  {
-    "date": "05/11",
-    "cor": "AU",
-    "ighy": "IG",
-    "ticker": "AUSTC 4 1/2 06/10/36",
-    "issuer": "Export Finance & Insurance Corp",
-    "sp": "AAA",
-    "ipt": "T + 50 Area",
-    "fg": "T + 49",
-    "nic": 38.8,
-    "amt": "500.00M",
-    "ccy": "USD",
-    "coupon": 4.5,
-    "tenor": "Sr Unsecured",
-    "status": "Priced",
-    "rank": null,
-    "reg": "RegS",
-    "full_date": "2026/05/11",
-    "collected": "2026-06-08"
-  },
-  {
     "date": "04/09",
     "cor": "AU",
     "ighy": null,
@@ -2657,7 +2197,7 @@
     "rank": "1st lien",
     "reg": null,
     "full_date": "2026/04/09",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "03/30",
@@ -2677,7 +2217,7 @@
     "rank": "Sr Unsecured",
     "reg": null,
     "full_date": "2026/03/30",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "03/30",
@@ -2697,7 +2237,7 @@
     "rank": "Sr Unsecured",
     "reg": null,
     "full_date": "2026/03/30",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "02/25",
@@ -2717,7 +2257,7 @@
     "rank": "Sr Unsecured",
     "reg": "RegS",
     "full_date": "2026/02/25",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "02/05",
@@ -2737,7 +2277,7 @@
     "rank": "Sr Unsecured",
     "reg": "RegS",
     "full_date": "2026/02/05",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "01/16",
@@ -2757,7 +2297,7 @@
     "rank": "Secured",
     "reg": "RegS",
     "full_date": "2026/01/16",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "01/13",
@@ -2777,7 +2317,7 @@
     "rank": "Unsecured",
     "reg": "144a",
     "full_date": "2026/01/13",
-    "collected": "2026-07-08"
+    "collected": "2026-07-09"
   },
   {
     "date": "10/21/2025",
@@ -2796,8 +2336,8 @@
     "status": "Mandate",
     "rank": "Sr Unsecured",
     "reg": "RegS",
-    "full_date": "2026-07-08",
-    "collected": "2026-07-08"
+    "full_date": "2026-07-09",
+    "collected": "2026-07-09"
   },
   {
     "date": "07/23/2025",
@@ -2816,8 +2356,8 @@
     "status": "Mandate",
     "rank": "Sr Unsecured",
     "reg": null,
-    "full_date": "2026-07-08",
-    "collected": "2026-07-08"
+    "full_date": "2026-07-09",
+    "collected": "2026-07-09"
   },
   {
     "date": "07/21/2025",
@@ -2836,8 +2376,8 @@
     "status": "New Deal",
     "rank": "Sr Unsecured",
     "reg": "144a",
-    "full_date": "2026-07-08",
-    "collected": "2026-07-08"
+    "full_date": "2026-07-09",
+    "collected": "2026-07-09"
   },
   {
     "date": "07/14/2025",
@@ -2856,8 +2396,8 @@
     "status": "Mandate",
     "rank": "Secured",
     "reg": "RegS",
-    "full_date": "2026-07-08",
-    "collected": "2026-07-08"
+    "full_date": "2026-07-09",
+    "collected": "2026-07-09"
   },
   {
     "date": "05:25",
