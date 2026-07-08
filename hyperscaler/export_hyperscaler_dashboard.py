@@ -45,7 +45,7 @@ BOND_UNIVERSE_CSV = os.path.join(BASE_DIR, "hyperscaler_bond_universe.csv")
 HISTORY_JSON = os.path.join(BASE_DIR, "hyperscaler_history.json")
 OUTPUT_JSON = os.path.join(BASE_DIR, "data.json")
 
-YIELD_FIELD = "YAS_MID_YIELD"      # 채권 YTM 필드 (팀 기존 컨벤션과 동일하게 맞춤. 필요시 변경)
+YIELD_FIELD = "YAS_BOND_YLD"      # 채권 YTM 필드 (YAS_MID_YIELD/YLD_YTM_MID 모두 회사채에서 값 없어 변경)
 GT_YIELD_FIELD = "YLD_YTM_MID"     # 제네릭 UST 필드
 
 BUCKET_ORDER = ["3Y", "5Y", "7Y", "10Y", "20Y", "30Y"]
@@ -70,12 +70,55 @@ def load_universe() -> pd.DataFrame:
 # ------------------------------------------------------------------
 # 2) Bloomberg pull
 # ------------------------------------------------------------------
+def _coerce_to_pandas(df):
+    """
+    xbbg/일부 라이브러리 조합에서 blp.bdp()가 순수 pandas.DataFrame이 아니라
+    narwhals 등 호환성 래퍼 객체를 반환하는 경우가 있음 (예: pandas 3.x 환경).
+    .to_native() / .to_pandas() 메서드가 있으면 이를 이용해 진짜 pandas DataFrame으로 변환.
+    """
+    if df is None or isinstance(df, pd.DataFrame):
+        return df
+
+    # narwhals DataFrame: .to_native() -> 원래 backend(pandas/polars) 객체
+    if hasattr(df, "to_native"):
+        try:
+            native = df.to_native()
+        except Exception as e:
+            print(f"[WARN] to_native() 변환 실패: {e}")
+            native = None
+        if isinstance(native, pd.DataFrame):
+            return native
+        if native is not None and hasattr(native, "to_pandas"):
+            try:
+                return native.to_pandas()
+            except Exception as e:
+                print(f"[WARN] to_native().to_pandas() 변환 실패: {e}")
+
+    # polars DataFrame 등 자체적으로 .to_pandas()를 지원하는 경우
+    if hasattr(df, "to_pandas"):
+        try:
+            return df.to_pandas()
+        except Exception as e:
+            print(f"[WARN] to_pandas() 변환 실패: {e}")
+
+    # 최후 수단: DataFrame Interchange Protocol
+    if hasattr(df, "__dataframe__"):
+        try:
+            return pd.api.interchange.from_dataframe(df)
+        except Exception as e:
+            print(f"[WARN] interchange protocol 변환 실패: {e}")
+
+    return df  # 변환 실패 시 원본 반환 (이후 타입 체크에서 에러 메시지로 표시됨)
+
+
 def _bdp_field_to_dict(df, field: str, tickers: list, label: str) -> dict:
     """
     blp.bdp() 결과에서 {ticker: value} dict를 안전하게 추출.
     .loc 를 쓰지 않고 to_dict()만 사용 -> pandas 버전/환경 차이에 덜 민감함.
     문제가 생기면 진단 정보를 출력해서 원인 파악이 쉽도록 함.
     """
+    df = _coerce_to_pandas(df)
+
     if df is None:
         print(f"[ERROR] {label} blp.bdp() 응답이 None 입니다. Bloomberg Terminal 로그인 상태를 확인하세요.")
         return {}
@@ -89,6 +132,53 @@ def _bdp_field_to_dict(df, field: str, tickers: list, label: str) -> dict:
         print(f"[ERROR] {label} 응답이 빈 DataFrame 입니다. 필드명/티커를 확인하세요.")
         return {}
 
+    print(f"[DEBUG] {label} 응답 컬럼: {list(df.columns)} / shape: {df.shape}")
+    print(f"[DEBUG] {label} 응답 상위 3행:\n{df.head(3)}")
+
+    cols_lower = {str(c).lower() for c in df.columns}
+
+    # ---- Long(tidy) 포맷: 컬럼이 ticker/field/value 인 경우 ----
+    if {"ticker", "field", "value"}.issubset(cols_lower):
+        col_map = {str(c).lower(): c for c in df.columns}
+        ticker_col = col_map["ticker"]
+        field_col = col_map["field"]
+        value_col = col_map["value"]
+
+        sub = df[df[field_col].astype(str).str.lower() == field.lower()]
+        if sub.empty:
+            print(f"[ERROR] {label} 응답에 field='{field}' 행이 없습니다. "
+                  f"실제 field 값들: {sorted(df[field_col].astype(str).unique())}")
+            return {}
+
+        raw_dict = dict(zip(sub[ticker_col].astype(str), sub[value_col]))
+        normalized = {k.strip().upper(): v for k, v in raw_dict.items()}
+
+        result = {}
+        missing = []
+        for t in tickers:
+            key = str(t).strip().upper()
+            val = normalized.get(key)
+            if val is None or (isinstance(val, float) and pd.isna(val)):
+                missing.append(t)
+                continue
+            try:
+                result[t] = float(val)
+            except (TypeError, ValueError):
+                print(f"[WARN] {t} 값을 숫자로 변환할 수 없습니다 (raw={val!r}). 스킵합니다.")
+
+        if missing:
+            for t in missing:
+                print(f"[WARN] {t} 값이 없거나 #N/A 입니다. 스킵합니다.")
+            # 전부(또는 대부분) 실패했으면 실제 응답 티커 형식을 보여줘서 매칭 문제인지 진단
+            if len(missing) == len(tickers):
+                sample_keys = list(normalized.keys())[:5]
+                print(f"[DEBUG] 요청 티커 예시: {tickers[:3]}")
+                print(f"[DEBUG] 응답에 실제로 들어있는 티커(정규화 후) 예시: {sample_keys}")
+                sample_raw_vals = list(raw_dict.items())[:5]
+                print(f"[DEBUG] 응답 원본 (ticker, value) 예시: {sample_raw_vals}")
+        return result
+
+    # ---- Wide 포맷: 필드명이 컬럼, 티커가 인덱스인 경우 ----
     # 필드명 컬럼 찾기 (대소문자 다를 수 있어 유연하게 매칭)
     field_lower = field.lower()
     col = None

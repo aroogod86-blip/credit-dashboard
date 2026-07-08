@@ -86,12 +86,24 @@ td { text-align:right; padding:10px 14px; border-bottom:1px solid rgba(255,255,2
 tr:hover td { background:rgba(255,255,255,0.02); }
 .name-cell { font-family:'DM Sans',sans-serif; font-weight:600; }
 .table-wrap { background:var(--bg-card); border:1px solid var(--border); border-radius:12px; overflow:hidden; padding:4px; }
+.issuer-group-row td {
+  background: rgba(59,130,246,0.08);
+  color: var(--accent-blue);
+  font-weight:700;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:0.6px;
+  padding:8px 14px;
+  text-align:left;
+  border-bottom:1px solid var(--border);
+}
 
 /* ---------- SECTION 4: MATRIX ---------- */
 .matrix-wrap { background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:4px; overflow-x:auto; }
 .matrix-wrap table { min-width:760px; }
 .matrix-wrap th, .matrix-wrap td { text-align:center; }
 .matrix-wrap td:first-child { text-align:left; }
+.rating-cell { font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-secondary); white-space:nowrap; }
 .cell-val { font-weight:600; }
 .cell-empty { color:var(--text-muted); }
 
@@ -117,6 +129,7 @@ tr:hover td { background:rgba(255,255,255,0.02); }
       <span class="badge-sample" id="dataModeBadge">SAMPLE DATA — data.json 없음</span>
     </div>
     <div class="header-meta">
+      <a href="../index.html" style="color:var(--accent-blue);text-decoration:none;font-weight:600;border:1px solid var(--accent-blue);padding:5px 12px;border-radius:20px;white-space:nowrap">← Credit Dashboard</a>
       <span>Last Update <b class="mono" id="lastUpdate">-</b></span>
       <span>Coverage <b class="mono">8 Issuers · 46 Bonds</b></span>
     </div>
@@ -171,6 +184,28 @@ tr:hover td { background:rgba(255,255,255,0.02); }
 const BUCKETS = ["3Y","5Y","7Y","10Y","20Y","30Y"];
 const ISSUERS = ["AAPL","NVDA","META","GOOGL","MU","AVGO","AMZN","ORCL"];
 
+// S&P 스케일 기준 우량 -> 열위 순서 (등급순 정렬용)
+const SP_RATING_ORDER = [
+  "AAA","AA+","AA","AA-","A+","A","A-",
+  "BBB+","BBB","BBB-","BB+","BB","BB-",
+  "B+","B","B-","CCC+","CCC","CCC-","CC","C","D"
+];
+
+function ratingRank(ratingStr){
+  if (!ratingStr || ratingStr === '–' || ratingStr === '-') return 999;
+  const sp = ratingStr.split('/')[0].trim();
+  const idx = SP_RATING_ORDER.indexOf(sp);
+  return idx === -1 ? 999 : idx;
+}
+
+// 등급 우량순 -> 동률이면 기존 ISSUERS 순서를 tiebreaker로 사용
+function issuersByRating(ratings){
+  return [...ISSUERS].sort((a, b) => {
+    const diff = ratingRank(ratings[a]) - ratingRank(ratings[b]);
+    return diff !== 0 ? diff : ISSUERS.indexOf(a) - ISSUERS.indexOf(b);
+  });
+}
+
 /* =========================================================
    SAMPLE 데이터 (data.json / news-data.json 이 없을 때만 사용되는 폴백)
    ========================================================= */
@@ -186,6 +221,10 @@ const SAMPLE_SPREAD_DATA = {
     AVGO:{"3Y":58,"5Y":68,"7Y":82,"10Y":97,"20Y":null,"30Y":140},
     AMZN:{"3Y":20,"5Y":27,"7Y":35,"10Y":46,"20Y":58,"30Y":70},
     ORCL:{"3Y":75,"5Y":92,"7Y":112,"10Y":132,"20Y":155,"30Y":175}
+  },
+  ratings: {
+    AAPL:"AA+ / Aa1", NVDA:"A+ / A1", META:"AA- / A1", GOOGL:"AA+ / Aa2",
+    MU:"BBB / Baa1", AVGO:"BBB- / Baa2", AMZN:"AA / A1", ORCL:"BBB / Baa2"
   },
   bond_changes: [
     {name:"NVDA 4.95 06/15/36", issuer:"NVDA", bucket:"10Y", spread:52, d1:3, w1:6, mtd:9, ytd:-4},
@@ -208,11 +247,14 @@ const SAMPLE_NEWS = {
    ========================================================= */
 function renderMatrix(data){
   const matrixTable = document.getElementById('matrixTable');
-  let thead = "<thead><tr><th>Issuer</th>" + BUCKETS.map(b=>`<th>${b}</th>`).join('') + "</tr></thead>";
+  const ratings = data.ratings || {};
+  const orderedIssuers = issuersByRating(ratings);
+  let thead = "<thead><tr><th>Issuer</th><th>등급(S&P/Moody's)</th>" + BUCKETS.map(b=>`<th>${b}</th>`).join('') + "</tr></thead>";
   let mbody = "<tbody>";
-  ISSUERS.forEach(t=>{
+  orderedIssuers.forEach(t=>{
     const row = data.matrix[t] || {};
-    mbody += `<tr><td class="name-cell">${t}</td>` + BUCKETS.map(b=>{
+    const rating = ratings[t] || '–';
+    mbody += `<tr><td class="name-cell">${t}</td><td class="rating-cell">${rating}</td>` + BUCKETS.map(b=>{
       const v = row[b];
       return (v===null || v===undefined) ? `<td class="cell-empty">–</td>` : `<td class="cell-val">${v}</td>`;
     }).join('') + `</tr>`;
@@ -226,11 +268,26 @@ function renderUploadTable(data){
   tbody.innerHTML = "";
   const fmt = v => (v===null || v===undefined) ? `<span class="cell-empty">–</span>`
     : (v>=0? `<span class="up">+${v}</span>` : `<span class="down">${v}</span>`);
+
+  // 발행자별 그룹핑 (매트릭스와 동일하게 등급순 정렬, 목록에 없는 발행자는 뒤로)
+  const grouped = {};
   data.bond_changes.forEach(r=>{
-    tbody.innerHTML += `<tr>
-      <td class="name-cell">${r.name}</td><td>${r.bucket}</td><td>${r.spread}</td>
-      <td>${fmt(r.d1)}</td><td>${fmt(r.w1)}</td><td>${fmt(r.mtd)}</td><td>${fmt(r.ytd)}</td>
-    </tr>`;
+    const iss = r.issuer || '기타';
+    (grouped[iss] = grouped[iss] || []).push(r);
+  });
+  const ratings = data.ratings || {};
+  const orderedIssuers = issuersByRating(ratings).filter(i => grouped[i])
+    .concat(Object.keys(grouped).filter(i => !ISSUERS.includes(i)));
+
+  orderedIssuers.forEach(iss=>{
+    const rating = ratings[iss] ? ` · ${ratings[iss]}` : '';
+    tbody.innerHTML += `<tr class="issuer-group-row"><td colspan="7">${iss}${rating}</td></tr>`;
+    grouped[iss].forEach(r=>{
+      tbody.innerHTML += `<tr>
+        <td class="name-cell">${r.name}</td><td>${r.bucket}</td><td>${r.spread}</td>
+        <td>${fmt(r.d1)}</td><td>${fmt(r.w1)}</td><td>${fmt(r.mtd)}</td><td>${fmt(r.ytd)}</td>
+      </tr>`;
+    });
   });
 }
 
