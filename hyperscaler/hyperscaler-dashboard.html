@@ -75,6 +75,8 @@ body {
 }
 .news-body { flex:1; }
 .news-headline { font-size:13.5px; font-weight:600; margin-bottom:3px; }
+.news-headline.news-link { color:var(--text-primary); text-decoration:none; display:block; cursor:pointer; }
+.news-headline.news-link:hover { color:var(--accent-blue); text-decoration:underline; }
 .news-meta { font-size:11px; color:var(--text-muted); }
 
 /* ---------- SECTION 3: UPLOADED TICKERS TABLE ---------- */
@@ -246,9 +248,9 @@ const SAMPLE_SPREAD_DATA = {
 const SAMPLE_NEWS = {
   last_update: "SAMPLE",
   items: [
-    {t:"NVDA", h:"차세대 AI 가속기 관련 수요 코멘트 발표 (샘플 헤드라인)", m:"2026-07-07 · Reuters (예시)"},
-    {t:"META", h:"AI 데이터센터 capex 가이던스 상향 관련 보도 (샘플)", m:"2026-07-07 · Bloomberg (예시)"},
-    {t:"ORCL", h:"OCI 클라우드 수주 잔고 관련 코멘트 (샘플)", m:"2026-07-07 · WSJ (예시)"}
+    {t:"NVDA", h:"차세대 AI 가속기 관련 수요 코멘트 발표 (샘플 헤드라인)", m:"2026-07-07 · Reuters (예시)", url:"https://www.reuters.com"},
+    {t:"META", h:"AI 데이터센터 capex 가이던스 상향 관련 보도 (샘플)", m:"2026-07-07 · Bloomberg (예시)", url:"https://www.bloomberg.com"},
+    {t:"ORCL", h:"OCI 클라우드 수주 잔고 관련 코멘트 (샘플)", m:"2026-07-07 · WSJ (예시)", url:"https://www.wsj.com"}
   ]
 };
 
@@ -353,10 +355,13 @@ function renderNews(newsData){
   const newsList = document.getElementById('newsList');
   newsList.innerHTML = "";
   newsData.items.forEach(n=>{
+    const headline = n.url
+      ? `<a href="${n.url}" target="_blank" rel="noopener noreferrer" class="news-headline news-link">${n.h}</a>`
+      : `<div class="news-headline">${n.h}</div>`;
     newsList.innerHTML += `
       <div class="news-item">
         <div class="news-ticker-tag">${n.t}</div>
-        <div class="news-body"><div class="news-headline">${n.h}</div><div class="news-meta">${n.m}</div></div>
+        <div class="news-body">${headline}<div class="news-meta">${n.m}</div></div>
       </div>`;
   });
 }
