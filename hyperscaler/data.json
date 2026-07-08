@@ -1,0 +1,599 @@
+{
+  "last_update": "2026-07-08 10:35 KST",
+  "buckets": [
+    "3Y",
+    "5Y",
+    "7Y",
+    "10Y",
+    "20Y",
+    "30Y"
+  ],
+  "matrix": {
+    "AAPL": {
+      "3Y": 11.4,
+      "5Y": 18.3,
+      "7Y": 12.4,
+      "10Y": 22.6,
+      "20Y": 64.7,
+      "30Y": 51.4
+    },
+    "NVDA": {
+      "3Y": 31.0,
+      "5Y": 38.7,
+      "7Y": 52.3,
+      "10Y": 64.6,
+      "20Y": 74.8,
+      "30Y": 81.6
+    },
+    "META": {
+      "3Y": 21.5,
+      "5Y": 52.3,
+      "7Y": 73.7,
+      "10Y": 94.5,
+      "20Y": 130.0,
+      "30Y": 146.4
+    },
+    "GOOGL": {
+      "3Y": 18.7,
+      "5Y": 31.8,
+      "7Y": 49.3,
+      "10Y": 61.2,
+      "20Y": 75.0,
+      "30Y": 87.7
+    },
+    "MU": {
+      "5Y": 48.6,
+      "7Y": 79.2,
+      "10Y": 71.9
+    },
+    "AVGO": {
+      "3Y": 45.6,
+      "5Y": 54.9,
+      "7Y": 63.3,
+      "10Y": 75.9,
+      "30Y": 89.6
+    },
+    "AMZN": {
+      "3Y": 39.9,
+      "5Y": 46.9,
+      "7Y": 57.4,
+      "10Y": 71.7,
+      "20Y": 91.7,
+      "30Y": 105.7
+    },
+    "ORCL": {
+      "3Y": 92.8,
+      "5Y": 124.2,
+      "7Y": 155.3,
+      "10Y": 175.7,
+      "20Y": 218.5,
+      "30Y": 231.1
+    }
+  },
+  "bond_changes": [
+    {
+      "isin": "BY195434 Corp",
+      "issuer": "AAPL",
+      "name": "AAPL 3 1/4 08/08/29",
+      "bucket": "3Y",
+      "spread": 11.4,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "BQ791814 Corp",
+      "issuer": "AAPL",
+      "name": "AAPL 1.7 08/05/31",
+      "bucket": "5Y",
+      "spread": 18.3,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "ZK536545 Corp",
+      "issuer": "AAPL",
+      "name": "AAPL 4.3 05/10/33",
+      "bucket": "7Y",
+      "spread": 12.4,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "YO223460 Corp",
+      "issuer": "AAPL",
+      "name": "AAPL 4 3/4 05/12/35",
+      "bucket": "10Y",
+      "spread": 22.6,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "QZ067739 Corp",
+      "issuer": "AAPL",
+      "name": "AAPL 3.85 08/04/46",
+      "bucket": "20Y",
+      "spread": 64.7,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "ZK536546 Corp",
+      "issuer": "AAPL",
+      "name": "AAPL 4.85 05/10/53",
+      "bucket": "30Y",
+      "spread": 51.4,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "DL926553 Corp",
+      "issuer": "NVDA",
+      "name": "NVDA 4.35 06/15/29",
+      "bucket": "3Y",
+      "spread": 31.0,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "DL926556 Corp",
+      "issuer": "NVDA",
+      "name": "NVDA 4 1/2 06/15/31",
+      "bucket": "5Y",
+      "spread": 38.7,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "DL926560 Corp",
+      "issuer": "NVDA",
+      "name": "NVDA 4 3/4 06/15/33",
+      "bucket": "7Y",
+      "spread": 52.3,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "DL926563 Corp",
+      "issuer": "NVDA",
+      "name": "NVDA 4.95 06/15/36",
+      "bucket": "10Y",
+      "spread": 64.6,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "DL926565 Corp",
+      "issuer": "NVDA",
+      "name": "NVDA 5.55 06/15/46",
+      "bucket": "20Y",
+      "spread": 74.8,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "DL926546 Corp",
+      "issuer": "NVDA",
+      "name": "NVDA 5 5/8 06/15/56",
+      "bucket": "30Y",
+      "spread": 81.6,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "YW974691 Corp",
+      "issuer": "META",
+      "name": "META 4.3 08/15/29",
+      "bucket": "3Y",
+      "spread": 21.5,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "DK002336 Corp",
+      "issuer": "META",
+      "name": "META 4.55 05/15/31",
+      "bucket": "5Y",
+      "spread": 52.3,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "DK002341 Corp",
+      "issuer": "META",
+      "name": "META 4 7/8 05/15/33",
+      "bucket": "7Y",
+      "spread": 73.7,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "DK002349 Corp",
+      "issuer": "META",
+      "name": "META 5 1/4 05/15/36",
+      "bucket": "10Y",
+      "spread": 94.5,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "DK002360 Corp",
+      "issuer": "META",
+      "name": "META 6.2 05/15/46",
+      "bucket": "20Y",
+      "spread": 130.0,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "DK002368 Corp",
+      "issuer": "META",
+      "name": "META 6.3 05/15/56",
+      "bucket": "30Y",
+      "spread": 146.4,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "YI913235 Corp",
+      "issuer": "GOOGL",
+      "name": "GOOGL 3.7 02/15/29",
+      "bucket": "3Y",
+      "spread": 18.7,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "YI913236 Corp",
+      "issuer": "GOOGL",
+      "name": "GOOGL 4.1 02/15/31",
+      "bucket": "5Y",
+      "spread": 31.8,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "YI913237 Corp",
+      "issuer": "GOOGL",
+      "name": "GOOGL 4.4 02/15/33",
+      "bucket": "7Y",
+      "spread": 49.3,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "YI913238 Corp",
+      "issuer": "GOOGL",
+      "name": "GOOGL 4.8 02/15/36",
+      "bucket": "10Y",
+      "spread": 61.2,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "YI913239 Corp",
+      "issuer": "GOOGL",
+      "name": "GOOGL 5 1/2 02/15/46",
+      "bucket": "20Y",
+      "spread": 75.0,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "YI913240 Corp",
+      "issuer": "GOOGL",
+      "name": "GOOGL 5.65 02/15/56",
+      "bucket": "30Y",
+      "spread": 87.7,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "ZF278034 Corp",
+      "issuer": "MU",
+      "name": "MU 5.3 01/15/31",
+      "bucket": "5Y",
+      "spread": 48.6,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "ZK087872 Corp",
+      "issuer": "MU",
+      "name": "MU 5 7/8 09/15/33",
+      "bucket": "7Y",
+      "spread": 79.2,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "YP951000 Corp",
+      "issuer": "MU",
+      "name": "MU 6.05 11/01/35",
+      "bucket": "10Y",
+      "spread": 71.9,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "BS016828 Corp",
+      "issuer": "MU",
+      "name": "MU 3.366 11/01/41",
+      "bucket": "EXTRA_15Y",
+      "spread": 55.7,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "BV669408 Corp",
+      "issuer": "AVGO",
+      "name": "AVGO 4 04/15/29",
+      "bucket": "3Y",
+      "spread": 45.6,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "YK309642 Corp",
+      "issuer": "AVGO",
+      "name": "AVGO 2.45 02/15/31",
+      "bucket": "5Y",
+      "spread": 54.9,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "DC776281 Corp",
+      "issuer": "AVGO",
+      "name": "AVGO 4.6 01/15/33",
+      "bucket": "7Y",
+      "spread": 63.3,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "DC776283 Corp",
+      "issuer": "AVGO",
+      "name": "AVGO 4.95 01/15/36",
+      "bucket": "10Y",
+      "spread": 75.9,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "YK301350 Corp",
+      "issuer": "AVGO",
+      "name": "AVGO 3 1/2 02/15/41",
+      "bucket": "EXTRA_15Y",
+      "spread": 60.8,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "DC776285 Corp",
+      "issuer": "AVGO",
+      "name": "AVGO 5.7 01/15/56",
+      "bucket": "30Y",
+      "spread": 89.6,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "DM926953 Corp",
+      "issuer": "AMZN",
+      "name": "AMZN 4.6 07/09/29",
+      "bucket": "3Y",
+      "spread": 39.9,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "DG517946 Corp",
+      "issuer": "AMZN",
+      "name": "AMZN 4 1/4 03/13/31",
+      "bucket": "5Y",
+      "spread": 46.9,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "DG517949 Corp",
+      "issuer": "AMZN",
+      "name": "AMZN 4.55 03/13/33",
+      "bucket": "7Y",
+      "spread": 57.4,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "DG517950 Corp",
+      "issuer": "AMZN",
+      "name": "AMZN 4 7/8 03/13/36",
+      "bucket": "10Y",
+      "spread": 71.7,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "DG517952 Corp",
+      "issuer": "AMZN",
+      "name": "AMZN 5.65 03/13/46",
+      "bucket": "20Y",
+      "spread": 91.7,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "DG517954 Corp",
+      "issuer": "AMZN",
+      "name": "AMZN 5.8 03/13/56",
+      "bucket": "30Y",
+      "spread": 105.7,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "YI663392 Corp",
+      "issuer": "ORCL",
+      "name": "ORCL 4.55 02/04/29",
+      "bucket": "3Y",
+      "spread": 92.8,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "YI663394 Corp",
+      "issuer": "ORCL",
+      "name": "ORCL 4.95 02/04/31",
+      "bucket": "5Y",
+      "spread": 124.2,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "YI663395 Corp",
+      "issuer": "ORCL",
+      "name": "ORCL 5.35 05/04/33",
+      "bucket": "7Y",
+      "spread": 155.3,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "YI663396 Corp",
+      "issuer": "ORCL",
+      "name": "ORCL 5.7 02/04/36",
+      "bucket": "10Y",
+      "spread": 175.7,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "YI663397 Corp",
+      "issuer": "ORCL",
+      "name": "ORCL 6.55 02/04/46",
+      "bucket": "20Y",
+      "spread": 218.5,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    },
+    {
+      "isin": "YI663398 Corp",
+      "issuer": "ORCL",
+      "name": "ORCL 6.7 02/04/56",
+      "bucket": "30Y",
+      "spread": 231.1,
+      "d1": null,
+      "w1": null,
+      "mtd": null,
+      "ytd": null
+    }
+  ],
+  "bucket_chart": {
+    "mtd": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "ytd": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  }
+}
