@@ -17,8 +17,7 @@ if %ERRORLEVEL% NEQ 0 (
 )
 
 echo [2/3] Git commit / push...
-git add data.json hyperscaler_history.json
-if exist news-data.json git add news-data.json
+git add .
 git commit -m "daily update %date% %time%"
 git push origin main
 

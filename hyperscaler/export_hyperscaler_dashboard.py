@@ -47,6 +47,7 @@ OUTPUT_JSON = os.path.join(BASE_DIR, "data.json")
 
 YIELD_FIELD = "YAS_BOND_YLD"      # 채권 YTM 필드 (YAS_MID_YIELD/YLD_YTM_MID 모두 회사채에서 값 없어 변경)
 GT_YIELD_FIELD = "YLD_YTM_MID"     # 제네릭 UST 필드
+RATING_FIELDS = {"sp": "RTG_SP", "moody": "RTG_MOODY"}   # 발행자 등급 필드 (S&P/Moody's)
 
 BUCKET_ORDER = ["3Y", "5Y", "7Y", "10Y", "20Y", "30Y"]
 
@@ -111,11 +112,12 @@ def _coerce_to_pandas(df):
     return df  # 변환 실패 시 원본 반환 (이후 타입 체크에서 에러 메시지로 표시됨)
 
 
-def _bdp_field_to_dict(df, field: str, tickers: list, label: str) -> dict:
+def _bdp_field_to_dict(df, field: str, tickers: list, label: str, cast=float) -> dict:
     """
     blp.bdp() 결과에서 {ticker: value} dict를 안전하게 추출.
     .loc 를 쓰지 않고 to_dict()만 사용 -> pandas 버전/환경 차이에 덜 민감함.
     문제가 생기면 진단 정보를 출력해서 원인 파악이 쉽도록 함.
+    cast: 값 변환 함수. 금리/스프레드는 float(기본값), 등급 같은 문자열 필드는 str을 넘길 것.
     """
     df = _coerce_to_pandas(df)
 
@@ -162,9 +164,9 @@ def _bdp_field_to_dict(df, field: str, tickers: list, label: str) -> dict:
                 missing.append(t)
                 continue
             try:
-                result[t] = float(val)
+                result[t] = cast(val)
             except (TypeError, ValueError):
-                print(f"[WARN] {t} 값을 숫자로 변환할 수 없습니다 (raw={val!r}). 스킵합니다.")
+                print(f"[WARN] {t} 값을 변환할 수 없습니다 (raw={val!r}). 스킵합니다.")
 
         if missing:
             for t in missing:
@@ -204,9 +206,9 @@ def _bdp_field_to_dict(df, field: str, tickers: list, label: str) -> dict:
             print(f"[WARN] {t} 값이 없거나 #N/A 입니다. 스킵합니다.")
             continue
         try:
-            result[t] = float(val)
+            result[t] = cast(val)
         except (TypeError, ValueError):
-            print(f"[WARN] {t} 값을 숫자로 변환할 수 없습니다 (raw={val!r}). 스킵합니다.")
+            print(f"[WARN] {t} 값을 변환할 수 없습니다 (raw={val!r}). 스킵합니다.")
     return result
 
 
@@ -226,6 +228,44 @@ def pull_gt_yields(gt_tickers: list) -> dict:
     print(f"[INFO] 벤치마크 {len(gt_tickers)}건 금리({GT_YIELD_FIELD}) pull 중...")
     df = blp.bdp(tickers=gt_tickers, flds=[GT_YIELD_FIELD])
     return _bdp_field_to_dict(df, GT_YIELD_FIELD, gt_tickers, "[벤치마크 금리]")
+
+
+def pull_ratings(universe: pd.DataFrame) -> dict:
+    """
+    발행자별 등급(S&P/Moody's) pull.
+    발행자당 채권 1개만 보면 그 채권에 등급이 없을 때 전체가 '-'로 나오는 문제가 있어,
+    발행자의 모든 채권을 조회한 뒤 값이 있는 첫 채권의 등급을 사용.
+    """
+    isins_by_issuer = {}
+    for _, row in universe.iterrows():
+        isins_by_issuer.setdefault(row["issuer"], []).append(row["isin"])
+    all_isins = universe["isin"].tolist()
+
+    print(f"[INFO] 발행자 {len(isins_by_issuer)}건 등급(S&P/Moody's) pull 중... (채권 {len(all_isins)}건 조회)")
+    sp_dict, moody_dict = {}, {}
+    try:
+        df_sp = blp.bdp(tickers=all_isins, flds=[RATING_FIELDS["sp"]])
+        sp_dict = _bdp_field_to_dict(df_sp, RATING_FIELDS["sp"], all_isins, "[등급 S&P]", cast=str)
+    except Exception as e:
+        print(f"[WARN] S&P 등급 pull 실패: {e}")
+    try:
+        df_moody = blp.bdp(tickers=all_isins, flds=[RATING_FIELDS["moody"]])
+        moody_dict = _bdp_field_to_dict(df_moody, RATING_FIELDS["moody"], all_isins, "[등급 Moody's]", cast=str)
+    except Exception as e:
+        print(f"[WARN] Moody's 등급 pull 실패: {e}")
+
+    ratings = {}
+    for issuer, isins in isins_by_issuer.items():
+        sp, moody = "", ""
+        for isin in isins:
+            if not sp and isin in sp_dict and sp_dict[isin].strip():
+                sp = sp_dict[isin].strip()
+            if not moody and isin in moody_dict and moody_dict[isin].strip():
+                moody = moody_dict[isin].strip()
+            if sp and moody:
+                break
+        ratings[issuer] = f"{sp or '-'} / {moody or '-'}" if (sp or moody) else "-"
+    return ratings
 
 
 # ------------------------------------------------------------------
@@ -291,7 +331,7 @@ def compute_changes(history: dict, isin: str, today_val: float) -> dict:
 # ------------------------------------------------------------------
 # 6) data.json 빌드
 # ------------------------------------------------------------------
-def build_output(universe: pd.DataFrame, spreads: dict, history: dict) -> dict:
+def build_output(universe: pd.DataFrame, spreads: dict, history: dict, ratings: dict) -> dict:
     # --- 매트릭스 (in_core_matrix == Y 인 채권만) ---
     matrix = defaultdict(dict)
     for _, row in universe.iterrows():
@@ -331,12 +371,28 @@ def build_output(universe: pd.DataFrame, spreads: dict, history: dict) -> dict:
     mtd_chart = [round(sum(v) / len(v), 1) if v else None for b in BUCKET_ORDER for v in [bucket_mtd[b]]]
     ytd_chart = [round(sum(v) / len(v), 1) if v else None for b in BUCKET_ORDER for v in [bucket_ytd[b]]]
 
+    # --- 발행자별 버킷 MTD/YTD (드롭다운에서 개별 발행자 선택 시 사용) ---
+    bucket_chart_by_issuer = {}
+    for issuer in sorted(universe["issuer"].unique()):
+        issuer_mtd, issuer_ytd = {}, {}
+        for b in bond_changes:
+            if b["issuer"] != issuer or b["bucket"] not in BUCKET_ORDER:
+                continue
+            issuer_mtd[b["bucket"]] = b["mtd"]
+            issuer_ytd[b["bucket"]] = b["ytd"]
+        bucket_chart_by_issuer[issuer] = {
+            "mtd": [issuer_mtd.get(b) for b in BUCKET_ORDER],
+            "ytd": [issuer_ytd.get(b) for b in BUCKET_ORDER],
+        }
+
     return {
         "last_update": dt.datetime.now().strftime("%Y-%m-%d %H:%M KST"),
         "buckets": BUCKET_ORDER,
         "matrix": matrix,
+        "ratings": ratings,
         "bond_changes": bond_changes,
         "bucket_chart": {"mtd": mtd_chart, "ytd": ytd_chart},
+        "bucket_chart_by_issuer": bucket_chart_by_issuer,
     }
 
 
@@ -356,7 +412,8 @@ def main():
         sys.exit(1)
 
     history = load_history()
-    output = build_output(universe, spreads, history)
+    ratings = pull_ratings(universe)
+    output = build_output(universe, spreads, history, ratings)
 
     # 오늘자 스냅샷을 히스토리에 저장 (변동 계산용 -> data.json 저장 전에 기록)
     history[TODAY_STR] = spreads

@@ -169,7 +169,12 @@ tr:hover td { background:rgba(255,255,255,0.02); }
 <!-- ============ SECTION 4 : CHARTS ============ -->
 <div class="section" id="sec3">
   <div class="section-title">④ 만기별 금리 변동</div>
-  <div class="section-sub">버킷별 MTD / YTD 변동폭 (bp)</div>
+  <div class="section-sub" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+    <span>버킷별 MTD / YTD 변동폭 (bp)</span>
+    <select id="chartIssuerSelect" onchange="onChartIssuerChange()" style="background:var(--bg-card);color:var(--text-primary);border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:12px;font-family:'DM Sans',sans-serif">
+      <option value="__ALL__">전체 평균 (8개사)</option>
+    </select>
+  </div>
   <div class="chart-grid">
     <div class="chart-card"><h3>MTD 변동 (bp)</h3><div class="chart-container"><canvas id="mtdChart"></canvas></div></div>
     <div class="chart-card"><h3>YTD 변동 (bp)</h3><div class="chart-container"><canvas id="ytdChart"></canvas></div></div>
@@ -230,7 +235,17 @@ const SAMPLE_SPREAD_DATA = {
     {name:"NVDA 4.95 06/15/36", issuer:"NVDA", bucket:"10Y", spread:52, d1:3, w1:6, mtd:9, ytd:-4},
     {name:"ORCL 5.7 02/04/36", issuer:"ORCL", bucket:"10Y", spread:132, d1:7, w1:11, mtd:15, ytd:22}
   ],
-  bucket_chart: { mtd:[4,6,3,-2,5,9], ytd:[12,18,9,-5,20,30] }
+  bucket_chart: { mtd:[4,6,3,-2,5,9], ytd:[12,18,9,-5,20,30] },
+  bucket_chart_by_issuer: {
+    AAPL:{mtd:[1,2,2,3,4,5], ytd:[-8,-6,-4,-2,3,6]},
+    NVDA:{mtd:[3,4,5,6,7,8], ytd:[2,4,6,8,10,12]},
+    META:{mtd:[2,3,4,5,6,7], ytd:[-3,-1,1,3,6,9]},
+    GOOGL:{mtd:[1,2,2,3,4,5], ytd:[-9,-7,-5,-3,2,5]},
+    MU:{mtd:[null,5,null,10,null,null], ytd:[null,15,null,25,null,null]},
+    AVGO:{mtd:[4,5,6,7,null,10], ytd:[5,8,11,14,null,20]},
+    AMZN:{mtd:[1,2,3,4,5,6], ytd:[-6,-4,-1,1,5,8]},
+    ORCL:{mtd:[5,6,8,10,12,14], ytd:[10,15,20,25,30,35]}
+  }
 };
 
 const SAMPLE_NEWS = {
@@ -291,22 +306,58 @@ function renderUploadTable(data){
   });
 }
 
-function renderCharts(data){
-  const mtdData = data.bucket_chart.mtd;
-  const ytdData = data.bucket_chart.ytd;
+let mtdChartInstance = null;
+let ytdChartInstance = null;
+let chartData = null; // { mtd, ytd } for currently selected issuer/전체
+
+function drawCharts(mtdData, ytdData){
   const axisStyle = { ticks:{color:'#8896b0'}, grid:{color:'#1e2d4a'} };
-  new Chart(document.getElementById('mtdChart'), {
+  if(mtdChartInstance) mtdChartInstance.destroy();
+  if(ytdChartInstance) ytdChartInstance.destroy();
+  mtdChartInstance = new Chart(document.getElementById('mtdChart'), {
     type:'bar',
     data:{ labels:BUCKETS, datasets:[{ label:'MTD (bp)', data:mtdData,
-      backgroundColor: mtdData.map(v=>(v===null?'#2a3550':(v>=0?'rgba(239,68,68,0.7)':'rgba(16,185,129,0.7)'))) }] },
+      backgroundColor: mtdData.map(v=>(v===null||v===undefined?'#2a3550':(v>=0?'rgba(239,68,68,0.7)':'rgba(16,185,129,0.7)'))) }] },
     options:{ plugins:{legend:{display:false}}, scales:{ x:axisStyle, y:axisStyle } }
   });
-  new Chart(document.getElementById('ytdChart'), {
+  ytdChartInstance = new Chart(document.getElementById('ytdChart'), {
     type:'bar',
     data:{ labels:BUCKETS, datasets:[{ label:'YTD (bp)', data:ytdData,
-      backgroundColor: ytdData.map(v=>(v===null?'#2a3550':(v>=0?'rgba(239,68,68,0.7)':'rgba(16,185,129,0.7)'))) }] },
+      backgroundColor: ytdData.map(v=>(v===null||v===undefined?'#2a3550':(v>=0?'rgba(239,68,68,0.7)':'rgba(16,185,129,0.7)'))) }] },
     options:{ plugins:{legend:{display:false}}, scales:{ x:axisStyle, y:axisStyle } }
   });
+}
+
+function onChartIssuerChange(){
+  const sel = document.getElementById('chartIssuerSelect').value;
+  if(!chartData) return;
+  if(sel === '__ALL__'){
+    drawCharts(chartData.all.mtd, chartData.all.ytd);
+  } else {
+    const d = chartData.byIssuer[sel] || { mtd:BUCKETS.map(()=>null), ytd:BUCKETS.map(()=>null) };
+    drawCharts(d.mtd, d.ytd);
+  }
+}
+
+function renderCharts(data){
+  // 드롭다운 옵션 채우기 (등급순 정렬과 동일한 순서로, 최초 1회만)
+  const select = document.getElementById('chartIssuerSelect');
+  if(select.options.length <= 1){
+    const ratings = data.ratings || {};
+    issuersByRating(ratings).forEach(iss=>{
+      const opt = document.createElement('option');
+      opt.value = iss;
+      opt.textContent = iss;
+      select.appendChild(opt);
+    });
+  }
+
+  chartData = {
+    all: data.bucket_chart,
+    byIssuer: data.bucket_chart_by_issuer || {},
+  };
+
+  onChartIssuerChange();
 }
 
 function renderNews(newsData){

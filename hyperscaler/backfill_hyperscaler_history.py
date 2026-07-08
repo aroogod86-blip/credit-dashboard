@@ -30,7 +30,7 @@ except ImportError:
 # 같은 폴더의 export_hyperscaler_dashboard.py 재사용 (경로/필드/유틸 함수 중복 방지)
 import export_hyperscaler_dashboard as core
 
-START_DATE = dt.date(dt.date.today().year, 1, 1)   # 올해 1월 1일
+START_DATE = dt.date(dt.date.today().year - 1, 12, 15)   # 작년 말(YTD 기준값) 확보를 위해 12/15부터
 END_DATE = dt.date.today()
 
 
@@ -102,10 +102,21 @@ def main():
     isins = universe["isin"].tolist()
     gt_tickers = sorted(set(universe["gt_ticker"].tolist()))
 
-    print(f"[INFO] 채권 {len(isins)}건 히스토리({core.YIELD_FIELD}) pull 중... (시간이 걸릴 수 있습니다)")
-    bond_df = blp.bdh(tickers=isins, flds=[core.YIELD_FIELD],
+    bond_field = core.YIELD_FIELD
+    print(f"[INFO] 채권 {len(isins)}건 히스토리({bond_field}) pull 중... (시간이 걸릴 수 있습니다)")
+    bond_df = blp.bdh(tickers=isins, flds=[bond_field],
                        start_date=START_DATE.isoformat(), end_date=END_DATE.isoformat())
-    bond_hist = _bdh_to_nested_dict(bond_df, core.YIELD_FIELD, isins, "[채권 히스토리]")
+    bond_hist = _bdh_to_nested_dict(bond_df, bond_field, isins, "[채권 히스토리]")
+
+    if not bond_hist:
+        # YAS_BOND_YLD 등 일부 필드는 BDP(현재값)는 되지만 BDH(히스토리)에서는 비어있을 수 있음.
+        # 이 경우 GT벤치마크에서 이미 검증된 YLD_YTM_MID로 자동 재시도.
+        fallback_field = core.GT_YIELD_FIELD
+        print(f"[WARN] {bond_field} 히스토리가 비어있어 {fallback_field}로 재시도합니다...")
+        bond_field = fallback_field
+        bond_df = blp.bdh(tickers=isins, flds=[bond_field],
+                           start_date=START_DATE.isoformat(), end_date=END_DATE.isoformat())
+        bond_hist = _bdh_to_nested_dict(bond_df, bond_field, isins, "[채권 히스토리-재시도]")
 
     print(f"[INFO] 벤치마크 {len(gt_tickers)}건 히스토리({core.GT_YIELD_FIELD}) pull 중...")
     gt_df = blp.bdh(tickers=gt_tickers, flds=[core.GT_YIELD_FIELD],
@@ -116,26 +127,30 @@ def main():
         print("[ERROR] 히스토리 데이터를 가져오지 못했습니다. 위 [ERROR]/[DEBUG] 메시지를 확인하세요.")
         sys.exit(1)
 
-    # 채권별 gt_ticker 매핑
-    isin_to_gt = dict(zip(universe["isin"], universe["gt_ticker"]))
+    # 채권별 gt_ticker 매핑 (bond_hist 키가 정규화(strip+upper)되어 있으므로 동일하게 맞춰서 조회)
+    isin_to_gt = {str(isin).strip().upper(): gt for isin, gt in
+                  zip(universe["isin"], universe["gt_ticker"])}
+    # 정규화된 키 -> 원본 ISIN 표기 역매핑 (export_hyperscaler_dashboard.py의 history 키 형식과 일치시키기 위함)
+    upper_to_original = {str(isin).strip().upper(): isin for isin in universe["isin"]}
 
     # 날짜별로 재구성: {date_str: {isin: spread_bp}}
     history_by_date = {}
     matched_bonds = 0
-    for isin, date_vals in bond_hist.items():
-        gt_ticker = isin_to_gt.get(isin)
+    for isin_norm, date_vals in bond_hist.items():
+        gt_ticker = isin_to_gt.get(isin_norm)
         if gt_ticker is None:
             continue
         gt_dates = gt_hist.get(gt_ticker.strip().upper(), {})
         if not gt_dates:
             continue
         matched_bonds += 1
+        orig_isin = upper_to_original.get(isin_norm, isin_norm)
         for date_str, bond_yield in date_vals.items():
             gt_yield = gt_dates.get(date_str)
             if gt_yield is None:
                 continue  # 해당 날짜 GT금리 없으면 스킵 (휴장일 등)
             spread_bp = round((bond_yield - gt_yield) * 100, 1)
-            history_by_date.setdefault(date_str, {})[isin] = spread_bp
+            history_by_date.setdefault(date_str, {})[orig_isin] = spread_bp
 
     print(f"[INFO] 매칭된 채권 수: {matched_bonds}/{len(isins)}")
     print(f"[INFO] 백필된 날짜 수: {len(history_by_date)}")
