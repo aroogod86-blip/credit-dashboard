@@ -1,5 +1,5 @@
 {
-  "last_update": "2026-07-08 13:10 KST",
+  "last_update": "2026-07-08 13:41 KST",
   "buckets": [
     "3Y",
     "5Y",
@@ -10,64 +10,64 @@
   ],
   "matrix": {
     "AAPL": {
-      "3Y": 11.0,
-      "5Y": 18.5,
-      "7Y": 12.6,
-      "10Y": 22.8,
-      "20Y": 64.9,
-      "30Y": 51.7
+      "3Y": 10.9,
+      "5Y": 18.7,
+      "7Y": 12.3,
+      "10Y": 22.4,
+      "20Y": 64.6,
+      "30Y": 51.3
     },
     "NVDA": {
-      "3Y": 30.2,
+      "3Y": 30.3,
       "5Y": 38.3,
-      "7Y": 52.6,
-      "10Y": 64.7,
-      "20Y": 74.8,
-      "30Y": 81.5
+      "7Y": 52.5,
+      "10Y": 64.5,
+      "20Y": 74.5,
+      "30Y": 81.2
     },
     "META": {
       "3Y": 21.2,
-      "5Y": 52.4,
-      "7Y": 73.7,
-      "10Y": 94.5,
-      "20Y": 130.0,
-      "30Y": 146.8
+      "5Y": 52.3,
+      "7Y": 73.5,
+      "10Y": 94.2,
+      "20Y": 129.6,
+      "30Y": 146.4
     },
     "GOOGL": {
       "3Y": 18.4,
       "5Y": 31.8,
-      "7Y": 49.3,
-      "10Y": 61.3,
-      "20Y": 74.7,
-      "30Y": 88.0
+      "7Y": 49.0,
+      "10Y": 61.0,
+      "20Y": 74.3,
+      "30Y": 87.8
     },
     "MU": {
-      "5Y": 48.7,
-      "7Y": 79.2,
-      "10Y": 72.0
+      "5Y": 48.8,
+      "7Y": 79.0,
+      "10Y": 71.8
     },
     "AVGO": {
-      "3Y": 45.4,
-      "5Y": 54.9,
-      "7Y": 63.4,
-      "10Y": 75.9,
-      "30Y": 89.8
+      "3Y": 45.7,
+      "5Y": 54.7,
+      "7Y": 63.3,
+      "10Y": 75.6,
+      "30Y": 89.4
     },
     "AMZN": {
-      "3Y": 39.2,
-      "5Y": 46.3,
-      "7Y": 57.2,
-      "10Y": 71.5,
-      "20Y": 91.1,
-      "30Y": 105.1
+      "3Y": 39.1,
+      "5Y": 46.5,
+      "7Y": 56.9,
+      "10Y": 71.2,
+      "20Y": 90.7,
+      "30Y": 104.8
     },
     "ORCL": {
       "3Y": 92.4,
-      "5Y": 124.3,
-      "7Y": 155.3,
-      "10Y": 175.4,
-      "20Y": 218.7,
-      "30Y": 231.3
+      "5Y": 124.2,
+      "7Y": 155.0,
+      "10Y": 175.2,
+      "20Y": 218.2,
+      "30Y": 231.1
     }
   },
   "ratings": {
@@ -86,10 +86,10 @@
       "issuer": "AAPL",
       "name": "AAPL 3 1/4 08/08/29",
       "bucket": "3Y",
-      "spread": 11.0,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 10.9,
+      "d1": -0.4,
+      "w1": -0.2,
+      "mtd": -1.1,
       "ytd": null
     },
     {
@@ -97,10 +97,10 @@
       "issuer": "AAPL",
       "name": "AAPL 1.7 08/05/31",
       "bucket": "5Y",
-      "spread": 18.5,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 18.7,
+      "d1": 2.3,
+      "w1": -0.1,
+      "mtd": -1.2,
       "ytd": null
     },
     {
@@ -108,10 +108,10 @@
       "issuer": "AAPL",
       "name": "AAPL 4.3 05/10/33",
       "bucket": "7Y",
-      "spread": 12.6,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 12.3,
+      "d1": 0.5,
+      "w1": 0.8,
+      "mtd": -0.4,
       "ytd": null
     },
     {
@@ -119,10 +119,10 @@
       "issuer": "AAPL",
       "name": "AAPL 4 3/4 05/12/35",
       "bucket": "10Y",
-      "spread": 22.8,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 22.4,
+      "d1": 0.5,
+      "w1": -1.0,
+      "mtd": -2.4,
       "ytd": null
     },
     {
@@ -130,10 +130,10 @@
       "issuer": "AAPL",
       "name": "AAPL 3.85 08/04/46",
       "bucket": "20Y",
-      "spread": 64.9,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 64.6,
+      "d1": 0.2,
+      "w1": 1.2,
+      "mtd": -0.3,
       "ytd": null
     },
     {
@@ -141,10 +141,10 @@
       "issuer": "AAPL",
       "name": "AAPL 4.85 05/10/53",
       "bucket": "30Y",
-      "spread": 51.7,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 51.3,
+      "d1": -0.1,
+      "w1": 1.8,
+      "mtd": 0.7,
       "ytd": null
     },
     {
@@ -152,10 +152,10 @@
       "issuer": "NVDA",
       "name": "NVDA 4.35 06/15/29",
       "bucket": "3Y",
-      "spread": 30.2,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 30.3,
+      "d1": -1.2,
+      "w1": 1.3,
+      "mtd": 2.1,
       "ytd": null
     },
     {
@@ -164,9 +164,9 @@
       "name": "NVDA 4 1/2 06/15/31",
       "bucket": "5Y",
       "spread": 38.3,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "d1": -0.2,
+      "w1": 1.9,
+      "mtd": 2.6,
       "ytd": null
     },
     {
@@ -174,10 +174,10 @@
       "issuer": "NVDA",
       "name": "NVDA 4 3/4 06/15/33",
       "bucket": "7Y",
-      "spread": 52.6,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 52.5,
+      "d1": 0.2,
+      "w1": 4.1,
+      "mtd": 5.3,
       "ytd": null
     },
     {
@@ -185,10 +185,10 @@
       "issuer": "NVDA",
       "name": "NVDA 4.95 06/15/36",
       "bucket": "10Y",
-      "spread": 64.7,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 64.5,
+      "d1": -0.1,
+      "w1": 4.3,
+      "mtd": 4.0,
       "ytd": null
     },
     {
@@ -196,10 +196,10 @@
       "issuer": "NVDA",
       "name": "NVDA 5.55 06/15/46",
       "bucket": "20Y",
-      "spread": 74.8,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 74.5,
+      "d1": -0.8,
+      "w1": 5.8,
+      "mtd": 8.2,
       "ytd": null
     },
     {
@@ -207,10 +207,10 @@
       "issuer": "NVDA",
       "name": "NVDA 5 5/8 06/15/56",
       "bucket": "30Y",
-      "spread": 81.5,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 81.2,
+      "d1": -0.7,
+      "w1": 7.4,
+      "mtd": 8.0,
       "ytd": null
     },
     {
@@ -219,9 +219,9 @@
       "name": "META 4.3 08/15/29",
       "bucket": "3Y",
       "spread": 21.2,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "d1": 0.8,
+      "w1": 0.6,
+      "mtd": 0.8,
       "ytd": null
     },
     {
@@ -229,10 +229,10 @@
       "issuer": "META",
       "name": "META 4.55 05/15/31",
       "bucket": "5Y",
-      "spread": 52.4,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 52.3,
+      "d1": -0.1,
+      "w1": 5.2,
+      "mtd": 4.9,
       "ytd": null
     },
     {
@@ -240,10 +240,10 @@
       "issuer": "META",
       "name": "META 4 7/8 05/15/33",
       "bucket": "7Y",
-      "spread": 73.7,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 73.5,
+      "d1": -0.4,
+      "w1": 3.7,
+      "mtd": 1.9,
       "ytd": null
     },
     {
@@ -251,10 +251,10 @@
       "issuer": "META",
       "name": "META 5 1/4 05/15/36",
       "bucket": "10Y",
-      "spread": 94.5,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 94.2,
+      "d1": -0.8,
+      "w1": 5.9,
+      "mtd": 4.8,
       "ytd": null
     },
     {
@@ -262,10 +262,10 @@
       "issuer": "META",
       "name": "META 6.2 05/15/46",
       "bucket": "20Y",
-      "spread": 130.0,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 129.6,
+      "d1": -1.1,
+      "w1": 5.8,
+      "mtd": 4.1,
       "ytd": null
     },
     {
@@ -273,10 +273,10 @@
       "issuer": "META",
       "name": "META 6.3 05/15/56",
       "bucket": "30Y",
-      "spread": 146.8,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 146.4,
+      "d1": 0.2,
+      "w1": 7.4,
+      "mtd": 5.2,
       "ytd": null
     },
     {
@@ -285,9 +285,9 @@
       "name": "GOOGL 3.7 02/15/29",
       "bucket": "3Y",
       "spread": 18.4,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "d1": 0.1,
+      "w1": -0.6,
+      "mtd": -0.6,
       "ytd": null
     },
     {
@@ -296,9 +296,9 @@
       "name": "GOOGL 4.1 02/15/31",
       "bucket": "5Y",
       "spread": 31.8,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "d1": 0.7,
+      "w1": 0.3,
+      "mtd": 0.3,
       "ytd": null
     },
     {
@@ -306,10 +306,10 @@
       "issuer": "GOOGL",
       "name": "GOOGL 4.4 02/15/33",
       "bucket": "7Y",
-      "spread": 49.3,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 49.0,
+      "d1": -1.0,
+      "w1": 3.7,
+      "mtd": 2.9,
       "ytd": null
     },
     {
@@ -317,10 +317,10 @@
       "issuer": "GOOGL",
       "name": "GOOGL 4.8 02/15/36",
       "bucket": "10Y",
-      "spread": 61.3,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 61.0,
+      "d1": 0.3,
+      "w1": 3.2,
+      "mtd": 3.0,
       "ytd": null
     },
     {
@@ -328,10 +328,10 @@
       "issuer": "GOOGL",
       "name": "GOOGL 5 1/2 02/15/46",
       "bucket": "20Y",
-      "spread": 74.7,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 74.3,
+      "d1": -1.3,
+      "w1": 6.1,
+      "mtd": 5.1,
       "ytd": null
     },
     {
@@ -339,10 +339,10 @@
       "issuer": "GOOGL",
       "name": "GOOGL 5.65 02/15/56",
       "bucket": "30Y",
-      "spread": 88.0,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 87.8,
+      "d1": 0.3,
+      "w1": 8.1,
+      "mtd": 7.0,
       "ytd": null
     },
     {
@@ -350,10 +350,10 @@
       "issuer": "MU",
       "name": "MU 5.3 01/15/31",
       "bucket": "5Y",
-      "spread": 48.7,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 48.8,
+      "d1": -1.0,
+      "w1": -0.5,
+      "mtd": -1.1,
       "ytd": null
     },
     {
@@ -361,10 +361,10 @@
       "issuer": "MU",
       "name": "MU 5 7/8 09/15/33",
       "bucket": "7Y",
-      "spread": 79.2,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 79.0,
+      "d1": -2.4,
+      "w1": 0.9,
+      "mtd": -0.5,
       "ytd": null
     },
     {
@@ -372,10 +372,10 @@
       "issuer": "MU",
       "name": "MU 6.05 11/01/35",
       "bucket": "10Y",
-      "spread": 72.0,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 71.8,
+      "d1": -1.4,
+      "w1": -3.3,
+      "mtd": -2.2,
       "ytd": null
     },
     {
@@ -383,10 +383,10 @@
       "issuer": "MU",
       "name": "MU 3.366 11/01/41",
       "bucket": "EXTRA_15Y",
-      "spread": 55.8,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 55.4,
+      "d1": -1.0,
+      "w1": -1.0,
+      "mtd": -0.2,
       "ytd": null
     },
     {
@@ -394,10 +394,10 @@
       "issuer": "AVGO",
       "name": "AVGO 4 04/15/29",
       "bucket": "3Y",
-      "spread": 45.4,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 45.7,
+      "d1": 1.0,
+      "w1": 4.0,
+      "mtd": 4.9,
       "ytd": null
     },
     {
@@ -405,10 +405,10 @@
       "issuer": "AVGO",
       "name": "AVGO 2.45 02/15/31",
       "bucket": "5Y",
-      "spread": 54.9,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 54.7,
+      "d1": 1.1,
+      "w1": 1.3,
+      "mtd": 0.1,
       "ytd": null
     },
     {
@@ -416,10 +416,10 @@
       "issuer": "AVGO",
       "name": "AVGO 4.6 01/15/33",
       "bucket": "7Y",
-      "spread": 63.4,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 63.3,
+      "d1": 0.4,
+      "w1": 2.4,
+      "mtd": 1.6,
       "ytd": null
     },
     {
@@ -427,10 +427,10 @@
       "issuer": "AVGO",
       "name": "AVGO 4.95 01/15/36",
       "bucket": "10Y",
-      "spread": 75.9,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 75.6,
+      "d1": 0.1,
+      "w1": 2.4,
+      "mtd": 1.6,
       "ytd": null
     },
     {
@@ -438,10 +438,10 @@
       "issuer": "AVGO",
       "name": "AVGO 3 1/2 02/15/41",
       "bucket": "EXTRA_15Y",
-      "spread": 60.9,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 60.5,
+      "d1": -0.2,
+      "w1": 4.1,
+      "mtd": 2.7,
       "ytd": null
     },
     {
@@ -449,10 +449,10 @@
       "issuer": "AVGO",
       "name": "AVGO 5.7 01/15/56",
       "bucket": "30Y",
-      "spread": 89.8,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 89.4,
+      "d1": -0.1,
+      "w1": 6.3,
+      "mtd": 6.2,
       "ytd": null
     },
     {
@@ -460,8 +460,8 @@
       "issuer": "AMZN",
       "name": "AMZN 4.6 07/09/29",
       "bucket": "3Y",
-      "spread": 39.2,
-      "d1": null,
+      "spread": 39.1,
+      "d1": 0.2,
       "w1": null,
       "mtd": null,
       "ytd": null
@@ -471,10 +471,10 @@
       "issuer": "AMZN",
       "name": "AMZN 4 1/4 03/13/31",
       "bucket": "5Y",
-      "spread": 46.3,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 46.5,
+      "d1": -2.1,
+      "w1": 6.3,
+      "mtd": 5.8,
       "ytd": null
     },
     {
@@ -482,10 +482,10 @@
       "issuer": "AMZN",
       "name": "AMZN 4.55 03/13/33",
       "bucket": "7Y",
-      "spread": 57.2,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 56.9,
+      "d1": -2.5,
+      "w1": 6.2,
+      "mtd": 5.2,
       "ytd": null
     },
     {
@@ -493,10 +493,10 @@
       "issuer": "AMZN",
       "name": "AMZN 4 7/8 03/13/36",
       "bucket": "10Y",
-      "spread": 71.5,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 71.2,
+      "d1": -1.2,
+      "w1": 8.5,
+      "mtd": 7.1,
       "ytd": null
     },
     {
@@ -504,10 +504,10 @@
       "issuer": "AMZN",
       "name": "AMZN 5.65 03/13/46",
       "bucket": "20Y",
-      "spread": 91.1,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 90.7,
+      "d1": -3.1,
+      "w1": 11.9,
+      "mtd": 10.9,
       "ytd": null
     },
     {
@@ -515,10 +515,10 @@
       "issuer": "AMZN",
       "name": "AMZN 5.8 03/13/56",
       "bucket": "30Y",
-      "spread": 105.1,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 104.8,
+      "d1": -2.8,
+      "w1": 12.0,
+      "mtd": 11.9,
       "ytd": null
     },
     {
@@ -527,9 +527,9 @@
       "name": "ORCL 4.55 02/04/29",
       "bucket": "3Y",
       "spread": 92.4,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "d1": 0.2,
+      "w1": -3.7,
+      "mtd": -4.1,
       "ytd": null
     },
     {
@@ -537,10 +537,10 @@
       "issuer": "ORCL",
       "name": "ORCL 4.95 02/04/31",
       "bucket": "5Y",
-      "spread": 124.3,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 124.2,
+      "d1": 0.2,
+      "w1": 0.0,
+      "mtd": -1.6,
       "ytd": null
     },
     {
@@ -548,10 +548,10 @@
       "issuer": "ORCL",
       "name": "ORCL 5.35 05/04/33",
       "bucket": "7Y",
-      "spread": 155.3,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 155.0,
+      "d1": -2.4,
+      "w1": 2.9,
+      "mtd": 1.2,
       "ytd": null
     },
     {
@@ -559,10 +559,10 @@
       "issuer": "ORCL",
       "name": "ORCL 5.7 02/04/36",
       "bucket": "10Y",
-      "spread": 175.4,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 175.2,
+      "d1": -1.2,
+      "w1": 7.0,
+      "mtd": 8.0,
       "ytd": null
     },
     {
@@ -570,10 +570,10 @@
       "issuer": "ORCL",
       "name": "ORCL 6.55 02/04/46",
       "bucket": "20Y",
-      "spread": 218.7,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 218.2,
+      "d1": -1.4,
+      "w1": 3.8,
+      "mtd": 2.2,
       "ytd": null
     },
     {
@@ -581,21 +581,21 @@
       "issuer": "ORCL",
       "name": "ORCL 6.7 02/04/56",
       "bucket": "30Y",
-      "spread": 231.3,
-      "d1": null,
-      "w1": null,
-      "mtd": null,
+      "spread": 231.1,
+      "d1": 0.0,
+      "w1": 3.7,
+      "mtd": 5.6,
       "ytd": null
     }
   ],
   "bucket_chart": {
     "mtd": [
-      null,
-      null,
-      null,
-      null,
-      null,
-      null
+      0.3,
+      1.2,
+      2.1,
+      3.0,
+      5.0,
+      6.4
     ],
     "ytd": [
       null,
