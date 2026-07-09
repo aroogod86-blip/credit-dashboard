@@ -1,45 +1,53 @@
 {
-  "last_update": "2026-07-08 (전일 2026-07-07 뉴스 기준)",
+  "last_update": "2026-07-09 (전일 2026-07-07~08 뉴스 기준)",
   "items": [
     {
       "t": "AMZN",
-      "h": "아마존, AI 인프라 자금조달 위해 최소 250억달러 8트랜치(3~40년) 회사채 발행 개시. 피크 수요 620억달러에서 스프레드 타이트닝 후 약 410억달러로 정리(수요배수 1.6배), 연내 추가 발행 없다고 언더라이터에 전달",
-      "m": "2026-07-07 · Bloomberg / CNBC / Reuters"
+      "h": "아마존, $25B 규모 8트랜치 회사채 발행(7/7) 완료. 언더라이터에 연내 추가 발행 없다고 통보. 올해 들어 $25B 이상 빅테크 메가본드 발행으로는 7번째로, 작년 전체 건수를 이미 넘어섬",
+      "m": "2026-07-08 · Bloomberg",
+      "url": "https://www.bloomberg.com/news/articles/2026-07-08/big-tech-s-25-billion-mega-bond-sales-are-pushing-market-limits"
     },
     {
       "t": "META",
-      "h": "메타, 외부 고객 대상 AI 컴퓨트 판매하는 신규 클라우드 사업(Meta Compute) 추진 소식에 주가 급등. 2026년 capex 가이던스 1,250~1,450억달러 유지, 레버리지 확대 우려 지속",
-      "m": "2026-07-06~07 · Bloomberg / The Motley Fool"
+      "h": "웰스파고, 메타 Overweight 등급 유지하며 목표주가 $765→$767 상향(7/2). 7/29 실적발표에서 신규 클라우드 사업(Meta Compute)의 하반기 AI 인프라 투자 계획 공개 예정",
+      "m": "2026-07-07 · Benzinga",
+      "url": "https://www.benzinga.com/trading-ideas/long-ideas/26/07/60300568/apple-meta-alphabet-and-a-financial-stock-on-cnbc-final-trades"
     },
     {
       "t": "NVDA",
-      "h": "차세대 랙스케일 시스템 'Kyber' 2028년 지연설을 회사가 공식 부인하며 로드맵 유지 입장 재확인. 골드만삭스는 forward P/E 21.7배를 valuation 매력 요인으로 평가",
-      "m": "2026-07-07 · Benzinga / TradingKey"
+      "h": "엔비디아 주가 최근 한 달간 고점 대비 13~17% 조정. 골드만삭스는 forward P/E 21.7배를 여전히 \"매력적(bargain)\"이라 평가하며 저가매수 기회로 해석",
+      "m": "2026-07-05~08 · The Motley Fool",
+      "url": "https://www.fool.com/investing/2026/07/05/nvidia-stock-down-over-last-month-good-news/"
     },
     {
       "t": "GOOGL",
-      "h": "EU 최고재판소, 알파벳의 안드로이드 반독점 과징금(약 41억유로) 항소 기각 확정(추가 항소 불가). 여진으로 프리마켓 주가 약세",
-      "m": "2026-07-02 확정 · CNBC"
-    },
-    {
-      "t": "MU",
-      "h": "삼성전자 실적 호조에도 메모리 업황 고점 논란 속 마이크론 주가 약세(최근 5거래일 -19.6%). 포드와 신규 공급계약 체결은 긍정적 요인",
-      "m": "2026-07-07 · CNBC / Barron's / 24/7 Wall St"
-    },
-    {
-      "t": "AVGO",
-      "h": "브로드컴-애플 커스텀칩 파트너십을 2031년까지 연장 발표, 브로드컴 주가 3.7% 급등. 매출 가시성 확대 요인으로 평가되며 Nationwide Building Society와도 파트너십 연장",
-      "m": "2026-07-06~07 · The Globe and Mail / TipRanks"
+      "h": "알파벳, 1분기 capex $35.7B 집행에 이어 2026년 capex 가이던스를 $180~190B로 상향(기존 $175~185B). FCF는 $10.1B로 급감했음에도 분기배당 5% 인상 결정",
+      "m": "2026-07-08 · TIKR",
+      "url": "https://www.tikr.com/blog/alphabet-stock-in-july-2026-a-5-dividend-hike-meets-a-36-billion-capex-quarter"
     },
     {
       "t": "AAPL",
-      "h": "브로드컴과 커스텀 ASIC 공급계약을 2031년까지 확장 합의. 기존 2023년 파트너십의 장기 연장으로, 애플 입장에서도 공급망 안정성 확보 요인",
-      "m": "2026-07-06~07 · The Globe and Mail"
+      "h": "브로드컴과 커스텀 ASIC 칩 공급계약을 2031년까지 연장 발표(7/6) 확인, 브로드컴 주가 3.7% 급등. 다만 폴더블 아이폰 생산 램프업이 목표(1,000만대) 대비 더딜 수 있다는 우려도 병존",
+      "m": "2026-07-08 · TradingKey",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262017079-apple-aapl-stock-forecast-july-2026-double-top-foldable-delay-tradingkey"
+    },
+    {
+      "t": "AVGO",
+      "h": "애플과의 $30B 규모 멀티이어 커스텀칩 계약 소식에 주가 7/8 장중 4.75% 급등. 씨티는 목표주가 상향, AI 반도체 매출(Q2 +143% YoY)이 견조한 모멘텀 지속 중이라 평가",
+      "m": "2026-07-08 · 24/7 Wall St.",
+      "url": "https://247wallst.com/investing/2026/07/08/broadcom-stock-the-1-number-that-could-tell-you-a-market-turn-is-coming/"
+    },
+    {
+      "t": "MU",
+      "h": "반도체 섹터 전반 조정(코스피/니케이 동반 약세) 속 마이크론 주가 7/7 4.7~5% 하락. UBS는 이번 조정을 \"버블 붕괴\"가 아닌 정상적 순환으로 보며 반도체 섹터에 여전히 constructive 의견 유지",
+      "m": "2026-07-08 · Benzinga (UBS)",
+      "url": "https://www.benzinga.com/markets/tech/26/07/60336891/micron-broadcom-just-got-25-cheaper-and-chip-stocks-are-far-from-bubble-territory-ubs-says"
     },
     {
       "t": "ORCL",
-      "h": "FY26 중 대규모 회사채 발행 등으로 총부채 1,000억달러 초과. 고점 대비 주가 57~58% 하락 속 부채 부담·마이너스 FCF 우려 지속되며, 저평가 매수 의견과 레버리지 우려로 애널리스트 견해 엇갈림",
-      "m": "2026-07-07 · Yahoo Finance / IndMoney"
+      "h": "오라클 5년물 CDS 스프레드가 OpenAI $300B 딜 이후 약 170bp까지 상승, 채권시장이 디폴트 확률 상향 반영 중인 것으로 해석됨. 주가는 2026년 상반기 동안 24.8% 하락",
+      "m": "2026-07-08 · The Motley Fool",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/heres-why-oracle-stock-slumped-122743570.html"
     }
   ]
 }
