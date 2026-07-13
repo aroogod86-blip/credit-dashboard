@@ -1,53 +1,53 @@
 {
-  "date": "2026-07-10",
+  "date": "2026-07-14",
   "items": [
     {
-      "t": "AAPL",
-      "h": "Apple, OpenAI 상대로 영업비밀 절취 혐의 소송 제기",
-      "m": "2026-07-10 · Reuters/CNBC",
-      "url": "https://www.cnbc.com/quotes/AAPL"
-    },
-    {
       "t": "NVDA",
-      "h": "美 정부, UAE向 AI 반도체 수출 제한 완화 검토 소식에 주가 +4.0%",
-      "m": "2026-07-10 · GuruFocus",
-      "url": "https://www.gurufocus.com/news/8954082/nvidia-nvda-stock-rises-as-us-eases-export-restrictions-to-uae"
-    },
-    {
-      "t": "META",
-      "h": "신규 AI 클라우드 사업 'Meta Compute' 발표, 자체 AI칩 'Iris' 9월 양산 계획에 주가 +6~10%",
-      "m": "2026-07-09~10 · Reuters/TechCrunch",
-      "url": "https://techcrunch.com/2026/07/09/metas-new-ai-chips-will-begin-production-in-september/"
+      "h": "반도체 섹터 전반 밸류에이션 부담·경쟁 우려로 급락, 5월 고점 대비 -16%·시총 약 $1T 증발",
+      "m": "2026-07-13 · GuruFocus/TradingKey",
+      "url": "https://www.gurufocus.com/news/8956090/nvidia-nvda-stock-target-price-set-at-300-amid-market-volatility"
     },
     {
       "t": "GOOGL",
-      "h": "AI 인재 이탈 우려 속 주가 약보합, 2분기 실적(7/22) 앞두고 클라우드 백로그 $460B 부각",
-      "m": "2026-07-10 · GuruFocus",
-      "url": "https://www.gurufocus.com/news/8954321/alphabet-inc-googl-shares-fall-05-gf-value-says-still-overvalued"
+      "h": "자사 TPU를 구글클라우드 외부 '네오클라우드' 사업자에도 판매 확대 추진, 엔비디아 아성에 직접 도전 — 2분기 실적(7/22) 앞두고 UBS 등 목표가 하향",
+      "m": "2026-07-13 · The Information/TradingView",
+      "url": "https://www.tradingview.com/news/stocktwits:354636929094b:0-googl-reportedly-expands-tpu-sales-to-battle-nvidia-amid-wall-street-price-target-cuts-on-big-tech-ahead-of-q2-earnings/"
     },
     {
       "t": "MU",
-      "h": "경쟁사 SK하이닉스 나스닥 상장 데뷔 속 차익실현으로 주가 약세, 美 제조투자 $250B 이상으로 확대",
-      "m": "2026-07-10 · Benzinga",
-      "url": "https://www.benzinga.com/trading-ideas/movers/26/07/60380725/whats-going-on-with-micron-technology-stock-friday-2"
+      "h": "메모리 공급 확대·마진 우려로 -5.5~5.8% 급락, $900대 지지선 시험 — Michael Burry(Scion) 공매도 포지션 공개도 부담",
+      "m": "2026-07-13 · TradingKey/FX Leaders",
+      "url": "https://www.tradingkey.com/news/market-movers/262026608-market-movers-mu-20260713"
     },
     {
       "t": "AVGO",
-      "h": "Apple향 $30B+ 칩 공급계약 확대 발표 이후 내부자 대규모 지분 매도 포착",
-      "m": "2026-07-10 · TipRanks",
-      "url": "https://www.cnn.com/markets/stocks/AVGO"
+      "h": "성장주→방어주 로테이션 속 주가 -3.2%, 구글 TPU 내재화로 인한 매출 이탈 우려(FY28 최대 $15~25B) 지속 부각",
+      "m": "2026-07-13 · TradingKey/Seeking Alpha",
+      "url": "https://www.tradingkey.com/news/market-movers/262026926-market-movers-avgo-20260713"
     },
     {
       "t": "AMZN",
-      "h": "데이터센터 확장 재원 마련 위해 $25B 추가 회사채 발행 계획",
-      "m": "2026-07-09 · The Motley Fool",
-      "url": "https://www.fool.com/investing/2026/07/09/huge-news-for-amazon-stock-investors/"
+      "h": "데이터센터 재원 마련 위한 대규모 회사채 발행 지속, 테크 섹터 전반의 자금조달 부담 부각(El-Erian 코멘트) — Trainium 연 매출 런레이트 $20B 돌파",
+      "m": "2026-07-13 · GuruFocus/247WallSt",
+      "url": "https://www.gurufocus.com/news/8955680/amazon-amzn-bond-issuance-highlights-funding-strain-in-tech-sector"
     },
     {
       "t": "ORCL",
-      "h": "S&P, Oracle 신용등급 'BBB'→'BBB-'로 한 단계 강등 (투자등급 최하단, 정크 한 단계 위) — AI 데이터센터 투자발 FCF 적자 확대(FY27 -$42B 전망)가 근거",
-      "m": "2026-07-09 · S&P Global / Yahoo Finance",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/oracle-stock-shrugs-off-p-185346661.html"
+      "h": "실적 호조에도 부채·자본지출 부담으로 주가 -6% 급락, 52주 신저가 근접 — S&P BBB- 강등 이후 OpenAI 매출 집중 리스크·FY27 FCF 적자($42B 추정) 우려 지속",
+      "m": "2026-07-13 · FX Leaders/247WallSt",
+      "url": "https://www.fxleaders.com/news/2026/07/13/orcl-stock-tests-140-as-oracles-638b-ai-backlog-faces-debt-cash-flow-and-rating-pressure/"
+    },
+    {
+      "t": "META",
+      "h": "AI 전략 기대감에 주간 +15% 급등(2024년초 이후 최대 낙폭 이후 반등), Muse Image·Muse Spark 1.1 연이어 공개 — 자체 AI칩 'Iris' 9월 양산 목표 유지",
+      "m": "2026-07-10 · CNBC",
+      "url": "https://www.cnbc.com/2026/07/10/meta-shares-surge-6percent-as-optimism-grows-on-it.html"
+    },
+    {
+      "t": "AAPL",
+      "h": "OpenAI 상대 영업비밀 침해 소송 지속 속 시총 $4.73T 기록, EU 빅테크 규제 소송 기각 판결로 반등 — Broadcom과 2031년까지 커스텀칩 공급계약 연장",
+      "m": "2026-07-13 · Yahoo Finance/CNBC",
+      "url": "https://finance.yahoo.com/quote/AAPL/"
     }
   ]
 }
