@@ -1,53 +1,52 @@
 {
-  "date": "2026-07-14",
-  "items": [
+  "2026-07-14": [
+    {
+      "t": "AAPL",
+      "h": "Apple, 브로드컴 대상 美 반도체 생산 위탁 물량 확대",
+      "m": "애플이 브로드컴과의 협력을 확대해 미국산 칩 생산 물량을 추가로 늘린다고 발표. 아이폰17 판매 호조 속 주가는 연중 최고치 부근에서 견조.",
+      "url": "https://www.apple.com/newsroom/2026/07/apple-to-increase-spend-with-broadcom-to-produce-billions-more-us-chips/"
+    },
     {
       "t": "NVDA",
-      "h": "반도체 섹터 전반 밸류에이션 부담·경쟁 우려로 급락, 5월 고점 대비 -16%·시총 약 $1T 증발",
-      "m": "2026-07-13 · GuruFocus/TradingKey",
-      "url": "https://www.gurufocus.com/news/8956090/nvidia-nvda-stock-target-price-set-at-300-amid-market-volatility"
-    },
-    {
-      "t": "GOOGL",
-      "h": "자사 TPU를 구글클라우드 외부 '네오클라우드' 사업자에도 판매 확대 추진, 엔비디아 아성에 직접 도전 — 2분기 실적(7/22) 앞두고 UBS 등 목표가 하향",
-      "m": "2026-07-13 · The Information/TradingView",
-      "url": "https://www.tradingview.com/news/stocktwits:354636929094b:0-googl-reportedly-expands-tpu-sales-to-battle-nvidia-amid-wall-street-price-target-cuts-on-big-tech-ahead-of-q2-earnings/"
-    },
-    {
-      "t": "MU",
-      "h": "메모리 공급 확대·마진 우려로 -5.5~5.8% 급락, $900대 지지선 시험 — Michael Burry(Scion) 공매도 포지션 공개도 부담",
-      "m": "2026-07-13 · TradingKey/FX Leaders",
-      "url": "https://www.tradingkey.com/news/market-movers/262026608-market-movers-mu-20260713"
-    },
-    {
-      "t": "AVGO",
-      "h": "성장주→방어주 로테이션 속 주가 -3.2%, 구글 TPU 내재화로 인한 매출 이탈 우려(FY28 최대 $15~25B) 지속 부각",
-      "m": "2026-07-13 · TradingKey/Seeking Alpha",
-      "url": "https://www.tradingkey.com/news/market-movers/262026926-market-movers-avgo-20260713"
-    },
-    {
-      "t": "AMZN",
-      "h": "데이터센터 재원 마련 위한 대규모 회사채 발행 지속, 테크 섹터 전반의 자금조달 부담 부각(El-Erian 코멘트) — Trainium 연 매출 런레이트 $20B 돌파",
-      "m": "2026-07-13 · GuruFocus/247WallSt",
-      "url": "https://www.gurufocus.com/news/8955680/amazon-amzn-bond-issuance-highlights-funding-strain-in-tech-sector"
-    },
-    {
-      "t": "ORCL",
-      "h": "실적 호조에도 부채·자본지출 부담으로 주가 -6% 급락, 52주 신저가 근접 — S&P BBB- 강등 이후 OpenAI 매출 집중 리스크·FY27 FCF 적자($42B 추정) 우려 지속",
-      "m": "2026-07-13 · FX Leaders/247WallSt",
-      "url": "https://www.fxleaders.com/news/2026/07/13/orcl-stock-tests-140-as-oracles-638b-ai-backlog-faces-debt-cash-flow-and-rating-pressure/"
+      "h": "엔비디아, 아시아 AI칩 승인 구매자 명단 절반 축소",
+      "m": "FT 보도에 따르면 엔비디아가 싱가포르·말레이시아·일본 등 아시아 지역 AI 칩 구매 승인 고객사(화이트리스트)를 대거 축소. 대중 유출 방지 목적의 컴플라이언스 강화 조치로, 제외 고객사는 소유·최종사용자 증빙 제출 후 재신청 가능. 주가는 전일 급락 후 반등.",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262028973-nvidia-nvda-stock-forecast-july-14-2026-white-list-asia-buyers-tradingkey"
     },
     {
       "t": "META",
-      "h": "AI 전략 기대감에 주간 +15% 급등(2024년초 이후 최대 낙폭 이후 반등), Muse Image·Muse Spark 1.1 연이어 공개 — 자체 AI칩 'Iris' 9월 양산 목표 유지",
-      "m": "2026-07-10 · CNBC",
-      "url": "https://www.cnbc.com/2026/07/10/meta-shares-surge-6percent-as-optimism-grows-on-it.html"
+      "h": "뉴욕주 데이터센터 모라토리엄에 META·AMZN·GOOGL 타격",
+      "m": "뉴욕주가 신규 데이터센터 건설에 유예(모라토리엄)를 부과하며 하이퍼스케일러들이 영향권. 별도로 메타 전현직 직원 26명이 AI 기반 정리해고 과정에서 의료·육아·장애 휴직자에 불이익을 줬다며 소송 제기.",
+      "url": "https://www.cnn.com/markets/stocks/META"
     },
     {
-      "t": "AAPL",
-      "h": "OpenAI 상대 영업비밀 침해 소송 지속 속 시총 $4.73T 기록, EU 빅테크 규제 소송 기각 판결로 반등 — Broadcom과 2031년까지 커스텀칩 공급계약 연장",
-      "m": "2026-07-13 · Yahoo Finance/CNBC",
-      "url": "https://finance.yahoo.com/quote/AAPL/"
+      "t": "GOOGL",
+      "h": "구글, TPU 사업 확대로 엔비디아 AI 칩 시장 잠식 시도",
+      "m": "뉴욕주 데이터센터 모라토리엄에 함께 노출된 가운데, 알파벳은 TPU 상업화 및 자체 AI 칩 임대 사업(뉴클라우드)을 통해 엔비디아 GPU 의존도를 낮추고 시장 점유율 확대를 추진 중.",
+      "url": "https://finance.yahoo.com/technology/ai/articles/alphabet-googl-turning-tpu-chips-221631957.html"
+    },
+    {
+      "t": "MU",
+      "h": "Citi, 마이크론 목표주가 1,400달러로 매수 재확인",
+      "m": "Citi가 AI발 D램 가격 강세를 근거로 마이크론에 대해 매수 등급 재확인 및 90일 상승 촉매 관찰 대상 편입. 2035년까지 미국 팹에 250억 달러 이상 투자해 D램 생산의 40%를 미국 내 생산하겠다는 계획도 재확인. 다만 반독점·가격담합 의혹 관련 법률 조사 착수 소식은 리스크 요인.",
+      "url": "https://www.timothysykes.com/news/micron-technology-inc-mu-news-2026_07_14/"
+    },
+    {
+      "t": "AVGO",
+      "h": "브로드컴, AI칩 수요 견조에도 시장 전반 약세에 동반 하락",
+      "m": "사상 최대 매출과 AI 칩 수요 강세에도 불구하고 전반적 위험회피 심리로 주가 약 4% 하락. 애플과의 2031년까지 300억 달러 규모 칩 공급 계약은 여전히 투자 심리 지지 요인.",
+      "url": "https://www.fxleaders.com/news/2026/07/14/broadcom-avgo-stock-falls-despite-strong-ai-chip-demand-and-record-revenue/"
+    },
+    {
+      "t": "AMZN",
+      "h": "뉴욕주 모라토리엄 노출 속 하이퍼스케일러 데이터센터 투자 지속 확대",
+      "m": "뉴욕주 데이터센터 건설 유예 조치에 아마존도 노출. 모건스탠리는 아마존 등 하이퍼스케일러 합산 자본지출이 2027년 약 1.2조 달러, 2028년 약 1.4조 달러에 달할 것으로 전망. 최근 완료한 250억 달러 이상 회사채 발행 이후 연내 추가 발행 계획은 없다고 언급.",
+      "url": "https://www.gurufocus.com/news/8958462/data-center-demand-surges-amid-ai-investment-boom"
+    },
+    {
+      "t": "ORCL",
+      "h": "오라클 회사채 금리 급등, 주가 52주 신저가 근접",
+      "m": "오라클 회사채 수익률이 연초 약 5.34%에서 약 6.52%로 급등하며 부채·잉여현금흐름 우려 재부각. 주가도 주요 지지선을 하회하며 14개월래 최저 수준 근접. OpenAI向 3,000억 달러 클라우드 계약 의존도가 자산이 아닌 부채 요인으로 재평가되는 분위기이나, 매출·RPO 백로그 등 펀더멘털은 견조.",
+      "url": "https://invezz.com/news/2026/07/14/oracle-stock-drops-below-crucial-support-as-its-bond-yields-jump-now-what/"
     }
   ]
 }
