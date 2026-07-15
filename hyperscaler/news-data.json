@@ -1,53 +1,53 @@
 {
-  "date": "2026-07-14",
+  "date": "2026-07-15",
   "items": [
     {
       "t": "AAPL",
-      "h": "브로드컴 대상 美 반도체 생산 위탁 물량 확대 발표 — 아이폰17 호조 속 주가는 연중 최고치 부근에서 견조",
-      "m": "2026-07-14 · Apple Newsroom",
-      "url": "https://www.apple.com/newsroom/2026/07/apple-to-increase-spend-with-broadcom-to-produce-billions-more-us-chips/"
+      "h": "China 규제당국의 Apple Intelligence 승인으로 주가 +4% 급등, 사상 최고치(장중 $328) 경신·시총 $5T 근접 — AI칩 개발 강화 위한 반도체 기업 인수 검토설도 부각, OpenAI 상대 영업비밀 소송은 지속",
+      "m": "2026-07-15 · Yahoo Finance/Benzinga/GuruFocus",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-wednesday-july-15-dow-sp-nasdaq-waver-asml-091813320.html"
     },
     {
       "t": "NVDA",
-      "h": "아시아 AI칩 승인 구매자 '화이트리스트' 절반 축소(대중 유출 방지 목적 컴플라이언스 강화) — 전일 급락 후 반등",
-      "m": "2026-07-14 · TradingKey (FT 인용)",
-      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262028973-nvidia-nvda-stock-forecast-july-14-2026-white-list-asia-buyers-tradingkey"
+      "h": "주가 $211.80(+4.06%)로 반등, 시총 $5.1T 회복 — 젠슨 황, 차세대 Vera Rubin 플랫폼 생산 지연설 직접 반박하며 예정대로 출하 확인, 자사주 매입 $80B 추가 승인",
+      "m": "2026-07-15 · FX Leaders/GuruFocus",
+      "url": "https://www.fxleaders.com/news/2026/07/15/nvidia-nvda-stock-price-forecast-nvda-tests-212-as-ai-demand-and-china-shipments-lift-outlook/"
     },
     {
       "t": "META",
-      "h": "뉴욕주 데이터센터 신규건설 모라토리엄에 META·AMZN·GOOGL 노출 — 전현직 직원 26명, AI기반 정리해고 과정 중 휴직자 불이익 소송 제기",
-      "m": "2026-07-14 · CNN/StockAnalysis",
-      "url": "https://www.cnn.com/markets/stocks/META"
+      "h": "7월 들어 주가 +17%(S&P500 내 3위 상승률)로 급반등, AI 클라우드 사업 진출·Muse Spark 1.1 출시 등 실질적 AI 수익화 신호에 투자자 신뢰 회복 — 다만 전현직 직원의 AI 기반 정리해고 차별 소송은 계속 진행 중",
+      "m": "2026-07-15 · Bloomberg/Benzinga",
+      "url": "https://www.bloomberg.com/news/articles/2026-07-15/meta-s-sudden-stock-rebound-shows-investors-endorse-ai-plans"
     },
     {
       "t": "GOOGL",
-      "h": "뉴욕주 모라토리엄 노출 속, TPU 상업화·뉴클라우드 사업 확대로 엔비디아 GPU 시장 잠식 시도 지속",
-      "m": "2026-07-14 · Yahoo Finance/Motley Fool",
-      "url": "https://finance.yahoo.com/technology/ai/articles/alphabet-googl-turning-tpu-chips-221631957.html"
+      "h": "워런 버핏, 버크셔의 알파벳 지분 매입을 자신이 직접 주도했다고 확인 — AI 인프라 투자 재원 마련 위한 $84.75B 규모 증자(수요 초과로 상향) 겹치며 주가 +3.4% 급등, 52주 신고가 경신",
+      "m": "2026-07-15 · Bloomberg/Benzinga",
+      "url": "https://www.bloomberg.com/news/articles/2026-07-15/buffett-says-he-was-behind-berkshire-purchase-of-alphabet-shares"
     },
     {
       "t": "MU",
-      "h": "Citi, AI발 D램 가격 강세 근거로 매수 재확인·목표가 $1,400 — 2035년까지 美 팹에 $250B+ 투자 계획 재확인, 다만 반독점·가격담합 조사 착수는 리스크",
-      "m": "2026-07-14 · TimothySykes",
-      "url": "https://www.timothysykes.com/news/micron-technology-inc-mu-news-2026_07_14/"
+      "h": "중국 메모리 업체들의 경쟁력 강화 우려 보도로 주가 -7~9% 급락, INTC·AMD·MRVL 등 반도체 섹터 전반 동반 하락 — HBM4 등 AI 스토리는 유효하나 커머디티 D램 가격결정력 훼손 우려",
+      "m": "2026-07-15 · 247WallSt/TradingKey/GuruFocus",
+      "url": "https://247wallst.com/investing/2026/07/15/micron-drops-8-on-china-competition-fears-dragging-intel-amd-and-marvell/"
     },
     {
       "t": "AVGO",
-      "h": "사상 최대 매출·AI칩 수요 강세에도 시장 전반 위험회피 심리로 주가 -4% — 애플과의 2031년까지 $30B 칩 공급계약은 지지 요인 유지",
-      "m": "2026-07-14 · FX Leaders",
-      "url": "https://www.fxleaders.com/news/2026/07/14/broadcom-avgo-stock-falls-despite-strong-ai-chip-demand-and-record-revenue/"
+      "h": "주가 +1.3%로 안정적 흐름, AI 반도체 매출 전년比 +143%($10.8B)로 견조 — 애플과의 2031년까지 $30B+ 칩 공급계약이 지속적 투자심리 지지 요인",
+      "m": "2026-07-15 · Yahoo Finance/Morningstar",
+      "url": "https://finance.yahoo.com/quote/AVGO/"
     },
     {
       "t": "AMZN",
-      "h": "뉴욕주 모라토리엄 노출 속 데이터센터 투자 지속 — 모건스탠리, 하이퍼스케일러 합산 capex 2027년 $1.2T·2028년 $1.4T 전망, 최근 $25B+ 회사채 발행 후 연내 추가 발행 계획 없음",
-      "m": "2026-07-14 · GuruFocus",
-      "url": "https://www.gurufocus.com/news/8958462/data-center-demand-surges-amid-ai-investment-boom"
+      "h": "주가 +3% 상승 — AWS 리더십 개편 발표, 19년 재직한 Dave Brown SVP 퇴사하고 Dave Treadwell이 컴퓨팅·ML서비스 부문 이어받음. 실적발표(7/30) 앞두고 투자심리는 긍정적",
+      "m": "2026-07-15 · GuruFocus/Yahoo Finance",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/amzn-stock-rallies-over-3-183124417.html"
     },
     {
       "t": "ORCL",
-      "h": "회사채 수익률 5.34%→6.52% 급등, 주가 52주 신저가 근접 — OpenAI向 $300B 클라우드 계약 의존도가 자산에서 부채 리스크로 재평가, 매출·RPO 백로그는 견조",
-      "m": "2026-07-14 · Invezz",
-      "url": "https://invezz.com/news/2026/07/14/oracle-stock-drops-below-crucial-support-as-its-bond-yields-jump-now-what/"
+      "h": "기술주 전반 랠리 속 주가 +3.46% 반등했으나, 지난주 S&P의 BBB- 강등 이후 부채·잉여현금흐름(FY26 FCF -$23.7B) 우려는 여전 — OpenAI 의존도 높은 $638B RPO 백로그의 집중위험 계속 부각",
+      "m": "2026-07-15 · TradingKey/Perplexity Finance",
+      "url": "https://www.tradingkey.com/news/market-movers/262032622-market-movers-orcl-20260715"
     }
   ]
 }
