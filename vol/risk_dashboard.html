@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>크레딧 스프레드 리스크 대시보드 (sigma비율 기준)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #fafafa; --panel: #ffffff; --border: #e2e2e2;
+    --text: #1a1a1a; --text-sub: #6b6b6b;
+    --loss: #b3261e; --gain: #1e6b3e;
+    --mono: 'IBM Plex Mono', monospace; --sans: 'Noto Sans KR', sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font-family:var(--sans); padding:32px; }
+  .wrap { max-width: 1360px; margin: 0 auto; }
+  header { display:flex; justify-content:space-between; align-items:baseline;
+           border-bottom:2px solid var(--text); padding-bottom:14px; margin-bottom:24px; }
+  h1 { font-size:20px; font-weight:700; margin:0; letter-spacing:-0.01em; }
+  .meta { font-family:var(--mono); font-size:12px; color:var(--text-sub); }
+
+  .kpi-row { display:grid; grid-template-columns: repeat(4, 1fr); gap:14px; margin-bottom:28px; }
+  .kpi { background:var(--panel); border:1px solid var(--border); border-left:3px solid var(--kc); padding:16px 18px; }
+  .kpi .label { font-size:12px; color:var(--text-sub); margin-bottom:6px; }
+  .kpi .value { font-family:var(--mono); font-size:20px; font-weight:600; }
+
+  section { margin-bottom:32px; }
+  h2 { font-size:14px; font-weight:700; margin:0 0 12px 0; padding-bottom:6px; border-bottom:1px solid var(--border); }
+  .sub-note { font-size:11.5px; color:var(--text-sub); font-weight:400; }
+  .chart-panel { background:var(--panel); border:1px solid var(--border); padding:20px; }
+
+  .toggle-row { display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap; }
+  .basis-btn { font-family:var(--sans); font-size:12.5px; font-weight:500; padding:7px 16px;
+               border:1px solid var(--border); background:var(--panel); cursor:pointer; border-radius:2px; }
+  .basis-btn.active { color:#fff; border-color:transparent; }
+
+  table { width:100%; border-collapse:collapse; background:var(--panel); font-size:12px; }
+  th, td { padding:7px 9px; border-bottom:1px solid var(--border); text-align:right; white-space:nowrap; }
+  th:first-child, td:first-child, th:nth-child(2), td:nth-child(2) { text-align:left; }
+  th { font-weight:500; color:var(--text-sub); font-size:10px; text-transform:uppercase;
+       letter-spacing:0.02em; border-bottom:1px solid var(--text); position:sticky; top:0; background:var(--panel); }
+  td.num, th.num { font-family:var(--mono); }
+  tr:hover { background:#f5e9ea; }
+  .neg { color:var(--loss); } .pos { color:var(--gain); }
+  .table-scroll { max-height: 560px; overflow-y: auto; border:1px solid var(--border); }
+  .col-sep th, .col-sep td { border-left: 2px solid var(--border); }
+
+  select.basis-btn { padding:6px 10px; font-size:12.5px; }
+  #heatmapTable { width:100%; border-collapse:collapse; }
+  #heatmapTable th, #heatmapTable td { text-align:center; padding:10px 6px; font-family:var(--mono); font-size:11.5px;
+    border:1px solid var(--border); white-space:nowrap; cursor:pointer; }
+  #heatmapTable th { background:var(--panel); color:var(--text-sub); font-family:var(--sans); font-weight:500; font-size:11px; cursor:default; }
+  #heatmapTable td.empty { color:#ccc; cursor:default; }
+  #heatmapTable td.selected { outline:2px solid var(--text); outline-offset:-2px; }
+
+  .note { font-size:12px; color:var(--text-sub); line-height:1.6; margin-top:8px; }
+  footer { font-family:var(--mono); font-size:11px; color:var(--text-sub); margin-top:40px; text-align:right; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>크레딧 스프레드 리스크 대시보드</h1>
+    <div class="meta">생성: 2026-07-13 16:59</div>
+  </header>
+
+  <div class="kpi-row" style="grid-template-columns: repeat(3, 1fr); margin-bottom:14px;">
+    
+    <div class="kpi" style="--kc:#4a4a4a">
+      <div class="label">실물 Delta 합계 ($/bp)</div>
+      <div class="value" style="color:#4a4a4a">-552,414</div>
+    </div>
+    <div class="kpi" style="--kc:#4a4a4a">
+      <div class="label">CDS Delta 합계 ($/bp)</div>
+      <div class="value" style="color:#4a4a4a">606,613</div>
+    </div>
+    <div class="kpi" style="--kc:#1a1a1a">
+      <div class="label">넷 Delta 합계 ($/bp)</div>
+      <div class="value" style="color:#1a1a1a">54,199</div>
+    </div>
+  </div>
+  <div class="kpi-row" style="grid-template-columns: repeat(2, 1fr); margin-bottom:14px;">
+    
+    <div class="kpi" style="--kc:#2e7c4a">
+      <div class="label">넷 리스크 (단독변동성 · 5년)</div>
+      <div class="value" style="color:#2e7c4a">-173,406</div>
+    </div>
+    <div class="kpi" style="--kc:#1e6b3e">
+      <div class="label">넷 리스크 (단독변동성 · 스트레스)</div>
+      <div class="value" style="color:#1e6b3e">-297,671</div>
+    </div>
+  </div>
+  <div class="kpi-row">
+    
+    <div class="kpi" style="--kc:#7c1d2c">
+      <div class="label">넷 리스크 (LQD · 5년, σ비율)</div>
+      <div class="value" style="color:#7c1d2c">-71,527</div>
+    </div>
+    <div class="kpi" style="--kc:#b3261e">
+      <div class="label">넷 리스크 (LQD · 스트레스, σ비율)</div>
+      <div class="value" style="color:#b3261e">-98,019</div>
+    </div>
+    <div class="kpi" style="--kc:#1d4e7c">
+      <div class="label">넷 리스크 (LUACOAS · 5년, σ비율)</div>
+      <div class="value" style="color:#1d4e7c">-113,558</div>
+    </div>
+    <div class="kpi" style="--kc:#2e7cb3">
+      <div class="label">넷 리스크 (LUACOAS · 스트레스, σ비율)</div>
+      <div class="value" style="color:#2e7cb3">-163,166</div>
+    </div>
+  </div>
+
+  <section>
+    <h2>부서 크레딧 Delta 집중도 <span class="sub-note">— 등급/섹터/만기/지역별로 어디에 몰려있는지, 각 버킷의 가중평균 YTM·스프레드</span></h2>
+    <div class="toggle-row" id="dimToggle"></div>
+    <div class="chart-panel"><canvas id="dimChart" height="110"></canvas></div>
+    <div class="table-scroll" style="margin-top:14px; max-height:320px;">
+      <table>
+        <thead>
+          <tr><th>버킷</th><th class="num">넷Delta합계</th><th class="num">가중평균YTM(%)</th><th class="num">가중평균스프레드(bp)</th><th class="num">종목수</th></tr>
+        </thead>
+        <tbody id="dimBody"></tbody>
+      </table>
+    </div>
+    <p class="note">YTM/스프레드는 대시보드 생성 시점 기준 최신값이며, 종목별 Credit Delta(절대값) 가중평균입니다.</p>
+  </section>
+
+  <section>
+    <h2>등급 x 만기 히트맵 <span class="sub-note">— 색 진하기 = 넷Delta 크기, 섹터/지역은 아래에서 필터</span></h2>
+    <div class="toggle-row" style="align-items:center;">
+      <span class="toggle-label">표시값</span>
+      <select id="filterMeasure" class="basis-btn" style="cursor:pointer;">
+        <option value="delta">넷Delta</option>
+        <option value="ytm">가중평균 YTM</option>
+        <option value="spread">가중평균 스프레드</option>
+      </select>
+      <span class="toggle-label" style="margin-left:12px;">섹터</span>
+      <select id="filterSector" class="basis-btn" style="cursor:pointer;"></select>
+      <span class="toggle-label" style="margin-left:12px;">지역</span>
+      <select id="filterRegion" class="basis-btn" style="cursor:pointer;"></select>
+    </div>
+    <div class="chart-panel">
+      <table id="heatmapTable" style="table-layout:fixed;"></table>
+    </div>
+    <p class="note">셀 진할수록 넷Delta 절대값이 큼(리스크 집중). 셀 클릭 시 아래 상세 테이블이 해당 조합으로 필터링됩니다.</p>
+
+    <div class="table-scroll" style="max-height:320px; margin-top:16px;">
+      <table>
+        <thead>
+          <tr>
+            <th>등급</th><th>섹터</th><th>만기구간</th><th>지역</th>
+            <th class="num">넷Delta합계</th><th class="num">가중평균YTM(%)</th><th class="num">가중평균스프레드(bp)</th><th class="num">종목수</th>
+          </tr>
+        </thead>
+        <tbody id="crossBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>발행자(티커)별 넷 리스크 <span class="sub-note">— 절대값 상위 25개, 아래 버튼으로 조합 전환</span></h2>
+    <div class="toggle-row" id="chartToggle"></div>
+    <div class="chart-panel"><canvas id="issuerChart" height="130"></canvas></div>
+    <p class="note">sigma비율 = 그 종목 σ / 벤치마크(LQD 또는 LUACOAS) σ. 넷 리스크 = 넷Delta × sigma비율.</p>
+  </section>
+
+  <section>
+    <h2>종목(발행자)별 리스크 상세</h2>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>티커</th><th>등급</th><th>섹터</th>
+            <th class="num">실물Delta</th><th class="num">CDS Delta</th><th class="num">넷Delta</th>
+            <th class="num col-sep">넷리스크<br>5Y(원시σ)</th>
+            <th class="num">넷리스크<br>stress(원시σ)</th>
+            <th class="num col-sep">넷리스크<br>LQD·5Y(σ비율)</th>
+            <th class="num">넷리스크<br>LQD·stress(σ비율)</th>
+            <th class="num">넷리스크<br>LUACOAS·5Y(σ비율)</th>
+            <th class="num">넷리스크<br>LUACOAS·stress(σ비율)</th>
+          </tr>
+        </thead>
+        <tbody id="tickerBody"></tbody>
+      </table>
+    </div>
+    <p class="note">실물/CDS/넷 Delta는 실제 $/bp 값(1차 확인용). 오른쪽 4개 컬럼은 넷Delta에 sigma비율을 곱한 리스크 추정치.</p>
+  </section>
+
+  <footer>compute_credit_spread_volatility.py + compute_actual_credit_risk.py 결과 기반 · 외화운용실</footer>
+</div>
+
+<script>
+const tickerData = [{"TICKER": "AVGO", "등급": "A", "섹터": "비금융", "실물_Delta_$per bp": -3708, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -3708, "실물단독_1시그마리스크_5Y_$": -7901, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -7901, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -13519, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -13519, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -2595, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -4635, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -3819, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -6859, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -2595.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -4635.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -3819.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -6859.0}, {"TICKER": "BAC", "등급": "A", "섹터": "금융", "실물_Delta_$per bp": -1934, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -1934, "실물단독_1시그마리스크_5Y_$": -4349, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -4349, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -9676, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -9676, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -1432, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -2551, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -2727, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -4913, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -1432.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -2551.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -2727.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -4913.0}, {"TICKER": "BACR", "등급": "A", "섹터": "금융", "실물_Delta_$per bp": -9606, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -9606, "실물단독_1시그마리스크_5Y_$": -19961, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -19961, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -30650, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -30650, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -6558, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -11740, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -8625, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -15577, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -6558.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -11740.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -8625.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -15577.0}, {"TICKER": "BNP", "등급": "A-", "섹터": "금융", "실물_Delta_$per bp": -7187, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -7187, "실물단독_1시그마리스크_5Y_$": -20757, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -20757, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -33318, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -33318, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -6722, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -8061, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -7668, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -9824, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -6722.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -8061.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -7668.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -9824.0}, {"TICKER": "CACIB", "등급": "AA-", "섹터": "금융", "실물_Delta_$per bp": -29, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -29, "실물단독_1시그마리스크_5Y_$": -55, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -55, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -56, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -56, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -18, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -32, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -16, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -29, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -18.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -32.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -16.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -29.0}, {"TICKER": "CITNAT", "등급": "BBB+", "섹터": "금융", "실물_Delta_$per bp": -11965, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -11965, "실물단독_1시그마리스크_5Y_$": -14015, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -14015, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -41121, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -41121, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -4605, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -8234, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -11595, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -20848, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -4605.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -8234.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -11595.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -20848.0}, {"TICKER": "DAESEC", "등급": "BBB", "섹터": "금융", "실물_Delta_$per bp": -27785, "CDS_Delta_$per bp": 13954, "넷_Delta_$per bp": -13830, "실물단독_1시그마리스크_5Y_$": -61422, "CDS_1시그마리스크_5Y_$": 31802, "넷_1시그마리스크_5Y_$": -29620, "헤지효과_5Y_$": 31802, "실물단독_1시그마리스크_stress_$": -90825, "CDS_1시그마리스크_stress_$": 48143, "넷_1시그마리스크_stress_$": -42682, "헤지효과_stress_$": 48143, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -9748, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -17400, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -12022, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -21663, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -20214.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -36099.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -25558.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -46083.0}, {"TICKER": "DFHOLD", "등급": "BBB", "섹터": "금융", "실물_Delta_$per bp": -2122, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -2122, "실물단독_1시그마리스크_5Y_$": -5461, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -5461, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -8198, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -8198, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -1805, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -3206, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -2314, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -4160, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -1805.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -3206.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -2314.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -4160.0}, {"TICKER": "EIBKOR", "등급": "AA-", "섹터": "금융", "실물_Delta_$per bp": -21032, "CDS_Delta_$per bp": 65749, "넷_Delta_$per bp": 44716, "실물단독_1시그마리스크_5Y_$": -40904, "CDS_1시그마리스크_5Y_$": 111795, "넷_1시그마리스크_5Y_$": 70891, "헤지효과_5Y_$": -29987, "실물단독_1시그마리스크_stress_$": -53545, "CDS_1시그마리스크_stress_$": 150758, "넷_1시그마리스크_stress_$": 97213, "헤지효과_stress_$": -43668, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": 4297, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": 7744, "넷_실제리스크_sigma비율_vs_LQD_stress_$": 1545, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": 2804, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -13445.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -24019.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -15052.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -27242.0}, {"TICKER": "GOOGL", "등급": "A", "섹터": "비금융", "실물_Delta_$per bp": -358, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -358, "실물단독_1시그마리스크_5Y_$": -638, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -638, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -764, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -764, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -211, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -376, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -215, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -387, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -211.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -376.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -215.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -387.0}, {"TICKER": "GS", "등급": "A-", "섹터": "금융", "실물_Delta_$per bp": -12627, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -12627, "실물단독_1시그마리스크_5Y_$": -25775, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -25775, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -50697, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -50697, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -9038, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -13198, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -13082, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -20744, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -9038.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -13198.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -13082.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -20744.0}, {"TICKER": "GSCCOR", "등급": "A-", "섹터": "비금융", "실물_Delta_$per bp": -1865, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -1865, "실물단독_1시그마리스크_5Y_$": -2548, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -2548, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -4721, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -4721, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -832, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -1495, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -1331, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -2398, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -832.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -1495.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -1331.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -2398.0}, {"TICKER": "HANFGI", "등급": "NR", "섹터": "금융", "실물_Delta_$per bp": 0, "CDS_Delta_$per bp": 135800, "넷_Delta_$per bp": 135800, "실물단독_1시그마리스크_5Y_$": 0, "CDS_1시그마리스크_5Y_$": 228561, "넷_1시그마리스크_5Y_$": 228561, "헤지효과_5Y_$": -228561, "실물단독_1시그마리스크_stress_$": 0, "CDS_1시그마리스크_stress_$": 460498, "넷_1시그마리스크_stress_$": 460498, "헤지효과_stress_$": -460498, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": 74886, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": 133980, "넷_실제리스크_sigma비율_vs_LQD_stress_$": 129010, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": 233576, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": null, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": null, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": null, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": null}, {"TICKER": "HANMIL", "등급": "A-", "섹터": "금융", "실물_Delta_$per bp": -1866, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -1866, "실물단독_1시그마리스크_5Y_$": -2427, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -2427, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -8222, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -8222, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -802, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -1418, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -2313, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -4179, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -802.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -1418.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -2313.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -4179.0}, {"TICKER": "HATELE", "등급": "A-", "섹터": "비금융", "실물_Delta_$per bp": -2458, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -2458, "실물단독_1시그마리스크_5Y_$": -4032, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -4032, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -9123, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -9123, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -1328, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -2360, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -2557, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -4622, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -1328.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -2360.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -2557.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -4622.0}, {"TICKER": "HIGHWY", "등급": "AA", "섹터": "비금융", "실물_Delta_$per bp": -2148, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -2148, "실물단독_1시그마리스크_5Y_$": -1439, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -1439, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -5318, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -5318, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -472, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -854, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -1498, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -2698, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -472.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -854.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -1498.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -2698.0}, {"TICKER": "HSBC", "등급": "A-", "섹터": "금융", "실물_Delta_$per bp": -24909, "CDS_Delta_$per bp": 26998, "넷_Delta_$per bp": 2089, "실물단독_1시그마리스크_5Y_$": -51516, "CDS_1시그마리스크_5Y_$": 58154, "넷_1시그마리스크_5Y_$": 6638, "헤지효과_5Y_$": 44878, "실물단독_1시그마리스크_stress_$": -96842, "CDS_1시그마리스크_stress_$": 100082, "넷_1시그마리스크_stress_$": 3240, "헤지효과_stress_$": 93602, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": 2206, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": 3770, "넷_실제리스크_sigma비율_vs_LQD_stress_$": 812, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": 1512, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -16963.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -30248.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -27266.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -49244.0}, {"TICKER": "HYNCRD", "등급": "BBB+", "섹터": "금융", "실물_Delta_$per bp": -20130, "CDS_Delta_$per bp": 31773, "넷_Delta_$per bp": 11643, "실물단독_1시그마리스크_5Y_$": -35663, "CDS_1시그마리스크_5Y_$": 56270, "넷_1시그마리스크_5Y_$": 20607, "헤지효과_5Y_$": 15056, "실물단독_1시그마리스크_stress_$": -55699, "CDS_1시그마리스크_stress_$": 87916, "넷_1시그마리스크_stress_$": 32217, "헤지효과_stress_$": 23482, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": 6748, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": 12102, "넷_실제리스크_sigma비율_vs_LQD_stress_$": 9081, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": 16417, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -11680.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -20942.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -15702.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -28383.0}, {"TICKER": "HYNMTR", "등급": "A-", "섹터": "비금융", "실물_Delta_$per bp": -50766, "CDS_Delta_$per bp": 55265, "넷_Delta_$per bp": 4499, "실물단독_1시그마리스크_5Y_$": -96850, "CDS_1시그마리스크_5Y_$": 115890, "넷_1시그마리스크_5Y_$": 19040, "헤지효과_5Y_$": 77810, "실물단독_1시그마리스크_stress_$": -183443, "CDS_1시그마리스크_stress_$": 210558, "넷_1시그마리스크_stress_$": 27115, "헤지효과_stress_$": 156328, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": 6293, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": 11061, "넷_실제리스크_sigma비율_vs_LQD_stress_$": 7606, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": 13649, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -31840.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -56746.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -51527.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -93012.0}, {"TICKER": "HYUCAP", "등급": "A-", "섹터": "금융", "실물_Delta_$per bp": -352, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -352, "실물단독_1시그마리스크_5Y_$": -598, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -598, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -1550, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -1550, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -197, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -351, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -436, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -788, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -197.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -351.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -436.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -788.0}, {"TICKER": "HYUELE", "등급": "BBB-", "섹터": "비금융", "실물_Delta_$per bp": -26297, "CDS_Delta_$per bp": 11605, "넷_Delta_$per bp": -14692, "실물단독_1시그마리스크_5Y_$": -52499, "CDS_1시그마리스크_5Y_$": 24753, "넷_1시그마리스크_5Y_$": -27746, "헤지효과_5Y_$": 24753, "실물단독_1시그마리스크_stress_$": -139344, "CDS_1시그마리스크_stress_$": 36799, "넷_1시그마리스크_stress_$": -102545, "헤지효과_stress_$": 36799, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -9219, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -16313, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -28893, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -52025, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -17342.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -30819.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -39221.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -70709.0}, {"TICKER": "HYUSEC", "등급": "A-", "섹터": "금융", "실물_Delta_$per bp": -60, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -60, "실물단독_1시그마리스크_5Y_$": -161, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -161, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -267, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -267, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -53, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -94, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -75, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -135, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -53.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -94.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -75.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -135.0}, {"TICKER": "INDKOR", "등급": "A", "섹터": "금융", "실물_Delta_$per bp": -3580, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -3580, "실물단독_1시그마리스크_5Y_$": -6097, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -6097, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -13298, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -13298, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -2011, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -3590, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -3730, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -6750, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -2011.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -3590.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -3730.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -6750.0}, {"TICKER": "INTEND", "등급": "A", "섹터": "금융", "실물_Delta_$per bp": -4038, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -4038, "실물단독_1시그마리스크_5Y_$": -9009, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -9009, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -16240, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -16240, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -2948, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -5290, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -4563, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -8237, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -2948.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -5290.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -4563.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -8237.0}, {"TICKER": "JPM", "등급": "A", "섹터": "금융", "실물_Delta_$per bp": -9140, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -9140, "실물단독_1시그마리스크_5Y_$": -19605, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -19605, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -33197, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -33197, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -6468, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -11518, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -9358, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -16867, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -6468.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -11518.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -9358.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -16867.0}, {"TICKER": "KDB", "등급": "AA-", "섹터": "금융", "실물_Delta_$per bp": -6351, "CDS_Delta_$per bp": 66140, "넷_Delta_$per bp": 59789, "실물단독_1시그마리스크_5Y_$": -10895, "CDS_1시그마리스크_5Y_$": 87148, "넷_1시그마리스크_5Y_$": 76253, "헤지효과_5Y_$": -65358, "실물단독_1시그마리스크_stress_$": -11410, "CDS_1시그마리스크_stress_$": 119052, "넷_1시그마리스크_stress_$": 107642, "헤지효과_stress_$": -96232, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": 25125, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": 44743, "넷_실제리스크_sigma비율_vs_LQD_stress_$": 30497, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": 54418, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -3605.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -6392.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -3234.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -5769.0}, {"TICKER": "KHFC", "등급": "AA-", "섹터": "금융", "실물_Delta_$per bp": -5173, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -5173, "실물단독_1시그마리스크_5Y_$": -8167, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -8167, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -8521, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -8521, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -2685, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -4792, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -2401, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -4320, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -2685.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -4792.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -2401.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -4320.0}, {"TICKER": "KOBCOP", "등급": "AA-", "섹터": "비금융", "실물_Delta_$per bp": -4840, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -4840, "실물단독_1시그마리스크_5Y_$": -6397, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -6397, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -7071, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -7071, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -2102, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -3756, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -1986, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -3582, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -2102.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -3756.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -1986.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -3582.0}, {"TICKER": "KOEWPW", "등급": "AA-", "섹터": "비금융", "실물_Delta_$per bp": -9102, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -9102, "실물단독_1시그마리스크_5Y_$": -8084, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -8084, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -8583, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -8583, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -2640, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -4733, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -2457, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -4370, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -2640.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -4733.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -2457.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -4370.0}, {"TICKER": "KOHNPW", "등급": "AA-", "섹터": "비금융", "실물_Delta_$per bp": -8268, "CDS_Delta_$per bp": 12456, "넷_Delta_$per bp": 4189, "실물단독_1시그마리스크_5Y_$": -19124, "CDS_1시그마리스크_5Y_$": 18946, "넷_1시그마리스크_5Y_$": -178, "헤지효과_5Y_$": 18946, "실물단독_1시그마리스크_stress_$": -22342, "CDS_1시그마리스크_stress_$": 34878, "넷_1시그마리스크_stress_$": 12536, "헤지효과_stress_$": 9806, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -77, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -128, "넷_실제리스크_sigma비율_vs_LQD_stress_$": 3539, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": 6356, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -6305.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -11214.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -6302.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -11332.0}, {"TICKER": "KOLAHO", "등급": "AA", "섹터": "비금융", "실물_Delta_$per bp": -277, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -277, "실물단독_1시그마리스크_5Y_$": -412, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -412, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -625, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -625, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -135, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -243, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -175, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -319, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -135.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -243.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -175.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -319.0}, {"TICKER": "KOMIPW", "등급": "AA", "섹터": "비금융", "실물_Delta_$per bp": -30, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -30, "실물단독_1시그마리스크_5Y_$": -69, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -69, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -67, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -67, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -23, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -40, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -19, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -34, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -23.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -40.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -19.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -34.0}, {"TICKER": "KOMRMR", "등급": "A", "섹터": "비금융", "실물_Delta_$per bp": -3111, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -3111, "실물단독_1시그마리스크_5Y_$": -6289, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -6289, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -8939, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -8939, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -2072, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -3683, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -2522, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -4549, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -2072.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -3683.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -2522.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -4549.0}, {"TICKER": "KORAIR", "등급": "A", "섹터": "비금융", "실물_Delta_$per bp": -437, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -437, "실물단독_1시그마리스크_5Y_$": -800, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -800, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -1361, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -1361, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -262, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -467, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -384, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -691, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -262.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -467.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -384.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -691.0}, {"TICKER": "KOREA", "등급": "AA", "섹터": "비금융", "실물_Delta_$per bp": -384, "CDS_Delta_$per bp": 131338, "넷_Delta_$per bp": 130953, "실물단독_1시그마리스크_5Y_$": -542, "CDS_1시그마리스크_5Y_$": 202917, "넷_1시그마리스크_5Y_$": 202375, "헤지효과_5Y_$": -201833, "실물단독_1시그마리스크_stress_$": -839, "CDS_1시그마리스크_stress_$": 278304, "넷_1시그마리스크_stress_$": 277465, "헤지효과_stress_$": -276626, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": 66803, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": 119198, "넷_실제리스크_sigma비율_vs_LQD_stress_$": 78567, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": 141417, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -179.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -319.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -236.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -428.0}, {"TICKER": "KOREAN", "등급": "AA", "섹터": "비금융", "실물_Delta_$per bp": -2072, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -2072, "실물단독_1시그마리스크_5Y_$": -1987, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -1987, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -4672, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -4672, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -663, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -1160, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -1305, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -2383, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -663.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -1160.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -1305.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -2383.0}, {"TICKER": "KOREAT", "등급": "AA-", "섹터": "비금융", "실물_Delta_$per bp": -72, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -72, "실물단독_1시그마리스크_5Y_$": -96, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -96, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -201, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -201, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -32, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -57, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -57, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -102, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -32.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -57.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -57.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -102.0}, {"TICKER": "KORELE", "등급": "AA-", "섹터": "비금융", "실물_Delta_$per bp": -6511, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -6511, "실물단독_1시그마리스크_5Y_$": -13551, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -13551, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -12671, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -12671, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -4433, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -7951, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -3570, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -6412, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -4433.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -7951.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -3570.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -6412.0}, {"TICKER": "KORGAS", "등급": "AA-", "섹터": "비금융", "실물_Delta_$per bp": -8422, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -8422, "실물단독_1시그마리스크_5Y_$": -11669, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -11669, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -20939, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -20939, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -3878, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -6829, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -5901, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -10621, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -3878.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -6829.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -5901.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -10621.0}, {"TICKER": "KOROIL", "등급": "AA", "섹터": "비금융", "실물_Delta_$per bp": -1128, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -1128, "실물단독_1시그마리스크_5Y_$": -1826, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -1826, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -4312, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -4312, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -601, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -1070, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -1218, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -2185, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -601.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -1070.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -1218.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -2185.0}, {"TICKER": "KORWAT", "등급": "AA-", "섹터": "비금융", "실물_Delta_$per bp": -83, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -83, "실물단독_1시그마리스크_5Y_$": -137, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -137, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -231, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -231, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -45, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -80, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -65, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -117, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -45.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -80.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -65.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -117.0}, {"TICKER": "KOSOPW", "등급": "AA-", "섹터": "비금융", "실물_Delta_$per bp": -69, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -69, "실물단독_1시그마리스크_5Y_$": -116, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -116, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -193, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -193, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -38, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -68, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -55, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -98, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -38.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -68.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -55.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -98.0}, {"TICKER": "KTGC", "등급": "NR", "섹터": "비금융", "실물_Delta_$per bp": -944, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -944, "실물단독_1시그마리스크_5Y_$": -1635, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -1635, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -3142, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -3142, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -538, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -963, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -873, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -1562, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -538.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -963.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -873.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -1562.0}, {"TICKER": "KUB", "등급": "NR", "섹터": "금융", "실물_Delta_$per bp": -88, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -88, "실물단독_1시그마리스크_5Y_$": -129, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -129, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -302, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -302, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -42, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -75, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -85, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -153, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -42.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -75.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -85.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -153.0}, {"TICKER": "LGELEC", "등급": "BBB", "섹터": "비금융", "실물_Delta_$per bp": -4581, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -4581, "실물단독_1시그마리스크_5Y_$": -7966, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -7966, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -15614, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -15614, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -2611, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -4672, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -4397, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -7924, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -2611.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -4672.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -4397.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -7924.0}, {"TICKER": "LGENSO", "등급": "BBB+", "섹터": "비금융", "실물_Delta_$per bp": -50045, "CDS_Delta_$per bp": 43531, "넷_Delta_$per bp": -6514, "실물단독_1시그마리스크_5Y_$": -116782, "CDS_1시그마리스크_5Y_$": 101731, "넷_1시그마리스크_5Y_$": -15051, "헤지효과_5Y_$": 101731, "실물단독_1시그마리스크_stress_$": -179561, "CDS_1시그마리스크_stress_$": 145087, "넷_1시그마리스크_stress_$": -34474, "헤지효과_stress_$": 145087, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -4953, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -8816, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -9711, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -17527, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -38472.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -68453.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -50630.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -91094.0}, {"TICKER": "LQD", "등급": "NR", "섹터": "ETF", "실물_Delta_$per bp": -40056, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -40056, "실물단독_1시그마리스크_5Y_$": -121610, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -121610, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -142319, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -142319, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -40056, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -71300, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -40056, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -72101, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -40056.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -71300.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -40056.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -72101.0}, {"TICKER": "MIZUHO", "등급": "A", "섹터": "금융", "실물_Delta_$per bp": -354, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -354, "실물단독_1시그마리스크_5Y_$": -535, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -535, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -1087, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -1087, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -177, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -315, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -304, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -552, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -177.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -315.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -304.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -552.0}, {"TICKER": "MS", "등급": "A-", "섹터": "금융", "실물_Delta_$per bp": -7912, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -7912, "실물단독_1시그마리스크_5Y_$": -17044, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -17044, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -38619, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -38619, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -5627, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -10012, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -10840, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -19622, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -5627.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -10012.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -10840.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -19622.0}, {"TICKER": "MUFG", "등급": "A-", "섹터": "금융", "실물_Delta_$per bp": -1917, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -1917, "실물단독_1시그마리스크_5Y_$": -3458, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -3458, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -4948, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -4948, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -1131, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -2032, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -1399, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -2511, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -1131.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -2032.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -1399.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -2511.0}, {"TICKER": "NACF", "등급": "A+", "섹터": "비금융", "실물_Delta_$per bp": -2970, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -2970, "실물단독_1시그마리스크_5Y_$": -4655, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -4655, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -6848, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -6848, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -1534, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -2736, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -1931, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -3475, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -1534.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -2736.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -1931.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -3475.0}, {"TICKER": "NHNCOR", "등급": "A", "섹터": "금융", "실물_Delta_$per bp": -1224, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -1224, "실물단독_1시그마리스크_5Y_$": -1372, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -1372, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -5037, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -5037, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -453, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -808, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -1419, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -2557, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -453.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -808.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -1419.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -2557.0}, {"TICKER": "NHSECS", "등급": "A", "섹터": "금융", "실물_Delta_$per bp": -9185, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -9185, "실물단독_1시그마리스크_5Y_$": -15189, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -15189, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -34650, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -34650, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -5019, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -8877, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -9740, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -17603, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -5019.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -8877.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -9740.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -17603.0}, {"TICKER": "NOMURA", "등급": "BBB+", "섹터": "금융", "실물_Delta_$per bp": -7987, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -7987, "실물단독_1시그마리스크_5Y_$": -14929, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -14929, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -26238, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -26238, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -4906, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -8744, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -7357, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -13317, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -4906.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -8744.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -7357.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -13317.0}, {"TICKER": "NORBK", "등급": "A-", "섹터": "금융", "실물_Delta_$per bp": -637, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -637, "실물단독_1시그마리스크_5Y_$": -1112, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -1112, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -2405, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -2405, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -367, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -653, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -676, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -1223, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -367.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -653.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -676.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -1223.0}, {"TICKER": "NTT", "등급": "A", "섹터": "비금융", "실물_Delta_$per bp": -2580, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -2580, "실물단독_1시그마리스크_5Y_$": -3499, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -3499, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -6206, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -6206, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -1152, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -2050, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -1753, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -3155, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -1152.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -2050.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -1753.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -3155.0}, {"TICKER": "NWG", "등급": "BBB+", "섹터": "금융", "실물_Delta_$per bp": -3535, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -3535, "실물단독_1시그마리스크_5Y_$": -7984, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -7984, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -15846, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -15846, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -2629, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -4692, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -4454, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -8061, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -2629.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -4692.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -4454.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -8061.0}, {"TICKER": "PKX", "등급": "BBB+", "섹터": "비금융", "실물_Delta_$per bp": -8277, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -8277, "실물단독_1시그마리스크_5Y_$": -12101, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -12101, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -82761, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -82761, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -3973, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -7118, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -23257, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -42047, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -3973.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -7118.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -23257.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -42047.0}, {"TICKER": "POHANG", "등급": "BBB+", "섹터": "비금융", "실물_Delta_$per bp": -9144, "CDS_Delta_$per bp": 12004, "넷_Delta_$per bp": 2860, "실물단독_1시그마리스크_5Y_$": -11991, "CDS_1시그마리스크_5Y_$": 20442, "넷_1시그마리스크_5Y_$": 8451, "헤지효과_5Y_$": 3540, "실물단독_1시그마리스크_stress_$": -15787, "CDS_1시그마리스크_stress_$": 38627, "넷_1시그마리스크_stress_$": 22840, "헤지효과_stress_$": -7053, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": 2776, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": 4956, "넷_실제리스크_sigma비율_vs_LQD_stress_$": 6481, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": 11577, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -3946.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -7048.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -4442.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -7989.0}, {"TICKER": "POINTL", "등급": "BBB", "섹터": "비금융", "실물_Delta_$per bp": -427, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -427, "실물단독_1시그마리스크_5Y_$": -911, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -911, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -1844, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -1844, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -299, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -534, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -521, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -935, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -299.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -534.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -521.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -935.0}, {"TICKER": "SANTAN", "등급": "A", "섹터": "비금융", "실물_Delta_$per bp": -4403, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -4403, "실물단독_1시그마리스크_5Y_$": -6274, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -6274, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -15551, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -15551, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -2060, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -3673, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -4378, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -7879, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -2060.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -3673.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -4378.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -7879.0}, {"TICKER": "SHINFN", "등급": "A", "섹터": "금융", "실물_Delta_$per bp": -2781, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -2781, "실물단독_1시그마리스크_5Y_$": -3568, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -3568, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -10409, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -10409, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -1168, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -2086, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -2920, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -5284, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -1168.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -2086.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -2920.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -5284.0}, {"TICKER": "SHINHAN", "등급": "BBB+", "섹터": "금융", "실물_Delta_$per bp": -1238, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -1238, "실물단독_1시그마리스크_5Y_$": -2212, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -2212, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -3425, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -3425, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -730, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -1300, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -966, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -1746, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -730.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -1300.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -966.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -1746.0}, {"TICKER": "SHNHAN", "등급": "BBB+", "섹터": "금융", "실물_Delta_$per bp": -1466, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -1466, "실물단독_1시그마리스크_5Y_$": -2470, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -2470, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -4036, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -4036, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -808, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -1458, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -1137, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -2055, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -808.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -1458.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -1137.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -2055.0}, {"TICKER": "SKBTAM", "등급": "BBB-", "섹터": "비금융", "실물_Delta_$per bp": -20, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -20, "실물단독_1시그마리스크_5Y_$": -39, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -39, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -64, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -64, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -13, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -23, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -18, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -33, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -13.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -23.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -18.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -33.0}, {"TICKER": "SOCGEN", "등급": "BBB", "섹터": "금융", "실물_Delta_$per bp": -175, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -175, "실물단독_1시그마리스크_5Y_$": -362, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -362, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -669, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -669, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -119, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -213, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -189, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -341, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -119.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -213.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -189.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -341.0}, {"TICKER": "SPCX", "등급": "BBB+", "섹터": "비금융", "실물_Delta_$per bp": -2139, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -2139, "실물단독_1시그마리스크_5Y_$": -3596, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -3596, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -5610, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -5610, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -1177, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -2118, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -1583, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -2845, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -1177.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -2118.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -1583.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -2845.0}, {"TICKER": "STANLN", "등급": "A-", "섹터": "금융", "실물_Delta_$per bp": -3390, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -3390, "실물단독_1시그마리스크_5Y_$": -7881, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -7881, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -16778, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -16778, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -2597, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -4622, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -4712, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -8509, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -2597.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -4622.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -4712.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -8509.0}, {"TICKER": "SUMIBK", "등급": "A", "섹터": "금융", "실물_Delta_$per bp": -1919, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -1919, "실물단독_1시그마리스크_5Y_$": -4060, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -4060, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -7291, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -7291, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -1343, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -2379, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -2053, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -3703, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -1343.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -2379.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -2053.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -3703.0}, {"TICKER": "SUMITR", "등급": "A-", "섹터": "금융", "실물_Delta_$per bp": -285, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -285, "실물단독_1시그마리스크_5Y_$": -392, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -392, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -1256, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -1256, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -128, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -231, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -353, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -638, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -128.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -231.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -353.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -638.0}, {"TICKER": "TD", "등급": "A", "섹터": "금융", "실물_Delta_$per bp": -4916, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -4916, "실물단독_1시그마리스크_5Y_$": -20453, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -20453, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -36952, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -36952, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -4916, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -4916, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -4916, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -4916, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -4916.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -4916.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -4916.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -4916.0}, {"TICKER": "UBS", "등급": "A", "섹터": "금융", "실물_Delta_$per bp": -8774, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -8774, "실물단독_1시그마리스크_5Y_$": -21056, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -21056, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -33496, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -33496, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -6937, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -12352, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -9437, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -16982, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -6937.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -12352.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -9437.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -16982.0}, {"TICKER": "VCIT", "등급": "NR", "섹터": "ETF", "실물_Delta_$per bp": -50349, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -50349, "실물단독_1시그마리스크_5Y_$": -192986, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -192986, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -204465, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -204465, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -63439, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -113284, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -57397, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -103718, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -63439.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -113284.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -57397.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -103718.0}, {"TICKER": "WFC", "등급": "A", "섹터": "금융", "실물_Delta_$per bp": -12925, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -12925, "실물단독_1시그마리스크_5Y_$": -43443, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -43443, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -65627, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -65627, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -10954, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -16586, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -15440, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -24912, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -10954.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -16586.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -15440.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -24912.0}, {"TICKER": "WOORIB", "등급": "A+", "섹터": "금융", "실물_Delta_$per bp": -3479, "CDS_Delta_$per bp": 0, "넷_Delta_$per bp": -3479, "실물단독_1시그마리스크_5Y_$": -6278, "CDS_1시그마리스크_5Y_$": 0, "넷_1시그마리스크_5Y_$": -6278, "헤지효과_5Y_$": 0, "실물단독_1시그마리스크_stress_$": -6920, "CDS_1시그마리스크_stress_$": 0, "넷_1시그마리스크_stress_$": -6920, "헤지효과_stress_$": 0, "넷_실제리스크_sigma비율_vs_LQD_5Y_$": -2057, "넷_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -3701, "넷_실제리스크_sigma비율_vs_LQD_stress_$": -1933, "넷_실제리스크_sigma비율_vs_LUACOAS_stress_$": -3520, "실물단독_실제리스크_sigma비율_vs_LQD_5Y_$": -2057.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_5Y_$": -3701.0, "실물단독_실제리스크_sigma비율_vs_LQD_stress_$": -1933.0, "실물단독_실제리스크_sigma비율_vs_LUACOAS_stress_$": -3520.0}];
+const groupData = [{"차원": "등급", "값": "AA-", "넷Delta합계_$per bp": 137855, "가중평균YTM_%": 4.49, "가중평균스프레드_bp": 15.34, "종목수": 43}, {"차원": "등급", "값": "A", "넷Delta합계_$per bp": -57874, "가중평균YTM_%": 4.92, "가중평균스프레드_bp": 60.41, "종목수": 41}, {"차원": "등급", "값": "A-", "넷Delta합계_$per bp": -52363, "가중평균YTM_%": 4.98, "가중평균스프레드_bp": 68.95, "종목수": 51}, {"차원": "등급", "값": "NR", "넷Delta합계_$per bp": 41165, "가중평균YTM_%": 4.977, "가중평균스프레드_bp": 87.22, "종목수": 7}, {"차원": "등급", "값": null, "넷Delta합계_$per bp": 36601, "가중평균YTM_%": 4.875, "가중평균스프레드_bp": 55.9, "종목수": 3}, {"차원": "등급", "값": "BBB+", "넷Delta합계_$per bp": -34204, "가중평균YTM_%": 4.982, "가중평균스프레드_bp": 67.73, "종목수": 25}, {"차원": "등급", "값": "BBB", "넷Delta합계_$per bp": -25396, "가중평균YTM_%": 5.17, "가중평균스프레드_bp": 85.13, "종목수": 20}, {"차원": "등급", "값": "AA", "넷Delta합계_$per bp": 24320, "가중평균YTM_%": 4.424, "가중평균스프레드_bp": 15.74, "종목수": 13}, {"차원": "등급", "값": "BBB-", "넷Delta합계_$per bp": -11980, "가중평균YTM_%": 4.807, "가중평균스프레드_bp": 45.8, "종목수": 5}, {"차원": "등급", "값": "A+", "넷Delta합계_$per bp": -4457, "가중평균YTM_%": 4.762, "가중평균스프레드_bp": 56.51, "종목수": 6}, {"차원": "만기구간", "값": "ETF", "넷Delta합계_$per bp": -90405, "가중평균YTM_%": 4.833, "가중평균스프레드_bp": 100.43, "종목수": 2}, {"차원": "만기구간", "값": "3-5Y", "넷Delta합계_$per bp": 82099, "가중평균YTM_%": 4.814, "가중평균스프레드_bp": 49.34, "종목수": 61}, {"차원": "만기구간", "값": "0-3Y", "넷Delta합계_$per bp": 68011, "가중평균YTM_%": 4.751, "가중평균스프레드_bp": 48.43, "종목수": 134}, {"차원": "만기구간", "값": null, "넷Delta합계_$per bp": 37133, "가중평균YTM_%": null, "가중평균스프레드_bp": null, "종목수": 1}, {"차원": "만기구간", "값": "5-10Y", "넷Delta합계_$per bp": -36242, "가중평균YTM_%": 5.31, "가중평균스프레드_bp": 75.47, "종목수": 13}, {"차원": "만기구간", "값": "10Y+", "넷Delta합계_$per bp": -6398, "가중평균YTM_%": 5.731, "가중평균스프레드_bp": 65.01, "종목수": 1}, {"차원": "만기구간", "값": null, "넷Delta합계_$per bp": -533, "가중평균YTM_%": 4.875, "가중평균스프레드_bp": 55.9, "종목수": 2}, {"차원": "섹터", "값": "ETF", "넷Delta합계_$per bp": -90405, "가중평균YTM_%": 4.833, "가중평균스프레드_bp": 100.43, "종목수": 2}, {"차원": "섹터", "값": "금융", "넷Delta합계_$per bp": 59208, "가중평균YTM_%": 4.862, "가중평균스프레드_bp": 56.77, "종목수": 122}, {"차원": "섹터", "값": "비금융", "넷Delta합계_$per bp": 47729, "가중평균YTM_%": 4.748, "가중평균스프레드_bp": 41.44, "종목수": 89}, {"차원": "섹터", "값": null, "넷Delta합계_$per bp": 37133, "가중평균YTM_%": null, "가중평균스프레드_bp": null, "종목수": 1}, {"차원": "지역", "값": "KP", "넷Delta합계_$per bp": 217947, "가중평균YTM_%": 4.772, "가중평균스프레드_bp": 45.91, "종목수": 135}, {"차원": "지역", "값": "기타", "넷Delta합계_$per bp": -109056, "가중평균YTM_%": 4.856, "가중평균스프레드_bp": 95.13, "종목수": 16}, {"차원": "지역", "값": "북미", "넷Delta합계_$per bp": -50743, "가중평균YTM_%": 5.001, "가중평균스프레드_bp": 69.18, "종목수": 26}, {"차원": "지역", "값": "유럽", "넷Delta합계_$per bp": -39049, "가중평균YTM_%": 4.972, "가중평균스프레드_bp": 66.83, "종목수": 32}, {"차원": "지역", "값": null, "넷Delta합계_$per bp": 36601, "가중평균YTM_%": 4.875, "가중평균스프레드_bp": 55.9, "종목수": 3}, {"차원": "지역", "값": "JP", "넷Delta합계_$per bp": -2033, "가중평균YTM_%": 5.147, "가중평균스프레드_bp": 82.69, "종목수": 2}];
+const crossData = [{"등급": "AA-", "섹터": "비금융", "만기구간": "3-5Y", "지역": "KP", "넷Delta합계_$per bp": 108724, "가중평균YTM_%": 4.437, "가중평균스프레드_bp": 11.57, "종목수": 7}, {"등급": "NR", "섹터": "ETF", "만기구간": "ETF", "지역": "기타", "넷Delta합계_$per bp": -90405, "가중평균YTM_%": 4.833, "가중평균스프레드_bp": 100.43, "종목수": 2}, {"등급": "NR", "섹터": "금융", "만기구간": "3-5Y", "지역": "KP", "넷Delta합계_$per bp": 85400, "가중평균YTM_%": 5.185, "가중평균스프레드_bp": 86.52, "종목수": 1}, {"등급": "AA-", "섹터": "금융", "만기구간": "0-3Y", "지역": "KP", "넷Delta합계_$per bp": 50373, "가중평균YTM_%": 4.44, "가중평균스프레드_bp": 14.3, "종목수": 15}, {"등급": "NR", "섹터": "금융", "만기구간": "0-3Y", "지역": "KP", "넷Delta합계_$per bp": 47202, "가중평균YTM_%": 4.894, "가중평균스프레드_bp": 66.87, "종목수": 2}, {"등급": null, "섹터": null, "만기구간": null, "지역": null, "넷Delta합계_$per bp": 37133, "가중평균YTM_%": null, "가중평균스프레드_bp": null, "종목수": 1}, {"등급": "AA", "섹터": "금융", "만기구간": "0-3Y", "지역": "KP", "넷Delta합계_$per bp": 28554, "가중평균YTM_%": 4.393, "가중평균스프레드_bp": 13.41, "종목수": 3}, {"등급": "A-", "섹터": "비금융", "만기구간": "0-3Y", "지역": "KP", "넷Delta합계_$per bp": 17672, "가중평균YTM_%": 4.918, "가중평균스프레드_bp": 63.12, "종목수": 11}, {"등급": "A-", "섹터": "비금융", "만기구간": "3-5Y", "지역": "KP", "넷Delta합계_$per bp": -16553, "가중평균YTM_%": 5.096, "가중평균스프레드_bp": 77.38, "종목수": 7}, {"등급": "A-", "섹터": "금융", "만기구간": "3-5Y", "지역": "유럽", "넷Delta합계_$per bp": -15047, "가중평균YTM_%": 5.063, "가중평균스프레드_bp": 74.26, "종목수": 4}, {"등급": "A-", "섹터": "금융", "만기구간": "0-3Y", "지역": "유럽", "넷Delta합계_$per bp": -14804, "가중평균YTM_%": 5.039, "가중평균스프레드_bp": 77.06, "종목수": 10}, {"등급": "A-", "섹터": "금융", "만기구간": "0-3Y", "지역": "북미", "넷Delta합계_$per bp": -12627, "가중평균YTM_%": 4.894, "가중평균스프레드_bp": 64.85, "종목수": 8}, {"등급": "BBB-", "섹터": "비금융", "만기구간": "3-5Y", "지역": "KP", "넷Delta합계_$per bp": -12528, "가중평균YTM_%": 4.813, "가중평균스프레드_bp": 49.08, "종목수": 1}, {"등급": "A", "섹터": "금융", "만기구간": "0-3Y", "지역": "KP", "넷Delta합계_$per bp": -12288, "가중평균YTM_%": 4.836, "가중평균스프레드_bp": 51.57, "종목수": 3}, {"등급": "BBB+", "섹터": "금융", "만기구간": "3-5Y", "지역": "북미", "넷Delta합계_$per bp": -11608, "가중평균YTM_%": 5.069, "가중평균스프레드_bp": 74.67, "종목수": 2}, {"등급": "BBB+", "섹터": "비금융", "만기구간": "0-3Y", "지역": "KP", "넷Delta합계_$per bp": 11254, "가중평균YTM_%": 4.693, "가중평균스프레드_bp": 46.85, "종목수": 3}, {"등급": "BBB+", "섹터": "비금융", "만기구간": "3-5Y", "지역": "KP", "넷Delta합계_$per bp": -11045, "가중평균YTM_%": 4.959, "가중평균스프레드_bp": 63.65, "종목수": 3}, {"등급": "AA-", "섹터": "금융", "만기구간": "3-5Y", "지역": "KP", "넷Delta합계_$per bp": -9508, "가중평균YTM_%": 4.505, "가중평균스프레드_bp": 18.45, "종목수": 6}, {"등급": "BBB+", "섹터": "비금융", "만기구간": "5-10Y", "지역": "KP", "넷Delta합계_$per bp": -8358, "가중평균YTM_%": 5.49, "가중평균스프레드_bp": 91.4, "종목수": 1}, {"등급": "BBB", "섹터": "금융", "만기구간": "0-3Y", "지역": "KP", "넷Delta합계_$per bp": -7777, "가중평균YTM_%": 4.985, "가중평균스프레드_bp": 74.48, "종목수": 6}, {"등급": "A", "섹터": "금융", "만기구간": "0-3Y", "지역": "북미", "넷Delta합계_$per bp": -7736, "가중평균YTM_%": 4.831, "가중평균스프레드_bp": 57.6, "종목수": 3}, {"등급": "BBB-", "섹터": "비금융", "만기구간": "0-3Y", "지역": "KP", "넷Delta합계_$per bp": 7655, "가중평균YTM_%": 4.625, "가중평균스프레드_bp": 39.46, "종목수": 3}, {"등급": "A", "섹터": "금융", "만기구간": "3-5Y", "지역": "북미", "넷Delta합계_$per bp": -7646, "가중평균YTM_%": 4.967, "가중평균스프레드_bp": 61.83, "종목수": 5}, {"등급": "BBB", "섹터": "비금융", "만기구간": "5-10Y", "지역": "KP", "넷Delta합계_$per bp": -7569, "가중평균YTM_%": 5.815, "가중평균스프레드_bp": 124.18, "종목수": 2}, {"등급": "BBB+", "섹터": "금융", "만기구간": "0-3Y", "지역": "기타", "넷Delta합계_$per bp": -7203, "가중평균YTM_%": 4.784, "가중평균스프레드_bp": 55.88, "종목수": 3}, {"등급": "BBB-", "섹터": "비금융", "만기구간": "5-10Y", "지역": "KP", "넷Delta합계_$per bp": -7107, "가중평균YTM_%": 5.074, "가중평균스프레드_bp": 49.69, "종목수": 1}, {"등급": "AA-", "섹터": "금융", "만기구간": "5-10Y", "지역": "KP", "넷Delta합계_$per bp": -7062, "가중평균YTM_%": 4.871, "가중평균스프레드_bp": 29.43, "종목수": 1}, {"등급": "AA-", "섹터": "비금융", "만기구간": "10Y+", "지역": "KP", "넷Delta합계_$per bp": -6398, "가중평균YTM_%": 5.731, "가중평균스프레드_bp": 65.01, "종목수": 1}, {"등급": "A", "섹터": "금융", "만기구간": "3-5Y", "지역": "기타", "넷Delta합계_$per bp": -5270, "가중평균YTM_%": 5.109, "가중평균스프레드_bp": 84.05, "종목수": 2}, {"등급": "A", "섹터": "금융", "만기구간": "3-5Y", "지역": "유럽", "넷Delta합계_$per bp": 5248, "가중평균YTM_%": 4.938, "가중평균스프레드_bp": 61.67, "종목수": 7}, {"등급": "A", "섹터": "비금융", "만기구간": "0-3Y", "지역": "KP", "넷Delta합계_$per bp": -5217, "가중평균YTM_%": 4.604, "가중평균스프레드_bp": 32.76, "종목수": 5}, {"등급": "A", "섹터": "금융", "만기구간": "3-5Y", "지역": "KP", "넷Delta합계_$per bp": -5112, "가중평균YTM_%": 4.697, "가중평균스프레드_bp": 37.58, "종목수": 3}, {"등급": "BBB+", "섹터": "금융", "만기구간": "0-3Y", "지역": "유럽", "넷Delta합계_$per bp": -5051, "가중평균YTM_%": 4.788, "가중평균스프레드_bp": 55.57, "종목수": 3}, {"등급": "BBB", "섹터": "금융", "만기구간": "3-5Y", "지역": "KP", "넷Delta합계_$per bp": -4978, "가중평균YTM_%": 5.35, "가중평균스프레드_bp": 102.92, "종목수": 2}, {"등급": "A", "섹터": "금융", "만기구간": "0-3Y", "지역": "유럽", "넷Delta합계_$per bp": -4789, "가중평균YTM_%": 4.866, "가중평균스프레드_bp": 61.35, "종목수": 3}, {"등급": "BBB", "섹터": "비금융", "만기구간": "0-3Y", "지역": "KP", "넷Delta합계_$per bp": -4470, "가중평균YTM_%": 5.004, "가중평균스프레드_bp": 73.1, "종목수": 8}, {"등급": "A", "섹터": "비금융", "만기구간": "3-5Y", "지역": "유럽", "넷Delta합계_$per bp": -4403, "가중평균YTM_%": 5.116, "가중평균스프레드_bp": 79.44, "종목수": 2}, {"등급": "AA", "섹터": "비금융", "만기구간": "0-3Y", "지역": "KP", "넷Delta합계_$per bp": -3937, "가중평균YTM_%": 4.63, "가중평균스프레드_bp": 33.11, "종목수": 9}, {"등급": "A", "섹터": "비금융", "만기구간": "3-5Y", "지역": "북미", "넷Delta합계_$per bp": -3708, "가중평균YTM_%": 4.918, "가중평균스프레드_bp": 59.59, "종목수": 1}, {"등급": "A+", "섹터": "금융", "만기구간": "0-3Y", "지역": "KP", "넷Delta합계_$per bp": -3402, "가중평균YTM_%": 4.866, "가중평균스프레드_bp": 63.88, "종목수": 2}, {"등급": "A-", "섹터": "금융", "만기구간": "0-3Y", "지역": "KP", "넷Delta합계_$per bp": -3352, "가중평균YTM_%": 5.008, "가중평균스프레드_bp": 72.04, "종목수": 4}, {"등급": "A-", "섹터": "금융", "만기구간": "3-5Y", "지역": "북미", "넷Delta합계_$per bp": -2826, "가중평균YTM_%": 5.045, "가중평균스프레드_bp": 72.23, "종목수": 3}, {"등급": "BBB+", "섹터": "비금융", "만기구간": "3-5Y", "지역": "북미", "넷Delta합계_$per bp": -2139, "가중평균YTM_%": 5.691, "가중평균스프레드_bp": 136.53, "종목수": 1}, {"등급": "A-", "섹터": "금융", "만기구간": "3-5Y", "지역": "KP", "넷Delta합계_$per bp": -2126, "가중평균YTM_%": 5.183, "가중평균스프레드_bp": 86.26, "종목수": 1}, {"등급": "A", "섹터": "금융", "만기구간": "5-10Y", "지역": "북미", "넷Delta합계_$per bp": -2096, "가중평균YTM_%": 5.368, "가중평균스프레드_bp": 79.24, "종목수": 2}, {"등급": "A", "섹터": "금융", "만기구간": "5-10Y", "지역": "기타", "넷Delta합계_$per bp": -1919, "가중평균YTM_%": 5.063, "가중평균스프레드_bp": 74.2, "종목수": 1}, {"등급": "A-", "섹터": "금융", "만기구간": "3-5Y", "지역": "기타", "넷Delta합계_$per bp": -1917, "가중평균YTM_%": 5.056, "가중평균스프레드_bp": 73.58, "종목수": 1}, {"등급": "AA-", "섹터": "비금융", "만기구간": "0-3Y", "지역": "KP", "넷Delta합계_$per bp": 1754, "가중평균YTM_%": 4.607, "가중평균스프레드_bp": 33.68, "종목수": 11}, {"등급": "A+", "섹터": "비금융", "만기구간": "0-3Y", "지역": "KP", "넷Delta합계_$per bp": -1056, "가중평균YTM_%": 4.428, "가중평균스프레드_bp": 32.77, "종목수": 4}, {"등급": "A", "섹터": "비금융", "만기구간": "0-3Y", "지역": "JP", "넷Delta합계_$per bp": -1045, "가중평균YTM_%": 5.044, "가중평균스프레드_bp": 72.28, "종목수": 1}, {"등급": "A", "섹터": "비금융", "만기구간": "5-10Y", "지역": "JP", "넷Delta합계_$per bp": -988, "가중평균YTM_%": 5.257, "가중평균스프레드_bp": 93.69, "종목수": 1}, {"등급": "NR", "섹터": "비금융", "만기구간": "0-3Y", "지역": "KP", "넷Delta합계_$per bp": -944, "가중평균YTM_%": 4.677, "가중평균스프레드_bp": 45.35, "종목수": 1}, {"등급": "BBB+", "섹터": "금융", "만기구간": "0-3Y", "지역": "KP", "넷Delta합계_$per bp": 868, "가중평균YTM_%": 4.931, "가중평균스프레드_bp": 67.06, "종목수": 6}, {"등급": "A-", "섹터": "금융", "만기구간": "0-3Y", "지역": "기타", "넷Delta합계_$per bp": -785, "가중평균YTM_%": 4.862, "가중평균스프레드_bp": 60.29, "종목수": 2}, {"등급": "A", "섹터": "비금융", "만기구간": "0-3Y", "지역": "기타", "넷Delta합계_$per bp": -547, "가중평균YTM_%": 4.867, "가중평균스프레드_bp": 60.82, "종목수": 1}, {"등급": null, "섹터": "비금융", "만기구간": null, "지역": null, "넷Delta합계_$per bp": -533, "가중평균YTM_%": 4.875, "가중평균스프레드_bp": 55.9, "종목수": 2}, {"등급": "BBB+", "섹터": "금융", "만기구간": "5-10Y", "지역": "기타", "넷Delta합계_$per bp": -488, "가중평균YTM_%": 5.451, "가중평균스프레드_bp": 87.51, "종목수": 2}, {"등급": "BBB+", "섹터": "금융", "만기구간": "3-5Y", "지역": "기타", "넷Delta합계_$per bp": -434, "가중평균YTM_%": 5.207, "가중평균스프레드_bp": 88.44, "종목수": 1}, {"등급": "BBB", "섹터": "비금융", "만기구간": "3-5Y", "지역": "KP", "넷Delta합계_$per bp": -427, "가중평균YTM_%": 5.293, "가중평균스프레드_bp": 97.07, "종목수": 1}, {"등급": "A", "섹터": "비금융", "만기구간": "5-10Y", "지역": "북미", "넷Delta합계_$per bp": -358, "가중평균YTM_%": 5.235, "가중평균스프레드_bp": 65.2, "종목수": 1}, {"등급": "AA", "섹터": "금융", "만기구간": "5-10Y", "지역": "KP", "넷Delta합계_$per bp": -297, "가중평균YTM_%": 4.692, "가중평균스프레드_bp": 11.28, "종목수": 1}, {"등급": "BBB", "섹터": "금융", "만기구간": "0-3Y", "지역": "유럽", "넷Delta합계_$per bp": -175, "가중평균YTM_%": 4.908, "가중평균스프레드_bp": 68.24, "종목수": 1}, {"등급": "NR", "섹터": "금융", "만기구간": "0-3Y", "지역": "기타", "넷Delta합계_$per bp": -88, "가중평균YTM_%": 4.731, "가중평균스프레드_bp": 50.6, "종목수": 1}, {"등급": "AA-", "섹터": "금융", "만기구간": "0-3Y", "지역": "유럽", "넷Delta합계_$per bp": -29, "가중평균YTM_%": 4.149, "가중평균스프레드_bp": 18.2, "종목수": 2}];
+const combos = [["LQD", "5Y", "LQD · 5년"], ["LQD", "stress", "LQD · 스트레스"], ["LUACOAS", "5Y", "LUACOAS · 5년"], ["LUACOAS", "stress", "LUACOAS · 스트레스"]].concat([[null, "5Y", "단독변동성 · 5년"], [null, "stress", "단독변동성 · 스트레스"]]);
+const combo_colors = ["#7c1d2c", "#b3261e", "#1d4e7c", "#2e7cb3"].concat(["#2e7c4a", "#1e6b3e"]);
+let currentCombo = 0;
+let currentDim = '등급';
+
+function fmt(n) {
+  if (n === null || n === undefined || isNaN(n)) return '-';
+  return Math.round(n).toLocaleString('en-US');
+}
+function fmtF(n, d) {
+  if (n === null || n === undefined || isNaN(n)) return '-';
+  return Number(n).toFixed(d);
+}
+function cls(n) { return (n < 0) ? 'neg' : (n > 0 ? 'pos' : ''); }
+function colName(bench, basis) {
+  if (bench === null) return `넷_1시그마리스크_${basis}_$`;
+  return `넷_실제리스크_sigma비율_vs_${bench}_${basis}_$`;
+}
+
+// --- 4차원 집중도 섹션 ---
+const dims = [...new Set(groupData.map(d => d['차원']))];
+const dimToggle = document.getElementById('dimToggle');
+dims.forEach((d, i) => {
+  const btn = document.createElement('button');
+  btn.className = 'basis-btn' + (d === currentDim ? ' active' : '');
+  btn.textContent = d;
+  btn.onclick = () => setDim(d);
+  dimToggle.appendChild(btn);
+});
+
+let dimChartInstance = null;
+function renderDim() {
+  document.querySelectorAll('#dimToggle .basis-btn').forEach(b => {
+    const on = b.textContent === currentDim;
+    b.classList.toggle('active', on);
+    b.style.background = on ? '#7c1d2c' : 'var(--panel)';
+    b.style.color = on ? '#fff' : 'var(--text)';
+  });
+
+  const rows = groupData.filter(d => d['차원'] === currentDim)
+    .sort((a, b) => Math.abs(b['넷Delta합계_$per bp'] || 0) - Math.abs(a['넷Delta합계_$per bp'] || 0));
+
+  if (dimChartInstance) dimChartInstance.destroy();
+  dimChartInstance = new Chart(document.getElementById('dimChart'), {
+    type: 'bar',
+    data: {
+      labels: rows.map(d => String(d['값'])),
+      datasets: [{ data: rows.map(d => d['넷Delta합계_$per bp'] || 0), backgroundColor: '#7c1d2c' }]
+    },
+    options: {
+      indexAxis: 'y', responsive: true,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { ticks: { font: { family: 'IBM Plex Mono', size: 10 } } },
+        y: { ticks: { font: { family: 'Noto Sans KR', size: 11 } } }
+      }
+    }
+  });
+
+  const tbody = document.getElementById('dimBody');
+  tbody.innerHTML = '';
+  rows.forEach(d => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${d['값']}</td>
+      <td class="num ${cls(d['넷Delta합계_$per bp'])}">${fmt(d['넷Delta합계_$per bp'])}</td>
+      <td class="num">${fmtF(d['가중평균YTM_%'], 3)}</td>
+      <td class="num">${fmtF(d['가중평균스프레드_bp'], 1)}</td>
+      <td class="num">${d['종목수'] ?? '-'}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+function setDim(d) { currentDim = d; renderDim(); }
+renderDim();
+
+// --- 등급 x 만기 히트맵 (섹터/지역 필터) ---
+const RATING_ORDER = ['AAA','AA+','AA','AA-','A+','A','A-','BBB+','BBB','BBB-','BB+','BB','BB-','B+','B','B-','NR'];
+const MATURITY_ORDER = ['0-3Y','3-5Y','5-10Y','10Y+','ETF','INDEX','NA'];
+
+function sortByOrder(vals, order) {
+  return [...vals].sort((a, b) => {
+    const ia = order.indexOf(a), ib = order.indexOf(b);
+    if (ia === -1 && ib === -1) return String(a).localeCompare(String(b));
+    if (ia === -1) return 1;
+    if (ib === -1) return -1;
+    return ia - ib;
+  });
+}
+
+const sectorVals = ['전체', ...new Set(crossData.map(d => d['섹터']).filter(v => v != null))];
+const regionVals = ['전체', ...new Set(crossData.map(d => d['지역']).filter(v => v != null))];
+const selMeasure = document.getElementById('filterMeasure');
+const selSector = document.getElementById('filterSector');
+const selRegion = document.getElementById('filterRegion');
+sectorVals.forEach(v => { const o = document.createElement('option'); o.value = v; o.textContent = v; selSector.appendChild(o); });
+regionVals.forEach(v => { const o = document.createElement('option'); o.value = v; o.textContent = v; selRegion.appendChild(o); });
+
+let selectedCell = null; // {등급, 만기구간}
+
+const MEASURE_FMT = {
+  delta: v => fmt(v),
+  ytm: v => fmtF(v, 2) + '%',
+  spread: v => fmtF(v, 0) + 'bp',
+};
+
+function renderHeatmap() {
+  const measure = selMeasure.value;
+  const fSector = selSector.value, fRegion = selRegion.value;
+  const filtered = crossData.filter(d =>
+    (fSector === '전체' || d['섹터'] === fSector) && (fRegion === '전체' || d['지역'] === fRegion)
+  );
+
+  // (등급, 만기구간) 별로 재집계 - Delta는 합산, YTM/스프레드는 |Delta| 가중평균
+  const cellMap = {};
+  filtered.forEach(d => {
+    const r = d['등급'] ?? 'NR', m = d['만기구간'] ?? 'NA';
+    const key = r + '|' + m;
+    if (!cellMap[key]) cellMap[key] = { delta: 0, n: 0, ytmWSum: 0, ytmW: 0, sprWSum: 0, sprW: 0 };
+    const w = Math.abs(d['넷Delta합계_$per bp'] || 0);
+    cellMap[key].delta += (d['넷Delta합계_$per bp'] || 0);
+    cellMap[key].n += (d['종목수'] || 0);
+    if (d['가중평균YTM_%'] != null) { cellMap[key].ytmWSum += d['가중평균YTM_%'] * w; cellMap[key].ytmW += w; }
+    if (d['가중평균스프레드_bp'] != null) { cellMap[key].sprWSum += d['가중평균스프레드_bp'] * w; cellMap[key].sprW += w; }
+  });
+
+  function cellValue(cell) {
+    if (measure === 'delta') return cell.delta;
+    if (measure === 'ytm') return cell.ytmW > 0 ? cell.ytmWSum / cell.ytmW : null;
+    if (measure === 'spread') return cell.sprW > 0 ? cell.sprWSum / cell.sprW : null;
+  }
+
+  const ratings = sortByOrder([...new Set(filtered.map(d => d['등급'] ?? 'NR'))], RATING_ORDER);
+  const maturities = sortByOrder([...new Set(filtered.map(d => d['만기구간'] ?? 'NA'))], MATURITY_ORDER);
+
+  const allVals = Object.values(cellMap).map(cellValue).filter(v => v !== null && v !== undefined);
+  const useAbs = (measure === 'delta');
+  const scaleVals = useAbs ? allVals.map(Math.abs) : allVals;
+  const minV = scaleVals.length ? Math.min(...scaleVals) : 0;
+  const maxV = scaleVals.length ? Math.max(...scaleVals) : 1;
+  const range = Math.max(1e-9, maxV - (useAbs ? 0 : minV));
+
+  const table = document.getElementById('heatmapTable');
+  table.innerHTML = '';
+  const headRow = document.createElement('tr');
+  headRow.innerHTML = '<th></th>' + maturities.map(m => `<th>${m}</th>`).join('');
+  table.appendChild(headRow);
+
+  ratings.forEach(r => {
+    const tr = document.createElement('tr');
+    let rowHtml = `<th>${r}</th>`;
+    maturities.forEach(m => {
+      const key = r + '|' + m;
+      const cell = cellMap[key];
+      const val = cell ? cellValue(cell) : null;
+      if (!cell || val === null || val === undefined) {
+        rowHtml += `<td class="empty">-</td>`;
+      } else {
+        const base = useAbs ? Math.abs(val) : (val - minV);
+        const intensity = Math.min(1, Math.max(0, base / range));
+        const alpha = 0.12 + intensity * 0.75;
+        const isSel = selectedCell && selectedCell.r === r && selectedCell.m === m;
+        rowHtml += `<td style="background:rgba(124,29,44,${alpha}); color:${intensity > 0.5 ? '#fff' : '#1a1a1a'};"
+          class="${isSel ? 'selected' : ''}" data-r="${r}" data-m="${m}">${MEASURE_FMT[measure](val)}</td>`;
+      }
+    });
+    tr.innerHTML = rowHtml;
+    table.appendChild(tr);
+  });
+
+  table.querySelectorAll('td[data-r]').forEach(td => {
+    td.onclick = () => {
+      const r = td.dataset.r, m = td.dataset.m;
+      selectedCell = (selectedCell && selectedCell.r === r && selectedCell.m === m) ? null : { r, m };
+      renderHeatmap();
+      renderCrossTable();
+    };
+  });
+}
+
+function renderCrossTable() {
+  const fSector = selSector.value, fRegion = selRegion.value;
+  let filtered = crossData.filter(d =>
+    (fSector === '전체' || d['섹터'] === fSector) && (fRegion === '전체' || d['지역'] === fRegion)
+  );
+  if (selectedCell) {
+    filtered = filtered.filter(d => (d['등급'] ?? 'NR') === selectedCell.r && (d['만기구간'] ?? 'NA') === selectedCell.m);
+  }
+  filtered = [...filtered].sort((a, b) => Math.abs(b['넷Delta합계_$per bp'] || 0) - Math.abs(a['넷Delta합계_$per bp'] || 0));
+
+  const crossBody = document.getElementById('crossBody');
+  crossBody.innerHTML = '';
+  filtered.forEach(d => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${d['등급'] ?? '-'}</td><td>${d['섹터'] ?? '-'}</td><td>${d['만기구간'] ?? '-'}</td><td>${d['지역'] ?? '-'}</td>
+      <td class="num ${cls(d['넷Delta합계_$per bp'])}">${fmt(d['넷Delta합계_$per bp'])}</td>
+      <td class="num">${fmtF(d['가중평균YTM_%'], 3)}</td>
+      <td class="num">${fmtF(d['가중평균스프레드_bp'], 1)}</td>
+      <td class="num">${d['종목수'] ?? '-'}</td>
+    `;
+    crossBody.appendChild(tr);
+  });
+}
+
+selMeasure.onchange = () => { renderHeatmap(); };
+selSector.onchange = () => { selectedCell = null; renderHeatmap(); renderCrossTable(); };
+selRegion.onchange = () => { selectedCell = null; renderHeatmap(); renderCrossTable(); };
+renderHeatmap();
+renderCrossTable();
+
+// 토글 버튼 생성
+const toggleDiv = document.getElementById('chartToggle');
+combos.forEach((c, i) => {
+  const btn = document.createElement('button');
+  btn.className = 'basis-btn' + (i === 0 ? ' active' : '');
+  btn.textContent = c[2];
+  btn.style.borderColor = combo_colors[i];
+  if (i === 0) btn.style.background = combo_colors[i];
+  btn.onclick = () => setCombo(i);
+  btn.dataset.idx = i;
+  toggleDiv.appendChild(btn);
+});
+
+let issuerChartInstance = null;
+
+function renderChart() {
+  const [bench, basis] = combos[currentCombo];
+  const key = colName(bench, basis);
+  const sorted = [...tickerData].sort((a, b) => Math.abs(b[key] || 0) - Math.abs(a[key] || 0)).slice(0, 25);
+
+  if (issuerChartInstance) issuerChartInstance.destroy();
+  issuerChartInstance = new Chart(document.getElementById('issuerChart'), {
+    type: 'bar',
+    data: {
+      labels: sorted.map(d => d['TICKER']),
+      datasets: [{ data: sorted.map(d => d[key] || 0), backgroundColor: combo_colors[currentCombo] }]
+    },
+    options: {
+      indexAxis: 'y', responsive: true,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { ticks: { font: { family: 'IBM Plex Mono', size: 10 } } },
+        y: { ticks: { font: { family: 'IBM Plex Mono', size: 10 } } }
+      }
+    }
+  });
+}
+
+function setCombo(i) {
+  currentCombo = i;
+  document.querySelectorAll('#chartToggle .basis-btn').forEach((b, idx) => {
+    b.classList.toggle('active', idx === i);
+    b.style.background = idx === i ? combo_colors[idx] : 'var(--panel)';
+    b.style.color = idx === i ? '#fff' : 'var(--text)';
+  });
+  renderChart();
+}
+
+// 전체 테이블 (모든 조합 중 절대값 최대 기준 정렬)
+const withMax = tickerData.map(d => {
+  const vals = combos.map(c => Math.abs(d[colName(c[0], c[1])] || 0));
+  return { ...d, _maxAbs: Math.max(...vals) };
+});
+const sortedAll = [...withMax].sort((a, b) => b._maxAbs - a._maxAbs);
+const tbody = document.getElementById('tickerBody');
+sortedAll.forEach(d => {
+  const tr = document.createElement('tr');
+  const vRaw5 = d[colName(null,'5Y')], vRaws = d[colName(null,'stress')];
+  const vLQD5 = d[colName('LQD','5Y')], vLQDs = d[colName('LQD','stress')];
+  const vLUA5 = d[colName('LUACOAS','5Y')], vLUAs = d[colName('LUACOAS','stress')];
+  tr.innerHTML = `
+    <td>${d['TICKER']}</td><td>${d['등급'] ?? '-'}</td><td>${d['섹터'] ?? '-'}</td>
+    <td class="num ${cls(d['실물_Delta_$per bp'])}">${fmt(d['실물_Delta_$per bp'])}</td>
+    <td class="num ${cls(d['CDS_Delta_$per bp'])}">${fmt(d['CDS_Delta_$per bp'])}</td>
+    <td class="num ${cls(d['넷_Delta_$per bp'])}">${fmt(d['넷_Delta_$per bp'])}</td>
+    <td class="num col-sep ${cls(vRaw5)}">${fmt(vRaw5)}</td>
+    <td class="num ${cls(vRaws)}">${fmt(vRaws)}</td>
+    <td class="num col-sep ${cls(vLQD5)}">${fmt(vLQD5)}</td>
+    <td class="num ${cls(vLQDs)}">${fmt(vLQDs)}</td>
+    <td class="num ${cls(vLUA5)}">${fmt(vLUA5)}</td>
+    <td class="num ${cls(vLUAs)}">${fmt(vLUAs)}</td>
+  `;
+  tbody.appendChild(tr);
+});
+
+renderChart();
+</script>
+</body>
+</html>

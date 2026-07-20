@@ -1,0 +1,6 @@
+ISIN,TICKER,등급,섹터,GT텀,지역,자산유형,비고
+XS3344489755,HANFGI,NR,금융,5,KP,BOND,자사채(크레딧숏) - HANFGI 4-7/8 06/02/31
+XS3033158885,HANFGI,NR,금융,2,KP,BOND,자사채(크레딧숏) - HANFGI 5 04/30/28
+LQD,LQD,NR,ETF,,기타,ETF,LQD US Equity - IG 회사채 ETF (보유자산)
+VCIT,VCIT,NR,ETF,,기타,ETF,VCIT US Equity - 중기 IG 회사채 ETF (보유자산)
+LUACOAS,LUACOAS,NR,INDEX,,기타,INDEX,Bloomberg US Corporate Index OAS (벤치마크용 - 보유자산 아님)

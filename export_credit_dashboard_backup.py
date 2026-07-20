@@ -33,69 +33,39 @@ warnings.filterwarnings("ignore")
 # ══════════════════════════════════════════════
 # bond_list.json이 있으면 거기서 읽고, 없으면 아래 기본 목록 사용
 _DEFAULT_BOND_ISINS = [
-    "FR0014010FH7", "HK0001277489", "HK0001319182", "JP541005AQB3",
-    "JP541034ARB1", "JP541037AS71", "KR6065904G23", "US02079KBM80",
-    "US05964HBG92", "US05964HBJ32", "US05971KAV17", "US06051GHZ54",
-    "US06051GMW68", "US06051GNA30", "US06738ECX13", "US06738ECY95",
-    "US06738EDJ10", "US09659X2X97", "US09659X3B68", "US11135FBY60",
-    "US22536PAB76", "US302154DG11", "US302154DM88", "US302154DY27",
-    "US302154DZ91", "US302154EB15", "US302154ED70", "US302154EE53",
-    "US302154EK14", "US302154EM79", "US302154EQ83", "US302154ER66",
-    "US302154ES40", "US38141GB607", "US38141GC365", "US38141GD355",
-    "US38141GF335", "US38141GWV21", "US38145GAR11", "US404280BT50",
-    "US404280CC17", "US404280CF48", "US404280CV97", "US404280EG03",
-    "US404280EM70", "US404280EN53", "US404280ER67", "US404280EW52",
-    "US404280FL88", "US44891CBL63", "US44891CCE12", "US44891CCJ09",
-    "US44891CCP68", "US44891CCU53", "US44891CDB63", "US44891CDD20",
-    "US44891CDF77", "US44891CDG50", "US44891CDH34", "US44891CDL46",
-    "US44891CDM29", "US44891CDQ33", "US44891CDW01", "US44891CEA71",
-    "US44891CED11", "US44891CEE93", "US44891CEP41", "US45604HAQ02",
-    "US45604HAS67", "US456837BU63", "US46647PEJ12", "US46647PEV40",
-    "US46647PFD33", "US46647PFE16", "US46647PFG63", "US46647PFJ03",
-    "US50050HAN61", "US500630ED65", "US500630EG96", "US500630EH79",
-    "US500630EK09", "US500630EM64", "US500630ER51", "US500631AE67",
-    "US500631AH98", "US50064FAY07", "US50064FBA12", "US50066CAV19",
-    "US606822DS05", "US60687YDF34", "US60687YDL02", "US61747YFY68",
-    "US61748UAR32", "US61748UAS15", "US61748UAV44", "US61778EUR07",
-    "US65535HAY53", "US65535HBM07", "US65535HCB33", "US65535HCK32",
-    "US65535HCL15", "US65540KAG04", "US65540KAK16", "US780097BG51",
-    "US780097BL47", "US82460EAN04", "US83368TCJ51", "US86562MED83",
-    "US912810UC08", "US91282CGT27", "US91282CJZ59", "US91282CKQ32",
-    "US91282CLR06", "US91282CNC19", "US91282CNT44", "US91282CNW72",
-    "US91282CNZ04", "US91282CPM72", "US91282CPZ85", "US91282CQQ77",
-    "US95000U3P60", "US95000U3T82", "US95000U4D22", "US95000U4H36",
-    "US95000U4J91", "US98105GAP72", "US98105HAG56", "USG84228FL77",
-    "USG84228FY98", "USG84228FZ63", "USH3698DBM59", "USH3698DCW23",
-    "USH42097EV54", "USH42097FS17", "USH42097FT99", "USJ5901UAH52",
-    "USJ5903AAA28", "USJ5S39RAM64", "USJ5S39RAS35", "USJ5S39RAU80",
-    "USJ5S39RAV63", "USJ7771YTM95", "USU8531HAA87", "USY2350DER36",
-    "USY2387CVK89", "USY29011DG83", "USY29011DM51", "USY3815NBK64",
-    "USY4841M6A22", "USY4841PAD43", "USY4841PAG73", "USY4841PAK85",
-    "USY4872AMX28", "USY4872ATJ60", "USY48861DE86", "USY4899GGX52",
-    "USY4899GHF38", "USY4907LAG78", "USY4907LAR34", "USY4938AAM19",
-    "USY4938AAT61", "USY4938AAV18", "USY4938AAW90", "USY4938AAY56",
-    "USY49915BC76", "USY49915BF08", "USY5S5CGAB83", "USY5S5CGAK82",
-    "USY5S5CGAL65", "USY5S5CGAN22", "USY5S5CGAP79", "USY5S5CGAR36",
-    "USY5S5CGAS19", "USY5S5CGAV48", "USY5S80VAB27", "USY6396XAF60",
-    "USY6396XAG44", "USY6396XAK55", "USY70750CB13", "USY70750CC95",
-    "USY7770HAE81", "USY7S272AG74", "USY7S272AK86", "USY7S272AL69",
-    "USY7S272AM43", "USY7S27KAX02", "USY7T4K3AC40", "USY8085FBD16",
-    "USY8085FBK58", "USY8085FBL32", "USY8085FBU31", "USY8085FBY52",
-    "USY8085FBZ28", "USY9700WAD84", "XS1211568735", "XS1456425666",
-    "XS1795263281", "XS1932879130", "XS2052998403", "XS2082472122",
-    "XS2167007918", "XS2367816076", "XS2393758987", "XS2395327641",
-    "XS2457676257", "XS2559683359", "XS2565831943", "XS2600704956",
-    "XS2629403499", "XS2651633609", "XS2682195016", "XS2703610050",
-    "XS2739009855", "XS2739009939", "XS2747557416", "XS2790212828",
-    "XS2798085416", "XS2803406698", "XS2803407233", "XS2867997368",
-    "XS2917896685", "XS2982332400", "XS2985211569", "XS3017043053",
-    "XS3028206350", "XS3030377132", "XS3033158885", "XS3037640037",
-    "XS3037681908", "XS3053429638", "XS3056053799", "XS3078370726",
-    "XS3109629371", "XS3127996778", "XS3177263418", "XS3187679041",
-    "XS3189630372", "XS3219365635", "XS3268973453", "XS3299373996",
-    "XS3299380850", "XS3304372868", "XS3322576417", "XS3340625626",
-    "XS3344489755", "XS3412558648", "XS3412559299", "XS3423950230",
-    "XS3423950313",
+    "US500630ED65",  "US50064FAY07",  "US50064FBA12",  "US037833FA32",
+    "US302154EB15",  "USY8085FBL32",  "US02079KAX54",  "US89115A3C46",
+    "USH4209UAC02",  "XS3219365635",  "XS2747557416",  "US02079KBM80",
+    "US46647PEU66",  "US61690DK726",  "US86562MEJ53",  "USY8085FBD16",
+    "USY8085FBY52",  "USY8085FBZ28",  "XS3030377132",  "USY8085FBK58",
+    "US404280CF48",  "USY4899GGX52",  "USY8085FBU31",  "US46647PEY88",
+    "US46647PEV40",  "USJ5S39RAQ78",  "US05964HAS40",  "US95000U3T82",
+    "US46647PFD33",  "USJ7771YTM95",  "US404280EF20",  "US95000U3P60",
+    "USJ5S39RAM64",  "US61747YFY68",  "US500631AE67",  "USY29011DM51",
+    "USG84228FY98",  "US06051GHZ54",  "USY29011DG83",  "US46647PEJ12",
+    "USJ5S39RAS35",  "US404280EM70",  "USH3698DBM59",  "US44891CDB63",
+    "US65535HBF55",  "US06051GMY25",  "USY3815NBK64",  "US98105HAG56",
+    "US780097BG51",  "USG84228FU76",  "US06738ECX13",  "XS3078370726",
+    "US404280CV97",  "US38141GC365",  "USG84228FL77",  "USH42097EV54",
+    "US404280BT50",  "US60687YDL02",  "US44891CDL46",  "USY7S272AG74",
+    "XS1795263281",  "US65535HAY53",  "XS3109629371",  "US61748UAR32",
+    "US780097BL47",  "USH42097FS17",  "US65535HBM07",  "XS2703610050",
+    "USY52758AE20",  "US05964HBJ32",  "US06051GNA30",  "USY7S272AL69",
+    "XS3187679041",  "US404280ER67",  "US44891CDV28",  "USY70750CB13",
+    "US404280CC17",  "USH3698DCW23",  "US44891CDZ32",  "US82460EAN04",
+    "USY5S80VAB27",  "US44891CDM29",  "US50050HAN61",  "XS2798085416",
+    "US44891CCE12",  "USY5S5CGAK82",  "US44891CED11",  "USG84228FZ63",
+    "XS3299373996",  "US09659X3B68",  "US44891CCU53",  "US46647PFJ03",
+    "US46647PFE16",  "US44891CDQ33",  "US404280EN53",  "XS1932879130",
+    "US86562MED83",  "XS2739009855",  "US09659X2X97",  "US606822DS05",
+    "US44891CBL63",  "XS3189630372",  "USJ5903AAA28",  "US61748UAS15",
+    "US44891CDW01",  "US44891CCJ09",  "USY5S5CGAN22",  "XS1452410571",
+    "US83368TCJ51",  "US44891CCP68",  "USY5S5CGAB83",  "US44891CEA71",
+    "USY5S5CGAL65",  "XS2985211569",  "US44891CEE93",  "US404280EG03",
+    "US44891CDH34",  "USH42097FT99",  "US44891CDD20",  "USY7S272AM43",
+    "USJ5S39RAU80",  "US65535HCB33",  "USJ5901UAH52",  "USY5S5CGAP79",
+    "USY5S5CGAR36",  "KR6065904G23",  "XS2395327641",  "XS3017043053",
+    "XS2559683359",  "XS3028206350",  "FR0014010FH7",
 ]
 
 def load_bond_list():
@@ -192,38 +162,17 @@ FIELDS = {
     "ytm":      "YLD_YTM_MID",
     "oas":      "OAS_SPREAD_MID",
     "spread":   "YAS_YLD_SPREAD",
-    "ispread":  "YAS_ISPREAD",  # I-spread (스왑커브 대비) — YAS 페이지에서 실제 필드명 FLDS<GO>로 재확인 필요
     "zspread":  "Z_SPREAD_MID",
     "duration": "DUR_MID",
     "price":    "PX_LAST",
     "amt_out":  "AMT_OUTSTANDING",
 }
-CRNCY_FIELD = "CRNCY"  # 통화 필드는 메인 pull과 분리 (실패해도 전체 스냅샷에 영향 없게)
 
 UST_TICKERS = {
     "1M":"GB1 Govt","3M":"GB3 Govt","6M":"GB6 Govt",
     "1Y":"GB12 Govt","2Y":"GT2 Govt","3Y":"GT3 Govt",
     "5Y":"GT5 Govt","7Y":"GT7 Govt","10Y":"GT10 Govt",
     "20Y":"GT20 Govt","30Y":"GT30 Govt",
-}
-
-# EUR 채권 벤치마크: 독일 Bund 커브
-EUR_TICKERS = {
-    "2Y":"GDBR2 Govt","3Y":"GDBR3 Govt","5Y":"GDBR5 Govt",
-    "7Y":"GDBR7 Govt","10Y":"GDBR10 Govt","30Y":"GDBR30 Govt",
-}
-
-# JPY 채권 벤치마크: 일본 JGB 커브
-JPY_TICKERS = {
-    "2Y":"GJGB2 Govt","3Y":"GJGB3 Govt","5Y":"GJGB5 Govt",
-    "10Y":"GJGB10 Govt","20Y":"GJGB20 Govt","30Y":"GJGB30 Govt",
-}
-
-# 통화 -> 해당 통화의 국채 제네릭 커브 매핑 (G-spread 계산 시 통화별로 맞는 커브 사용)
-CCY_CURVES = {
-    "USD": UST_TICKERS,
-    "EUR": EUR_TICKERS,
-    "JPY": JPY_TICKERS,
 }
 
 MARKET_TICKERS = {
@@ -297,15 +246,8 @@ def load_prel_data(folder_path=PREL_FILE_PATH):
 
     try:
         import openpyxl
-        # NOTE: 일부 Bloomberg 내보내기 파일은 dimension 메타데이터가 없어
-        # read_only=True일 때 ws.max_row가 None이 되는 경우가 있음(파일 크기가
-        # 작으므로 read_only=False로 전체 로드해 안전하게 처리)
-        wb = openpyxl.load_workbook(prel_file, data_only=True, read_only=False)
+        wb = openpyxl.load_workbook(prel_file, data_only=True, read_only=True)
         ws = wb.active
-        if ws.max_row is None:
-            print("  ⚠️  PREL 워크시트의 max_row를 확인할 수 없습니다 (빈 파일일 수 있음)")
-            wb.close()
-            return []
 
         # 컬럼 매핑 (1-indexed)
         COL = {
@@ -497,19 +439,7 @@ def load_bloomberg_data():
     snap.columns.name = None
     snap = snap.rename(columns=dict(zip(field_values, field_keys)))
 
-    # 통화(CRNCY)는 별도 호출로 분리: 이 필드가 실패하거나 없어도 나머지 스냅샷(스프레드 등)은
-    # 정상적으로 로드되어야 하므로, 별도 try/except로 감싸서 전체 pull이 죽지 않게 함.
-    try:
-        crncy_raw = blp.bdp(tickers, [CRNCY_FIELD])
-        crncy_pdf = _nw(crncy_raw)
-        crncy_pdf = crncy_pdf.drop_duplicates(subset=["ticker", "field"], keep="last")
-        crncy_snap = crncy_pdf.pivot(index="ticker", columns="field", values="value")
-        snap["crncy"] = crncy_snap.get(CRNCY_FIELD)
-    except Exception as e:
-        print(f"  [WARN] CRNCY(통화) pull 실패, 전부 USD로 간주: {e}")
-        snap["crncy"] = None
-
-    for col in ["oas","spread","ispread","ytm","duration","price","coupon","amt_out","zspread"]:
+    for col in ["oas","spread","ytm","duration","price","coupon","amt_out","zspread"]:
         if col in snap.columns:
             snap[col] = pd.to_numeric(snap[col], errors="coerce")
 
@@ -538,13 +468,6 @@ def load_bloomberg_data():
 
     snap["label"] = snap.apply(make_label, axis=1)
     snap["is_owned"] = True
-
-    # 통화 정규화 (CRNCY 못 가져왔거나 비어있으면 USD로 간주)
-    if "crncy" in snap.columns:
-        snap["ccy"] = snap["crncy"].astype(str).str.strip().str.upper()
-        snap.loc[snap["ccy"].isin(["", "NAN", "NONE"]), "ccy"] = "USD"
-    else:
-        snap["ccy"] = "USD"
 
     # 지역 분류
     # CNTRY_OF_RISK 가져오기 시도
@@ -630,40 +553,26 @@ def load_bloomberg_data():
         else:
             bm_mat_map = {}
 
-        _TENOR_YEARS = {"1M":1/12,"3M":0.25,"6M":0.5,"1Y":1,"2Y":2,"3Y":3,
-                        "5Y":5,"7Y":7,"10Y":10,"20Y":20,"30Y":30}
-
-        def years_to_generic(years, ccy="USD"):
-            curve = CCY_CURVES.get(ccy, UST_TICKERS)  # 못 찾는 통화는 USD 커브로 폴백
-            default = curve.get("10Y", list(curve.values())[0])
-            if years is None or pd.isna(years):
-                return default
-            candidates = [(_TENOR_YEARS[k], v) for k, v in curve.items() if k in _TENOR_YEARS]
-            if not candidates:
-                return default
-            return min(candidates, key=lambda x: abs(x[0]-years))[1]
-
-        def _ccy_of(t):
-            if t in snap.index and "ccy" in snap.columns:
-                v = str(snap.loc[t, "ccy"])
-                return v if v and v not in ("nan", "None") else "USD"
-            return "USD"
+        def years_to_generic(years):
+            if years is None or pd.isna(years): return "GT10 Govt"
+            generic = [(2,"GT2 Govt"),(3,"GT3 Govt"),(5,"GT5 Govt"),
+                       (7,"GT7 Govt"),(10,"GT10 Govt"),(20,"GT20 Govt"),(30,"GT30 Govt")]
+            return min(generic, key=lambda x: abs(x[0]-years))[1]
 
         bm_map = {}
         for t in tickers:
-            ccy = _ccy_of(t)
             bm_isin = bm_snap.loc[t, "YAS_BENCHMARK_BOND_ISIN"] if t in bm_snap.index else None
             if pd.notna(bm_isin) and bm_isin:
                 bm_full = f"{bm_isin} Corp"
                 mat = bm_mat_map.get(bm_full)
                 if pd.notna(mat) and mat:
                     years = (pd.to_datetime(mat) - pd.Timestamp.today()).days / 365.25
-                    bm_map[t] = years_to_generic(years, ccy)
+                    bm_map[t] = years_to_generic(years)
                     continue
             if t in snap.index and pd.notna(snap.loc[t].get("duration")):
-                bm_map[t] = years_to_generic(float(snap.loc[t]["duration"]), ccy)
+                bm_map[t] = years_to_generic(float(snap.loc[t]["duration"]))
             else:
-                bm_map[t] = years_to_generic(None, ccy)
+                bm_map[t] = "GT10 Govt"
 
         generic_tickers = sorted(set(bm_map.values()))
     except Exception as e:
@@ -839,74 +748,50 @@ def load_bloomberg_data():
     print(f"  → {len(mkt_current)}개 지표 로드")
 
     # ─── 거래 데이터 - TRACE (최근 7일) ───
-    # --trace 플래그 없으면 스킵 (Bloomberg TRACE 라이선스 없을 때 무한 대기 방지)
-    LOAD_TRACE = "--trace" in sys.argv
-    print(f"\n[6/8] TRACE 거래 데이터{'...' if LOAD_TRACE else ' (스킵 — --trace 플래그로 활성화)'}")
+    print("\n[6/8] TRACE 거래 데이터...")
     trades = []
-
-    if LOAD_TRACE:
-        import threading
-        for tk in tickers:
-            try:
-                result = [None]
-
-                def _fetch(ticker=tk):
-                    try:
-                        r = blp.bdh(
-                            [ticker],
-                            ["TRACE_DLR_LAST_PX", "TRACE_DLR_LAST_YLD",
-                             "TRACE_DLR_LAST_SPREAD", "TRACE_DLR_LAST_VOL",
-                             "TRACE_DLR_RPT_PARTY"],
-                            (datetime.today() - timedelta(days=7)).strftime("%Y%m%d"),
-                            datetime.today().strftime("%Y%m%d")
-                        )
-                        result[0] = r
-                    except Exception:
-                        pass
-
-                t = threading.Thread(target=_fetch, daemon=True)
-                t.start()
-                t.join(timeout=8)  # 8초 타임아웃
-
-                if result[0] is None:
-                    print(f"  TRACE 스킵: {tk} (타임아웃)")
-                    continue
-
-                tpdf = _nw(result[0])
-                if len(tpdf) == 0:
-                    continue
-
-                df = tpdf.pivot_table(index="date", columns="field", values="value", aggfunc="last").reset_index()
-                lbl = snap.loc[tk, "label"] if tk in snap.index else tk
-                yas_spread = pd.to_numeric(snap.loc[tk, "spread"], errors="coerce") if tk in snap.index else None
-
-                for _, row in df.iterrows():
-                    px         = pd.to_numeric(row.get("TRACE_DLR_LAST_PX"),     errors="coerce")
-                    ytm_val    = pd.to_numeric(row.get("TRACE_DLR_LAST_YLD"),    errors="coerce")
-                    trd_spread = pd.to_numeric(row.get("TRACE_DLR_LAST_SPREAD"), errors="coerce")
-                    vol        = pd.to_numeric(row.get("TRACE_DLR_LAST_VOL"),    errors="coerce")
-                    source     = row.get("TRACE_DLR_RPT_PARTY")
-                    spread_chg = None
-                    if pd.notna(trd_spread) and pd.notna(yas_spread):
-                        spread_chg = round(float(trd_spread - yas_spread), 1)
-                    trades.append({
-                        "date":       pd.to_datetime(row["date"]).strftime("%Y-%m-%d"),
-                        "bond":       lbl,
-                        "price":      round(float(px), 3) if pd.notna(px) else None,
-                        "ytm":        round(float(ytm_val), 3) if pd.notna(ytm_val) else None,
-                        "trd_spread": round(float(trd_spread), 1) if pd.notna(trd_spread) else None,
-                        "yas_spread": round(float(yas_spread), 1) if pd.notna(yas_spread) else None,
-                        "spread_chg": spread_chg,
-                        "volume":     int(vol) if pd.notna(vol) and vol > 0 else None,
-                        "source":     str(source).strip() if pd.notna(source) and str(source).strip() not in ("nan","None","") else None,
-                    })
-            except Exception as e:
-                print(f"  TRACE 오류 {tk}: {e}")
+    for tk in tickers:
+        try:
+            # TRACE 거래 내역: TRAC <GO> 에서 제공하는 필드
+            r = blp.bdh([tk],
+                        ["TRACE_DLR_LAST_PX", "TRACE_DLR_LAST_YLD", "TRACE_DLR_LAST_SPREAD",
+                         "TRACE_DLR_LAST_VOL", "TRACE_DLR_RPT_PARTY"],
+                        (datetime.today() - timedelta(days=7)).strftime("%Y%m%d"),
+                        datetime.today().strftime("%Y%m%d"))
+            tpdf = _nw(r)
+            if len(tpdf) == 0:
                 continue
-        trades.sort(key=lambda x: x["date"], reverse=True)
-        print(f"  → {len(trades)}건 TRACE 거래 로드")
-    else:
-        print("  → 거래 탭은 빈 상태로 생성됩니다")
+            df = tpdf.pivot_table(index="date", columns="field", values="value", aggfunc="last").reset_index()
+            lbl = snap.loc[tk, "label"] if tk in snap.index else tk
+            yas_spread = pd.to_numeric(snap.loc[tk, "spread"], errors="coerce") if tk in snap.index else None
+
+            for _, row in df.iterrows():
+                px = pd.to_numeric(row.get("TRACE_DLR_LAST_PX"), errors="coerce")
+                ytm_val = pd.to_numeric(row.get("TRACE_DLR_LAST_YLD"), errors="coerce")
+                trd_spread = pd.to_numeric(row.get("TRACE_DLR_LAST_SPREAD"), errors="coerce")
+                vol = pd.to_numeric(row.get("TRACE_DLR_LAST_VOL"), errors="coerce")
+                source = row.get("TRACE_DLR_RPT_PARTY")
+
+                # 거래 스프레드 vs 전일 YAS spread
+                spread_chg = None
+                if pd.notna(trd_spread) and pd.notna(yas_spread):
+                    spread_chg = round(float(trd_spread - yas_spread), 1)
+
+                trades.append({
+                    "date": pd.to_datetime(row["date"]).strftime("%Y-%m-%d"),
+                    "bond": lbl,
+                    "price": round(float(px), 3) if pd.notna(px) else None,
+                    "ytm": round(float(ytm_val), 3) if pd.notna(ytm_val) else None,
+                    "trd_spread": round(float(trd_spread), 1) if pd.notna(trd_spread) else None,
+                    "yas_spread": round(float(yas_spread), 1) if pd.notna(yas_spread) else None,
+                    "spread_chg": spread_chg,
+                    "volume": int(vol) if pd.notna(vol) and vol > 0 else None,
+                    "source": str(source).strip() if pd.notna(source) and str(source).strip() not in ("nan","None","") else None,
+                })
+        except:
+            pass
+    trades.sort(key=lambda x: x["date"], reverse=True)
+    print(f"  → {len(trades)}건 TRACE 거래 로드")
 
     # ─── ETF 스프레드 시계열 ───
     print("\n[7/8] ETF 스프레드 데이터...")
@@ -953,26 +838,19 @@ def load_bloomberg_data():
         ref_pivot.columns.name = None
         for col in ref_pivot.columns:
             ref_pivot[col] = pd.to_numeric(ref_pivot[col], errors="coerce")
-        print(f"  BDC pivot index 샘플: {list(ref_pivot.index[:3])}")
-        print(f"  BDC pivot columns: {list(ref_pivot.columns)}")
         for tk, meta in BDC_TICKERS.items():
             nm = meta["short"]
             bdc_current[nm] = {}
             bdc_changes[nm] = {}
-            # pivot index가 ticker 그대로인지, 소문자인지 확인 후 매칭
-            tk_match = tk if tk in ref_pivot.index else tk.lower() if tk.lower() in ref_pivot.index else None
-            if tk_match:
-                row = ref_pivot.loc[tk_match]
+            if tk in ref_pivot.index:
+                row = ref_pivot.loc[tk]
                 for fld, key in [("PX_LAST","price"),("PX_TO_BOOK_RATIO","pb"),("NET_ASSET_VAL","nav")]:
                     v = row.get(fld)
                     bdc_current[nm][key] = round(float(v), 3) if pd.notna(v) else None
                 for fld, key in [("CHG_PCT_1D","1d"),("CHG_PCT_5D","1w"),("CHG_PCT_1M","1m")]:
                     v = row.get(fld)
                     bdc_changes[nm][key] = round(float(v), 2) if pd.notna(v) else None
-            else:
-                print(f"  ⚠️  {tk} 인덱스 매칭 실패")
-        n_ok = len([k for k,v in bdc_current.items() if v.get("price")])
-        print(f"  -> BDC {n_ok}개 로드")
+        print(f"  -> BDC {len([k for k,v in bdc_current.items() if v.get(chr(39)+'price'+chr(39))])}개 로드")
     except Exception as e:
         print(f"  BDC BDP 오류: {e}")
 
@@ -1014,10 +892,7 @@ def load_bloomberg_data():
             for c in ["label","issuer","sector","rating","region","matBucket","is_owned"]:
                 v = row.get(c)
                 rec[c] = str(v) if pd.notna(v) and str(v) not in ("nan","None") else None
-            # 통화: 없으면 USD로 기본 처리 (기존 보유 종목 대부분 USD)
-            ccy_v = row.get("ccy")
-            rec["ccy"] = str(ccy_v).strip().upper() if pd.notna(ccy_v) and str(ccy_v).strip() not in ("", "nan", "None") else "USD"
-            for c in ["spread","ispread","ytm","duration","price","coupon","oas","chg1d","chg1w","chg1m","chg3m","ytm_1m_ago","ytm_3m_ago"]:
+            for c in ["spread","ytm","duration","price","coupon","oas","chg1d","chg1w","chg1m","chg3m","ytm_1m_ago","ytm_3m_ago"]:
                 v = row.get(c)
                 rec[c] = round(float(v), 3) if pd.notna(v) else None
             rec["is_owned"] = bool(row.get("is_owned", True))
@@ -1111,7 +986,6 @@ def load_sample_data():
         cpn = round(2.0 + np.random.random() * 4.5, 2)
         mat_y = 25 + np.random.randint(0, 10)
         mat_m = str(1 + np.random.randint(0,12)).zfill(2)
-        g_sp = int(70 + np.random.random() * 250)
         bonds.append({
             "isin": isin,
             "label": f"{issuer} {cpn:.2f} {mat_m}/{mat_y}",
@@ -1120,8 +994,7 @@ def load_sample_data():
             "rating": np.random.choice(RATINGS),
             "region": sample_region(issuer),
             "matBucket": np.random.choice(MAT_BUCKETS),
-            "spread": g_sp,
-            "ispread": round(g_sp - (5 + np.random.random() * 15), 0),  # G-spread 대비 국채-스왑 베이시스만큼 낮게 샘플링
+            "spread": int(70 + np.random.random() * 250),
             "duration": round(1.5 + np.random.random() * 8, 1),
             "ytm": None,
             "price": round(88 + np.random.random() * 16, 3),
@@ -1449,7 +1322,6 @@ tbody tr:hover{{background:rgba(59,130,246,.04)}}
 td.tc{{font-family:var(--ft)}}td.nm{{text-align:right}}td.ps{{color:var(--rd)}}td.ng{{color:var(--gn)}}td.sp{{font-weight:600}}
 .bg{{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}}
 .bt{{padding:6px 14px;font-size:12px;font-family:var(--ft);font-weight:500;border:1px solid var(--bd);border-radius:6px;background:var(--sf2);color:var(--tx2);cursor:pointer;transition:all .15s}}
-.grp-row:hover td{{background:rgba(59,130,246,.10)!important}}
 .bt:hover{{border-color:var(--acd);color:var(--tx);background:var(--sf3)}}
 .bt.pr{{background:var(--ac);color:#fff;border-color:var(--ac)}}.bt.pr:hover{{background:#2563eb}}
 .fl{{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}}
@@ -1478,13 +1350,13 @@ textarea:focus,.ti:focus{{border-color:var(--ac)}}
 </style>
 </head>
 <body>
-<div class="hd"><div><h1>IG Credit Spread Dashboard</h1><div class="sub" id="hdr-sub"></div></div><a href="hyperscaler/hyperscaler-dashboard.html" style="color:var(--ac,#3b82f6);font-size:12px;font-weight:600;text-decoration:none;border:1px solid var(--ac,#3b82f6);padding:6px 14px;border-radius:20px;white-space:nowrap;margin-right:12px">🖥️ 하이퍼스케일러 →</a><div class="st" id="hdr-status"></div></div>
+<div class="hd"><div><h1>IG Credit Spread Dashboard</h1><div class="sub" id="hdr-sub"></div></div><div class="st" id="hdr-status"></div></div>
 <div class="tabs">
   <div class="tab active" data-tab="t1">🎯 보유 채권</div>
   <div class="tab" data-tab="t2">📊 크레딧 지표</div>
   <div class="tab" data-tab="t3">🏢 발행자별 곡선</div>
   <div class="tab" data-tab="t4">💼 거래 내역</div>
-  <div class="tab" data-tab="t6">🆕 최근 발행<span id="techBadge"></span></div>
+  <div class="tab" data-tab="t6">🆕 최근 발행</div>
   <div class="tab" data-tab="t5">📝 리서치 메모</div>
   <div class="tab" data-tab="t7">⚙️ 종목 관리</div>
 </div>
@@ -1492,14 +1364,6 @@ textarea:focus,.ti:focus{{border-color:var(--ac)}}
 <!-- TAB 1 -->
 <div class="tp active" id="t1">
   <div class="ms" id="m1"></div>
-  <!-- 스프레드 요약 매트릭스 -->
-  <div class="cd" id="smt-wrap" style="margin-bottom:10px">
-    <div class="ct2">
-      📊 그룹별 평균 G-spread 요약
-      <span style="font-size:11px;color:var(--tx3);font-weight:400;margin-left:8px">평균 bps &nbsp;|&nbsp; 변동: 1D / 1W / MTD / YTD &nbsp;|&nbsp; 지역 · 섹터 · 만기 구분</span>
-    </div>
-    <div id="smt-container" style="overflow-x:auto;margin-top:8px"></div>
-  </div>
   <div class="ib" id="ss">📌 종목을 선택하면 평균 통계가 표시됩니다</div>
   <div class="cd">
     <div class="bg"><span style="font-size:12px;color:var(--tx3);font-weight:600;line-height:28px">빠른 선택:</span>
@@ -1536,37 +1400,25 @@ textarea:focus,.ti:focus{{border-color:var(--ac)}}
       <label>섹터</label><select id="fs2" onchange="RT()"><option value="ALL">전체</option></select>
       <label>만기</label><select id="fm2" onchange="RT()"><option value="ALL">전체</option></select>
       <label>지역</label><select id="fr2" onchange="RT()"><option value="ALL">전체</option></select>
-      <label>운용코드</label><select id="ff2" onchange="RT()"><option value="ALL">전체</option></select>
       <label>검색</label><input type="text" id="fx2" placeholder="채권명 검색..." oninput="RT()" style="width:200px">
       <span style="width:1px;height:20px;background:var(--bd);margin:0 6px"></span>
       <label>손익 기준</label>
       <select id="pnl-scenario" onchange="RT()">
         <option value="1d">1D</option>
         <option value="1w">1W</option>
-        <option value="1m" selected>MTD</option>
-        <option value="3m">YTD</option>
+        <option value="1m" selected>1M</option>
+        <option value="3m">3M</option>
       </select>
       <button class="bt pr" onclick="EX()">📥 CSV</button>
     </div>
     <div id="pnl-summary" class="ib" style="margin-bottom:6px"></div>
     <div class="tw" style="max-height:600px;overflow-y:auto"><table><thead><tr id="th"></tr></thead><tbody id="tb"></tbody></table></div>
   </div>
-
-  <!-- 비USD 채권 (EUR/JPY 등) - 자국 국채 커브 대비 스프레드 -->
-  <div class="cd" id="nonUsdWrap" style="display:none">
-    <div class="ct2">🌐 비USD 채권 (EUR/JPY 등) <span style="font-size:11px;color:var(--tx3);font-weight:400;margin-left:8px">각 통화의 자국 국채(EUR=Bund, JPY=JGB) 대비 G-spread</span></div>
-    <div class="tw" style="max-height:400px;overflow-y:auto"><table><thead><tr id="th2"></tr></thead><tbody id="tb2"></tbody></table></div>
-  </div>
 </div>
 <!-- TAB 2 -->
 <div class="tp" id="t2">
   <div class="ib">📊 크레딧 시장 전반의 위험도와 투자심리를 보여주는 핵심 지표</div>
   <div class="ms" id="m2"></div>
-  <!-- ▶ CREDIT SENTIMENT INDICATOR -->
-  <div class="cd" id="sentimentSection" style="margin-bottom:16px;">
-    <div class="ct2">🎯 크레딧 센티먼트 스코어보드 <span style="font-size:11px;color:var(--tx3);font-weight:400;margin-left:8px">각 지표 신호를 종합한 크레딧 롱/숏 판단 보조 도구 — 실시간 Bloomberg 연동 시 자동 갱신</span></div>
-    <div id="sentimentWidget"></div>
-  </div>
   <div class="cd"><div class="ct2">📉 크레딧 스프레드 인덱스 (6개월)</div><div class="ch" style="height:300px"><canvas id="c4"></canvas></div></div>
   <div class="g2">
     <div class="cd"><div class="ct2">⚡ VIX</div><div class="ch" style="height:240px"><canvas id="c5"></canvas></div></div>
@@ -1587,7 +1439,7 @@ textarea:focus,.ti:focus{{border-color:var(--ac)}}
     </div>
   </div>
   <div class="cd"><div class="ct2">💳 ETF 크레딧 스프레드 현황 (OAS, bps)</div>
-    <div class="tw"><table><thead><tr><th>ETF</th><th>현재</th><th>1D</th><th>1W</th><th>MTD</th><th>YTD</th><th>6M</th></tr></thead><tbody id="etfTbl"></tbody></table></div></div>
+    <div class="tw"><table><thead><tr><th>ETF</th><th>현재</th><th>1D</th><th>1W</th><th>1M</th><th>3M</th><th>6M</th></tr></thead><tbody id="etfTbl"></tbody></table></div></div>
   <div class="g2">
     <div class="cd"><div class="ct2">📈 IG ETF (VCSH / VCIT / LQD / VCLT / IEAC)</div><div class="ch" style="height:260px"><canvas id="c9"></canvas></div></div>
     <div class="cd"><div class="ct2">📉 HY / EM ETF (HYG / EMB / EMLC)</div><div class="ch" style="height:260px"><canvas id="c10"></canvas></div></div>
@@ -1615,7 +1467,6 @@ textarea:focus,.ti:focus{{border-color:var(--ac)}}
       <label>Status</label><select id="nf2" onchange="RNI()"><option value="ALL">전체</option><option value="Priced">Priced</option><option value="Talk">Talk</option><option value="Launch">Launch</option></select>
       <label>CoR</label><select id="nf3" onchange="RNI()"><option value="ALL">전체</option></select>
       <label>검색</label><input type="text" id="nf4" placeholder="발행자/티커 검색..." oninput="RNI()" style="width:200px">
-      <label style="display:flex;align-items:center;gap:4px;cursor:pointer"><input type="checkbox" id="nf5" onchange="RNI()" style="cursor:pointer">🖥️ 빅테크만</label>
     </div>
     <div class="tw" style="max-height:600px;overflow-y:auto">
       <table><thead><tr>
@@ -1696,16 +1547,6 @@ Chart.defaults.plugins.legend.labels.usePointStyle=true;Chart.defaults.plugins.l
 Chart.defaults.plugins.legend.labels.padding=12;Chart.defaults.animation.duration=600;
 
 // ═══ Tab switching ═══
-const TECH_KW=['amzn','amazon','googl','goog','alphabet','msft','microsoft','meta platforms','facebook','orcl','oracle','nvda','nvidia'];
-function isTechIssue(i){{
-  const hay=((i.ticker||'')+' '+(i.issuer||'')).toLowerCase();
-  return TECH_KW.some(k=>hay.includes(k));
-}}
-(function(){{
-  const n=(D.newIssues||[]).filter(isTechIssue).length;
-  const b=document.getElementById('techBadge');
-  if(n>0)b.innerHTML=' <span style="background:var(--rd,#c0392b);color:#fff;border-radius:8px;padding:0 5px;font-size:10px;font-weight:700">'+n+'</span>';
-}})();
 document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{{
   document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
   document.querySelectorAll('.tp').forEach(x=>x.classList.remove('active'));
@@ -1717,13 +1558,6 @@ document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{{
 // ═══ TAB 1 ═══
 const bonds=D.bonds;
 let sel=new Set(bonds.slice(0,12).map(b=>b.label));
-// 보유 수량 기본값 (단위: M, 8874잔고 파일 기준 ISIN별 합산)
-const QTY_DATA={{"US302154DM88":1,"US65540KAK16":3,"US05971KAV17":10,"US06051GNA30":1,"US06738ECX13":10,"US06738EDJ10":10,"US09659X3B68":2,"US11135FBY60":8,"US38141GF335":20,"US38141GWV21":1.5,"US404280CV97":5,"US404280FL88":10,"US44891CCU53":12,"US44891CDD20":13,"US44891CDQ33":17,"US44891CED11":2,"US44891CEP41":1,"US456837BU63":10,"US606822DS05":5,"US60687YDL02":1,"US61747YFY68":10,"US65535HAY53":28.09,"US65535HBM07":10,"US65535HCL15":1,"US780097BG51":13,"US82460EAN04":5,"US83368TCJ51":1,"US86562MED83":5,"US95000U3T82":5,"US95000U4H36":5,"US95000U4J91":5,"US98105HAG56":17.3,"USG84228FZ63":12,"USH3698DBM59":7,"USH3698DCW23":11,"USH42097FT99":1,"USJ5903AAA28":1.7,"USU8531HAA87":5,"USY29011DG83":5,"USY29011DM51":2.5,"USY3815NBK64":2.5,"USY5S5CGAB83":4.2,"USY5S5CGAK82":0.2,"USY5S80VAB27":18,"USY70750CB13":22.6,"USY7S272AG74":5,"USY7S27KAX02":5,"USY8085FBD16":34,"USY8085FBK58":16.8,"USY8085FBL32":13,"USY8085FBU31":6.9,"USY8085FBZ28":7.5,"XS1795263281":8.8,"XS1932879130":19.5,"XS2703610050":66.5,"XS2985211569":21,"XS3078370726":0.5,"XS3189630372":21.5,"XS3299380850":3,"XS3304372868":10,"XS3412559299":9,"XS3423950230":5,"FR0014010FH7":20,"US02079KBM80":0.5,"US05964HBJ32":1,"US06051GHZ54":5,"US09659X2X97":5,"US38141GC365":1,"US404280EM70":2,"US44891CEA71":0.5,"US46647PEJ12":17,"US46647PEV40":1,"US46647PFD33":0.5,"US46647PFE16":2,"US46647PFJ03":1,"US500631AE67":2.845,"US61748UAR32":10,"US61748UAV44":10,"US61778EUR07":0.5,"US65535HCB33":0.5,"US65535HCK32":1,"US780097BL47":5,"US91282CGT27":1,"US91282CJZ59":11.5,"US91282CKQ32":2,"US91282CLR06":3,"US91282CNC19":15,"US95000U3P60":10,"USG84228FL77":3,"USG84228FY98":2,"USH42097EV54":10,"USJ5901UAH52":5.2,"USJ5S39RAM64":2,"USJ5S39RAU80":2,"USJ7771YTM95":1,"USY5S5CGAR36":9,"USY5S5CGAV48":7,"USY7S272AL69":0.2,"USY7S272AM43":20.2,"USY8085FBY52":0.2,"XS2395327641":20,"XS2559683359":10,"XS2739009939":3.099,"XS2747557416":0.4,"XS3017043053":25,"XS3028206350":20,"XS3030377132":20,"XS3412558648":5,"XS3423950313":4,"KR6065904G23":80,"US302154EB15":2,"US404280BT50":10,"US404280CC17":5,"US404280CF48":5,"US404280EG03":12,"US404280EN53":2,"US404280ER67":13,"US404280EW52":15,"US44891CBL63":10.5,"US44891CCE12":15,"US44891CCJ09":8.2,"US44891CCP68":7.4,"US44891CDB63":10,"US44891CDH34":5.5,"US44891CDL46":10,"US44891CDM29":48.5,"US44891CDW01":0.5,"US44891CEE93":4,"US50050HAN61":10.5,"US500630ED65":1,"US50064FAY07":0.5,"US50064FBA12":0.5,"USH42097FS17":6,"USJ5S39RAS35":3,"USY4899GGX52":21.1,"USY5S5CGAL65":129.9,"USY5S5CGAN22":2,"USY5S5CGAP79":16.5,"USY5S5CGAS19":3,"XS2739009855":9,"XS2798085416":0.2,"XS3109629371":17.6,"XS3187679041":5.2,"XS3219365635":22.223,"XS3299373996":49.4,"US05964HBG92":13,"US06051GMW68":5,"US22536PAB76":5,"US38141GD355":10,"US38145GAR11":10,"US44891CDF77":1,"US44891CDG50":2,"US60687YDF34":5,"US61748UAS15":20,"US91282CNT44":94,"US91282CNW72":20,"US91282CNZ04":16,"US91282CPM72":100,"US91282CPZ85":40,"US91282CQQ77":30,"USY70750CC95":10,"XS2651633609":0.3,"XS2052998403":3,"XS2082472122":1,"XS2167007918":5,"XS3127996778":1,"US06738ECY95":15,"US38141GB607":0.5,"US500631AH98":15,"US912810UC08":4,"USJ5S39RAV63":5,"XS2565831943":5,"XS2982332400":2,"XS3268973453":3,"US46647PFG63":5,"US95000U4D22":10,"USY7S272AK86":0.2,"HK0001277489":3,"US302154DG11":10,"US302154DY27":0.5,"US302154DZ91":0.5,"US302154ED70":0.2,"US302154EE53":0.8,"US302154EM79":11.5,"US302154EQ83":3.7,"US302154ER66":5,"US302154ES40":10,"US45604HAQ02":0.2,"US45604HAS67":10,"US500630EG96":0.5,"US500630EH79":0.5,"US500630EK09":13.4,"US500630EM64":3.7,"US500630ER51":0.5,"US50066CAV19":0.2,"US65540KAG04":2.7,"US98105GAP72":0.5,"USY2350DER36":9.2,"USY2387CVK89":3.2,"USY4841M6A22":0.5,"USY4841PAD43":5,"USY4841PAG73":3.5,"USY4841PAK85":6,"USY4872AMX28":1,"USY4872ATJ60":5,"USY48861DE86":19.5,"USY4899GHF38":6,"USY4907LAG78":6.3,"USY4907LAR34":0.2,"USY4938AAM19":0.2,"USY4938AAT61":0.5,"USY4938AAV18":2.2,"USY4938AAW90":0.5,"USY4938AAY56":0.2,"USY49915BC76":0.5,"USY6396XAF60":1,"USY6396XAG44":1,"USY6396XAK55":5.5,"USY7770HAE81":0.2,"USY7T4K3AC40":8,"USY9700WAD84":0.2,"XS1211568735":10,"XS1456425666":30,"XS2367816076":3.5,"XS2393758987":2,"XS2457676257":8.266,"XS2600704956":2.119,"XS2629403499":13.4,"XS2682195016":3.5,"XS2790212828":7.322,"XS2803406698":5,"XS2803407233":5.2,"XS2917896685":0.2,"XS3037640037":1,"XS3037681908":5.6,"XS3053429638":3,"XS3056053799":9.2,"XS3177263418":5.7,"XS3322576417":0.6,"XS3340625626":1.74,"JP541005AQB3":3700,"JP541034ARB1":100,"JP541037AS71":1000,"XS2867997368":5000,"HK0001319182":1,"USY49915BF08":0.2,"XS3344489755":200,"XS3033158885":300}};
-// CDS 포지션 (Sheet2 기준, 단위 M) — 현물과 별도 유지, 가중평균 계산에는 미포함
-const CDS_QTY_DATA={{"US302154EB15":124.4308,"US500630ED65":120.7379,"US302154EK14":116.4605,"US500630EH79":116.6667,"US50064FBA12":320,"USY7S272AG74":85.0833,"USY8085FBK58":82.75,"US44891CDL46":116.6667,"USY5S5CGAL65":158.3333,"US44891CDM29":120.4405,"KR6065904G23":123.3333,"US404280CF48":79.8333,"USY4899GGX52":45,"XS3299373996":56.5}};
-// 운용코드 (8874잔고 파일 기준, ISIN별 보유 펀드코드 — 복수 펀드 보유 시 콤마로 구분)
-const FUND_DATA={{"US302154DM88":"10227","US65540KAK16":"10227, 42003","US05971KAV17":"28096","US06051GNA30":"28096","US06738ECX13":"28096","US06738EDJ10":"28096","US09659X3B68":"28096","US11135FBY60":"28096","US38141GF335":"28096","US38141GWV21":"28096","US404280CV97":"28096","US404280FL88":"28096","US44891CCU53":"28096","US44891CDD20":"28096, 34578","US44891CDQ33":"28096, 34578","US44891CED11":"28096","US44891CEP41":"28096","US456837BU63":"28096","US606822DS05":"28096","US60687YDL02":"28096","US61747YFY68":"28096","US65535HAY53":"28096","US65535HBM07":"28096","US65535HCL15":"28096","US780097BG51":"28096","US82460EAN04":"28096","US83368TCJ51":"28096","US86562MED83":"28096","US95000U3T82":"28096","US95000U4H36":"28096","US95000U4J91":"28096","US98105HAG56":"28096","USG84228FZ63":"28096","USH3698DBM59":"28096","USH3698DCW23":"28096","USH42097FT99":"28096","USJ5903AAA28":"28096, 34507","USU8531HAA87":"28096","USY29011DG83":"28096","USY29011DM51":"28096","USY3815NBK64":"28096, 42003","USY5S5CGAB83":"28096","USY5S5CGAK82":"28096","USY5S80VAB27":"28096, 34578","USY70750CB13":"28096, 34507, 34578","USY7S272AG74":"28096","USY7S27KAX02":"28096","USY8085FBD16":"28096","USY8085FBK58":"28096","USY8085FBL32":"28096, 34507","USY8085FBU31":"28096","USY8085FBZ28":"28096","XS1795263281":"28096","XS1932879130":"28096","XS2703610050":"28096, 34507, 38064","XS2985211569":"28096","XS3078370726":"28096","XS3189630372":"28096","XS3299380850":"28096","XS3304372868":"28096","XS3412559299":"28096, 34507","XS3423950230":"28096, 42003","FR0014010FH7":"34507","US02079KBM80":"34507","US05964HBJ32":"34507","US06051GHZ54":"34507","US09659X2X97":"34507","US38141GC365":"34507","US404280EM70":"34507","US44891CEA71":"34507","US46647PEJ12":"34507","US46647PEV40":"34507","US46647PFD33":"34507","US46647PFE16":"34507","US46647PFJ03":"34507","US500631AE67":"34507","US61748UAR32":"34507","US61748UAV44":"34507","US61778EUR07":"34507","US65535HCB33":"34507","US65535HCK32":"34507","US780097BL47":"34507","US91282CGT27":"34507","US91282CJZ59":"34507","US91282CKQ32":"34507","US91282CLR06":"34507","US91282CNC19":"34507","US95000U3P60":"34507","USG84228FL77":"34507","USG84228FY98":"34507","USH42097EV54":"34507","USJ5901UAH52":"34507, 38038","USJ5S39RAM64":"34507","USJ5S39RAU80":"34507","USJ7771YTM95":"34507","USY5S5CGAR36":"34507, 38088","USY5S5CGAV48":"34507","USY7S272AL69":"34507","USY7S272AM43":"34507, 38038","USY8085FBY52":"34507","XS2395327641":"34507","XS2559683359":"34507","XS2739009939":"34507","XS2747557416":"34507","XS3017043053":"34507","XS3028206350":"34507","XS3030377132":"34507","XS3412558648":"34507","XS3423950313":"34507, 42003","KR6065904G23":"34578","US302154EB15":"34578","US404280BT50":"34578","US404280CC17":"34578","US404280CF48":"34578","US404280EG03":"34578","US404280EN53":"34578","US404280ER67":"34578","US404280EW52":"34578","US44891CBL63":"34578","US44891CCE12":"34578","US44891CCJ09":"34578","US44891CCP68":"34578","US44891CDB63":"34578","US44891CDH34":"34578","US44891CDL46":"34578","US44891CDM29":"34578","US44891CDW01":"34578","US44891CEE93":"34578","US50050HAN61":"34578","US500630ED65":"34578","US50064FAY07":"34578","US50064FBA12":"34578","USH42097FS17":"34578","USJ5S39RAS35":"34578","USY4899GGX52":"34578","USY5S5CGAL65":"34578","USY5S5CGAN22":"34578","USY5S5CGAP79":"34578","USY5S5CGAS19":"34578","XS2739009855":"34578","XS2798085416":"34578","XS3109629371":"34578","XS3187679041":"34578","XS3219365635":"34578, 42003","XS3299373996":"34578","US05964HBG92":"38038","US06051GMW68":"38038","US22536PAB76":"38038","US38141GD355":"38038","US38145GAR11":"38038","US44891CDF77":"38038","US44891CDG50":"38038","US60687YDF34":"38038","US61748UAS15":"38038","US91282CNT44":"38038, 38088","US91282CNW72":"38038","US91282CNZ04":"38038","US91282CPM72":"38038","US91282CPZ85":"38038, 38088","US91282CQQ77":"38038, 38088","USY70750CC95":"38038","XS2651633609":"38038","XS2052998403":"38070","XS2082472122":"38070","XS2167007918":"38070","XS3127996778":"38070","US06738ECY95":"38088","US38141GB607":"38088","US500631AH98":"38088","US912810UC08":"38088","USJ5S39RAV63":"38088","XS2565831943":"38167","XS2982332400":"38167","XS3268973453":"38167","US46647PFG63":"38168","US95000U4D22":"38168","USY7S272AK86":"38168","HK0001277489":"42003","US302154DG11":"42003","US302154DY27":"42003","US302154DZ91":"42003","US302154ED70":"42003","US302154EE53":"42003","US302154EM79":"42003","US302154EQ83":"42003","US302154ER66":"42003","US302154ES40":"42003","US45604HAQ02":"42003","US45604HAS67":"42003","US500630EG96":"42003","US500630EH79":"42003","US500630EK09":"42003","US500630EM64":"42003","US500630ER51":"42003","US50066CAV19":"42003","US65540KAG04":"42003","US98105GAP72":"42003","USY2350DER36":"42003","USY2387CVK89":"42003","USY4841M6A22":"42003","USY4841PAD43":"42003","USY4841PAG73":"42003","USY4841PAK85":"42003","USY4872AMX28":"42003","USY4872ATJ60":"42003","USY48861DE86":"42003","USY4899GHF38":"42003","USY4907LAG78":"42003","USY4907LAR34":"42003","USY4938AAM19":"42003","USY4938AAT61":"42003","USY4938AAV18":"42003","USY4938AAW90":"42003","USY4938AAY56":"42003","USY49915BC76":"42003","USY6396XAF60":"42003","USY6396XAG44":"42003","USY6396XAK55":"42003","USY7770HAE81":"42003","USY7T4K3AC40":"42003","USY9700WAD84":"42003","XS1211568735":"42003","XS1456425666":"42003","XS2367816076":"42003","XS2393758987":"42003","XS2457676257":"42003","XS2600704956":"42003","XS2629403499":"42003","XS2682195016":"42003","XS2790212828":"42003","XS2803406698":"42003","XS2803407233":"42003","XS2917896685":"42003","XS3037640037":"42003","XS3037681908":"42003","XS3053429638":"42003","XS3056053799":"42003","XS3177263418":"42003","XS3322576417":"42003","XS3340625626":"42003","JP541005AQB3":"42006","JP541034ARB1":"42006","JP541037AS71":"42006","XS2867997368":"42006","HK0001319182":"42011","USY49915BF08":"42011"}};
-bonds.forEach(function(b){{b.fund=FUND_DATA[b.isin]!==undefined?FUND_DATA[b.isin]:'-'}});
 let sc='spread',sd=-1;
 let ch1,ch2,ch3;
 
@@ -1739,16 +1573,13 @@ function GF(){{
     return true;
   }});
 }}
-function fundOf(b){{return FUND_DATA[b.isin]!==undefined?FUND_DATA[b.isin]:'-'}}
 function GF2(){{
   var s=document.getElementById('fs2').value,m=document.getElementById('fm2').value,
-      r=document.getElementById('fr2').value,x=document.getElementById('fx2').value.toLowerCase(),
-      fd=document.getElementById('ff2').value;
+      r=document.getElementById('fr2').value,x=document.getElementById('fx2').value.toLowerCase();
   return bonds.filter(function(b){{
     if(s!=='ALL'&&b.sector!==s)return false;
     if(m!=='ALL'&&b.matBucket!==m)return false;
     if(r!=='ALL'&&b.region!==r)return false;
-    if(fd!=='ALL'&&!fundOf(b).split(', ').includes(fd))return false;
     if(x&&!b.label.toLowerCase().includes(x)&&!(b.issuer||'').toLowerCase().includes(x))return false;
     return true;
   }});
@@ -1772,210 +1603,13 @@ function UC(){{
   document.getElementById('fc').textContent=`선택: ${{sel.size}}개 / 필터: ${{f.length}}개 / 전체: ${{bonds.length}}개`;
 }}
 
-// ─── 그룹별 스프레드 요약표 ───
-function RST(){{
-  var matOrder=['1-3년','3-5년','5-7년','7-10년','10-20년','20년 이상'];
-  var matLabels={{'1-3년':'1-3Y','3-5년':'3-5Y','5-7년':'5-7Y','7-10년':'7-10Y','10-20년':'10-20Y','20년 이상':'20Y+'}};
-
-  // 집계 함수
-  function agg(arr){{
-    if(!arr||!arr.length) return null;
-    var sp=arr.filter(function(b){{return b.spread!=null&&b.spread>0;}});
-    if(!sp.length) return null;
-    var avgSp=sp.reduce(function(s,b){{return s+b.spread;}},0)/sp.length;
-    var c1=sp.filter(function(b){{return b.chg1d!=null;}});
-    var cw=sp.filter(function(b){{return b.chg1w!=null;}});
-    var cm=sp.filter(function(b){{return b.chg1m!=null;}});
-    var c3=sp.filter(function(b){{return b.chg3m!=null;}});
-    return {{
-      sp: avgSp, n: sp.length,
-      a1: c1.length?c1.reduce(function(s,b){{return s+b.chg1d;}},0)/c1.length:null,
-      aw: cw.length?cw.reduce(function(s,b){{return s+b.chg1w;}},0)/cw.length:null,
-      am: cm.length?cm.reduce(function(s,b){{return s+b.chg1m;}},0)/cm.length:null,
-      a3: c3.length?c3.reduce(function(s,b){{return s+b.chg3m;}},0)/c3.length:null,
-      minSp: Math.min.apply(null,sp.map(function(b){{return b.spread;}})),
-      maxSp: Math.max.apply(null,sp.map(function(b){{return b.spread;}}))
-    }};
-  }}
-
-  function spColor(v){{
-    if(v==null) return '#6b7280';
-    if(v>=150) return '#f87171';
-    if(v>=120) return '#fb923c';
-    if(v>=90)  return '#fbbf24';
-    if(v>=70)  return '#a3e635';
-    return '#4ade80';
-  }}
-  function chgColor(v){{
-    if(v==null) return '#6b7280';
-    if(v>5) return '#f87171'; if(v>2) return '#fb923c'; if(v>0) return '#fcd34d';
-    if(v<-5) return '#4ade80'; if(v<-2) return '#86efac'; if(v<0) return '#d9f99d';
-    return '#6b7280';
-  }}
-  function fmt(v,dec){{ return v!=null?v.toFixed(dec!=null?dec:0):'-'; }}
-  function fmtChg(v){{ return v!=null?(v>=0?'+':'')+v.toFixed(1):'-'; }}
-
-  // 그룹 정의: [섹션 제목, dimension key, 순서 배열 or null(동적)]
-  var sections=[
-    ['지역', 'region', null],
-    ['섹터', 'sector', null],
-    ['만기', 'matBucket', matOrder]
-  ];
-
-  // 헤더
-  var TH = '<colgroup>'
-    +'<col style="width:130px"><col style="width:52px"><col style="width:72px">'
-    +'<col style="width:58px"><col style="width:58px"><col style="width:58px"><col style="width:58px">'
-    +'<col style="width:68px"><col style="width:68px">'
-    +'</colgroup>'
-    +'<thead><tr>'
-    +'<th style="text-align:left;padding:7px 12px;font-size:11px;color:var(--tx3);border-bottom:2px solid var(--bd);white-space:nowrap">구분</th>'
-    +'<th style="text-align:right;padding:7px 8px;font-size:11px;color:var(--tx3);border-bottom:2px solid var(--bd)">종목수</th>'
-    +'<th style="text-align:right;padding:7px 8px;font-size:11px;color:var(--tx3);border-bottom:2px solid var(--bd)">평균 bps</th>'
-    +'<th style="text-align:right;padding:7px 8px;font-size:11px;color:var(--tx3);border-bottom:2px solid var(--bd)">1D</th>'
-    +'<th style="text-align:right;padding:7px 8px;font-size:11px;color:var(--tx3);border-bottom:2px solid var(--bd)">1W</th>'
-    +'<th style="text-align:right;padding:7px 8px;font-size:11px;color:var(--tx3);border-bottom:2px solid var(--bd)">MTD</th>'
-    +'<th style="text-align:right;padding:7px 8px;font-size:11px;color:var(--tx3);border-bottom:2px solid var(--bd)">YTD</th>'
-    +'<th style="text-align:right;padding:7px 8px;font-size:11px;color:var(--tx3);border-bottom:2px solid var(--bd)">최저</th>'
-    +'<th style="text-align:right;padding:7px 8px;font-size:11px;color:var(--tx3);border-bottom:2px solid var(--bd)">최고</th>'
-    +'</tr></thead>';
-
-  function mkCell(v, styleStr){{
-    return '<td style="text-align:right;padding:7px 8px;font-size:12px;font-family:var(--mn);'+styleStr+'">'+v+'</td>';
-  }}
-
-  var TB='<tbody>';
-  var overallAgg = agg(bonds);
-
-  sections.forEach(function(sec, si){{
-    var secTitle=sec[0], dim=sec[1], orderArr=sec[2];
-    // 그룹 수집
-    var groupMap={{}};
-    bonds.forEach(function(b){{
-      var k=b[dim]; if(!k) return;
-      if(!groupMap[k]) groupMap[k]=[];
-      groupMap[k].push(b);
-    }});
-    var keys = orderArr
-      ? orderArr.filter(function(k){{return groupMap[k]&&groupMap[k].length>0;}})
-      : Object.keys(groupMap).sort();
-
-    // 섹션 헤더 행
-    var borderTop = si>0 ? 'border-top:2px solid var(--bd);' : '';
-    TB+='<tr>'
-      +'<td colspan="9" style="padding:8px 12px 4px;font-size:11px;font-weight:700;color:var(--ac);letter-spacing:.06em;text-transform:uppercase;'+borderTop+'background:rgba(59,130,246,.06)">▸ '+secTitle+'</td>'
-      +'</tr>';
-
-    keys.forEach(function(k, ki){{
-      var g=agg(groupMap[k]);
-      if(!g) return;
-      var label = dim==='matBucket'?(matLabels[k]||k):k;
-      var rowBg = ki%2===0?'':'background:rgba(255,255,255,.02)';
-      TB+='<tr class="grp-row" data-dim="'+dim+'" data-key="'+String(k).replace(/"/g,'&quot;')+'" style="cursor:pointer;'+rowBg+'">'
-        +'<td style="padding:7px 12px;font-size:12px;font-weight:500;color:var(--tx2);white-space:nowrap">'+label+'</td>'
-        +mkCell(g.n+'개', 'color:var(--tx3)')
-        +'<td style="text-align:right;padding:7px 8px;font-size:14px;font-weight:700;font-family:var(--mn);color:'+spColor(g.sp)+'">'+fmt(g.sp)+'</td>'
-        +mkCell(fmtChg(g.a1),'color:'+chgColor(g.a1))
-        +mkCell(fmtChg(g.aw),'color:'+chgColor(g.aw))
-        +mkCell(fmtChg(g.am),'color:'+chgColor(g.am))
-        +mkCell(fmtChg(g.a3),'color:'+chgColor(g.a3))
-        +mkCell(fmt(g.minSp),'color:var(--tx3);font-size:11px')
-        +mkCell(fmt(g.maxSp),'color:var(--tx3);font-size:11px')
-        +'</tr>';
-    }});
-  }});
-
-  // 전체 합계 행
-  if(overallAgg){{
-    TB+='<tr class="grp-row" data-dim="ALL" data-key="" style="cursor:pointer;border-top:2px solid var(--bd);background:rgba(59,130,246,.08)">'
-      +'<td style="padding:8px 12px;font-size:12px;font-weight:700;color:var(--ac)">전체 평균</td>'
-      +mkCell(overallAgg.n+'개','color:var(--tx2);font-weight:600')
-      +'<td style="text-align:right;padding:8px 8px;font-size:14px;font-weight:700;font-family:var(--mn);color:'+spColor(overallAgg.sp)+'">'+fmt(overallAgg.sp)+'</td>'
-      +mkCell(fmtChg(overallAgg.a1),'color:'+chgColor(overallAgg.a1)+';font-weight:600')
-      +mkCell(fmtChg(overallAgg.aw),'color:'+chgColor(overallAgg.aw)+';font-weight:600')
-      +mkCell(fmtChg(overallAgg.am),'color:'+chgColor(overallAgg.am)+';font-weight:600')
-      +mkCell(fmtChg(overallAgg.a3),'color:'+chgColor(overallAgg.a3)+';font-weight:600')
-      +mkCell(fmt(overallAgg.minSp),'color:var(--tx3)')
-      +mkCell(fmt(overallAgg.maxSp),'color:var(--tx3)')
-      +'</tr>';
-  }}
-  TB+='</tbody>';
-
-  document.getElementById('smt-container').innerHTML =
-    '<table style="width:100%;border-collapse:collapse;font-family:var(--mn)">'+TH+TB+'</table>';
-
-  // 그룹 행 클릭 -> 해당 그룹으로 종목 선택 (통계/차트) + 보유채권 목록도 같은 그룹으로 필터링
-  document.querySelectorAll('#smt-container tr.grp-row').forEach(function(tr){{
-    tr.addEventListener('click', function(){{
-      var dim=this.getAttribute('data-dim'), key=this.getAttribute('data-key');
-      var fs2=document.getElementById('fs2'), fm2=document.getElementById('fm2'), fr2=document.getElementById('fr2'),
-          fx2=document.getElementById('fx2');
-
-      if(dim==='ALL'){{
-        // 전체 평균 행: 통계/차트/목록 전부 리셋
-        SA();
-        fs2.value='ALL'; fm2.value='ALL'; fr2.value='ALL'; fx2.value='';
-        RT();
-        return;
-      }}
-
-      // 통계/차트 패널: 기존 선택 로직 재사용
-      if(dim==='region') SR(key);
-      else if(dim==='sector') SS(key);
-      else if(dim==='matBucket') SM2(key);
-
-      // 보유채권 목록 테이블: fs2/fm2/fr2 필터를 같은 그룹으로 맞추고 새로고침
-      fs2.value='ALL'; fm2.value='ALL'; fr2.value='ALL'; fx2.value='';
-      if(dim==='region') fr2.value=key;
-      else if(dim==='sector') fs2.value=key;
-      else if(dim==='matBucket') fm2.value=key;
-      RT();
-    }});
-  }});
-}}
-
 function RM(){{
   const s2=GS(),avg=s2.length?s2.reduce((a,b)=>a+(b.spread||0),0)/s2.length:0;
   const mx=s2.length?Math.max(...s2.map(b=>b.spread||0)):0;
   const mn=s2.length?Math.min(...s2.map(b=>b.spread||0)):0;
   const u10=D.ustCurve.now[8];
-  // 보유 수량 가중평균 G-spread (USD 채권만 대상; 통화별 커브가 다른 EUR/JPY 등은 별도 집계)
-  // UST(US9128xx): G-spread=0이므로 크레딧 가중평균 제외
-  // 참고: JPY채는 액면이 JPY 단위라 기존 근사 환산(÷130)을 유지. EUR 등 다른 통화가 JPY와 함께 섞이는 경우
-  // 서로 다른 통화 액면을 그대로 합산하게 되어 가중치가 부정확할 수 있음(라이브 FX 미적용, 근사치).
-  function isUST(isin){{return /^US912[0-9]/.test(isin||'')||isin==='US912810UC08';}}
-  const JPY_ISINS=new Set(['JP541005AQB3','JP541034ARB1','XS2867997368']);
-  const JPY_FX=130;
-  const savedQty=getPnLQty();
-  let wSum=0, wQty=0, wCnt=0;
-  let nwSum=0, nwQty=0, nwCnt=0; // 비USD (EUR/JPY 등) 집계
-  bonds.forEach(function(b){{
-    if(isUST(b.isin)) return;
-    const k=qtyKey(b.label);
-    let q=savedQty[k]!==undefined?savedQty[k]:(QTY_DATA[b.isin]!==undefined?QTY_DATA[b.isin]:0);
-    const isNonUsd = b.ccy && b.ccy!=='USD';
-    if(isNonUsd && JPY_ISINS.has(b.isin)) q=q/JPY_FX;
-    if(q>0&&b.spread!=null&&b.spread>0){{
-      if(isNonUsd){{ nwSum+=b.spread*q; nwQty+=q; nwCnt++; }}
-      else{{ wSum+=b.spread*q; wQty+=q; wCnt++; }}
-    }}
-  }});
-  const wAvg=wQty>0?wSum/wQty:null;
-  const nwAvg=nwQty>0?nwSum/nwQty:null;
   const mk=(l,v)=>`<div class="mc"><div class="lb">${{l}}</div><div class="vl">${{v}}</div></div>`;
-  const wDetail=wQty>0?`<div style="font-size:11px;color:var(--tx3);margin-top:4px;font-family:var(--mn)">${{wCnt}}개 · ${{wQty.toFixed(1)}}M (UST채 제외, USD만)</div>`:'';
-  const cards=[
-    mk('모니터링 종목',bonds.length+'개'),
-    mk('평균 G-spread',avg.toFixed(0)+' bps'),
-    `<div class="mc"><div class="lb">보유 가중평균 G-spread (USD)</div><div class="vl">${{wAvg!=null?wAvg.toFixed(1)+' bps':'-'}}</div>${{wDetail}}</div>`,
-    mk('최고 / 최저',mx+' / '+mn+' bps'),
-    mk('UST 10Y',(u10||0).toFixed(2)+'%')
-  ];
-  if(nwCnt>0){{
-    const nwDetail=`<div style="font-size:11px;color:var(--tx3);margin-top:4px;font-family:var(--mn)">${{nwCnt}}개 · ${{nwQty.toFixed(1)}}M (자국 국채 대비)</div>`;
-    cards.push(`<div class="mc"><div class="lb">보유 가중평균 G-spread (비USD)</div><div class="vl">${{nwAvg!=null?nwAvg.toFixed(1)+' bps':'-'}}</div>${{nwDetail}}</div>`);
-  }}
-  document.getElementById('m1').innerHTML=cards.join('');
+  document.getElementById('m1').innerHTML=[mk('모니터링 종목',bonds.length+'개'),mk('평균 G-spread',avg.toFixed(0)+' bps'),mk('최고 / 최저',mx+' / '+mn+' bps'),mk('UST 10Y',(u10||0).toFixed(2)+'%')].join('');
 }}
 
 function RS(){{
@@ -1991,7 +1625,7 @@ function RS(){{
     <span style="margin-left:16px"><span style="color:var(--tx3)">YTM:</span> <b>${{ay}}%</b></span>
     <span style="margin-left:16px"><span style="color:var(--tx3)">1D:</span> <b style="${{cc(a1)}}">${{fc(a1)}}</b></span>
     <span style="margin-left:16px"><span style="color:var(--tx3)">1W:</span> <b style="${{cc(aw)}}">${{fc(aw)}}</b></span>
-    <span style="margin-left:16px"><span style="color:var(--tx3)">MTD:</span> <b style="${{cc(am)}}">${{fc(am)}}</b></span>`;
+    <span style="margin-left:16px"><span style="color:var(--tx3)">1M:</span> <b style="${{cc(am)}}">${{fc(am)}}</b></span>`;
 }}
 
 function RC1(){{
@@ -2055,20 +1689,17 @@ function RC3(){{
 }}
 
 const TC=[
-  {{id:'label',n:'채권명',t:'t'}},{{id:'ccy',n:'통화',t:'t'}},{{id:'ytm',n:'YTM(%)',t:'n',f:v=>v?.toFixed(2)}},
+  {{id:'label',n:'채권명',t:'t'}},{{id:'ytm',n:'YTM(%)',t:'n',f:v=>v?.toFixed(2)}},
   {{id:'spread',n:'G-spread',t:'n',f:v=>v?.toFixed(0),c:'sp'}},
-  {{id:'ispread',n:'I-spread',t:'n',f:v=>v?.toFixed(0),c:'sp'}},
   {{id:'chg1d',n:'1D',t:'c',f:v=>v!=null?(v>=0?'+':'')+v.toFixed(1):'-'}},
   {{id:'chg1w',n:'1W',t:'c',f:v=>v!=null?(v>=0?'+':'')+v.toFixed(1):'-'}},
-  {{id:'chg1m',n:'MTD',t:'c',f:v=>v!=null?(v>=0?'+':'')+v.toFixed(1):'-'}},
-  {{id:'chg3m',n:'YTD',t:'c',f:v=>v!=null?(v>=0?'+':'')+v.toFixed(1):'-'}},
+  {{id:'chg1m',n:'1M',t:'c',f:v=>v!=null?(v>=0?'+':'')+v.toFixed(1):'-'}},
+  {{id:'chg3m',n:'3M',t:'c',f:v=>v!=null?(v>=0?'+':'')+v.toFixed(1):'-'}},
   {{id:'duration',n:'듀레이션',t:'n',f:v=>v?.toFixed(1)}},
   {{id:'matBucket',n:'만기',t:'t'}},{{id:'sector',n:'섹터',t:'t'}},
-  {{id:'rating',n:'등급',t:'t'}},{{id:'region',n:'지역',t:'t'}},
-  {{id:'fund',n:'운용코드',t:'t'}},
+  {{id:'issuer',n:'발행자',t:'t'}},{{id:'rating',n:'등급',t:'t'}},{{id:'region',n:'지역',t:'t'}},
   {{id:'_qty',n:'수량(M)',t:'q'}},
   {{id:'_pnl',n:'손익($)',t:'p'}},
-  {{id:'issuer',n:'발행자',t:'t'}},
 ];
 
 // 수량 localStorage
@@ -2086,7 +1717,7 @@ function getDelta(b){{
   return 0;
 }}
 
-function RH(theadId){{
+function RH(){{
   var h='';
   for(var i=0;i<TC.length;i++){{
     var c=TC[i];
@@ -2094,17 +1725,30 @@ function RH(theadId){{
     var cls=sc===c.id?'so':'';
     h+='<th class="'+cls+'" data-col="'+c.id+'">'+c.n+' <span style="font-size:10px">'+a+'</span></th>';
   }}
-  var thead=document.getElementById(theadId);
-  thead.innerHTML=h;
+  document.getElementById('th').innerHTML=h;
   // Attach click handlers
-  var ths=thead.querySelectorAll('th');
+  var ths=document.getElementById('th').querySelectorAll('th');
   for(var j=0;j<ths.length;j++){{
     ths[j].addEventListener('click',(function(col){{return function(){{SO(col)}}}})( TC[j].id ));
   }}
 }}
 function SO(c){{if(sc===c)sd*=-1;else{{sc=c;sd=-1}}RT()}}
+function RT(){{
+  RH();
+  let d=GF2();
+  const savedQty=getPnLQty();
 
-function buildRows(d){{
+  // _qty와 _pnl을 미리 계산해서 정렬 가능하게
+  d.forEach(function(b){{
+    const k=qtyKey(b.label);
+    b._qty=savedQty[k]!==undefined?savedQty[k]:0;
+    const delta=getDelta(b);
+    b._pnl=(b.duration&&b._qty)?-b.duration*(delta/10000)*b._qty*1000000:0;
+  }});
+
+  d.sort(function(a,b){{const av=a[sc],bv=b[sc];if(av==null)return 1;if(bv==null)return -1;
+    if(typeof av==='string')return av.localeCompare(bv)*sd;return(av-bv)*sd}});
+
   const rows=[];
   for(var j=0;j<d.length;j++){{
     var b=d[j];
@@ -2137,49 +1781,15 @@ function buildRows(d){{
     }}
     rows.push('<tr style="'+rs+'" data-label="'+b.label.replace(/"/g,'&quot;')+'">' + cells.join('') + '</tr>');
   }}
-  return rows;
-}}
-
-function attachRowClicks(tbodyId){{
-  var tbody=document.getElementById(tbodyId);
-  var trs=tbody.querySelectorAll('tr');
+  document.getElementById('tb').innerHTML=rows.join('');
+  // Row click delegation
+  var trs=document.getElementById('tb').querySelectorAll('tr');
   for(var ri=0;ri<trs.length;ri++){{
     trs[ri].addEventListener('click',function(){{
       var lbl=this.getAttribute('data-label');
       if(lbl)TB(lbl);
     }});
   }}
-}}
-
-function RT(){{
-  RH('th');
-  RH('th2');
-  let d=GF2();
-  const savedQty=getPnLQty();
-
-  // _qty와 _pnl을 미리 계산해서 정렬 가능하게
-  d.forEach(function(b){{
-    const k=qtyKey(b.label);
-    b._qty=savedQty[k]!==undefined?savedQty[k]:(QTY_DATA[b.isin]!==undefined?QTY_DATA[b.isin]:0);
-    const delta=getDelta(b);
-    b._pnl=(b.duration&&b._qty)?-b.duration*(delta/10000)*b._qty*1000000:0;
-    b.fund=FUND_DATA[b.isin]!==undefined?FUND_DATA[b.isin]:'-';
-  }});
-
-  d.sort(function(a,b){{const av=a[sc],bv=b[sc];if(av==null)return 1;if(bv==null)return -1;
-    if(typeof av==='string')return av.localeCompare(bv)*sd;return(av-bv)*sd}});
-
-  // USD 채권 / 비USD 채권(EUR·JPY 등) 분리
-  const usdRows=d.filter(b=>!b.ccy||b.ccy==='USD');
-  const nonUsdRows=d.filter(b=>b.ccy&&b.ccy!=='USD');
-
-  document.getElementById('tb').innerHTML=buildRows(usdRows).join('');
-  attachRowClicks('tb');
-
-  document.getElementById('tb2').innerHTML=buildRows(nonUsdRows).join('');
-  attachRowClicks('tb2');
-  document.getElementById('nonUsdWrap').style.display=nonUsdRows.length>0?'':'none';
-
   UC();
   updatePnLSummary(d);
 }}
@@ -2199,7 +1809,7 @@ function updatePnLSummary(data){{
   }}
   var totalFmt=totalPnL>=0?'+$'+Math.abs(Math.round(totalPnL)).toLocaleString():'-$'+Math.abs(Math.round(totalPnL)).toLocaleString();
   var totalCls=totalPnL>0?'color:var(--gn)':totalPnL<0?'color:var(--rd)':'';
-  var scenarioLabel={{'1d':'1일','1w':'1주','1m':'MTD','3m':'YTD'}}[getScenario()]||getScenario();
+  var scenarioLabel={{'1d':'1일','1w':'1주','1m':'1개월','3m':'3개월'}}[getScenario()]||getScenario();
   document.getElementById('pnl-summary').innerHTML=
     '<b style="'+totalCls+';font-size:16px">'+totalFmt+'</b>'
     +' <span style="color:var(--tx3);font-size:12px">| '+scenarioLabel+' 스프레드 변동 기준 | '
@@ -2210,7 +1820,6 @@ function updateQty(el){{
   var d=getPnLQty();
   d[el.getAttribute('data-key')]=parseFloat(el.value)||0;
   setPnLQty(d);
-  RM();
   RT();
 }}
 
@@ -2220,7 +1829,6 @@ function PF(){{
   var ss=[...new Set(bonds.map(b=>b.sector).filter(Boolean))].sort();
   var ms=[...new Set(bonds.map(b=>b.matBucket).filter(Boolean))];
   var rs=[...new Set(bonds.map(b=>b.region).filter(Boolean))].sort();
-  var fs=[...new Set(Object.values(FUND_DATA).flatMap(v=>v.split(', ')))].sort();
   // Chart filters
   ss.forEach(function(s){{var o=document.createElement('option');o.value=s;o.textContent=s;document.getElementById('fs').appendChild(o)}});
   ms.forEach(function(m){{var o=document.createElement('option');o.value=m;o.textContent=m;document.getElementById('fm').appendChild(o)}});
@@ -2229,12 +1837,10 @@ function PF(){{
   ss.forEach(function(s){{var o=document.createElement('option');o.value=s;o.textContent=s;document.getElementById('fs2').appendChild(o)}});
   ms.forEach(function(m){{var o=document.createElement('option');o.value=m;o.textContent=m;document.getElementById('fm2').appendChild(o)}});
   rs.forEach(function(r){{var o=document.createElement('option');o.value=r;o.textContent=r;document.getElementById('fr2').appendChild(o)}});
-  fs.forEach(function(fd){{var o=document.createElement('option');o.value=fd;o.textContent=fd;document.getElementById('ff2').appendChild(o)}});
 }}
 
 function R1(){{
   try{{RM()}}catch(e){{console.error('RM:',e)}}
-  try{{RST()}}catch(e){{console.error('RST:',e)}}
   try{{RS()}}catch(e){{console.error('RS:',e)}}
   try{{RC1()}}catch(e){{console.error('RC1:',e)}}
   try{{RC2()}}catch(e){{console.error('RC2:',e)}}
@@ -2242,277 +1848,6 @@ function R1(){{
   try{{RT()}}catch(e){{console.error('RT:',e)}}
 }}
 
-
-// ═══ CREDIT SENTIMENT INDICATOR (레벨 + 모멘텀 복합) ═══
-function buildSentimentWidget(){{
-  const mc=D.marketCurrent||{{}};
-  const mg=D.marketChanges||{{}};
-  const ec=D.etfCurrent||{{}};
-  const eg=D.etfChanges||{{}};
-
-  // ══════════════════════════════════════════════════════════════════════
-  // 신호 설계 철학
-  // ──────────────────────────────────────────────────────────────────────
-  // OAS/CDX/VIX/MOVE 는 모두 "높을수록 크레딧 리스크 高"
-  //
-  // [레벨 신호] — 밸류에이션 관점
-  //   OAS 와이드(高) → 채권 쌈 → 롱 기회  (+1)
-  //   OAS 타이트(低) → 채권 비쌈 → 숏/비중축소  (-1)
-  //
-  // [모멘텀 신호] — 추세/방향성 관점
-  //   OAS 1M 확대(+) → 추가 손실 리스크, but 매수 타이밍 접근  (+0.5 if 레벨도 와이드)
-  //   OAS 1M 축소(-) → 랠리 중, 추가 캐리 감소  (-0.5 if 레벨도 타이트)
-  //
-  // 복합 로직 (레벨 × 모멘텀 교차):
-  //   레벨=롱 + 모멘텀=확대 → "확대 중 매수 타이밍" → 강한 롱  (score +2)
-  //   레벨=롱 + 모멘텀=축소 → "이미 타이트해지는 중" → 롱 약화  (score +0.5)
-  //   레벨=숏 + 모멘텀=확대 → "타이트했던 스프레드 반전, 경계" → 중립~숏  (score -0.5)
-  //   레벨=숏 + 모멘텀=축소 → "타이트한데 더 축소" → 강한 숏  (score -2)
-  //   레벨=중립 + 모멘텀=확대 → 방어적 중립  (score +0.3)
-  //   레벨=중립 + 모멘텀=축소 → 중립~숏  (score -0.3)
-  //
-  // VIX / MOVE 는 레벨 자체가 공포지수 → 高=롱 기회(역발상), 低=주의
-  // 단, 모멘텀은 급등(급확대) 시 단기 손실 리스크도 있어 소폭만 반영
-  // ══════════════════════════════════════════════════════════════════════
-
-  const indicators=[];
-
-  function addIndicator(name, val, chg1m, chg1w,
-      // 레벨 기준: 와이드/高 → 롱 기회 (OAS 류)
-      lvlWide,   // 이 값 이상이면 레벨상 "와이드(롱기회)"
-      lvlTight,  // 이 값 이하이면 레벨상 "타이트(숏경고)"
-      // 모멘텀 임계: 1M 변화
-      momThresh, // 이 이상 확대면 "확대 모멘텀", 이하(음수)면 "축소"
-      weight,    // 지표 가중치 (OAS/CDX 높음, ETF 낮음)
-      unit       // 표시 단위
-  ){{
-    if(val==null) return;
-    const chg = chg1m!=null ? chg1m : 0;
-    const chgW = chg1w!=null ? chg1w : 0;
-
-    // ── 레벨 판정 ──
-    let lvlScore=0, lvlLabel='', lvlColor='#94a3b8';
-    if(val>=lvlWide){{      lvlScore=1;  lvlLabel='와이드 — 매수 가능권'; lvlColor='#22c55e'; }}
-    else if(val<=lvlTight){{ lvlScore=-1; lvlLabel='타이트 — 밸류 부담';  lvlColor='#ef4444'; }}
-    else{{                   lvlScore=0;  lvlLabel='중립 구간';            lvlColor='#94a3b8'; }}
-
-    // ── 모멘텀 판정 ──
-    let momScore=0, momLabel='', momColor='#94a3b8';
-    if(chg>=momThresh){{      momScore=1;  momLabel=`+${{chg.toFixed(1)}} 확대 → 롱 타이밍 접근`; momColor='#22c55e'; }}
-    else if(chg<=-momThresh){{ momScore=-1; momLabel=`${{chg.toFixed(1)}} 축소 → 캐리 매력 감소`;  momColor='#ef4444'; }}
-    else{{                     momScore=0;  momLabel=`${{chg>=0?'+':''}}${{chg.toFixed(1)}} 횡보`;  momColor='#94a3b8'; }}
-
-    // ── 복합 스코어 (레벨 우선, 모멘텀 교차 보정) ──
-    let compositeScore;
-    if(lvlScore===1  && momScore===1)  compositeScore = 2.0;   // 와이드 + 확대 중 = 최적 매수
-    else if(lvlScore===1  && momScore===0)  compositeScore = 1.0;   // 와이드 + 횡보
-    else if(lvlScore===1  && momScore===-1) compositeScore = 0.3;   // 와이드인데 이미 축소 중 (랠리 막바지 경계)
-    else if(lvlScore===0  && momScore===1)  compositeScore = 0.5;   // 중립 + 확대 (방어 롱)
-    else if(lvlScore===0  && momScore===0)  compositeScore = 0.0;
-    else if(lvlScore===0  && momScore===-1) compositeScore =-0.5;   // 중립 + 축소
-    else if(lvlScore===-1 && momScore===1)  compositeScore =-0.5;   // 타이트 + 반등 시작 (경계)
-    else if(lvlScore===-1 && momScore===0)  compositeScore =-1.0;   // 타이트 + 횡보
-    else                                    compositeScore =-2.0;   // 타이트 + 더 축소 = 최고 위험
-
-    indicators.push({{
-      name, val, chg, chgW, unit,
-      lvlScore, lvlLabel, lvlColor,
-      momScore, momLabel, momColor,
-      compositeScore, weight,
-      lvlWide, lvlTight
-    }});
-  }}
-
-  // ── 지표 등록 ───────────────────────────────────────────────────────
-  // OAS / CDX (가중치 1.5 — 핵심 크레딧 지표)
-  addIndicator('US IG OAS',  mc['US IG OAS'],  mg['US IG OAS']?.['1m'],  mg['US IG OAS']?.['1w'],  120, 85,  8, 1.5, 'bps');
-  addIndicator('US HY OAS',  mc['US HY OAS'],  mg['US HY OAS']?.['1m'],  mg['US HY OAS']?.['1w'],  450, 320, 25, 1.5, 'bps');
-  addIndicator('CDX IG 5Y',  mc['CDX IG 5Y'],  mg['CDX IG 5Y']?.['1m'],  mg['CDX IG 5Y']?.['1w'],  80,  55,  6, 1.2, 'bps');
-  addIndicator('CDX HY 5Y',  mc['CDX HY 5Y'],  mg['CDX HY 5Y']?.['1m'],  mg['CDX HY 5Y']?.['1w'],  420, 310, 20, 1.2, 'bps');
-  // 변동성 (가중치 1.0 — 공포지수, 高=롱 기회이나 단기 손실 위험)
-  addIndicator('VIX',        mc['VIX'],         mg['VIX']?.['1m'],         mg['VIX']?.['1w'],         25,  15,  3, 1.0, '');
-  addIndicator('MOVE',       mc['MOVE'],         mg['MOVE']?.['1m'],        mg['MOVE']?.['1w'],        140, 100, 10, 1.0, '');
-  // ETF OAS (가중치 0.8 — 보조 확인)
-  if(ec['LQD']!=null) addIndicator('LQD OAS', ec['LQD'], eg['LQD']?.['1m'], eg['LQD']?.['1w'], 130, 90, 8,  0.8, 'bps');
-  if(ec['HYG']!=null) addIndicator('HYG OAS', ec['HYG'], eg['HYG']?.['1m'], eg['HYG']?.['1w'], 420, 300, 20, 0.8, 'bps');
-
-  // ── 가중 합산 ────────────────────────────────────────────────────────
-  const totalWeighted = indicators.reduce((a,s)=>a + s.compositeScore * s.weight, 0);
-  const maxWeighted   = indicators.reduce((a,s)=>a + 2.0 * s.weight, 0);
-  const pct = maxWeighted>0 ? (totalWeighted + maxWeighted) / (maxWeighted * 2) : 0.5;
-
-  // 레벨 / 모멘텀 서브스코어 (별도 표시용)
-  const lvlTotal  = indicators.reduce((a,s)=>a + s.lvlScore  * s.weight, 0);
-  const momTotal  = indicators.reduce((a,s)=>a + s.momScore  * s.weight, 0);
-  const maxSub    = indicators.reduce((a,s)=>a + s.weight, 0);
-  const lvlPct    = maxSub>0 ? (lvlTotal + maxSub) / (maxSub * 2) : 0.5;
-  const momPct    = maxSub>0 ? (momTotal + maxSub) / (maxSub * 2) : 0.5;
-
-  // ── 종합 판정 ──────────────────────────────────────────────────────
-  let verdict, verdictColor, verdictEmoji, verdictDesc, verdictSub;
-  const normScore = maxWeighted>0 ? totalWeighted / maxWeighted : 0; // -1 ~ +1
-  if(normScore>=0.55){{
-    verdict='강한 롱'; verdictColor='#22c55e'; verdictEmoji='🟢';
-    verdictDesc='스프레드 와이드 + 확대 추세 — 크레딧 채권 적극 매수 구간';
-    verdictSub='IG 비중 확대, 듀레이션 연장 고려';
-  }} else if(normScore>=0.2){{
-    verdict='롱 우위'; verdictColor='#86efac'; verdictEmoji='🟩';
-    verdictDesc='레벨 또는 모멘텀 중 하나가 롱 지지 — 점진적 매수';
-    verdictSub='현 포지션 유지, 약세 시 추가 매수 대기';
-  }} else if(normScore>=-0.2){{
-    verdict='중립'; verdictColor='#94a3b8'; verdictEmoji='⬜';
-    verdictDesc='레벨·모멘텀 혼재 — 방향성 불명확';
-    verdictSub='신규 포지션 자제, 기존 포지션 유지';
-  }} else if(normScore>=-0.55){{
-    verdict='숏 우위'; verdictColor='#fb923c'; verdictEmoji='🟧';
-    verdictDesc='스프레드 타이트 또는 축소 추세 지속 — 비중 축소 검토';
-    verdictSub='듀레이션 단축, IG 단기물로 이동';
-  }} else {{
-    verdict='강한 숏'; verdictColor='#ef4444'; verdictEmoji='🔴';
-    verdictDesc='타이트한 스프레드 + 추가 축소 추세 — 크레딧 밸류 고점 경계';
-    verdictSub='크레딧 리스크 최소화, 국채/캐시 비중 확대';
-  }}
-
-  // ── 게이지 ────────────────────────────────────────────────────────
-  const gaugeW   = Math.min(98, Math.max(2, Math.round(pct*100)));
-  const lvlGaugeW= Math.min(98, Math.max(2, Math.round(lvlPct*100)));
-  const momGaugeW= Math.min(98, Math.max(2, Math.round(momPct*100)));
-  const gaugeGrad=`linear-gradient(90deg,#ef4444 0%,#fb923c 20%,#94a3b8 45%,#86efac 70%,#22c55e 100%)`;
-
-  // ── 지표 카드 렌더 ─────────────────────────────────────────────────
-  function indicatorCard(s){{
-    const unitStr = s.unit ? ' '+s.unit : '';
-    const compC = s.compositeScore>0.8?'#22c55e':s.compositeScore>0?'#86efac':s.compositeScore<-0.8?'#ef4444':s.compositeScore<0?'#fb923c':'#94a3b8';
-    const compLabel = s.compositeScore>=1.5?'강한 롱':s.compositeScore>0.1?'롱':s.compositeScore<=-1.5?'강한 숏':s.compositeScore<-0.1?'숏':'중립';
-    const bgTop = `background:${{s.compositeScore>0?'rgba(34,197,94,.07)':s.compositeScore<0?'rgba(239,68,68,.07)':'rgba(148,163,184,.04)'}}`;
-    // mini gauge bar for this indicator
-    const barPct = Math.min(98, Math.max(2, Math.round(((s.compositeScore+2)/4)*100)));
-    return `<div style="${{bgTop}};border:1px solid var(--bd);border-radius:10px;padding:12px 14px;min-width:148px;flex:1;">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-        <span style="font-size:11px;font-weight:600;color:var(--tx3);">${{s.name}}</span>
-        <span style="font-size:11px;font-weight:700;padding:2px 7px;border-radius:4px;background:${{compC}}22;color:${{compC}};">${{compLabel}}</span>
-      </div>
-      <div style="font-size:20px;font-weight:800;font-family:var(--mn);color:var(--tx);margin-bottom:8px;">
-        ${{s.val!=null?s.val.toFixed(1):'--'}}${{unitStr}}
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:8px;">
-        <div style="background:var(--sf2);border-radius:5px;padding:4px 7px;">
-          <div style="font-size:10px;color:var(--tx3);margin-bottom:1px;">레벨</div>
-          <div style="font-size:11px;font-weight:600;color:${{s.lvlColor}};">${{s.lvlLabel}}</div>
-        </div>
-        <div style="background:var(--sf2);border-radius:5px;padding:4px 7px;">
-          <div style="font-size:10px;color:var(--tx3);margin-bottom:1px;">모멘텀 (MTD)</div>
-          <div style="font-size:11px;font-weight:600;color:${{s.momColor}};">${{s.momLabel}}</div>
-        </div>
-      </div>
-      <div style="height:6px;border-radius:3px;background:var(--sf2);overflow:hidden;">
-        <div style="height:100%;width:${{barPct}}%;background:${{gaugeGrad}};transition:width .4s;"></div>
-      </div>
-    </div>`;
-  }}
-
-  // ── 매트릭스 테이블 (레벨 × 모멘텀) ─────────────────────────────────
-  const matrixRows = indicators.map(s=>{{
-    const unitStr=s.unit?' '+s.unit:'';
-    const fmt=(v,u)=>v!=null?(v>=0&&u?'+':'')+v.toFixed(1)+u:'--';
-    const compC=s.compositeScore>0.8?'#22c55e':s.compositeScore>0?'#86efac':s.compositeScore<-0.8?'#ef4444':s.compositeScore<0?'#fb923c':'#94a3b8';
-    return `<tr>
-      <td style="font-weight:600;color:var(--tx2);">${{s.name}}</td>
-      <td style="font-family:var(--mn);">${{s.val!=null?s.val.toFixed(1)+unitStr:'--'}}</td>
-      <td style="color:${{s.lvlColor}};font-weight:600;">${{s.lvlScore>0?'📈 와이드':s.lvlScore<0?'📉 타이트':'➡ 중립'}}</td>
-      <td style="font-family:var(--mn);color:${{s.momColor}};">${{fmt(s.chg,' '+s.unit)}}</td>
-      <td style="color:${{s.momColor}};font-weight:600;">${{s.momScore>0?'↑ 확대':s.momScore<0?'↓ 축소':'→ 횡보'}}</td>
-      <td style="font-weight:700;color:${{compC}};">${{s.compositeScore>=0?'+':''}}${{s.compositeScore.toFixed(1)}}</td>
-    </tr>`;
-  }}).join('');
-
-  document.getElementById('sentimentWidget').innerHTML=`
-  <div style="padding:14px 0;">
-
-    <!-- ① 종합 판정 패널 -->
-    <div style="display:flex;gap:16px;margin-bottom:20px;flex-wrap:wrap;align-items:stretch;">
-
-      <!-- 판정 박스 -->
-      <div style="background:var(--sf2);border:2px solid ${{verdictColor}};border-radius:12px;padding:16px 24px;text-align:center;min-width:170px;display:flex;flex-direction:column;justify-content:center;">
-        <div style="font-size:11px;color:var(--tx3);margin-bottom:6px;letter-spacing:.5px;">크레딧 종합 판단</div>
-        <div style="font-size:26px;font-weight:900;color:${{verdictColor}};line-height:1.1;">${{verdictEmoji}} ${{verdict}}</div>
-        <div style="font-size:11px;color:var(--tx3);margin-top:8px;">가중 스코어 ${{totalWeighted>=0?'+':''}}${{totalWeighted.toFixed(1)}} / ${{maxWeighted.toFixed(1)}}</div>
-      </div>
-
-      <!-- 게이지 패널 -->
-      <div style="flex:1;min-width:240px;display:flex;flex-direction:column;gap:10px;justify-content:center;">
-        <div>
-          <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--tx3);margin-bottom:4px;">
-            <span>종합 신호</span><span>${{(normScore*100).toFixed(0)}}점 (−100~+100)</span>
-          </div>
-          <div style="height:18px;border-radius:9px;background:var(--sf2);border:1px solid var(--bd);overflow:hidden;position:relative;">
-            <div style="height:100%;background:${{gaugeGrad}};opacity:.85;"></div>
-            <div style="position:absolute;left:${{gaugeW}}%;top:-3px;width:10px;height:24px;background:#fff;border:2px solid #334155;border-radius:2px;transform:translateX(-50%);"></div>
-          </div>
-          <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--tx3);margin-top:2px;"><span>강한 숏</span><span>중립</span><span>강한 롱</span></div>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-          <div>
-            <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--tx3);margin-bottom:3px;"><span>📐 레벨 (밸류에이션)</span></div>
-            <div style="height:10px;border-radius:5px;background:var(--sf2);overflow:hidden;position:relative;">
-              <div style="height:100%;background:${{gaugeGrad}};opacity:.75;"></div>
-              <div style="position:absolute;left:${{lvlGaugeW}}%;top:-2px;width:8px;height:14px;background:#fff;border:1.5px solid #334155;border-radius:2px;transform:translateX(-50%);"></div>
-            </div>
-          </div>
-          <div>
-            <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--tx3);margin-bottom:3px;"><span>📈 모멘텀 (MTD 추세)</span></div>
-            <div style="height:10px;border-radius:5px;background:var(--sf2);overflow:hidden;position:relative;">
-              <div style="height:100%;background:${{gaugeGrad}};opacity:.75;"></div>
-              <div style="position:absolute;left:${{momGaugeW}}%;top:-2px;width:8px;height:14px;background:#fff;border:1.5px solid #334155;border-radius:2px;transform:translateX(-50%);"></div>
-            </div>
-          </div>
-        </div>
-        <div style="font-size:12px;color:var(--tx2);line-height:1.5;background:var(--sf2);border-left:3px solid ${{verdictColor}};padding:8px 12px;border-radius:0 6px 6px 0;">
-          <strong>${{verdictDesc}}</strong><br>
-          <span style="color:var(--tx3);font-size:11px;">${{verdictSub}}</span>
-        </div>
-      </div>
-
-      <!-- 레벨 × 모멘텀 매트릭스 범례 -->
-      <div style="min-width:200px;background:var(--sf2);border:1px solid var(--bd);border-radius:10px;padding:12px;">
-        <div style="font-size:11px;font-weight:600;color:var(--tx2);margin-bottom:8px;">📌 복합 신호 해석</div>
-        <div style="display:grid;grid-template-columns:auto 1fr;gap:3px 8px;font-size:10px;color:var(--tx3);">
-          <span style="color:#22c55e;font-weight:700;">+2</span><span>와이드 + 확대 → 적극 매수</span>
-          <span style="color:#86efac;font-weight:700;">+1</span><span>와이드 + 횡보 → 매수 유지</span>
-          <span style="color:#86efac;font-weight:700;">+0.5</span><span>중립 + 확대 → 방어 롱</span>
-          <span style="color:#86efac;font-weight:700;">+0.3</span><span>와이드 + 축소 → 랠리 막바지 주의</span>
-          <span style="color:#94a3b8;font-weight:700;"> 0</span><span>중립 + 횡보 → 관망</span>
-          <span style="color:#fb923c;font-weight:700;">−0.5</span><span>중립 + 축소 → 비중 경계</span>
-          <span style="color:#fb923c;font-weight:700;">−0.5</span><span>타이트 + 확대 → 반전 경계</span>
-          <span style="color:#fb923c;font-weight:700;">−1</span><span>타이트 + 횡보 → 비중 축소</span>
-          <span style="color:#ef4444;font-weight:700;">−2</span><span>타이트 + 축소 → 적극 축소</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- ② 지표별 카드 -->
-    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
-      ${{indicators.map(s=>indicatorCard(s)).join('')}}
-    </div>
-
-    <!-- ③ 매트릭스 테이블 -->
-    <div style="background:var(--sf2);border:1px solid var(--bd);border-radius:10px;padding:14px 18px;">
-      <div style="font-size:12px;font-weight:600;color:var(--tx2);margin-bottom:10px;">📊 레벨 × 모멘텀 상세 매트릭스</div>
-      <div class="tw"><table>
-        <thead><tr>
-          <th>지표</th><th>현재값</th><th>레벨 판단</th><th>MTD 변화</th><th>모멘텀</th><th>복합 스코어</th>
-        </tr></thead>
-        <tbody>${{matrixRows}}</tbody>
-      </table></div>
-      <div style="font-size:10px;color:var(--tx3);margin-top:10px;padding-top:8px;border-top:1px solid var(--bd);">
-        ⚠️ 레벨 기준 — IG OAS: 와이드≥120 / 타이트≤85 bps &nbsp;|&nbsp; HY OAS: ≥450 / ≤320 &nbsp;|&nbsp; CDX IG: ≥80 / ≤55 &nbsp;|&nbsp; CDX HY: ≥420 / ≤310 &nbsp;|&nbsp; VIX: ≥25 / ≤15 &nbsp;|&nbsp; MOVE: ≥140 / ≤100<br>
-        모멘텀 임계 — MTD 변화가 IG OAS ±8bps, HY OAS ±25bps, CDX IG ±6bps, CDX HY ±20bps, VIX ±3, MOVE ±10 초과 시 신호 발생<br>
-        본 인디케이터는 보조 참고용이며, 실제 투자 판단은 매크로·개별신용·유동성 분석을 종합해야 합니다.
-      </div>
-    </div>
-  </div>
-  `;
-}}
 // ═══ TAB 2 ═══
 let t2r=false;
 function R2(){{
@@ -2527,10 +1862,9 @@ function R2(){{
       <div style="display:flex;gap:10px;font-size:11px;margin-top:6px;font-family:var(--mn)">
         <span class="dl ${{cc(g['1d'])}}">1D:${{fc(g['1d'])}}</span>
         <span class="dl ${{cc(g['1w'])}}">1W:${{fc(g['1w'])}}</span>
-        <span class="dl ${{cc(g['1m'])}}">MTD:${{fc(g['1m'])}}</span></div></div>`;
+        <span class="dl ${{cc(g['1m'])}}">1M:${{fc(g['1m'])}}</span></div></div>`;
   }}).join('');
 
-  buildSentimentWidget();
   const cnames=['US IG OAS','US HY OAS','CDX IG 5Y','CDX HY 5Y'];
   const mkds=(n)=>{{const ts=mt[n];if(!ts)return{{dates:[],vals:[]}};const k=Object.keys(ts).sort();return{{dates:k,vals:k.map(d=>ts[d])}}}};
   const cd0=mkds(cnames[0]);
@@ -2648,7 +1982,7 @@ function R2(){{
             +'<div style="font-size:10px;display:flex;gap:5px;">'
             +'<span class="dl '+cc3(chg['1d'])+'">1D:'+fc3(chg['1d'])+'</span>'
             +'<span class="dl '+cc3(chg['1w'])+'">1W:'+fc3(chg['1w'])+'</span>'
-            +'<span class="dl '+cc3(chg['1m'])+'">MTD:'+fc3(chg['1m'])+'</span>'
+            +'<span class="dl '+cc3(chg['1m'])+'">1M:'+fc3(chg['1m'])+'</span>'
             +'</div></div>';
     }}).join('');
 
@@ -2669,15 +2003,12 @@ function R2(){{
           backgroundColor:bColors.map(c=>c+'BB'), borderColor:bColors,
           borderWidth:1.5, borderRadius:4}}]}},
         options:{{responsive:true,maintainAspectRatio:false,
-          plugins:{{
-            legend:{{display:false}},
-            tooltip:{{callbacks:{{label:c=>{{const v=c.parsed.y;return(v>=0?'+':'')+v.toFixed(1)+'% ('+(v>=0?'프리미엄':'할인')+')';}}}}}}
-          }},
+          plugins:{{legend:{{display:false}},
+            tooltip:{{callbacks:{{label:c=>{{const v=c.parsed.y;return(v>=0?'+':'')+v.toFixed(1)+'% ('+(v>=0?'프리미엄':'할인')+')';}}}},
           scales:{{
-            x:{{grid:{{display:false}},ticks:{{font:{{size:11}}}}}},
-            y:{{grid:{{color:'rgba(42,53,80,.3)'}},ticks:{{font:{{size:10}},callback:v=>v+'%'}}}}
+            x:{{grid:{{display:false}},ticks:{{font:{{size:11}}}},
+            y:{{grid:{{color:'rgba(42,53,80,.3)'}},ticks:{{font:{{size:10}},callback:v=>v+'%'}}
           }}
-        }}
       }});
     }}
 
@@ -2705,17 +2036,17 @@ function R2(){{
         data:{{labels:tLabels, datasets:tDatasets}},
         options:{{responsive:true,maintainAspectRatio:false,
           interaction:{{mode:'index',intersect:false}},
-          plugins:{{legend:{{position:'top',labels:{{font:{{size:10}},boxWidth:12,padding:6}}}}}},
+          plugins:{{legend:{{position:'top',labels:{{font:{{size:10}},boxWidth:12,padding:6}}}},
           scales:{{
-            x:{{grid:{{display:false}},ticks:{{maxTicksLimit:6,font:{{size:10}},maxRotation:0}}}},
-            y:{{grid:{{color:'rgba(42,53,80,.3)'}},ticks:{{font:{{size:10}}}}}}
+            x:{{grid:{{display:false}},ticks:{{maxTicksLimit:6,font:{{size:10}},maxRotation:0}},
+            y:{{grid:{{color:'rgba(42,53,80,.3)'}},ticks:{{font:{{size:10}}}}
           }}
-        }}
       }});
     }}
-  }}  // if bdcNames
-  }}  // if etNames
-}}  // R2
+  }}
+
+  }}
+}}
 
 // ═══ TAB 3: Issuer Curves (fixed) ═══
 let t3r=false;
@@ -2870,13 +2201,11 @@ function RNI(){{
   const f2=document.getElementById('nf2').value;
   const f3=document.getElementById('nf3').value;
   const f4=document.getElementById('nf4').value.toLowerCase();
-  const f5=document.getElementById('nf5').checked;
   const filtered=ni.filter(i=>{{
     if(f1!=='ALL'&&i.ighy!==f1)return false;
     if(f2!=='ALL'&&i.status!==f2)return false;
     if(f3!=='ALL'&&i.cor!==f3)return false;
     if(f4&&!(i.issuer||'').toLowerCase().includes(f4)&&!(i.ticker||'').toLowerCase().includes(f4))return false;
-    if(f5&&!isTechIssue(i))return false;
     return true;
   }});
   document.getElementById('niCount').textContent=filtered.length+'건 표시 / 전체 '+ni.length+'건';
