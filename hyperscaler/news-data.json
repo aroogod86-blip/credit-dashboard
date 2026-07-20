@@ -1,53 +1,53 @@
 {
-  "date": "2026-07-17",
+  "date": "2026-07-20",
   "items": [
     {
       "t": "AAPL",
-      "h": "장중 시총 $4.9T로 엔비디아를 제치고 세계 시가총액 1위 잠시 탈환(iPhone 판매 호조·AI 수익화 기대) — OpenAI 前직원 다수에 영업비밀 소송 관련 법적 통지 발송, DOJ 반독점 소송 조기 합의 협상설도 부각",
-      "m": "2026-07-17 · TheStreet/MacRumors/CNN",
-      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-july-17-2026"
+      "h": "차익실현에 주가 조정, 실적 발표(7/30) 앞두고 변동성 확대",
+      "m": "애플 주가가 월요일 2~3% 하락. 최근 랠리(연초 대비 +20%, 시총 $5조 근접)에 따른 차익실현 매물 출회. BofA는 Buy 등급 유지하며 서비스 부문 YoY +14% 성장 전망. 7/30 Q3 실적 발표가 핵심 변수(컨센서스 EPS $1.88, +20% YoY). 메모리 비용 상승에 따른 마진 압박 우려도 존재.",
+      "url": "https://www.fxleaders.com/news/2026/07/20/apple-aapl-stock-slips-below-325-ahead-of-earnings-after-overtaking-nvidia-as-worlds-most-valuable-company/"
     },
     {
       "t": "NVDA",
-      "h": "주가 -5% 급락 — 삼성 예비실적 부진, 중국 DeepSeek의 자체 AI칩 개발설, Netlist의 삼성 HBM/DDR5 ITC 제소(공급망 리스크)까지 겹치며 AI 밸류에이션 우려 재부각, 이 여파로 애플에 시총 1위 자리 일시 내줌",
-      "m": "2026-07-17 · TimothySykes/Motley Fool/CNN",
-      "url": "https://www.timothysykes.com/news/nvidia-corporation-nvda-news-2026_07_17/"
+      "h": "$200 지지선 테스트, 중국 AI 경쟁 및 AMD 신제품 공개로 압박",
+      "m": "엔비디아 주가가 $200 부근에서 지지력 테스트 중. 중국 Moonshot의 Kimi K3 모델 공개와 AMD의 랙스케일 AI 시스템 'Helios'(MSFT/Meta/OpenAI/Oracle 고객 확보) 발표가 경쟁 우려 자극. PHLX 반도체 지수는 기술적 약세장(고점 대비 -20%+) 진입. Kyber NVL144 지연설은 회사측이 부인.",
+      "url": "https://www.fxleaders.com/news/2026/07/20/nvidia-stock-nvda-tests-200-support-as-chinese-ai-competition-shakes-the-chip-rally/"
     },
     {
       "t": "META",
-      "h": "Anthropic와 $10B 규모 컴퓨팅 파워 임대 협상 초기 단계 보도(SpaceX와의 유사 딜에 이은 두번째) — Wedbush는 아마존을 하이퍼스케일러 최선호주로 재지목하며 메타 AI 수익화 회의론 제기, 주가 -2% 대 조정",
-      "m": "2026-07-17 · CNBC/CNN/FX Leaders",
-      "url": "https://www.cnbc.com/2026/07/17/anthropic-meta-ai-compute.html"
+      "h": "AI 클라우드 임대 전략 부각 속 주가 소폭 상승",
+      "m": "메타 주가 월요일 +1% 내외 상승. 잉여 AI 컴퓨팅 용량을 외부에 임대하는 클라우드 사업 전환 보도가 이어지는 가운데, Q2 실적은 7/29 발표 예정. 일부 보도에서는 $174B 규모 기존 투자 축소 가능성도 제기.",
+      "url": "https://www.benzinga.com/analyst-stock-ratings/analyst-color/26/07/60559570/metas-ad-machine-shows-no-signs-of-slowing-analyst"
     },
     {
       "t": "GOOGL",
-      "h": "차세대 Gemini 3.5 Pro 출시 지연 우려로 주가 -2.2%, EU는 안드로이드·검색 개방 명령 — BMO는 목표가 $455로 상향하며 실적(7/22) 앞두고 '톱픽' 유지",
-      "m": "2026-07-17 · CNBC/CNN",
-      "url": "https://www.cnn.com/markets/stocks/GOOGL"
+      "h": "Q2 실적(7/22) 앞두고 $350선 회복, AI 비용 대 성장 논쟁 지속",
+      "m": "알파벳 주가가 $350 위로 반등하며 7/22 Q2 실적 발표를 대기. 컨센서스 매출 $116.8B(+21% YoY), EPS $2.86. Google Cloud 성장세와 AI 인프라 투자 대비 수익화 여부가 핵심 관전 포인트. EU의 Android 관련 시정명령은 7/27 예상.",
+      "url": "https://www.fxleaders.com/news/2026/07/20/alphabet-earnings-preview-google-goog-stock-climbs-as-investors-balance-ai-costs-against-growth/"
     },
     {
       "t": "MU",
-      "h": "Anthropic向 DRAM·HBM·스토리지 공급계약 체결 발표(1차 메모리·스토리지 공급사) — Qualcomm·Hyundai Mobis 등과의 자동차향 장기공급계약도 겹치며 주가 +3.3% 반등, 최근 3주간 -25% 조정은 진정 국면",
-      "m": "2026-07-17 · TradingKey",
-      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262037234-micron-mu-stock-down-20-percent-july-17-2026-support-812-tradingkey"
+      "h": "대규모 자사주 매입 기대감에 급등, 반도체 로테이션 수혜",
+      "m": "마이크론 주가 +3%대 상승. UBS는 2028년까지 자사주 매입 규모가 발행주식의 40% 이상에 달할 수 있다고 전망(2028년까지 누적 FCF $400B 이상 예상). 자사주 매입은 2026년 12월까지 제한되어 있으나 이후 전액 FCF를 매입에 투입 가능하다는 분석. 다만 중국 경쟁 및 AI 지출 지속가능성 우려로 최근 고점 대비 25%+ 조정 상태.",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/why-micron-mu-stock-today-171133676.html"
     },
     {
       "t": "AVGO",
-      "h": "Netlist가 삼성 HBM/DDR3 관련 ITC 특허침해 제소에서 브로드컴을 공동 피소인으로 지목(브로드컴 시스템에 해당 부품 탑재) — 법적 불확실성 부각되며 주가 -2.5%",
-      "m": "2026-07-17 · TimothySykes/Morningstar",
-      "url": "https://www.timothysykes.com/news/broadcom-inc-avgo-news-2026_07_17/"
+      "h": "반도체 섹터 반등 속 +3% 상승, 지난주 Kimi K3발 매도세에서 회복",
+      "m": "브로드컴 주가 +3%대 상승하며 반도체 섹터 전반적 반등에 동참. 지난주 중국 Moonshot Kimi K3 모델 공개로 촉발된 칩 섹터 매도세에서 벗어나는 모습. 미·중 수출규제 강화 우려 및 중국의 '탈미국산 칩' 정책 리스크는 지속 모니터링 필요.",
+      "url": "https://www.tradingkey.com/news/market-movers/262042027-market-movers-avgo-20260720"
     },
     {
       "t": "AMZN",
-      "h": "자율주행 자회사 Zoox, 로보택시가 짙은 연기 속으로 주행한 사고 이후 소프트웨어 리콜 실시 — 실적발표(7/30) 앞두고 Wedbush는 메타 대비 아마존을 하이퍼스케일러 우위주로 재확인",
-      "m": "2026-07-17 · CNBC/CNN",
-      "url": "https://www.cnn.com/markets/stocks/AMZN"
+      "h": "7/30 실적 앞두고 AI 자본지출 vs 수익화 논쟁 지속",
+      "m": "아마존은 Trainium/Graviton 자체 칩 사업이 연 $20B 이상 매출 규모로 성장했고, Anthropic과 $100B+ 규모 계약을 포함해 $225B 상당의 Trainium 매출 확약을 확보했다고 언급. Bedrock 토큰 처리량은 2026년 1분기에 과거 전체 누적치를 초과. 7/30 Q2 실적에서 $194~199B 매출 가이던스 달성 여부가 관건.",
+      "url": "https://247wallst.com/investing/2026/07/20/prediction-amazon-is-a-buy-before-july-30-with-30-upside/"
     },
     {
       "t": "ORCL",
-      "h": "뉴멕시코주가 오라클의 2.5GW 데이터센터 프로젝트용 파이프라인 건설을 불허 — 지난주 S&P의 BBB- 강등 여진 속 주가는 +1.8%로 소폭 반등, FY26 인력 13%(약 2.1만명) 감축 사실도 재조명",
-      "m": "2026-07-17 · CNN/TimothySykes",
-      "url": "https://www.cnn.com/markets/stocks/ORCL"
+      "h": "5년물 CDS 스프레드 사이클 최고치 경신, 하이퍼스케일러 신용 리스크 부각",
+      "m": "오라클의 5년물 CDS 스프레드가 약 196.6bp까지 상승하며 다년간 최고 수준을 기록, NVDA 등 여타 반도체/하이퍼스케일러 신용 스프레드도 동반 확대. 대규모 AI 데이터센터 투자에 따른 잉여현금흐름 악화가 배경. S&P는 이미 BBB에서 BBB-로 강등한 상태로 투자등급 최하단에 위치. 주가는 연초 대비 -37% 수준.",
+      "url": "https://seekingalpha.com/news/4615543-tech-credit-risk-rises-as-oracle-cds-hits-cycle-high-nvidia-spreads-widen"
     }
   ]
 }
