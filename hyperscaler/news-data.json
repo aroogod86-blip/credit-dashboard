@@ -1,53 +1,53 @@
 {
-  "date": "2026-07-20",
+  "date": "2026-07-22",
   "items": [
     {
       "t": "AAPL",
-      "h": "차익실현에 주가 조정, 실적 발표(7/30) 앞두고 변동성 확대",
-      "m": "애플 주가가 월요일 2~3% 하락. 최근 랠리(연초 대비 +20%, 시총 $5조 근접)에 따른 차익실현 매물 출회. BofA는 Buy 등급 유지하며 서비스 부문 YoY +14% 성장 전망. 7/30 Q3 실적 발표가 핵심 변수(컨센서스 EPS $1.88, +20% YoY). 메모리 비용 상승에 따른 마진 압박 우려도 존재.",
-      "url": "https://www.fxleaders.com/news/2026/07/20/apple-aapl-stock-slips-below-325-ahead-of-earnings-after-overtaking-nvidia-as-worlds-most-valuable-company/"
+      "h": "Apple, Klarna와 기기 리스 프로그램 'Apple Upgrade' 출시 (7/28)",
+      "m": "Apple가 Klarna를 금융 파트너로 삼아 iPhone/iPad/Mac/Watch 대상 구독형 리스 프로그램을 7월 28일 출시할 예정. 소프트 신용조회 방식이며 일부 저가 모델은 제외. Apple 주가는 연초 대비 +20%, 시총 약 5조 달러 근접.",
+      "url": "https://9to5mac.com/2026/07/21/apple-debuting-new-apple-upgrade-leasing-program-next-week-per-report/"
     },
     {
       "t": "NVDA",
-      "h": "$200 지지선 테스트, 중국 AI 경쟁 및 AMD 신제품 공개로 압박",
-      "m": "엔비디아 주가가 $200 부근에서 지지력 테스트 중. 중국 Moonshot의 Kimi K3 모델 공개와 AMD의 랙스케일 AI 시스템 'Helios'(MSFT/Meta/OpenAI/Oracle 고객 확보) 발표가 경쟁 우려 자극. PHLX 반도체 지수는 기술적 약세장(고점 대비 -20%+) 진입. Kyber NVL144 지연설은 회사측이 부인.",
-      "url": "https://www.fxleaders.com/news/2026/07/20/nvidia-stock-nvda-tests-200-support-as-chinese-ai-competition-shakes-the-chip-rally/"
+      "h": "NVIDIA, Nebius 지분 9.3% 보유 공시… 반도체株 반등",
+      "m": "NVIDIA가 네오클라우드 업체 Nebius에 대한 9.3% 수동적 지분을 공시하며 주가 급등. 전일 반도체 섹터 전반이 반등(나스닥 +1.29%)했고 Micron·AMD 등 메모리/AI 관련주가 강세. NVDA는 $204~208 구간에서 거래.",
+      "url": "https://www.cnn.com/markets/stocks/NVDA"
     },
     {
       "t": "META",
-      "h": "AI 클라우드 임대 전략 부각 속 주가 소폭 상승",
-      "m": "메타 주가 월요일 +1% 내외 상승. 잉여 AI 컴퓨팅 용량을 외부에 임대하는 클라우드 사업 전환 보도가 이어지는 가운데, Q2 실적은 7/29 발표 예정. 일부 보도에서는 $174B 규모 기존 투자 축소 가능성도 제기.",
-      "url": "https://www.benzinga.com/analyst-stock-ratings/analyst-color/26/07/60559570/metas-ad-machine-shows-no-signs-of-slowing-analyst"
+      "h": "BlackRock, Meta 데이터센터向 120억달러+ 부채 조달 추진",
+      "m": "BlackRock이 GIP·HPS를 통해 Meta의 El Paso 데이터센터 프로젝트를 위한 120억 달러 이상 규모 부채 매각을 준비 중. 최근 조사에 따르면 빅테크 기업들의 표외(off-balance-sheet) 부채가 1.65조 달러로 급증했으며, 이 중 Meta의 표외부채는 약 4,200억 달러로 추정.",
+      "url": "https://www.bloomberg.com/news/articles/2026-07-20/blackrock-s-meta-deal-to-show-the-power-of-25-billion-m-a-spree"
     },
     {
       "t": "GOOGL",
-      "h": "Q2 실적(7/22) 앞두고 $350선 회복, AI 비용 대 성장 논쟁 지속",
-      "m": "알파벳 주가가 $350 위로 반등하며 7/22 Q2 실적 발표를 대기. 컨센서스 매출 $116.8B(+21% YoY), EPS $2.86. Google Cloud 성장세와 AI 인프라 투자 대비 수익화 여부가 핵심 관전 포인트. EU의 Android 관련 시정명령은 7/27 예상.",
-      "url": "https://www.fxleaders.com/news/2026/07/20/alphabet-earnings-preview-google-goog-stock-climbs-as-investors-balance-ai-costs-against-growth/"
+      "h": "Alphabet, 7/22 실적 발표 앞두고 주가 회복… AI 자본지출 집중 관찰",
+      "m": "Alphabet은 7월 22일 장 마감 후 2분기 실적을 발표하며, 매출 컨센서스는 약 1,168억 달러(+21% YoY), Google Cloud는 약 228억 달러(+67%)로 예상. 연간 AI 인프라 자본지출 가이던스는 1,800~1,900억 달러 수준으로 투자자들은 수익화 지표에 주목.",
+      "url": "https://finance.yahoo.com/technology/article/google-parent-alphabet-to-report-q2-earnings-in-latest-test-of-ai-trade-110000124.html"
     },
     {
       "t": "MU",
-      "h": "대규모 자사주 매입 기대감에 급등, 반도체 로테이션 수혜",
-      "m": "마이크론 주가 +3%대 상승. UBS는 2028년까지 자사주 매입 규모가 발행주식의 40% 이상에 달할 수 있다고 전망(2028년까지 누적 FCF $400B 이상 예상). 자사주 매입은 2026년 12월까지 제한되어 있으나 이후 전액 FCF를 매입에 투입 가능하다는 분석. 다만 중국 경쟁 및 AI 지출 지속가능성 우려로 최근 고점 대비 25%+ 조정 상태.",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/why-micron-mu-stock-today-171133676.html"
+      "h": "Micron 12% 급등… AI 메모리 수요·BofA 강세 의견",
+      "m": "Micron 주가가 하루 만에 약 12% 급등하며 메모리 반도체 랠리를 주도. BofA는 오픈소스 AI 모델 확산이 오히려 메모리 수요를 늘린다며 목표주가 상향, 최근 30일간 15% 조정을 받았던 주가가 반등. 3분기 실적은 컨센서스를 크게 상회.",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/07/21/stock-market-today-july-21-micron-surges-12-as-semiconductor-strength-lifts-nasdaq/"
     },
     {
       "t": "AVGO",
-      "h": "반도체 섹터 반등 속 +3% 상승, 지난주 Kimi K3발 매도세에서 회복",
-      "m": "브로드컴 주가 +3%대 상승하며 반도체 섹터 전반적 반등에 동참. 지난주 중국 Moonshot Kimi K3 모델 공개로 촉발된 칩 섹터 매도세에서 벗어나는 모습. 미·중 수출규제 강화 우려 및 중국의 '탈미국산 칩' 정책 리스크는 지속 모니터링 필요.",
-      "url": "https://www.tradingkey.com/news/market-movers/262042027-market-movers-avgo-20260720"
+      "h": "Broadcom, Netlist 특허 관련 ITC 조사 대상에 포함 — 밸류에이션 주목",
+      "m": "미국 국제무역위원회(ITC)가 Netlist의 특허침해 제소에 따라 Samsung 메모리 제품 및 Broadcom을 포함한 고객사에 대한 조사를 개시. 주가는 최근 30일간 -8% 조정되었으나 애널리스트 컨센서스는 여전히 Strong Buy 유지. 최근 선순위채 텐더오퍼 한도를 25억→30억 달러로 상향, 약 29억 달러 매입 완료.",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/broadcom-avgo-still-undervalued-netlist-061112166.html"
     },
     {
       "t": "AMZN",
-      "h": "7/30 실적 앞두고 AI 자본지출 vs 수익화 논쟁 지속",
-      "m": "아마존은 Trainium/Graviton 자체 칩 사업이 연 $20B 이상 매출 규모로 성장했고, Anthropic과 $100B+ 규모 계약을 포함해 $225B 상당의 Trainium 매출 확약을 확보했다고 언급. Bedrock 토큰 처리량은 2026년 1분기에 과거 전체 누적치를 초과. 7/30 Q2 실적에서 $194~199B 매출 가이던스 달성 여부가 관건.",
-      "url": "https://247wallst.com/investing/2026/07/20/prediction-amazon-is-a-buy-before-july-30-with-30-upside/"
+      "h": "Amazon, Trainium AI 칩 AWS 외부 판매 확대… 부채 확대 우려도",
+      "m": "Amazon이 자체 개발 Trainium AI 칩을 AWS 내부용에서 벗어나 외부 고객에게 직접 판매하기 시작하며 NVIDIA 등과 직접 경쟁 구도 형성. 동시에 약 237억 달러 규모 선순위 무담보채 발행 등 AI 인프라 확충을 위한 부채 조달이 지속되며 신용 측면에서 레버리지 확대가 관찰됨. 2분기 실적은 7/30 발표 예정.",
+      "url": "https://www.sahmcapital.com/news/content/amazon-amzn-starts-selling-trainium-ai-chips-beyond-aws-and-into-rival-turf-2026-07-15"
     },
     {
       "t": "ORCL",
-      "h": "5년물 CDS 스프레드 사이클 최고치 경신, 하이퍼스케일러 신용 리스크 부각",
-      "m": "오라클의 5년물 CDS 스프레드가 약 196.6bp까지 상승하며 다년간 최고 수준을 기록, NVDA 등 여타 반도체/하이퍼스케일러 신용 스프레드도 동반 확대. 대규모 AI 데이터센터 투자에 따른 잉여현금흐름 악화가 배경. S&P는 이미 BBB에서 BBB-로 강등한 상태로 투자등급 최하단에 위치. 주가는 연초 대비 -37% 수준.",
-      "url": "https://seekingalpha.com/news/4615543-tech-credit-risk-rises-as-oracle-cds-hits-cycle-high-nvidia-spreads-widen"
+      "h": "Oracle 5년 CDS 사상 최고치 경신… 신용등급 정크 한 단계 위",
+      "m": "Oracle의 5년물 CDS 스프레드가 198bp를 돌파하며 사상 최고치 경신, 2008년 금융위기 수준을 상회. S&P는 최근 신용등급을 BBB-로 한 단계 강등(단기등급도 A-2→A-3)했고 Moody's는 부정적 전망 유지. FY2026 잉여현금흐름은 -237억 달러로 AI 데이터센터 투자가 지속되는 가운데 채권 수익률은 7.8%까지 상승.",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/oracles-credit-risk-nears-18-151000986.html"
     }
   ]
 }
