@@ -3,51 +3,51 @@
   "items": [
     {
       "t": "AAPL",
-      "h": "Apple, Klarna와 기기 리스 프로그램 'Apple Upgrade' 출시 (7/28)",
-      "m": "Apple가 Klarna를 금융 파트너로 삼아 iPhone/iPad/Mac/Watch 대상 구독형 리스 프로그램을 7월 28일 출시할 예정. 소프트 신용조회 방식이며 일부 저가 모델은 제외. Apple 주가는 연초 대비 +20%, 시총 약 5조 달러 근접.",
-      "url": "https://9to5mac.com/2026/07/21/apple-debuting-new-apple-upgrade-leasing-program-next-week-per-report/"
+      "h": "Mac 라인업 전면 개편 발표, Tim Cook 마지막 실적발표 앞둬",
+      "m": "Apple가 M6 칩 탑재 14인치 MacBook Pro를 포함한 Mac 전체 라인업 개편을 발표. BofA는 Buy 등급과 목표주가 $380을 유지하며 7/30 2분기 실적이 컨센서스(매출 $109bn, EPS $1.89)를 상회할 것으로 전망. 해당 실적발표는 Tim Cook의 CEO 마지막 컨퍼런스콜이 될 예정(후임 John Ternus).",
+      "url": "https://www.bloomberg.com/news/articles/2026-07-22/apple-to-launch-new-macbook-air-imac-macbook-pro-neo-mac-mini-mac-studio"
     },
     {
       "t": "NVDA",
-      "h": "NVIDIA, Nebius 지분 9.3% 보유 공시… 반도체株 반등",
-      "m": "NVIDIA가 네오클라우드 업체 Nebius에 대한 9.3% 수동적 지분을 공시하며 주가 급등. 전일 반도체 섹터 전반이 반등(나스닥 +1.29%)했고 Micron·AMD 등 메모리/AI 관련주가 강세. NVDA는 $204~208 구간에서 거래.",
-      "url": "https://www.cnn.com/markets/stocks/NVDA"
+      "h": "Kyber NVL144 지연설 부인 후 반등, Goldman 밸류에이션 매력적 평가",
+      "m": "Nvidia 주가가 $200 부근 저점에서 3%대 반등. 차세대 랙스케일 시스템 Kyber NVL144의 출시 지연 루머를 회사측이 부인했고, Goldman Sachs는 21.7배 선행 P/E가 S&P500 평균과 비슷한 수준으로 '매력적(compelling)'이라고 평가. 다만 밸류에이션과 경쟁 심화, 대중 수출 규제 관련 우려는 지속.",
+      "url": "https://www.fxleaders.com/news/2026/07/22/nvda-stock-outlook-nvidia-rebound-offers-relief-as-ai-bubble-faces-tougher-questions/"
     },
     {
       "t": "META",
-      "h": "BlackRock, Meta 데이터센터向 120억달러+ 부채 조달 추진",
-      "m": "BlackRock이 GIP·HPS를 통해 Meta의 El Paso 데이터센터 프로젝트를 위한 120억 달러 이상 규모 부채 매각을 준비 중. 최근 조사에 따르면 빅테크 기업들의 표외(off-balance-sheet) 부채가 1.65조 달러로 급증했으며, 이 중 Meta의 표외부채는 약 4,200억 달러로 추정.",
-      "url": "https://www.bloomberg.com/news/articles/2026-07-20/blackrock-s-meta-deal-to-show-the-power-of-25-billion-m-a-spree"
+      "h": "Anthropic과 100억달러 컴퓨팅 리스 논의, 숨은부채 4200억달러 규모로 확대",
+      "m": "Meta가 Anthropic에 컴퓨팅 용량을 임대하는 100억달러 규모 계약을 논의 중이라는 보도로 4번째 주요 클라우드 프로바이더 진입 기대감 부각. 한편 Meta의 부외부채(hidden debt) 규모가 4200억달러로 계속 증가 중이라는 지적도 나옴. 2분기 실적은 7/29 발표 예정이며, 시장은 Meta Compute(잉여 AI 컴퓨팅 임대 사업) 관련 공식 코멘트 여부에 주목.",
+      "url": "https://www.fool.com/investing/2026/07/21/prediction-mark-zuckerberg-will-make-an-announceme/"
     },
     {
       "t": "GOOGL",
-      "h": "Alphabet, 7/22 실적 발표 앞두고 주가 회복… AI 자본지출 집중 관찰",
-      "m": "Alphabet은 7월 22일 장 마감 후 2분기 실적을 발표하며, 매출 컨센서스는 약 1,168억 달러(+21% YoY), Google Cloud는 약 228억 달러(+67%)로 예상. 연간 AI 인프라 자본지출 가이던스는 1,800~1,900억 달러 수준으로 투자자들은 수익화 지표에 주목.",
-      "url": "https://finance.yahoo.com/technology/article/google-parent-alphabet-to-report-q2-earnings-in-latest-test-of-ai-trade-110000124.html"
+      "h": "2분기 실적 매출 $119.8bn(+24%) 서프라이즈, 클라우드 82% 급성장 vs capex 우려",
+      "m": "Alphabet 2분기 매출이 전년비 24% 증가한 $119.8bn으로 컨센서스($116.9bn)를 상회. Google Cloud 매출은 82% 급증한 $24.8bn을 기록했으나, 자본지출 가이던스($180-190bn, 2027년 추가 증액 시사)와 영업마진 둔화가 부각되며 주가는 실적 서프라이즈에도 소폭 상승에 그침. GAAP EPS $9.11은 Anthropic·SpaceX 지분 평가이익 반영으로 컨센서스($2.90)를 크게 상회.",
+      "url": "https://seekingalpha.com/news/4616900-alphabet-delivers-q2-beat-with-cloud-revenue-surging-82-capex-disappoints"
     },
     {
       "t": "MU",
-      "h": "Micron 12% 급등… AI 메모리 수요·BofA 강세 의견",
-      "m": "Micron 주가가 하루 만에 약 12% 급등하며 메모리 반도체 랠리를 주도. BofA는 오픈소스 AI 모델 확산이 오히려 메모리 수요를 늘린다며 목표주가 상향, 최근 30일간 15% 조정을 받았던 주가가 반등. 3분기 실적은 컨센서스를 크게 상회.",
-      "url": "https://www.fool.com/coverage/stock-market-today/2026/07/21/stock-market-today-july-21-micron-surges-12-as-semiconductor-strength-lifts-nasdaq/"
+      "h": "$848→$970대 반등, MS·BofA '저가매수' 의견, HBM 계약 $22bn 유지",
+      "m": "Micron이 7/20 저점($848.95) 대비 급반등하며 $970선 회복. Morgan Stanley는 최근 조정을 매수 기회로, BofA는 중국 오픈소스 AI 모델 확산이 오히려 메모리 수요를 늘릴 것이라며 66% 상승여력을 제시. 16건의 비취소 HBM 고객계약(총 $22bn 이상, 2026년까지 매진)이 펀더멘털 지지 요인으로 재확인됨. SK Hynix 나스닥 상장(7/10)에 따른 경쟁 심화는 리스크 요인으로 지목.",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262047242-micron-mu-stock-recovery-july-22-2026-morgan-stanley-bofa-buy-22b-contracts-tradingkey"
     },
     {
       "t": "AVGO",
-      "h": "Broadcom, Netlist 특허 관련 ITC 조사 대상에 포함 — 밸류에이션 주목",
-      "m": "미국 국제무역위원회(ITC)가 Netlist의 특허침해 제소에 따라 Samsung 메모리 제품 및 Broadcom을 포함한 고객사에 대한 조사를 개시. 주가는 최근 30일간 -8% 조정되었으나 애널리스트 컨센서스는 여전히 Strong Buy 유지. 최근 선순위채 텐더오퍼 한도를 25억→30억 달러로 상향, 약 29억 달러 매입 완료.",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/broadcom-avgo-still-undervalued-netlist-061112166.html"
+      "h": "주가 2.67% 상승 마감, VMware 관련 EU 반독점 조사 압박 지속",
+      "m": "Broadcom 주가가 $396.81로 2.67% 상승하며 3거래일 연속 상승. 다만 클라우드 업계 5개 단체가 VMware 가격 인상 및 공급업체 배제와 관련해 EU 반독점 당국에 잠정 조치를 촉구했다는 로이터 보도가 부담 요인으로 작용. 하이퍼스케일러向 AI 반도체(ASIC) 및 차세대 이더넷 스위칭(Tomahawk 6) 수요는 견조하게 유지.",
+      "url": "https://www.benzinga.com/markets/tech/26/07/60605013/whats-going-on-with-broadcom-stock-wednesday-6"
     },
     {
       "t": "AMZN",
-      "h": "Amazon, Trainium AI 칩 AWS 외부 판매 확대… 부채 확대 우려도",
-      "m": "Amazon이 자체 개발 Trainium AI 칩을 AWS 내부용에서 벗어나 외부 고객에게 직접 판매하기 시작하며 NVIDIA 등과 직접 경쟁 구도 형성. 동시에 약 237억 달러 규모 선순위 무담보채 발행 등 AI 인프라 확충을 위한 부채 조달이 지속되며 신용 측면에서 레버리지 확대가 관찰됨. 2분기 실적은 7/30 발표 예정.",
-      "url": "https://www.sahmcapital.com/news/content/amazon-amzn-starts-selling-trainium-ai-chips-beyond-aws-and-into-rival-turf-2026-07-15"
+      "h": "AI 조직 인력 감축 발표, BofA는 AWS 성장 가속·capex 확대 전망",
+      "m": "Amazon이 AGI(범용인공지능) 조직 내 인력 감축을 발표하며 주가는 소폭 하락. 반면 BofA는 2분기 매출을 컨센서스($196.8bn) 상회하는 $198.8bn으로 상향하고, AWS 매출 성장률 전망도 33%로 상향(Anthropic·Bedrock 수요 반영). 2026년 capex 가이던스도 메모리 가격 상승 및 AI 인프라 투자 확대로 약 $210bn까지 오를 수 있다고 언급. 2분기 실적은 7/30 발표 예정.",
+      "url": "https://www.benzinga.com/analyst-stock-ratings/reiteration/26/07/60616005/amazons-aws-growth-could-top-expectations-analyst-says"
     },
     {
       "t": "ORCL",
-      "h": "Oracle 5년 CDS 사상 최고치 경신… 신용등급 정크 한 단계 위",
-      "m": "Oracle의 5년물 CDS 스프레드가 198bp를 돌파하며 사상 최고치 경신, 2008년 금융위기 수준을 상회. S&P는 최근 신용등급을 BBB-로 한 단계 강등(단기등급도 A-2→A-3)했고 Moody's는 부정적 전망 유지. FY2026 잉여현금흐름은 -237억 달러로 AI 데이터센터 투자가 지속되는 가운데 채권 수익률은 7.8%까지 상승.",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/oracles-credit-risk-nears-18-151000986.html"
+      "h": "CDS 스프레드 사상최고 수준, 데이터센터 비용·OpenAI 익스포저 우려 재부각",
+      "m": "Oracle 주가가 리스크오프 장세 속 하락. CNBC Fast Money에서 Karen Finerman이 Oracle의 CDS 스프레드 상승(부채상환비용 2.03%로 사상최고 수준)을 지적하며 향후 채권 발행 대신 지분 조달 가능성까지 거론. 7/9 S&P Global의 신용등급 강등(BBB→BBB-, 정크 한 단계 위) 이후 데이터센터 자본지출 부담과 OpenAI 익스포저에 대한 시장의 우려가 지속되는 모습.",
+      "url": "https://www.benzinga.com/markets/tech/26/07/60611503/oracle-faces-pressure-data-center-costs-and-openai-exposure-weigh-on-stock"
     }
   ]
 }
