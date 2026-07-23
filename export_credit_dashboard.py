@@ -261,6 +261,7 @@ BDC_TICKERS = {
 END_DATE   = datetime.today()
 START_DATE = END_DATE - timedelta(days=90)
 MKT_START  = END_DATE - timedelta(days=180)
+YTD_START  = datetime(END_DATE.year, 1, 1)  # 보유가중평균 G-spread 추이용 (연초~현재)
 
 # Bloomberg 워크시트 경로 (PREL - 최근 발행)
 PREL_FILE_PATH = r"C:\blp\data"
@@ -700,6 +701,35 @@ def load_bloomberg_data():
         print(f"  BDH 오류: {e}")
         hist = pd.DataFrame(index=pd.bdate_range(START_DATE, END_DATE))
 
+    # ─── YTD G-spread 시계열 (연초~현재, 보유가중평균 G-spread 추이 차트 전용) ───
+    try:
+        raw_h_ytd = blp.bdh(tickers, "YLD_YTM_MID",
+                            YTD_START.strftime("%Y%m%d"), END_DATE.strftime("%Y%m%d"))
+        hpdf_ytd = _nw(raw_h_ytd)
+        bond_ytm_ts_ytd = hpdf_ytd.pivot(index="date", columns="ticker", values="value")
+        bond_ytm_ts_ytd.index = pd.to_datetime(bond_ytm_ts_ytd.index)
+        bond_ytm_ts_ytd = bond_ytm_ts_ytd.apply(pd.to_numeric, errors="coerce")
+
+        raw_gen_ytd = blp.bdh(generic_tickers, "YLD_YTM_MID",
+                              YTD_START.strftime("%Y%m%d"), END_DATE.strftime("%Y%m%d"))
+        gen_pdf_ytd = _nw(raw_gen_ytd)
+        gen_ytm_ytd = gen_pdf_ytd.pivot(index="date", columns="ticker", values="value")
+        gen_ytm_ytd.index = pd.to_datetime(gen_ytm_ytd.index)
+        gen_ytm_ytd = gen_ytm_ytd.apply(pd.to_numeric, errors="coerce")
+
+        label_map_ytd = dict(zip(snap.index, snap["label"]))
+        hist_ytd = pd.DataFrame(index=bond_ytm_ts_ytd.index)
+        for t in tickers:
+            gen_t = bm_map.get(t, "GT10 Govt")
+            label = label_map_ytd.get(t, t)
+            if t in bond_ytm_ts_ytd.columns and gen_t in gen_ytm_ytd.columns:
+                hist_ytd[label] = (bond_ytm_ts_ytd[t] - gen_ytm_ytd[gen_t]) * 100  # bps
+        hist_ytd = hist_ytd.dropna(how="all")
+        print(f"  → G-spread YTD 시계열: {len(hist_ytd)}일, {hist_ytd.notna().any().sum()}개 종목")
+    except Exception as e:
+        print(f"  YTD BDH 오류: {e}")
+        hist_ytd = pd.DataFrame(index=pd.bdate_range(YTD_START, END_DATE))
+
     # spread 변동 계산 + 과거 YTM
     for idx, row in snap.iterrows():
         lbl = row["label"]
@@ -1040,6 +1070,7 @@ def load_bloomberg_data():
         "bonds": bonds_to_json(snap),
         "allBonds": bonds_to_json(combined),
         "spreadHistory": ts_to_json(hist),
+        "spreadHistoryYTD": ts_to_json(hist_ytd),
         "ustCurve": {
             "tenors": list(UST_TICKERS.keys()),
             "years": [1/12,.25,.5,1,2,3,5,7,10,20,30],
@@ -1286,6 +1317,16 @@ def load_sample_data():
         b["chg1m"] = round(s[-1] - s[-22], 1) if n > 21 else None
         b["chg3m"] = round(s[-1] - s[0], 1) if n > 1 else None
 
+    # 스프레드 시계열 (YTD, 보유가중평균 G-spread 추이 차트 전용)
+    dates_ytd = pd.bdate_range(YTD_START, END_DATE)
+    date_ytd_strs = [d.strftime("%Y-%m-%d") for d in dates_ytd]
+    series_ytd = {}
+    for b in bonds:
+        base = b["spread"]
+        noise = np.cumsum(np.random.randn(len(dates_ytd)) * 3)
+        vals = np.clip(base + noise - noise[-1], base * 0.5, base * 1.6)
+        series_ytd[b["label"]] = [round(float(v), 1) for v in vals]
+
     # 시장 지표
     mkt_dates = pd.bdate_range(MKT_START, END_DATE)
     mkt_date_strs = [d.strftime("%Y-%m-%d") for d in mkt_dates]
@@ -1358,6 +1399,7 @@ def load_sample_data():
         "bonds": bonds,
         "allBonds": all_bonds,
         "spreadHistory": {"dates": date_strs, "series": series},
+        "spreadHistoryYTD": {"dates": date_ytd_strs, "series": series_ytd},
         "ustCurve": {
             "tenors": list(UST_TICKERS.keys()),
             "years": [1/12,.25,.5,1,2,3,5,7,10,20,30],
@@ -1492,7 +1534,7 @@ textarea:focus,.ti:focus{{border-color:var(--ac)}}
 <!-- TAB 1 -->
 <div class="tp active" id="t1">
   <div class="ms" id="m1"></div>
-  <div class="cd"><div class="ct2">📊 보유가중평균 G-spread 추이 (bps)</div><div class="ch" style="height:280px"><canvas id="c-wavg"></canvas></div></div>
+  <div class="cd"><div class="ct2">📊 보유가중평균 G-spread 추이 (USD, bps, 연초~현재)</div><div class="ch" style="height:280px"><canvas id="c-wavg"></canvas></div></div>
   <!-- 스프레드 요약 매트릭스 -->
   <div class="cd" id="smt-wrap" style="margin-bottom:10px">
     <div class="ct2">
@@ -1981,33 +2023,29 @@ function RM(){{
 }}
 
 function RCW(){{
-  const H=D.spreadHistory;
+  const H=D.spreadHistoryYTD||D.spreadHistory;
   const cvs=document.getElementById('c-wavg');
   if(!H||!H.dates||!H.dates.length||!cvs) return;
   function isUST(isin){{return /^US912[0-9]/.test(isin||'')||isin==='US912810UC08';}}
-  const JPY_ISINS=new Set(['JP541005AQB3','JP541034ARB1','XS2867997368']);
-  const JPY_FX=130;
   const savedQty=getPnLQty();
   const weights=[];
   bonds.forEach(function(b){{
     if(isUST(b.isin)) return;
+    if(b.ccy && b.ccy!=='USD') return; // USD 채권만 대상
     const k=qtyKey(b.label);
     let q=savedQty[k]!==undefined?savedQty[k]:(QTY_DATA[b.isin]!==undefined?QTY_DATA[b.isin]:0);
-    const isNonUsd = b.ccy && b.ccy!=='USD';
-    if(isNonUsd && JPY_ISINS.has(b.isin)) q=q/JPY_FX;
-    if(q>0) weights.push({{label:b.label,q:q,isNonUsd:isNonUsd}});
+    if(q>0) weights.push({{label:b.label,q:q}});
   }});
-  const wUsd=[], wNonUsd=[];
+  const wUsd=[];
   H.dates.forEach(function(d,di){{
-    let sU=0,qU=0,sN=0,qN=0;
+    let sU=0,qU=0;
     weights.forEach(function(w){{
       const arr=H.series[w.label];
       const v=arr?arr[di]:null;
       if(v==null||v<=0) return;
-      if(w.isNonUsd){{sN+=v*w.q;qN+=w.q;}} else {{sU+=v*w.q;qU+=w.q;}}
+      sU+=v*w.q;qU+=w.q;
     }});
     wUsd.push(qU>0?sU/qU:null);
-    wNonUsd.push(qN>0?sN/qN:null);
   }});
   if(chW) chW.destroy();
   const datasets=[{{
@@ -2015,13 +2053,6 @@ function RCW(){{
     data:wUsd, borderColor:'#e94f4f', backgroundColor:'rgba(233,79,79,.08)',
     borderWidth:2, pointRadius:0, pointHitRadius:8, tension:.3, spanGaps:true
   }}];
-  if(wNonUsd.some(v=>v!=null)){{
-    datasets.push({{
-      label:'보유 가중평균 G-spread (비USD)',
-      data:wNonUsd, borderColor:'#4f8fe9', borderDash:[4,3],
-      borderWidth:2, pointRadius:0, pointHitRadius:8, tension:.3, spanGaps:true
-    }});
-  }}
   chW=new Chart(cvs.getContext('2d'),{{type:'line',data:{{labels:H.dates,datasets:datasets}},
     options:{{responsive:true,maintainAspectRatio:false,interaction:{{mode:'index',intersect:false}},
       plugins:{{legend:{{display:true,position:'top'}},
