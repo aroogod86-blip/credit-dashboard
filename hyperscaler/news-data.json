@@ -1,53 +1,53 @@
 {
-  "date": "2026-07-22",
+  "date": "2026-07-23",
   "items": [
     {
       "t": "AAPL",
-      "h": "Mac 라인업 전면 개편 발표, Tim Cook 마지막 실적발표 앞둬",
-      "m": "Apple가 M6 칩 탑재 14인치 MacBook Pro를 포함한 Mac 전체 라인업 개편을 발표. BofA는 Buy 등급과 목표주가 $380을 유지하며 7/30 2분기 실적이 컨센서스(매출 $109bn, EPS $1.89)를 상회할 것으로 전망. 해당 실적발표는 Tim Cook의 CEO 마지막 컨퍼런스콜이 될 예정(후임 John Ternus).",
-      "url": "https://www.bloomberg.com/news/articles/2026-07-22/apple-to-launch-new-macbook-air-imac-macbook-pro-neo-mac-mini-mac-studio"
+      "h": "Morgan Stanley 목표가 $364로 상향, 실적발표(7/30) 앞두고 옵션시장은 약세 심리",
+      "m": "Morgan Stanley가 Apple에 대해 Overweight 등급을 유지하며 목표주가를 $360→$364로 상향. 다만 주가는 $320.99로 하락했고 옵션시장 풋/콜 비율이 평소보다 높아 실적발표를 앞둔 신중한 심리가 감지됨. Trefis는 향후 메모리 원가 상승이 마진에 부담을 줄 수 있다는 경영진 코멘트를 주목할 요인으로 지목.",
+      "url": "https://www.gurufocus.com/news/8975475/aapl-maintained-by-morgan-stanley-price-target-raised-to-364"
     },
     {
       "t": "NVDA",
-      "h": "Kyber NVL144 지연설 부인 후 반등, Goldman 밸류에이션 매력적 평가",
-      "m": "Nvidia 주가가 $200 부근 저점에서 3%대 반등. 차세대 랙스케일 시스템 Kyber NVL144의 출시 지연 루머를 회사측이 부인했고, Goldman Sachs는 21.7배 선행 P/E가 S&P500 평균과 비슷한 수준으로 '매력적(compelling)'이라고 평가. 다만 밸류에이션과 경쟁 심화, 대중 수출 규제 관련 우려는 지속.",
-      "url": "https://www.fxleaders.com/news/2026/07/22/nvda-stock-outlook-nvidia-rebound-offers-relief-as-ai-bubble-faces-tougher-questions/"
+      "h": "기술적 반등 속 매수세 유입, Alphabet의 자체 TPU 확대가 경쟁 리스크로 부각",
+      "m": "Nvidia는 기술적 모멘텀 브레이크아웃을 근거로 일부 펀드매니저(Virtus Investment Partners)의 매수세가 유입되며 견조한 흐름을 보임. 한편 Alphabet이 2분기부터 TPU 시스템 매출을 직접 고객에게 인식하기 시작했다는 소식이 'Alphabet이 AI칩 공세를 Nvidia에 직접 겨눴다'는 평가로 이어지며 경쟁 구도에 대한 경계감이 부각됨. Jensen Huang은 미국이 중국의 오픈소스 AI 모델을 배척하기보다 수용해야 한다는 발언도 내놓음.",
+      "url": "https://www.benzinga.com/analyst-stock-ratings/analyst-color/26/07/60653023/nvidias-next-breakout-market-veteran-sees-plenty-of-fuel-left-in-the-ai-leader"
     },
     {
       "t": "META",
-      "h": "Anthropic과 100억달러 컴퓨팅 리스 논의, 숨은부채 4200억달러 규모로 확대",
-      "m": "Meta가 Anthropic에 컴퓨팅 용량을 임대하는 100억달러 규모 계약을 논의 중이라는 보도로 4번째 주요 클라우드 프로바이더 진입 기대감 부각. 한편 Meta의 부외부채(hidden debt) 규모가 4200억달러로 계속 증가 중이라는 지적도 나옴. 2분기 실적은 7/29 발표 예정이며, 시장은 Meta Compute(잉여 AI 컴퓨팅 임대 사업) 관련 공식 코멘트 여부에 주목.",
-      "url": "https://www.fool.com/investing/2026/07/21/prediction-mark-zuckerberg-will-make-an-announceme/"
+      "h": "실적발표(7/29) 앞두고 주가 2.5~3.9% 하락, $145bn capex 계획에 투자자 신중",
+      "m": "Meta 주가가 2분기 실적발표(7/29)를 앞두고 2.5~3.9% 하락. 2026년 capex 가이던스($125-145bn)가 매출로 이어질지에 대한 투자자들의 의구심이 반영됐고, 전날 Alphabet의 capex 가이던스 상향과 주가 급락이 하이퍼스케일러 전반의 밸류에이션 경계감을 자극한 것으로 풀이됨. 옵션시장은 실적 이후 약 7.9%의 주가 변동성을 반영 중이며, Anthropic向 컴퓨팅 리스 사업 관련 공식 코멘트 여부가 관전 포인트로 남아있음.",
+      "url": "https://www.fxleaders.com/news/2026/07/23/meta-stock-falls-2-5-before-earnings-as-145-billion-ai-spending-plan-tests-investor-confidence/"
     },
     {
       "t": "GOOGL",
-      "h": "2분기 실적 매출 $119.8bn(+24%) 서프라이즈, 클라우드 82% 급성장 vs capex 우려",
-      "m": "Alphabet 2분기 매출이 전년비 24% 증가한 $119.8bn으로 컨센서스($116.9bn)를 상회. Google Cloud 매출은 82% 급증한 $24.8bn을 기록했으나, 자본지출 가이던스($180-190bn, 2027년 추가 증액 시사)와 영업마진 둔화가 부각되며 주가는 실적 서프라이즈에도 소폭 상승에 그침. GAAP EPS $9.11은 Anthropic·SpaceX 지분 평가이익 반영으로 컨센서스($2.90)를 크게 상회.",
-      "url": "https://seekingalpha.com/news/4616900-alphabet-delivers-q2-beat-with-cloud-revenue-surging-82-capex-disappoints"
+      "h": "2분기 어닝비트에도 capex 가이던스 쇼크로 주가 7% 급락, Berkshire는 $10bn 신규 매수",
+      "m": "Alphabet이 매출 $119.8bn(+24%), 클라우드 매출 82% 급성장 등 컨센서스를 상회하는 2분기 실적을 발표했음에도, 2026년 capex 가이던스를 $195-205bn으로 상향(2027년 추가 증액 시사)하고 사상 최초로 잉여현금흐름이 마이너스로 전환되며 주가가 7% 넘게 급락(다우지수 2025년 5월 이후 최악의 하루). 반면 Warren Buffett은 Berkshire Hathaway를 통해 2분기 중 Alphabet 주식을 $10bn 규모로 신규 매수한 사실이 공개되며 기관 신뢰를 보여주는 대목으로 부각됨.",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/07/23/stock-market-today-july-23-alphabet-slides-7-after-announcing-2026-capex-of-roughly-usd200-billion/"
     },
     {
       "t": "MU",
-      "h": "$848→$970대 반등, MS·BofA '저가매수' 의견, HBM 계약 $22bn 유지",
-      "m": "Micron이 7/20 저점($848.95) 대비 급반등하며 $970선 회복. Morgan Stanley는 최근 조정을 매수 기회로, BofA는 중국 오픈소스 AI 모델 확산이 오히려 메모리 수요를 늘릴 것이라며 66% 상승여력을 제시. 16건의 비취소 HBM 고객계약(총 $22bn 이상, 2026년까지 매진)이 펀더멘털 지지 요인으로 재확인됨. SK Hynix 나스닥 상장(7/10)에 따른 경쟁 심화는 리스크 요인으로 지목.",
-      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262047242-micron-mu-stock-recovery-july-22-2026-morgan-stanley-bofa-buy-22b-contracts-tradingkey"
+      "h": "$1,000 회복, Google·Tesla capex 확대와 Vera Rubin 수요가 동력",
+      "m": "Micron 주가가 7/23 4% 상승하며 심리적 저항선인 $1,000을 회복. Google과 Tesla의 대규모 자본지출 확대가 메모리 수요 성장을 뒷받침하고, Nvidia Vera Rubin 플랫폼 진전이 고사양 HBM·DRAM 수요를 자극한 것이 주요 동력으로 지목됨. TrendForce는 서버 수요 강세로 2026년 NAND 공급부족 가능성도 시사.",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262050580-micron-mu-1000-three-catalysts-google-tesla-capex-vera-rubin-tradingkey"
     },
     {
       "t": "AVGO",
-      "h": "주가 2.67% 상승 마감, VMware 관련 EU 반독점 조사 압박 지속",
-      "m": "Broadcom 주가가 $396.81로 2.67% 상승하며 3거래일 연속 상승. 다만 클라우드 업계 5개 단체가 VMware 가격 인상 및 공급업체 배제와 관련해 EU 반독점 당국에 잠정 조치를 촉구했다는 로이터 보도가 부담 요인으로 작용. 하이퍼스케일러向 AI 반도체(ASIC) 및 차세대 이더넷 스위칭(Tomahawk 6) 수요는 견조하게 유지.",
-      "url": "https://www.benzinga.com/markets/tech/26/07/60605013/whats-going-on-with-broadcom-stock-wednesday-6"
+      "h": "주가는 견조, 다만 Alphabet의 자체 칩 다변화가 장기 고객 집중 리스크로 재부각",
+      "m": "Broadcom 주가는 큰 변동 없이 유지됐으나, 6월 실적 이후 최대 고객인 Alphabet이 커스텀 칩 공급망을 다변화하고 있다는 점이 재차 부담 요인으로 거론됨. Motley Fool은 이를 '밸류에이션 리셋'으로 평가하며 AI 커스텀 실리콘 사업의 장기 성장성 자체는 훼손되지 않았다고 진단, 3년 연속 S&P500 대비 아웃퍼폼을 전망.",
+      "url": "https://www.fool.com/investing/2026/07/23/prediction-despite-its-recent-pullback-broadcom/"
     },
     {
       "t": "AMZN",
-      "h": "AI 조직 인력 감축 발표, BofA는 AWS 성장 가속·capex 확대 전망",
-      "m": "Amazon이 AGI(범용인공지능) 조직 내 인력 감축을 발표하며 주가는 소폭 하락. 반면 BofA는 2분기 매출을 컨센서스($196.8bn) 상회하는 $198.8bn으로 상향하고, AWS 매출 성장률 전망도 33%로 상향(Anthropic·Bedrock 수요 반영). 2026년 capex 가이던스도 메모리 가격 상승 및 AI 인프라 투자 확대로 약 $210bn까지 오를 수 있다고 언급. 2분기 실적은 7/30 발표 예정.",
-      "url": "https://www.benzinga.com/analyst-stock-ratings/reiteration/26/07/60616005/amazons-aws-growth-could-top-expectations-analyst-says"
+      "h": "상원의 중국 관련 조사 이슈 + capex 불안 겹치며 주가 4%대 급락",
+      "m": "Amazon 주가가 상원 위원회의 중국 관련 영향력 의혹 조사 소식과, 전일 Alphabet의 capex 가이던스 충격에 따른 하이퍼스케일러 전반의 밸류에이션 재평가 흐름이 겹치며 4%대 급락, $234 부근까지 하락. 다만 BofA는 2분기 매출 $198.8bn(컨센서스 상회) 전망과 함께 Buy 등급·목표가 $310을 유지했고, Polymarket은 Q2 실적 서프라이즈 확률을 95%로 반영 중. 실적발표는 7/30 예정.",
+      "url": "https://247wallst.com/investing/2026/07/23/amazon-falls-4-as-senate-china-probe-and-ai-spending-jitters-weigh-ahead-of-earnings/"
     },
     {
       "t": "ORCL",
-      "h": "CDS 스프레드 사상최고 수준, 데이터센터 비용·OpenAI 익스포저 우려 재부각",
-      "m": "Oracle 주가가 리스크오프 장세 속 하락. CNBC Fast Money에서 Karen Finerman이 Oracle의 CDS 스프레드 상승(부채상환비용 2.03%로 사상최고 수준)을 지적하며 향후 채권 발행 대신 지분 조달 가능성까지 거론. 7/9 S&P Global의 신용등급 강등(BBB→BBB-, 정크 한 단계 위) 이후 데이터센터 자본지출 부담과 OpenAI 익스포저에 대한 시장의 우려가 지속되는 모습.",
-      "url": "https://www.benzinga.com/markets/tech/26/07/60611503/oracle-faces-pressure-data-center-costs-and-openai-exposure-weigh-on-stock"
+      "h": "장중 3.5% 하락했으나 장마감 후 美국방부와 10년 $7bn 계약 체결로 반등",
+      "m": "Oracle은 장중에는 Alphabet발 하이퍼스케일러 전반의 리스크오프 분위기 속에 3.5% 하락했으나, 장마감 후 미 국방부(해군)와 10년간 $7bn 규모의 온프레미스 엔터프라이즈 소프트웨어 계약을 신규 체결했다는 소식에 시간외 주가가 반등. 이번 계약은 국방부와의 첫 직접 수주 계약으로, 라이선스 통합과 예산 가시성 확보 측면에서 긍정적으로 평가됨.",
+      "url": "https://www.benzinga.com/trading-ideas/movers/26/07/60658136/oracle-stock-jumps-after-the-close-heres-why"
     }
   ]
 }
