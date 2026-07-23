@@ -2036,16 +2036,31 @@ function RCW(){{
     let q=savedQty[k]!==undefined?savedQty[k]:(QTY_DATA[b.isin]!==undefined?QTY_DATA[b.isin]:0);
     if(q>0) weights.push({{label:b.label,q:q}});
   }});
+  // 종목별 스프레드 forward-fill: 휴장일 등으로 특정일 데이터가 비어있으면 직전 유효값을 이어받아
+  // 그날 표본에 남은 소수 종목만으로 평균이 왜곡되는 것을 방지
+  const filled={{}};
+  weights.forEach(function(w){{
+    const arr=H.series[w.label]||[];
+    const out=new Array(H.dates.length).fill(null);
+    let last=null;
+    for(let i=0;i<H.dates.length;i++){{
+      const v=arr[i];
+      if(v!=null&&v>0) last=v;
+      out[i]=last;
+    }}
+    filled[w.label]=out;
+  }});
+  const totalQty=weights.reduce((a,w)=>a+w.q,0);
   const wUsd=[];
   H.dates.forEach(function(d,di){{
     let sU=0,qU=0;
     weights.forEach(function(w){{
-      const arr=H.series[w.label];
-      const v=arr?arr[di]:null;
-      if(v==null||v<=0) return;
+      const v=filled[w.label][di];
+      if(v==null) return;
       sU+=v*w.q;qU+=w.q;
     }});
-    wUsd.push(qU>0?sU/qU:null);
+    // 표본 커버리지가 총 액면의 50% 미만인 날은 신뢰 불가로 보고 공백(null) 처리 (차트에서 끊어짐, spanGaps로 이어보임)
+    wUsd.push(qU>=totalQty*0.5?sU/qU:null);
   }});
   if(chW) chW.destroy();
   const datasets=[{{
