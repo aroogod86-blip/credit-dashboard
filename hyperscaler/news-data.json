@@ -1,53 +1,53 @@
 {
-  "date": "2026-07-23",
+  "date": "2026-07-24",
   "items": [
     {
       "t": "AAPL",
-      "h": "Morgan Stanley 목표가 $364로 상향, 실적발표(7/30) 앞두고 옵션시장은 약세 심리",
-      "m": "Morgan Stanley가 Apple에 대해 Overweight 등급을 유지하며 목표주가를 $360→$364로 상향. 다만 주가는 $320.99로 하락했고 옵션시장 풋/콜 비율이 평소보다 높아 실적발표를 앞둔 신중한 심리가 감지됨. Trefis는 향후 메모리 원가 상승이 마진에 부담을 줄 수 있다는 경영진 코멘트를 주목할 요인으로 지목.",
-      "url": "https://www.gurufocus.com/news/8975475/aapl-maintained-by-morgan-stanley-price-target-raised-to-364"
+      "h": "포드가 신형 전기차 플랫폼에 Apple Maps 탑재를 확정하고 모건스탠리가 목표가를 $364로 상향하면서 애플 주가 3.5% 급등, 저capex AI 전략이 프리미엄으로 재평가받음",
+      "m": "2026-07-24 · TipRanks/CNBC",
+      "url": "https://www.tipranks.com/news/heres-what-is-pulling-apple-stock-aapl-higher-today-7-24-2026"
     },
     {
       "t": "NVDA",
-      "h": "기술적 반등 속 매수세 유입, Alphabet의 자체 TPU 확대가 경쟁 리스크로 부각",
-      "m": "Nvidia는 기술적 모멘텀 브레이크아웃을 근거로 일부 펀드매니저(Virtus Investment Partners)의 매수세가 유입되며 견조한 흐름을 보임. 한편 Alphabet이 2분기부터 TPU 시스템 매출을 직접 고객에게 인식하기 시작했다는 소식이 'Alphabet이 AI칩 공세를 Nvidia에 직접 겨눴다'는 평가로 이어지며 경쟁 구도에 대한 경계감이 부각됨. Jensen Huang은 미국이 중국의 오픈소스 AI 모델을 배척하기보다 수용해야 한다는 발언도 내놓음.",
-      "url": "https://www.benzinga.com/analyst-stock-ratings/analyst-color/26/07/60653023/nvidias-next-breakout-market-veteran-sees-plenty-of-fuel-left-in-the-ai-leader"
+      "h": "SK그룹과 5000억 달러 규모 AI 인프라 포괄 파트너십 LOI 체결, 네이버·브룩필드와 한국 소버린 AI 팩토리 확장 발표에도 주가는 0.9% 소폭 하락",
+      "m": "2026-07-24 · NVIDIA Newsroom/CNN",
+      "url": "https://nvidianews.nvidia.com/news"
     },
     {
       "t": "META",
-      "h": "실적발표(7/29) 앞두고 주가 2.5~3.9% 하락, $145bn capex 계획에 투자자 신중",
-      "m": "Meta 주가가 2분기 실적발표(7/29)를 앞두고 2.5~3.9% 하락. 2026년 capex 가이던스($125-145bn)가 매출로 이어질지에 대한 투자자들의 의구심이 반영됐고, 전날 Alphabet의 capex 가이던스 상향과 주가 급락이 하이퍼스케일러 전반의 밸류에이션 경계감을 자극한 것으로 풀이됨. 옵션시장은 실적 이후 약 7.9%의 주가 변동성을 반영 중이며, Anthropic向 컴퓨팅 리스 사업 관련 공식 코멘트 여부가 관전 포인트로 남아있음.",
-      "url": "https://www.fxleaders.com/news/2026/07/23/meta-stock-falls-2-5-before-earnings-as-145-billion-ai-spending-plan-tests-investor-confidence/"
+      "h": "캐피털 배분 우려로 7거래일 연속 하락(-1.8%), 니덤은 Llama·Reality Labs 등 다방면 투자 확산에 대해 'Hold' 재확인, 7/29 실적 발표 앞두고 주목",
+      "m": "2026-07-24 · Interactive Crypto/CNBC",
+      "url": "https://www.interactivecrypto.com/meta-s-stock-slides-amid-capital-allocation-concerns-and-tech-sector-weakness-jul-2026"
     },
     {
       "t": "GOOGL",
-      "h": "2분기 어닝비트에도 capex 가이던스 쇼크로 주가 7% 급락, Berkshire는 $10bn 신규 매수",
-      "m": "Alphabet이 매출 $119.8bn(+24%), 클라우드 매출 82% 급성장 등 컨센서스를 상회하는 2분기 실적을 발표했음에도, 2026년 capex 가이던스를 $195-205bn으로 상향(2027년 추가 증액 시사)하고 사상 최초로 잉여현금흐름이 마이너스로 전환되며 주가가 7% 넘게 급락(다우지수 2025년 5월 이후 최악의 하루). 반면 Warren Buffett은 Berkshire Hathaway를 통해 2분기 중 Alphabet 주식을 $10bn 규모로 신규 매수한 사실이 공개되며 기관 신뢰를 보여주는 대목으로 부각됨.",
-      "url": "https://www.fool.com/coverage/stock-market-today/2026/07/23/stock-market-today-july-23-alphabet-slides-7-after-announcing-2026-capex-of-roughly-usd200-billion/"
+      "h": "2분기 실적 서프라이즈(EPS $9.11)에도 2026년 capex 가이던스를 1800~1900억→1950~2050억 달러로 상향한 영향으로 주가 7% 급락, 마감가 $318선",
+      "m": "2026-07-24 · Globe and Mail/GuruFocus",
+      "url": "https://www.theglobeandmail.com/investing/markets/stocks/GOOGL/pressreleases/3449346/stock-market-news-for-july-24-2026/"
     },
     {
       "t": "MU",
-      "h": "$1,000 회복, Google·Tesla capex 확대와 Vera Rubin 수요가 동력",
-      "m": "Micron 주가가 7/23 4% 상승하며 심리적 저항선인 $1,000을 회복. Google과 Tesla의 대규모 자본지출 확대가 메모리 수요 성장을 뒷받침하고, Nvidia Vera Rubin 플랫폼 진전이 고사양 HBM·DRAM 수요를 자극한 것이 주요 동력으로 지목됨. TrendForce는 서버 수요 강세로 2026년 NAND 공급부족 가능성도 시사.",
-      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262050580-micron-mu-1000-three-catalysts-google-tesla-capex-vera-rubin-tradingkey"
+      "h": "중국 메모리 업체와의 경쟁 심화 우려 및 차익 실현 매물로 주가 6.9~7% 급락, 전일 테슬라향 메모리 공급 계약 랠리분을 대부분 반납",
+      "m": "2026-07-24 · GuruFocus/Yahoo Finance",
+      "url": "https://www.gurufocus.com/news/8978662/micron-technology-mu-stock-falls-amid-competitive-pressures"
     },
     {
       "t": "AVGO",
-      "h": "주가는 견조, 다만 Alphabet의 자체 칩 다변화가 장기 고객 집중 리스크로 재부각",
-      "m": "Broadcom 주가는 큰 변동 없이 유지됐으나, 6월 실적 이후 최대 고객인 Alphabet이 커스텀 칩 공급망을 다변화하고 있다는 점이 재차 부담 요인으로 거론됨. Motley Fool은 이를 '밸류에이션 리셋'으로 평가하며 AI 커스텀 실리콘 사업의 장기 성장성 자체는 훼손되지 않았다고 진단, 3년 연속 S&P500 대비 아웃퍼폼을 전망.",
-      "url": "https://www.fool.com/investing/2026/07/23/prediction-despite-its-recent-pullback-broadcom/"
+      "h": "대형 반도체주 전반의 차익실현 속 주가 2~3% 하락, 삼성전자와 2030년까지 2000억 달러 규모 AI 칩 공급 계약 체결 소식은 긍정적으로 평가",
+      "m": "2026-07-24 · Benzinga/CNN",
+      "url": "https://www.benzinga.com/markets/tech/26/07/60673102/whats-going-on-with-broadcom-stock-friday-5"
     },
     {
       "t": "AMZN",
-      "h": "상원의 중국 관련 조사 이슈 + capex 불안 겹치며 주가 4%대 급락",
-      "m": "Amazon 주가가 상원 위원회의 중국 관련 영향력 의혹 조사 소식과, 전일 Alphabet의 capex 가이던스 충격에 따른 하이퍼스케일러 전반의 밸류에이션 재평가 흐름이 겹치며 4%대 급락, $234 부근까지 하락. 다만 BofA는 2분기 매출 $198.8bn(컨센서스 상회) 전망과 함께 Buy 등급·목표가 $310을 유지했고, Polymarket은 Q2 실적 서프라이즈 확률을 95%로 반영 중. 실적발표는 7/30 예정.",
-      "url": "https://247wallst.com/investing/2026/07/23/amazon-falls-4-as-senate-china-probe-and-ai-spending-jitters-weigh-ahead-of-earnings/"
+      "h": "AI 생성 인물 광고에 라벨 부착 의무화 등 정책 변화 속 주가 0.66% 소폭 하락, AGI Lab 구조조정설과 함께 7/30 실적 발표를 앞두고 AWS의 AI 투자 정당화 여부가 관전 포인트로 부상",
+      "m": "2026-07-24 · CNBC/CNN",
+      "url": "https://www.cnn.com/markets/stocks/AMZN"
     },
     {
       "t": "ORCL",
-      "h": "장중 3.5% 하락했으나 장마감 후 美국방부와 10년 $7bn 계약 체결로 반등",
-      "m": "Oracle은 장중에는 Alphabet발 하이퍼스케일러 전반의 리스크오프 분위기 속에 3.5% 하락했으나, 장마감 후 미 국방부(해군)와 10년간 $7bn 규모의 온프레미스 엔터프라이즈 소프트웨어 계약을 신규 체결했다는 소식에 시간외 주가가 반등. 이번 계약은 국방부와의 첫 직접 수주 계약으로, 라이선스 통합과 예산 가시성 확보 측면에서 긍정적으로 평가됨.",
-      "url": "https://www.benzinga.com/trading-ideas/movers/26/07/60658136/oracle-stock-jumps-after-the-close-heres-why"
+      "h": "미 국방부(해군)와 10년간 최대 70억 달러 규모 소프트웨어 통합 계약을 체결하며 프리마켓 주가 2~3% 반등, 최근 급락(6월 이후 -50%) 국면에서 반전 계기 마련",
+      "m": "2026-07-24 · GuruFocus/Yahoo Finance",
+      "url": "https://www.gurufocus.com/news/8977465/oracle-orcl-secures-7-billion-defense-contract-amid-stock-struggles?mobile=true%3Fmobile%3Dtrue&mobile=true"
     }
   ]
 }
