@@ -1,53 +1,53 @@
 {
-  "date": "2026-07-24",
+  "date": "2026-07-28",
   "items": [
     {
       "t": "AAPL",
-      "h": "포드가 신형 전기차 플랫폼에 Apple Maps 탑재를 확정하고 모건스탠리가 목표가를 $364로 상향하면서 애플 주가 3.5% 급등, 저capex AI 전략이 프리미엄으로 재평가받음",
-      "m": "2026-07-24 · TipRanks/CNBC",
-      "url": "https://www.tipranks.com/news/heres-what-is-pulling-apple-stock-aapl-higher-today-7-24-2026"
+      "h": "장중 시가총액 5조달러를 최초로 돌파하며 사상 두 번째 5조달러 기업 등극, 전일 NVDA를 제치고 시총 1위 탈환 — 저capex AI 전략에 대한 재평가 지속, 7/30 실적 발표 앞두고 주목",
+      "m": "2026-07-28 · Bloomberg/CNBC",
+      "url": "https://www.bloomberg.com/news/articles/2026-07-28/apple-becomes-second-company-to-hit-5-trillion-in-market-value"
     },
     {
       "t": "NVDA",
-      "h": "SK그룹과 5000억 달러 규모 AI 인프라 포괄 파트너십 LOI 체결, 네이버·브룩필드와 한국 소버린 AI 팩토리 확장 발표에도 주가는 0.9% 소폭 하락",
-      "m": "2026-07-24 · NVIDIA Newsroom/CNN",
-      "url": "https://nvidianews.nvidia.com/news"
+      "h": "SK그룹 5000억달러 파트너십 및 OpenAI 오하이오 데이터센터 자금조달 지원 소식에도 '구체적 확정 아닌 의향' 평가로 주가 5% 급락, CDS 5년물 스프레드는 하루새 14bp 급등(사상 최대 일간 상승폭)",
+      "m": "2026-07-28 · Benzinga/GuruFocus",
+      "url": "https://www.benzinga.com/markets/prediction-markets/26/07/60727583/nvda-down-6-in-two-days-whats-happening-to-nvidias-default-insurance-costs"
     },
     {
       "t": "META",
-      "h": "캐피털 배분 우려로 7거래일 연속 하락(-1.8%), 니덤은 Llama·Reality Labs 등 다방면 투자 확산에 대해 'Hold' 재확인, 7/29 실적 발표 앞두고 주목",
-      "m": "2026-07-24 · Interactive Crypto/CNBC",
-      "url": "https://www.interactivecrypto.com/meta-s-stock-slides-amid-capital-allocation-concerns-and-tech-sector-weakness-jul-2026"
+      "h": "7/29 장마감 후 2분기 실적 발표를 앞두고 주가 약보합, FY26 capex 가이던스($125~145bn)의 마진 압박 여부가 핵심 변수로 부상 — El Paso 데이터센터(BlackRock JV) 관련 후속 뉴스는 잠잠",
+      "m": "2026-07-28 · FX Leaders/Yahoo Finance",
+      "url": "https://www.fxleaders.com/news/2026/07/26/top-earnings-to-watch-this-week-july-27-31-what-to-expect-from-msft-meta-aapl-amzn-ko-ba-and-f/"
     },
     {
       "t": "GOOGL",
-      "h": "2분기 실적 서프라이즈(EPS $9.11)에도 2026년 capex 가이던스를 1800~1900억→1950~2050억 달러로 상향한 영향으로 주가 7% 급락, 마감가 $318선",
-      "m": "2026-07-24 · Globe and Mail/GuruFocus",
-      "url": "https://www.theglobeandmail.com/investing/markets/stocks/GOOGL/pressreleases/3449346/stock-market-news-for-july-24-2026/"
+      "h": "전일(7/27) 실적 발표 후 capex 가이던스 상향 여파로 인한 급락에서 반등, +2%대 상승 마감 — 다만 EU에서 반독점 패소에 따른 소규모 경쟁사들의 후속 소송 리스크 부각",
+      "m": "2026-07-28 · Robinhood/TipRanks",
+      "url": "https://robinhood.com/us/en/stocks/GOOGL/"
     },
     {
       "t": "MU",
-      "h": "중국 메모리 업체와의 경쟁 심화 우려 및 차익 실현 매물로 주가 6.9~7% 급락, 전일 테슬라향 메모리 공급 계약 랠리분을 대부분 반납",
-      "m": "2026-07-24 · GuruFocus/Yahoo Finance",
-      "url": "https://www.gurufocus.com/news/8978662/micron-technology-mu-stock-falls-amid-competitive-pressures"
+      "h": "중국 메모리 굴기(CXMT) 위협 및 공급과잉 우려로 주가 8.9~10.3% 폭락, 한국 반도체(삼성 -7%, SK하이닉스 -9%) 동반 급락 속 아시아發 AI 밸류에이션 리스크오프 확산의 진앙",
+      "m": "2026-07-28 · Yahoo Finance/TradingKey",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/why-micron-stock-just-dropped-192000089.html"
     },
     {
       "t": "AVGO",
-      "h": "대형 반도체주 전반의 차익실현 속 주가 2~3% 하락, 삼성전자와 2030년까지 2000억 달러 규모 AI 칩 공급 계약 체결 소식은 긍정적으로 평가",
-      "m": "2026-07-24 · Benzinga/CNN",
-      "url": "https://www.benzinga.com/markets/tech/26/07/60673102/whats-going-on-with-broadcom-stock-friday-5"
+      "h": "반도체 섹터 전반 리스크오프 속에서도 상대적으로 낙폭 제한(-0.2%대), $30bn 규모 Apple 칩 공급계약과 OpenAI Jalapeño 프로세서 등 AI 커스텀칩 파이프라인이 하방 방어",
+      "m": "2026-07-28 · Macroaxis/Robinhood",
+      "url": "https://www.macroaxis.com/stock/AVGO/Broadcom"
     },
     {
       "t": "AMZN",
-      "h": "AI 생성 인물 광고에 라벨 부착 의무화 등 정책 변화 속 주가 0.66% 소폭 하락, AGI Lab 구조조정설과 함께 7/30 실적 발표를 앞두고 AWS의 AI 투자 정당화 여부가 관전 포인트로 부상",
-      "m": "2026-07-24 · CNBC/CNN",
-      "url": "https://www.cnn.com/markets/stocks/AMZN"
+      "h": "7/30 실적 발표 앞두고 주가 약보합(-1%대), AI/데이터센터 투자와 마진 확대 양립 여부가 핵심 관전포인트 — FCC에 5,105기 위성망 구축 신청 등 Kuiper 사업 확대도 병행",
+      "m": "2026-07-28 · Benzinga/GuruFocus",
+      "url": "https://www.benzinga.com/trading-ideas/movers/26/07/60729625/amazon-stock-trades-flat-ahead-of-thursday-earnings-test-what-investors-need-to-know"
     },
     {
       "t": "ORCL",
-      "h": "미 국방부(해군)와 10년간 최대 70억 달러 규모 소프트웨어 통합 계약을 체결하며 프리마켓 주가 2~3% 반등, 최근 급락(6월 이후 -50%) 국면에서 반전 계기 마련",
-      "m": "2026-07-24 · GuruFocus/Yahoo Finance",
-      "url": "https://www.gurufocus.com/news/8977465/oracle-orcl-secures-7-billion-defense-contract-amid-stock-struggles?mobile=true%3Fmobile%3Dtrue&mobile=true"
+      "h": "52주 신저가($114.51) 경신 후 반등, RPO $638bn(마이크로소프트 상회) 대비 밸류에이션 괴리 부각되며 저가매수 유입 — $7bn 국방부 계약과 클라우드 인프라 성장세가 지지 요인으로 재평가",
+      "m": "2026-07-28 · MarketsDaily/247WallSt",
+      "url": "https://www.themarketsdaily.com/2026/07/28/oracle-nyseorcl-reaches-new-52-week-low-whats-next.html"
     }
   ]
 }
