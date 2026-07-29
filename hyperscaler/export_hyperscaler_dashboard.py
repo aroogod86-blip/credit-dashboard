@@ -66,6 +66,7 @@ CDS_TICKERS = {
 CDS_HISTORY_JSON = os.path.join(BASE_DIR, "cds-history.json")   # data.json과 같은 폴더 (dashboard가 상대경로로 fetch)
 CDS_INCREMENTAL_LOOKBACK_DAYS = 15   # 매일 실행 시 최근 며칠치만 다시 받아서 병합 (BDH 호출량 절약)
 CDS_FULL_LOOKBACK_DAYS = 365         # --full 옵션일 때 전체 히스토리 기간
+CDS_FIELD = "CDS_5Y"   # NOTE: 터미널 차트(Source CMAN) 값과 근사치 확인됨. 완전 일치 아님 - 더 정확한 필드 찾으면 여기만 수정
 
 # 콜/상환 등으로 화면에서 제외할 채권 (name 컬럼 기준, 정확히 일치해야 함)
 EXCLUDED_BOND_NAMES = [
@@ -382,12 +383,12 @@ def load_cds_history() -> dict:
 
 def _fetch_cds_series(ticker: str, start: str, end: str) -> list:
     """
-    단일 종목 CDS 5Y PX_LAST 시계열을 [{"d":..,"v":..}] 형태로 반환.
+    단일 종목 CDS 5Y 시계열(CDS_FIELD 기준)을 [{"d":..,"v":..}] 형태로 반환.
     이 환경의 xbbg는 BDH도 BDP처럼 tidy(long) 포맷(ticker/field/date/value 컬럼)으로
     반환하는 경우가 있어, DatetimeIndex 포맷과 tidy 포맷 양쪽 다 처리한다.
     """
     try:
-        df = blp.bdh(ticker, "PX_LAST", start, end)
+        df = blp.bdh(ticker, CDS_FIELD, start, end)
     except Exception as e:
         print(f"[WARN] CDS {ticker} BDH 조회 실패: {e}")
         return []
@@ -422,12 +423,12 @@ def _fetch_cds_series(ticker: str, start: str, end: str) -> list:
         print(f"[DEBUG] CDS {ticker} 응답 상위 3행:\n{df.head(3)}")
         return []
 
-    # field 컬럼이 있으면 PX_LAST 행만 필터 (여러 필드가 섞여 반환될 가능성 대비)
+    # field 컬럼이 있으면 CDS_FIELD 행만 필터 (여러 필드가 섞여 반환될 가능성 대비)
     if "field" in cols_lower:
         field_col = cols_lower["field"]
-        df = df[df[field_col].astype(str).str.upper() == "PX_LAST"]
+        df = df[df[field_col].astype(str).str.upper() == CDS_FIELD.upper()]
         if df.empty:
-            print(f"[ERROR] CDS {ticker}: field=PX_LAST 행이 없습니다.")
+            print(f"[ERROR] CDS {ticker}: field={CDS_FIELD} 행이 없습니다.")
             return []
 
     value_col = cols_lower.get("value")
