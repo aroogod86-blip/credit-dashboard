@@ -64,9 +64,7 @@ CDS_TICKERS = {
     "ORCLCP": "CX356615 Corp",
 }
 CDS_HISTORY_JSON = os.path.join(BASE_DIR, "cds-history.json")   # data.json과 같은 폴더 (dashboard가 상대경로로 fetch)
-CDS_INCREMENTAL_LOOKBACK_DAYS = 15   # 매일 실행 시 최근 며칠치만 다시 받아서 병합 (BDH 호출량 절약)
-CDS_FULL_LOOKBACK_DAYS = 365         # --full 옵션일 때 전체 히스토리 기간
-CDS_FIELD = "CDS_5Y"   # NOTE: 터미널 차트(Source CMAN) 값과 근사치 확인됨. 완전 일치 아님 - 더 정확한 필드 찾으면 여기만 수정
+CDS_FIELD = "CDS_FLAT_SPREAD"   # NOTE: BDH 미지원(계정상 유료) -> BDP 스냅샷을 매일 누적하는 방식으로 히스토리 구축
 
 # 콜/상환 등으로 화면에서 제외할 채권 (name 컬럼 기준, 정확히 일치해야 함)
 EXCLUDED_BOND_NAMES = [
@@ -372,7 +370,7 @@ def compute_changes(history: dict, isin: str, today_val: float) -> dict:
 
 
 # ------------------------------------------------------------------
-# 5-2) CDS 5Y 히스토리 (BDH)
+# 5-2) CDS 5Y 히스토리 (BDH 미지원 -> BDP 스냅샷을 매일 누적)
 # ------------------------------------------------------------------
 def load_cds_history() -> dict:
     if os.path.exists(CDS_HISTORY_JSON):
@@ -381,104 +379,42 @@ def load_cds_history() -> dict:
     return {"date_range": [None, None], "series": {name: [] for name in CDS_TICKERS}}
 
 
-def _fetch_cds_series(ticker: str, start: str, end: str) -> list:
+def pull_cds_snapshot() -> dict:
     """
-    단일 종목 CDS 5Y 시계열(CDS_FIELD 기준)을 [{"d":..,"v":..}] 형태로 반환.
-    이 환경의 xbbg는 BDH도 BDP처럼 tidy(long) 포맷(ticker/field/date/value 컬럼)으로
-    반환하는 경우가 있어, DatetimeIndex 포맷과 tidy 포맷 양쪽 다 처리한다.
+    BDP로 CDS_FIELD 오늘자 스냅샷 pull.
+    (BDH가 계정에서 막혀있어 히스토리를 한번에 못 받으므로, 매일 실행 시점의
+    현재값을 하나씩 누적해서 시계열을 만든다 -> 과거 데이터는 소급 불가.)
     """
-    try:
-        df = blp.bdh(ticker, CDS_FIELD, start, end)
-    except Exception as e:
-        print(f"[WARN] CDS {ticker} BDH 조회 실패: {e}")
-        return []
-
-    df = _coerce_to_pandas(df)
-    if df is None or not isinstance(df, pd.DataFrame) or df.empty:
-        print(f"[WARN] CDS {ticker}: 데이터 없음 (응답 타입: {type(df)})")
-        return []
-
-    print(f"[DEBUG] CDS {ticker} 응답 컬럼: {list(df.columns)} / index 타입: {type(df.index).__name__} / shape: {df.shape}")
-
-    # ---- 케이스 1: 정상 DatetimeIndex (wide 포맷, 컬럼이 필드명) ----
-    if isinstance(df.index, pd.DatetimeIndex):
-        series = df.iloc[:, 0]
-        return [
-            {"d": idx.strftime("%Y-%m-%d"), "v": round(float(val), 2)}
-            for idx, val in series.items() if pd.notna(val)
-        ]
-
-    # ---- 케이스 2: tidy/long 포맷 (date/ticker/field/value 컬럼) ----
-    cols_lower = {str(c).lower(): c for c in df.columns}
-    date_col = next((cols_lower[c] for c in ("date", "index", "dates") if c in cols_lower), None)
-    if date_col is None:
-        # datetime 타입인 컬럼을 자동 탐색
-        for c in df.columns:
-            if pd.api.types.is_datetime64_any_dtype(df[c]):
-                date_col = c
-                break
-
-    if date_col is None:
-        print(f"[ERROR] CDS {ticker}: 날짜 컬럼을 찾을 수 없습니다. 컬럼: {list(df.columns)}")
-        print(f"[DEBUG] CDS {ticker} 응답 상위 3행:\n{df.head(3)}")
-        return []
-
-    # field 컬럼이 있으면 CDS_FIELD 행만 필터 (여러 필드가 섞여 반환될 가능성 대비)
-    if "field" in cols_lower:
-        field_col = cols_lower["field"]
-        df = df[df[field_col].astype(str).str.upper() == CDS_FIELD.upper()]
-        if df.empty:
-            print(f"[ERROR] CDS {ticker}: field={CDS_FIELD} 행이 없습니다.")
-            return []
-
-    value_col = cols_lower.get("value")
-    if value_col is None:
-        # value 컬럼명이 없으면 날짜/문자열(ticker/field) 컬럼을 제외한 첫 숫자형 컬럼 사용
-        candidates = [c for c in df.columns if c != date_col]
-        value_col = next((c for c in candidates if pd.api.types.is_numeric_dtype(df[c])), None)
-
-    if value_col is None:
-        print(f"[ERROR] CDS {ticker}: 값(value) 컬럼을 찾을 수 없습니다. 컬럼: {list(df.columns)}")
-        return []
-
-    dates = pd.to_datetime(df[date_col])
-    out = []
-    for d, v in zip(dates, df[value_col]):
-        if pd.isna(v):
-            continue
-        out.append({"d": d.strftime("%Y-%m-%d"), "v": round(float(v), 2)})
-    return out
+    tickers = list(CDS_TICKERS.values())
+    print(f"[INFO] CDS 5Y 현재값({CDS_FIELD}) BDP pull 중... (BDH 미지원 -> 매일 스냅샷 누적 방식)")
+    df = blp.bdp(tickers=tickers, flds=[CDS_FIELD])
+    raw = _bdp_field_to_dict(df, CDS_FIELD, tickers, "[CDS 5Y]")
+    ticker_to_name = {t: name for name, t in CDS_TICKERS.items()}
+    return {ticker_to_name[t]: v for t, v in raw.items() if t in ticker_to_name}
 
 
-def _merge_cds_points(existing: list, new: list) -> list:
-    """날짜 기준 dedup 후 병합 (새 값이 우선)."""
-    merged = {p["d"]: p["v"] for p in existing}
-    merged.update({p["d"]: p["v"] for p in new})
-    return [{"d": d, "v": v} for d, v in sorted(merged.items())]
-
-
-def update_cds_history(full: bool = False) -> dict:
-    """CDS 5Y 히스토리를 pull해서 cds-history.json에 병합 저장하고 결과를 반환."""
-    end = TODAY.isoformat().replace("-", "")
-    lookback = CDS_FULL_LOOKBACK_DAYS if full else CDS_INCREMENTAL_LOOKBACK_DAYS
-    start = (TODAY - dt.timedelta(days=lookback)).strftime("%Y%m%d")
-    mode = "FULL" if full else "INCREMENTAL"
-    print(f"[INFO][CDS-{mode}] {start} ~ {end} 구간 조회")
-
+def update_cds_history() -> dict:
+    """오늘자 CDS 스냅샷을 cds-history.json에 append(같은 날짜면 덮어씀) 하고 저장."""
     data = load_cds_history()
-    for name, ticker in CDS_TICKERS.items():
-        print(f"  - {name} ({ticker}) 조회 중...")
-        new_points = _fetch_cds_series(ticker, start, end)
-        if full:
-            data["series"][name] = new_points
-        else:
-            data["series"][name] = _merge_cds_points(data["series"].get(name, []), new_points)
+    snapshot = pull_cds_snapshot()
+
+    for name in CDS_TICKERS:
+        series = data["series"].setdefault(name, [])
+        val = snapshot.get(name)
+        if val is None:
+            print(f"[WARN] CDS {name}: 오늘자 값을 받지 못했습니다. 스킵합니다.")
+            continue
+        # 오늘 날짜 기존 값 있으면 덮어쓰기 (하루 여러 번 실행해도 중복 안 쌓이게)
+        series = [p for p in series if p["d"] != TODAY_STR]
+        series.append({"d": TODAY_STR, "v": round(val, 2)})
+        series.sort(key=lambda p: p["d"])
+        data["series"][name] = series
 
     all_dates = [p["d"] for s in data["series"].values() for p in s]
     if all_dates:
         data["date_range"] = [min(all_dates), max(all_dates)]
 
-    os.makedirs(os.path.dirname(CDS_HISTORY_JSON), exist_ok=True)
+    os.makedirs(os.path.dirname(CDS_HISTORY_JSON) or ".", exist_ok=True)
     with open(CDS_HISTORY_JSON, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
@@ -580,12 +516,6 @@ def build_output(universe: pd.DataFrame, spreads: dict, history: dict, ratings: 
 # main
 # ------------------------------------------------------------------
 def main():
-    import argparse
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--full", action="store_true",
-                         help="CDS 5Y 히스토리를 1년치 전체로 재수집 (최초 1회만 사용, 평소엔 옵션 없이 실행)")
-    args = parser.parse_args()
-
     print(f"[INFO] pandas version: {pd.__version__}")
     universe = load_universe()
 
@@ -606,8 +536,8 @@ def main():
     ratings = pull_ratings(universe)
     output = build_output(universe, spreads, history, ratings, ispreads=ispreads)
 
-    # CDS 5Y 히스토리는 별도 파일(cds-history.json)로 관리 (증분 업데이트, --full 시 전체 재수집)
-    update_cds_history(full=args.full)
+    # CDS 5Y는 BDH 미지원이라 오늘자 BDP 스냅샷을 cds-history.json에 누적
+    update_cds_history()
 
     # 오늘자 스냅샷을 히스토리에 저장 (변동 계산용 -> data.json 저장 전에 기록)
     history[TODAY_STR] = spreads
