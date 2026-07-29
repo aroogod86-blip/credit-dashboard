@@ -133,7 +133,7 @@ tr:hover td { background:rgba(255,255,255,0.02); }
     <div class="header-meta">
       <a href="../index.html" style="color:var(--accent-blue);text-decoration:none;font-weight:600;border:1px solid var(--accent-blue);padding:5px 12px;border-radius:20px;white-space:nowrap">← Credit Dashboard</a>
       <span>Last Update <b class="mono" id="lastUpdate">-</b></span>
-      <span>Coverage <b class="mono">8 Issuers · 46 Bonds</b></span>
+      <span>Coverage <b class="mono">9 Issuers · 51 Bonds</b></span>
     </div>
   </div>
 </div>
@@ -186,7 +186,7 @@ tr:hover td { background:rgba(255,255,255,0.02); }
 
 <script>
 const BUCKETS = ["3Y","5Y","7Y","10Y","20Y","30Y"];
-const ISSUERS = ["AAPL","NVDA","META","GOOGL","MU","AVGO","AMZN","ORCL"];
+const ISSUERS = ["AAPL","NVDA","META","GOOGL","MU","AVGO","AMZN","ORCL","SPCX"];
 
 // S&P 스케일 기준 우량 -> 열위 순서 (등급순 정렬용)
 const SP_RATING_ORDER = [
@@ -224,15 +224,18 @@ const SAMPLE_SPREAD_DATA = {
     MU:{"3Y":null,"5Y":88,"7Y":null,"10Y":118,"20Y":null,"30Y":null},
     AVGO:{"3Y":58,"5Y":68,"7Y":82,"10Y":97,"20Y":null,"30Y":140},
     AMZN:{"3Y":20,"5Y":27,"7Y":35,"10Y":46,"20Y":58,"30Y":70},
-    ORCL:{"3Y":75,"5Y":92,"7Y":112,"10Y":132,"20Y":155,"30Y":175}
+    ORCL:{"3Y":75,"5Y":92,"7Y":112,"10Y":132,"20Y":155,"30Y":175},
+    SPCX:{"3Y":null,"5Y":115,"7Y":130,"10Y":150,"20Y":175,"30Y":185}
   },
   ratings: {
     AAPL:"AA+ / Aa1", NVDA:"A+ / A1", META:"AA- / A1", GOOGL:"AA+ / Aa2",
-    MU:"BBB / Baa1", AVGO:"BBB- / Baa2", AMZN:"AA / A1", ORCL:"BBB / Baa2"
+    MU:"BBB / Baa1", AVGO:"BBB- / Baa2", AMZN:"AA / A1", ORCL:"BBB / Baa2",
+    SPCX:"BBB / Baa1"
   },
   bond_changes: [
     {name:"NVDA 4.95 06/15/36", issuer:"NVDA", bucket:"10Y", spread:52, d1:3, w1:6, mtd:9, ytd:-4},
-    {name:"ORCL 5.7 02/04/36", issuer:"ORCL", bucket:"10Y", spread:132, d1:7, w1:11, mtd:15, ytd:22}
+    {name:"ORCL 5.7 02/04/36", issuer:"ORCL", bucket:"10Y", spread:132, d1:7, w1:11, mtd:15, ytd:22},
+    {name:"SPCX 5.875 06/26/36", issuer:"SPCX", bucket:"10Y", spread:150, d1:2, w1:5, mtd:8, ytd:null}
   ],
   bucket_chart: { d1:[0,1,0,-1,1,2], w1:[1,2,1,-1,2,4], mtd:[4,6,3,-2,5,9], ytd:[12,18,9,-5,20,30] },
   bucket_chart_by_issuer: {
@@ -243,7 +246,8 @@ const SAMPLE_SPREAD_DATA = {
     MU:{d1:[null,1,null,2,null,null], w1:[null,2,null,4,null,null], mtd:[null,5,null,10,null,null], ytd:[null,15,null,25,null,null]},
     AVGO:{d1:[1,1,1,2,null,3], w1:[2,2,3,3,null,5], mtd:[4,5,6,7,null,10], ytd:[5,8,11,14,null,20]},
     AMZN:{d1:[0,0,1,1,1,1], w1:[0,1,1,2,2,2], mtd:[1,2,3,4,5,6], ytd:[-6,-4,-1,1,5,8]},
-    ORCL:{d1:[1,2,2,3,3,4], w1:[2,3,4,5,6,6], mtd:[5,6,8,10,12,14], ytd:[10,15,20,25,30,35]}
+    ORCL:{d1:[1,2,2,3,3,4], w1:[2,3,4,5,6,6], mtd:[5,6,8,10,12,14], ytd:[10,15,20,25,30,35]},
+    SPCX:{d1:[null,1,2,2,3,3], w1:[null,3,4,5,6,7], mtd:[null,6,8,10,13,15], ytd:[null,null,null,null,null,null]}
   }
 };
 
@@ -313,7 +317,7 @@ let chartData = null; // { issuer: { d1:[...], w1:[...], mtd:[...], ytd:[...] } 
 
 const ISSUER_COLORS = {
   AAPL:'#8896b0', NVDA:'#76b900', META:'#3b82f6', GOOGL:'#f59e0b',
-  MU:'#06b6d4', AVGO:'#ef4444', AMZN:'#f97316', ORCL:'#a855f7'
+  MU:'#06b6d4', AVGO:'#ef4444', AMZN:'#f97316', ORCL:'#a855f7', SPCX:'#ec4899'
 };
 
 function buildIssuerDatasets(byIssuer, metric){

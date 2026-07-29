@@ -10,7 +10,7 @@ export_hyperscaler_dashboard.py
   - hyperscaler_bond_universe.csv 가 같은 폴더에 있어야 함 (ISIN/버킷/벤치마크 매핑 시드 파일)
 
 실행 흐름:
-  1) bond_universe.csv 로드 (46개 채권, 버킷 고정: 3Y/5Y/7Y/10Y/20Y/30Y + EXTRA_15Y)
+  1) bond_universe.csv 로드 (51개 채권, 버킷 고정: 3Y/5Y/7Y/10Y/20Y/30Y + EXTRA_15Y)
   2) 각 채권 YTM, 각 버킷 제네릭 UST(GT3~GT30 Govt) 금리 BDP로 pull
   3) 스프레드(bp) = 채권 YTM - 버킷 매칭 GT 금리
   4) hyperscaler_history.json 에 오늘 날짜 스냅샷 누적 저장
@@ -354,7 +354,7 @@ def build_output(universe: pd.DataFrame, spreads: dict, history: dict, ratings: 
         if isin in spreads:
             matrix[row["issuer"]][row["bucket"]] = spreads[isin]
 
-    # --- 개별 채권 변동 테이블 (전체 46개 채권 대상) ---
+    # --- 개별 채권 변동 테이블 (전체 51개 채권 대상) ---
     bond_changes = []
     for _, row in universe.iterrows():
         isin = row["isin"]
