@@ -264,10 +264,12 @@ def pull_bond_ispreads(isins: list) -> dict:
     BDP로 채권별 I-Spread(YAS_ISPREAD) pull.
     G-spread(YIELD_FIELD - GT_YIELD_FIELD 로 직접 계산)와 달리, I-Spread는
     Bloomberg가 스왑커브 보간까지 반영해서 bp 단위로 바로 내려주는 필드라 별도 계산이 필요없음.
+    화면 표시는 정수(bp)로 반올림.
     """
     print(f"[INFO] 채권 {len(isins)}건 I-Spread({ISPREAD_FIELD}) pull 중...")
     df = blp.bdp(tickers=isins, flds=[ISPREAD_FIELD])
-    return _bdp_field_to_dict(df, ISPREAD_FIELD, isins, "[채권 I-Spread]")
+    raw = _bdp_field_to_dict(df, ISPREAD_FIELD, isins, "[채권 I-Spread]")
+    return {isin: round(v) for isin, v in raw.items()}
 
 
 def pull_ratings(universe: pd.DataFrame) -> dict:

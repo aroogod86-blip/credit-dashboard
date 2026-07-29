@@ -386,7 +386,7 @@ function renderMatrix(data, matrixKey){
     const rating = ratings[t] || '–';
     mbody += `<tr><td class="name-cell">${t}</td><td class="rating-cell">${rating}</td>` + BUCKETS.map(b=>{
       const v = row[b];
-      return (v===null || v===undefined) ? `<td class="cell-empty">–</td>` : `<td class="cell-val">${v}</td>`;
+      return (v===null || v===undefined) ? `<td class="cell-empty">–</td>` : `<td class="cell-val">${Math.round(v)}</td>`;
     }).join('') + `</tr>`;
   });
   mbody += "</tbody>";
