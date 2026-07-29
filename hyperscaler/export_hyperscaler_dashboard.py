@@ -370,30 +370,42 @@ def build_output(universe: pd.DataFrame, spreads: dict, history: dict, ratings: 
             **changes,
         })
 
-    # --- 버킷별 평균 MTD/YTD (core matrix 채권만 대상, 표준 6버킷) ---
+    # --- 버킷별 평균 1D/1W/MTD/YTD (core matrix 채권만 대상, 표준 6버킷) ---
+    bucket_d1 = defaultdict(list)
+    bucket_w1 = defaultdict(list)
     bucket_mtd = defaultdict(list)
     bucket_ytd = defaultdict(list)
     for b in bond_changes:
         if b["bucket"] not in BUCKET_ORDER:
             continue
+        if b["d1"] is not None:
+            bucket_d1[b["bucket"]].append(b["d1"])
+        if b["w1"] is not None:
+            bucket_w1[b["bucket"]].append(b["w1"])
         if b["mtd"] is not None:
             bucket_mtd[b["bucket"]].append(b["mtd"])
         if b["ytd"] is not None:
             bucket_ytd[b["bucket"]].append(b["ytd"])
 
+    d1_chart = [round(sum(v) / len(v), 1) if v else None for b in BUCKET_ORDER for v in [bucket_d1[b]]]
+    w1_chart = [round(sum(v) / len(v), 1) if v else None for b in BUCKET_ORDER for v in [bucket_w1[b]]]
     mtd_chart = [round(sum(v) / len(v), 1) if v else None for b in BUCKET_ORDER for v in [bucket_mtd[b]]]
     ytd_chart = [round(sum(v) / len(v), 1) if v else None for b in BUCKET_ORDER for v in [bucket_ytd[b]]]
 
-    # --- 발행자별 버킷 MTD/YTD (드롭다운에서 개별 발행자 선택 시 사용) ---
+    # --- 발행자별 버킷 1D/1W/MTD/YTD (드롭다운에서 개별 발행자 선택 시 사용) ---
     bucket_chart_by_issuer = {}
     for issuer in sorted(universe["issuer"].unique()):
-        issuer_mtd, issuer_ytd = {}, {}
+        issuer_d1, issuer_w1, issuer_mtd, issuer_ytd = {}, {}, {}, {}
         for b in bond_changes:
             if b["issuer"] != issuer or b["bucket"] not in BUCKET_ORDER:
                 continue
+            issuer_d1[b["bucket"]] = b["d1"]
+            issuer_w1[b["bucket"]] = b["w1"]
             issuer_mtd[b["bucket"]] = b["mtd"]
             issuer_ytd[b["bucket"]] = b["ytd"]
         bucket_chart_by_issuer[issuer] = {
+            "d1": [issuer_d1.get(b) for b in BUCKET_ORDER],
+            "w1": [issuer_w1.get(b) for b in BUCKET_ORDER],
             "mtd": [issuer_mtd.get(b) for b in BUCKET_ORDER],
             "ytd": [issuer_ytd.get(b) for b in BUCKET_ORDER],
         }
@@ -404,7 +416,7 @@ def build_output(universe: pd.DataFrame, spreads: dict, history: dict, ratings: 
         "matrix": matrix,
         "ratings": ratings,
         "bond_changes": bond_changes,
-        "bucket_chart": {"mtd": mtd_chart, "ytd": ytd_chart},
+        "bucket_chart": {"d1": d1_chart, "w1": w1_chart, "mtd": mtd_chart, "ytd": ytd_chart},
         "bucket_chart_by_issuer": bucket_chart_by_issuer,
     }
 

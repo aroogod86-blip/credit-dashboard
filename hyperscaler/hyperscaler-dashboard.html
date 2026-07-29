@@ -154,9 +154,21 @@ tr:hover td { background:rgba(255,255,255,0.02); }
   <div class="news-list" id="newsList"></div>
 </div>
 
-<!-- ============ SECTION 3 : UPLOADED TICKERS ============ -->
+<!-- ============ SECTION 3 : CHARTS ============ -->
+<div class="section" id="sec3">
+  <div class="section-title">③ 만기별 금리 변동</div>
+  <div class="section-sub">버킷별 1D / WTD / MTD / YTD 변동폭 (bp) · 발행자별 라인 비교</div>
+  <div class="chart-grid">
+    <div class="chart-card"><h3>1D 변동 (bp)</h3><div class="chart-container" style="height:340px"><canvas id="d1Chart"></canvas></div></div>
+    <div class="chart-card"><h3>WTD 변동 (bp)</h3><div class="chart-container" style="height:340px"><canvas id="w1Chart"></canvas></div></div>
+    <div class="chart-card"><h3>MTD 변동 (bp)</h3><div class="chart-container" style="height:340px"><canvas id="mtdChart"></canvas></div></div>
+    <div class="chart-card"><h3>YTD 변동 (bp)</h3><div class="chart-container" style="height:340px"><canvas id="ytdChart"></canvas></div></div>
+  </div>
+</div>
+
+<!-- ============ SECTION 4 : UPLOADED TICKERS ============ -->
 <div class="section" id="sec2">
-  <div class="section-title">③ 업로드 종목 스프레드 변동</div>
+  <div class="section-title">④ 업로드 종목 스프레드 변동</div>
   <div class="section-sub">사용자 업로드 종목 리스트 기준 · 1D / 1W / MTD / YTD (bp)</div>
   <div class="table-wrap">
     <table id="uploadTable">
@@ -165,16 +177,6 @@ tr:hover td { background:rgba(255,255,255,0.02); }
       </tr></thead>
       <tbody></tbody>
     </table>
-  </div>
-</div>
-
-<!-- ============ SECTION 4 : CHARTS ============ -->
-<div class="section" id="sec3">
-  <div class="section-title">④ 만기별 금리 변동</div>
-  <div class="section-sub">버킷별 MTD / YTD 변동폭 (bp) · 발행자별 라인 비교</div>
-  <div class="chart-grid">
-    <div class="chart-card"><h3>MTD 변동 (bp)</h3><div class="chart-container" style="height:340px"><canvas id="mtdChart"></canvas></div></div>
-    <div class="chart-card"><h3>YTD 변동 (bp)</h3><div class="chart-container" style="height:340px"><canvas id="ytdChart"></canvas></div></div>
   </div>
 </div>
 
@@ -232,16 +234,16 @@ const SAMPLE_SPREAD_DATA = {
     {name:"NVDA 4.95 06/15/36", issuer:"NVDA", bucket:"10Y", spread:52, d1:3, w1:6, mtd:9, ytd:-4},
     {name:"ORCL 5.7 02/04/36", issuer:"ORCL", bucket:"10Y", spread:132, d1:7, w1:11, mtd:15, ytd:22}
   ],
-  bucket_chart: { mtd:[4,6,3,-2,5,9], ytd:[12,18,9,-5,20,30] },
+  bucket_chart: { d1:[0,1,0,-1,1,2], w1:[1,2,1,-1,2,4], mtd:[4,6,3,-2,5,9], ytd:[12,18,9,-5,20,30] },
   bucket_chart_by_issuer: {
-    AAPL:{mtd:[1,2,2,3,4,5], ytd:[-8,-6,-4,-2,3,6]},
-    NVDA:{mtd:[3,4,5,6,7,8], ytd:[2,4,6,8,10,12]},
-    META:{mtd:[2,3,4,5,6,7], ytd:[-3,-1,1,3,6,9]},
-    GOOGL:{mtd:[1,2,2,3,4,5], ytd:[-9,-7,-5,-3,2,5]},
-    MU:{mtd:[null,5,null,10,null,null], ytd:[null,15,null,25,null,null]},
-    AVGO:{mtd:[4,5,6,7,null,10], ytd:[5,8,11,14,null,20]},
-    AMZN:{mtd:[1,2,3,4,5,6], ytd:[-6,-4,-1,1,5,8]},
-    ORCL:{mtd:[5,6,8,10,12,14], ytd:[10,15,20,25,30,35]}
+    AAPL:{d1:[0,0,1,0,1,1], w1:[0,1,1,1,2,2], mtd:[1,2,2,3,4,5], ytd:[-8,-6,-4,-2,3,6]},
+    NVDA:{d1:[1,1,1,2,2,2], w1:[1,2,2,3,3,4], mtd:[3,4,5,6,7,8], ytd:[2,4,6,8,10,12]},
+    META:{d1:[0,1,1,1,2,2], w1:[1,1,2,2,3,3], mtd:[2,3,4,5,6,7], ytd:[-3,-1,1,3,6,9]},
+    GOOGL:{d1:[0,0,1,0,1,1], w1:[0,1,1,1,2,2], mtd:[1,2,2,3,4,5], ytd:[-9,-7,-5,-3,2,5]},
+    MU:{d1:[null,1,null,2,null,null], w1:[null,2,null,4,null,null], mtd:[null,5,null,10,null,null], ytd:[null,15,null,25,null,null]},
+    AVGO:{d1:[1,1,1,2,null,3], w1:[2,2,3,3,null,5], mtd:[4,5,6,7,null,10], ytd:[5,8,11,14,null,20]},
+    AMZN:{d1:[0,0,1,1,1,1], w1:[0,1,1,2,2,2], mtd:[1,2,3,4,5,6], ytd:[-6,-4,-1,1,5,8]},
+    ORCL:{d1:[1,2,2,3,3,4], w1:[2,3,4,5,6,6], mtd:[5,6,8,10,12,14], ytd:[10,15,20,25,30,35]}
   }
 };
 
@@ -303,9 +305,11 @@ function renderUploadTable(data){
   });
 }
 
+let d1ChartInstance = null;
+let w1ChartInstance = null;
 let mtdChartInstance = null;
 let ytdChartInstance = null;
-let chartData = null; // { issuer: { mtd:[...], ytd:[...] } }
+let chartData = null; // { issuer: { d1:[...], w1:[...], mtd:[...], ytd:[...] } }
 
 const ISSUER_COLORS = {
   AAPL:'#8896b0', NVDA:'#76b900', META:'#3b82f6', GOOGL:'#f59e0b',
@@ -331,9 +335,21 @@ function buildIssuerDatasets(byIssuer, metric){
 function drawCharts(byIssuer){
   const axisStyle = { ticks:{color:'#8896b0'}, grid:{color:'#1e2d4a'} };
   const legendStyle = { labels:{ color:'#8896b0', boxWidth:12, font:{size:11} } };
+  if(d1ChartInstance) d1ChartInstance.destroy();
+  if(w1ChartInstance) w1ChartInstance.destroy();
   if(mtdChartInstance) mtdChartInstance.destroy();
   if(ytdChartInstance) ytdChartInstance.destroy();
 
+  d1ChartInstance = new Chart(document.getElementById('d1Chart'), {
+    type:'bar',
+    data:{ labels:BUCKETS, datasets: buildIssuerDatasets(byIssuer, 'd1') },
+    options:{ plugins:{legend:legendStyle}, scales:{ x:axisStyle, y:axisStyle } }
+  });
+  w1ChartInstance = new Chart(document.getElementById('w1Chart'), {
+    type:'bar',
+    data:{ labels:BUCKETS, datasets: buildIssuerDatasets(byIssuer, 'w1') },
+    options:{ plugins:{legend:legendStyle}, scales:{ x:axisStyle, y:axisStyle } }
+  });
   mtdChartInstance = new Chart(document.getElementById('mtdChart'), {
     type:'bar',
     data:{ labels:BUCKETS, datasets: buildIssuerDatasets(byIssuer, 'mtd') },
