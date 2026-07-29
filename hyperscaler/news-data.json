@@ -1,53 +1,53 @@
 {
-  "date": "2026-07-28",
+  "date": "2026-07-29",
   "items": [
     {
       "t": "AAPL",
-      "h": "장중 시가총액 5조달러를 최초로 돌파하며 사상 두 번째 5조달러 기업 등극, 전일 NVDA를 제치고 시총 1위 탈환 — 저capex AI 전략에 대한 재평가 지속, 7/30 실적 발표 앞두고 주목",
-      "m": "2026-07-28 · Bloomberg/CNBC",
-      "url": "https://www.bloomberg.com/news/articles/2026-07-28/apple-becomes-second-company-to-hit-5-trillion-in-market-value"
+      "h": "애플 시가총액 5조달러 첫 돌파, Q3 실적 발표(7/30) 앞두고 사상 최고가 경신. AI 지출 자제 전략이 오히려 강점으로 재평가되며 7월 나스닥100 대비 초과수익률 사상 최대",
+      "m": "2026-07-29 · GuruFocus/247WallSt",
+      "url": "https://247wallst.com/investing/2026/07/29/apple-becomes-a-5-trillion-company-heres-what-comes-next/"
     },
     {
       "t": "NVDA",
-      "h": "SK그룹 5000억달러 파트너십 및 OpenAI 오하이오 데이터센터 자금조달 지원 소식에도 '구체적 확정 아닌 의향' 평가로 주가 5% 급락, CDS 5년물 스프레드는 하루새 14bp 급등(사상 최대 일간 상승폭)",
-      "m": "2026-07-28 · Benzinga/GuruFocus",
-      "url": "https://www.benzinga.com/markets/prediction-markets/26/07/60727583/nvda-down-6-in-two-days-whats-happening-to-nvidias-default-insurance-costs"
+      "h": "엔비디아 주가 이틀간 시총 약 2,380억달러 증발, AI 순환금융(circular financing) 우려 및 밸류에이션 재점검으로 3%대 하락. 반면 Ilya Sutskever의 SSI에 50억달러 베팅 소식도 전해짐",
+      "m": "2026-07-29 · TS2/Fool",
+      "url": "https://ts2.tech/en/nvidia-nasdaqnvda-shares-fall-following-projected-238-billion-loss-amid-scrutiny-of-ai-investment/"
     },
     {
       "t": "META",
-      "h": "7/29 장마감 후 2분기 실적 발표를 앞두고 주가 약보합, FY26 capex 가이던스($125~145bn)의 마진 압박 여부가 핵심 변수로 부상 — El Paso 데이터센터(BlackRock JV) 관련 후속 뉴스는 잠잠",
-      "m": "2026-07-28 · FX Leaders/Yahoo Finance",
-      "url": "https://www.fxleaders.com/news/2026/07/26/top-earnings-to-watch-this-week-july-27-31-what-to-expect-from-msft-meta-aapl-amzn-ko-ba-and-f/"
+      "h": "메타 2분기 실적: 매출 608억달러(+28% YoY, 컨센서스 상회)이나 EPS 6.18달러로 컨센서스(7.22달러) 큰 폭 미달, 순이익 14% 감소. 법적 충당금 24억달러·명예퇴직비용 11.8억달러 반영, 2026 capex 가이던스 1,300~1,450억달러 유지. 실적 발표 후 시간외 4%대 하락",
+      "m": "2026-07-29 · StockTitan/247WallSt",
+      "url": "https://www.stocktitan.net/news/META/meta-reports-second-quarter-2026-hkjfhayj8l0v.html"
     },
     {
       "t": "GOOGL",
-      "h": "전일(7/27) 실적 발표 후 capex 가이던스 상향 여파로 인한 급락에서 반등, +2%대 상승 마감 — 다만 EU에서 반독점 패소에 따른 소규모 경쟁사들의 후속 소송 리스크 부각",
-      "m": "2026-07-28 · Robinhood/TipRanks",
-      "url": "https://robinhood.com/us/en/stocks/GOOGL/"
+      "h": "알파벳, AI 데이터센터 지출 우려로 CDS(신용부도스와프) 스프레드 상승 - AI 자본지출 부담에 대한 채권시장 경계감 반영. Phillip Securities는 실적 발표 후 조정 국면에서 목표가 425달러로 매수 등급 상향",
+      "m": "2026-07-29 · Yahoo Finance/GuruFocus",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/alphabet-stock-stalls-despite-fresh-190330269.html"
     },
     {
       "t": "MU",
-      "h": "중국 메모리 굴기(CXMT) 위협 및 공급과잉 우려로 주가 8.9~10.3% 폭락, 한국 반도체(삼성 -7%, SK하이닉스 -9%) 동반 급락 속 아시아發 AI 밸류에이션 리스크오프 확산의 진앙",
-      "m": "2026-07-28 · Yahoo Finance/TradingKey",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/why-micron-stock-just-dropped-192000089.html"
+      "h": "마이크론 주가 4~9%대 급락, 한국 레버리지 ETF 투자 제한 조치 및 중국 CXMT 상하이 증시 데뷔에 따른 경쟁 심화 우려, CEO 스톡옵션 매도(약 3,730만달러) 겹치며 투자심리 위축. 6월 고점 대비 30% 이상 조정",
+      "m": "2026-07-29 · Fool/TradingKey",
+      "url": "https://www.fool.com/investing/2026/07/29/why-micron-stock-dropped-again-today/"
     },
     {
       "t": "AVGO",
-      "h": "반도체 섹터 전반 리스크오프 속에서도 상대적으로 낙폭 제한(-0.2%대), $30bn 규모 Apple 칩 공급계약과 OpenAI Jalapeño 프로세서 등 AI 커스텀칩 파이프라인이 하방 방어",
-      "m": "2026-07-28 · Macroaxis/Robinhood",
-      "url": "https://www.macroaxis.com/stock/AVGO/Broadcom"
+      "h": "브로드컴 주가 0.6%대 소폭 하락에 그치며 상대적 견조, 삼성전자와의 2,000억달러+ AI 메모리·파운드리 협력 MOU 확대 소식 지속 부각. 하이퍼스케일러 capex 우려 속 커스텀 ASIC 사업이 대안으로 재평가",
+      "m": "2026-07-29 · Robinhood/CNN",
+      "url": "https://robinhood.com/us/en/stocks/AVGO/"
     },
     {
       "t": "AMZN",
-      "h": "7/30 실적 발표 앞두고 주가 약보합(-1%대), AI/데이터센터 투자와 마진 확대 양립 여부가 핵심 관전포인트 — FCC에 5,105기 위성망 구축 신청 등 Kuiper 사업 확대도 병행",
-      "m": "2026-07-28 · Benzinga/GuruFocus",
-      "url": "https://www.benzinga.com/trading-ideas/movers/26/07/60729625/amazon-stock-trades-flat-ahead-of-thursday-earnings-test-what-investors-need-to-know"
+      "h": "아마존, 7/30 2분기 실적 발표 앞두고 보합권 등락. Jassy CEO, AI 데이터센터 투자 위해 250억달러 회사채 발행(2026 capex 가이던스 2,000억달러). AWS 성장률 15분기 만에 최고치 기대감에 매수의견 우세",
+      "m": "2026-07-29 · Robinhood/247WallSt",
+      "url": "https://247wallst.com/investing/2026/07/29/can-amazon-continue-its-rally-analysts-weigh-in/"
     },
     {
       "t": "ORCL",
-      "h": "52주 신저가($114.51) 경신 후 반등, RPO $638bn(마이크로소프트 상회) 대비 밸류에이션 괴리 부각되며 저가매수 유입 — $7bn 국방부 계약과 클라우드 인프라 성장세가 지지 요인으로 재평가",
-      "m": "2026-07-28 · MarketsDaily/247WallSt",
-      "url": "https://www.themarketsdaily.com/2026/07/28/oracle-nyseorcl-reaches-new-52-week-low-whats-next.html"
+      "h": "오라클, AI 인프라 투자 부담에 CDS 스프레드가 사상 최고 수준으로 상승하며 신용위험 우려 부각. 작년 9월 고점 대비 주가 60% 이상 급락한 상태에서 저점 지지선 근처 등락",
+      "m": "2026-07-29 · GuruFocus/Trefis",
+      "url": "https://www.gurufocus.com/news/8987687/oracle-orcl-faces-rising-credit-risk-amid-ai-investment-pressures"
     }
   ]
 }
