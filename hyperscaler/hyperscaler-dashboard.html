@@ -115,6 +115,52 @@ tr:hover td { background:rgba(255,255,255,0.02); }
 .chart-card h3 { font-size:13px; font-weight:700; margin-bottom:14px; }
 .chart-container { position:relative; height:280px; }
 
+/* ---------- SECTION 1: G/I-SPREAD TOGGLE ---------- */
+.toggle-group { display:flex; gap:8px; margin-bottom:16px; }
+.toggle-btn {
+  background:var(--bg-card); border:1px solid var(--border); color:var(--text-secondary);
+  padding:7px 16px; border-radius:8px; font-size:12px; font-weight:600; cursor:pointer;
+  transition:all 0.15s ease;
+}
+.toggle-btn:hover { color:var(--text-primary); border-color:var(--accent-blue); }
+.toggle-btn.active { background:rgba(59,130,246,0.15); border-color:var(--accent-blue); color:var(--accent-blue); }
+.spread-footnote { font-size:11px; color:var(--text-muted); margin-top:12px; line-height:1.5; }
+
+/* ---------- SECTION 5: CDS 5Y GRID ---------- */
+.cds-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+.cds-card {
+  background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:16px;
+  cursor:pointer; transition:border-color 0.15s ease, transform 0.15s ease;
+}
+.cds-card:hover { border-color:var(--accent-blue); transform:translateY(-2px); }
+.cds-card-head { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px; }
+.cds-ticker { font-size:13px; font-weight:700; }
+.cds-value { font-family:'JetBrains Mono',monospace; font-size:15px; font-weight:700; }
+.cds-change { font-family:'JetBrains Mono',monospace; font-size:11px; margin-top:2px; }
+.cds-mini-container { height:70px; margin-top:6px; }
+.cds-empty-note { font-size:11px; color:var(--text-muted); padding:30px 0; text-align:center; }
+@media (max-width:1200px){ .cds-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:600px){ .cds-grid{ grid-template-columns:1fr; } }
+
+/* ---------- MODAL (CDS 확대 차트) ---------- */
+.modal-overlay {
+  display:none; position:fixed; inset:0; background:rgba(5,8,15,0.75); z-index:200;
+  align-items:center; justify-content:center; padding:20px;
+}
+.modal-overlay.open { display:flex; }
+.modal-content {
+  background:var(--bg-secondary); border:1px solid var(--border); border-radius:14px;
+  padding:24px; width:100%; max-width:760px;
+}
+.modal-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; }
+.modal-head h3 { font-size:15px; font-weight:700; }
+.modal-close {
+  background:none; border:1px solid var(--border); color:var(--text-secondary);
+  width:28px; height:28px; border-radius:8px; cursor:pointer; font-size:14px;
+}
+.modal-close:hover { color:var(--text-primary); border-color:var(--accent-blue); }
+.modal-chart-container { height:340px; }
+
 .footer-note {
   max-width:1600px; margin:0 auto; padding:0 40px 40px; font-size:11px; color:var(--text-muted);
 }
@@ -141,10 +187,15 @@ tr:hover td { background:rgba(255,255,255,0.02); }
 <!-- ============ SECTION 1 : MATRIX ============ -->
 <div class="section" id="sec0">
   <div class="section-title">① 만기 × 종목 스프레드 비교표</div>
-  <div class="section-sub">단위: bp · 각 셀 = YTM − 해당 버킷 GT금리</div>
+  <div class="section-sub">단위: bp · 각 셀 = YTM − 해당 버킷 GT금리 (G-Spread) / 스왑커브 보간 스프레드 (I-Spread)</div>
+  <div class="toggle-group">
+    <button class="toggle-btn active" id="btnGSpread" onclick="switchSpreadMode('matrix')">G-Spread</button>
+    <button class="toggle-btn" id="btnISpread" onclick="switchSpreadMode('ispread_matrix')">I-Spread</button>
+  </div>
   <div class="matrix-wrap">
     <table id="matrixTable"></table>
   </div>
+  <div class="spread-footnote">※ G-Spread는 국채(GT) 금리 대비, I-Spread는 스왑커브 보간 기준이라 방법론 차이로 레벨이 다르게 나타날 수 있습니다.</div>
 </div>
 
 <!-- ============ SECTION 2 : NEWS ============ -->
@@ -180,13 +231,34 @@ tr:hover td { background:rgba(255,255,255,0.02); }
   </div>
 </div>
 
+<!-- ============ SECTION 5 : CDS 5Y TRENDS ============ -->
+<div class="section" id="sec4">
+  <div class="section-title">⑤ 종목별 CDS 5Y 추이</div>
+  <div class="section-sub">단위: bp · PX_LAST 기준 · 카드 클릭 시 확대 보기</div>
+  <div class="cds-grid" id="cdsGrid"></div>
+</div>
+
+<div class="modal-overlay" id="cdsModal" onclick="if(event.target===this) closeCdsModal()">
+  <div class="modal-content">
+    <div class="modal-head">
+      <h3 id="cdsModalTitle">-</h3>
+      <button class="modal-close" onclick="closeCdsModal()">✕</button>
+    </div>
+    <div class="modal-chart-container"><canvas id="cdsModalChart"></canvas></div>
+  </div>
+</div>
+
 <div class="footer-note">
-  ※ 이 파일과 같은 폴더에 <span class="mono">data.json</span>, <span class="mono">news-data.json</span>이 있으면 그 값을 자동으로 읽어옵니다. 없으면 SAMPLE 값으로 표시됩니다 (헤더 뱃지로 항상 구분 표시).
+  ※ 이 파일과 같은 폴더에 <span class="mono">data.json</span>, <span class="mono">news-data.json</span>, <span class="mono">hyperscaler/cds-history.json</span>이 있으면 그 값을 자동으로 읽어옵니다. 없으면 SAMPLE 값으로 표시됩니다 (헤더 뱃지로 항상 구분 표시).
 </div>
 
 <script>
 const BUCKETS = ["3Y","5Y","7Y","10Y","20Y","30Y"];
 const ISSUERS = ["AAPL","NVDA","META","GOOGL","MU","AVGO","AMZN","ORCL","SPCX"];
+
+// CDS 5Y 섹션용 (data.json의 CDS_TICKERS 키와 동일해야 함; ORCL 채권과 달리 CDS는 ORCLCP 키 사용)
+const CDS_ISSUERS = ["AAPL","NVDA","META","GOOGL","AVGO","AMZN","SPCX","ORCLCP"];
+const CDS_LABELS = { ORCLCP: "ORCL" };  // 화면 표시용 라벨 (내부 키는 ORCLCP 그대로)
 
 // S&P 스케일 기준 우량 -> 열위 순서 (등급순 정렬용)
 const SP_RATING_ORDER = [
@@ -227,6 +299,17 @@ const SAMPLE_SPREAD_DATA = {
     ORCL:{"3Y":75,"5Y":92,"7Y":112,"10Y":132,"20Y":155,"30Y":175},
     SPCX:{"3Y":null,"5Y":115,"7Y":130,"10Y":150,"20Y":175,"30Y":185}
   },
+  ispread_matrix: {
+    AAPL:{"3Y":21,"5Y":27,"7Y":34,"10Y":41,"20Y":58,"30Y":70},
+    NVDA:{"3Y":31,"5Y":39,"7Y":48,"10Y":55,"20Y":73,"30Y":87},
+    META:{"3Y":36,"5Y":45,"7Y":56,"10Y":64,"20Y":83,"30Y":97},
+    GOOGL:{"3Y":25,"5Y":32,"7Y":40,"10Y":47,"20Y":63,"30Y":76},
+    MU:{"3Y":null,"5Y":91,"7Y":null,"10Y":121,"20Y":null,"30Y":null},
+    AVGO:{"3Y":61,"5Y":71,"7Y":85,"10Y":100,"20Y":null,"30Y":142},
+    AMZN:{"3Y":23,"5Y":30,"7Y":38,"10Y":49,"20Y":61,"30Y":72},
+    ORCL:{"3Y":78,"5Y":95,"7Y":115,"10Y":135,"20Y":158,"30Y":177},
+    SPCX:{"3Y":null,"5Y":118,"7Y":133,"10Y":153,"20Y":178,"30Y":187}
+  },
   ratings: {
     AAPL:"AA+ / Aa1", NVDA:"A+ / A1", META:"AA- / A1", GOOGL:"AA+ / Aa2",
     MU:"BBB / Baa1", AVGO:"BBB- / Baa2", AMZN:"AA / A1", ORCL:"BBB / Baa2",
@@ -260,17 +343,46 @@ const SAMPLE_NEWS = {
   ]
 };
 
+// CDS 5Y SAMPLE 히스토리 (cds-history.json 없을 때 폴백 · 시드 기반 랜덤워크로 생성)
+function buildSampleCdsSeries(base, vol, days){
+  let v = base; const out = []; const start = new Date(); start.setDate(start.getDate() - days);
+  for(let i=0;i<=days;i++){
+    v = Math.max(5, v + (Math.sin(i/6)*vol*0.4) + ((i%7===0)?(Math.random()-0.5)*vol:0));
+    const d = new Date(start); d.setDate(start.getDate()+i);
+    out.push({ d: d.toISOString().slice(0,10), v: Math.round(v*10)/10 });
+  }
+  return out;
+}
+const SAMPLE_CDS_HISTORY = {
+  date_range: ["SAMPLE","SAMPLE"],
+  series: {
+    AAPL: buildSampleCdsSeries(22, 3, 60),
+    NVDA: buildSampleCdsSeries(45, 5, 60),
+    META: buildSampleCdsSeries(38, 4, 60),
+    GOOGL: buildSampleCdsSeries(26, 3, 60),
+    AVGO: buildSampleCdsSeries(60, 6, 60),
+    AMZN: buildSampleCdsSeries(24, 3, 60),
+    SPCX: buildSampleCdsSeries(140, 12, 60),
+    ORCLCP: buildSampleCdsSeries(95, 8, 60)
+  }
+};
+
 /* =========================================================
    렌더링 함수
    ========================================================= */
-function renderMatrix(data){
+let lastSpreadData = null;
+let currentSpreadMode = 'matrix';
+
+function renderMatrix(data, matrixKey){
+  matrixKey = matrixKey || currentSpreadMode;
   const matrixTable = document.getElementById('matrixTable');
   const ratings = data.ratings || {};
   const orderedIssuers = issuersByRating(ratings);
+  const src = data[matrixKey] || {};
   let thead = "<thead><tr><th>Issuer</th><th>등급(S&P/Moody's)</th>" + BUCKETS.map(b=>`<th>${b}</th>`).join('') + "</tr></thead>";
   let mbody = "<tbody>";
   orderedIssuers.forEach(t=>{
-    const row = data.matrix[t] || {};
+    const row = src[t] || {};
     const rating = ratings[t] || '–';
     mbody += `<tr><td class="name-cell">${t}</td><td class="rating-cell">${rating}</td>` + BUCKETS.map(b=>{
       const v = row[b];
@@ -279,6 +391,13 @@ function renderMatrix(data){
   });
   mbody += "</tbody>";
   matrixTable.innerHTML = thead + mbody;
+}
+
+function switchSpreadMode(mode){
+  currentSpreadMode = mode;
+  document.getElementById('btnGSpread').classList.toggle('active', mode==='matrix');
+  document.getElementById('btnISpread').classList.toggle('active', mode==='ispread_matrix');
+  if(lastSpreadData) renderMatrix(lastSpreadData, mode);
 }
 
 function renderUploadTable(data){
@@ -317,7 +436,8 @@ let chartData = null; // { issuer: { d1:[...], w1:[...], mtd:[...], ytd:[...] } 
 
 const ISSUER_COLORS = {
   AAPL:'#8896b0', NVDA:'#76b900', META:'#3b82f6', GOOGL:'#f59e0b',
-  MU:'#06b6d4', AVGO:'#ef4444', AMZN:'#f97316', ORCL:'#a855f7', SPCX:'#ec4899'
+  MU:'#06b6d4', AVGO:'#ef4444', AMZN:'#f97316', ORCL:'#a855f7', SPCX:'#ec4899',
+  ORCLCP:'#a855f7'
 };
 
 function buildIssuerDatasets(byIssuer, metric){
@@ -387,6 +507,108 @@ function renderNews(newsData){
 }
 
 /* =========================================================
+   ⑤ CDS 5Y 추이 (미니차트 그리드 + 확대 모달)
+   ========================================================= */
+let cdsHistoryData = null;
+let cdsModalChartInstance = null;
+const cdsMiniChartInstances = {};
+
+function renderCdsGrid(cdsData){
+  cdsHistoryData = cdsData;
+  const grid = document.getElementById('cdsGrid');
+  grid.innerHTML = "";
+  const series = cdsData.series || {};
+
+  CDS_ISSUERS.forEach(key=>{
+    const points = series[key] || [];
+    const label = CDS_LABELS[key] || key;
+    const color = ISSUER_COLORS[key] || '#8896b0';
+    const cardId = `cdsCard_${key}`;
+    const canvasId = `cdsMini_${key}`;
+
+    if(points.length === 0){
+      grid.innerHTML += `
+        <div class="cds-card" id="${cardId}">
+          <div class="cds-card-head"><span class="cds-ticker">${label}</span></div>
+          <div class="cds-empty-note">데이터 없음</div>
+        </div>`;
+      return;
+    }
+
+    const last = points[points.length-1].v;
+    const prev = points.length > 1 ? points[points.length-2].v : last;
+    const diff = Math.round((last - prev) * 10) / 10;
+    const diffCls = diff > 0 ? 'up' : (diff < 0 ? 'down' : '');
+    const diffTxt = diff > 0 ? `+${diff}` : `${diff}`;
+
+    grid.innerHTML += `
+      <div class="cds-card" id="${cardId}" onclick="openCdsModal('${key}')">
+        <div class="cds-card-head">
+          <span class="cds-ticker">${label}</span>
+          <span class="cds-value">${last}bp</span>
+        </div>
+        <div class="cds-change ${diffCls}">${diffTxt}bp (전일比)</div>
+        <div class="cds-mini-container"><canvas id="${canvasId}"></canvas></div>
+      </div>`;
+  });
+
+  // DOM 삽입 후 미니차트 그리기 (innerHTML 전체 교체라 매번 새로 그림)
+  CDS_ISSUERS.forEach(key=>{
+    const points = series[key] || [];
+    if(points.length === 0) return;
+    const canvas = document.getElementById(`cdsMini_${key}`);
+    if(!canvas) return;
+    const color = ISSUER_COLORS[key] || '#8896b0';
+    if(cdsMiniChartInstances[key]) cdsMiniChartInstances[key].destroy();
+    cdsMiniChartInstances[key] = new Chart(canvas, {
+      type:'line',
+      data:{
+        labels: points.map(p=>p.d),
+        datasets:[{ data: points.map(p=>p.v), borderColor:color, backgroundColor:'transparent',
+          borderWidth:1.5, pointRadius:0, tension:0.25 }]
+      },
+      options:{
+        responsive:true, maintainAspectRatio:false,
+        plugins:{ legend:{display:false}, tooltip:{enabled:false} },
+        scales:{ x:{display:false}, y:{display:false} },
+        elements:{ point:{radius:0} }
+      }
+    });
+  });
+}
+
+function openCdsModal(key){
+  const series = (cdsHistoryData && cdsHistoryData.series) || {};
+  const points = series[key] || [];
+  if(points.length === 0) return;
+  const label = CDS_LABELS[key] || key;
+  const color = ISSUER_COLORS[key] || '#8896b0';
+
+  document.getElementById('cdsModalTitle').textContent = `${label} CDS 5Y 추이`;
+  document.getElementById('cdsModal').classList.add('open');
+
+  if(cdsModalChartInstance) cdsModalChartInstance.destroy();
+  const axisStyle = { ticks:{color:'#8896b0'}, grid:{color:'#1e2d4a'} };
+  cdsModalChartInstance = new Chart(document.getElementById('cdsModalChart'), {
+    type:'line',
+    data:{
+      labels: points.map(p=>p.d),
+      datasets:[{ label:`${label} CDS 5Y (bp)`, data: points.map(p=>p.v),
+        borderColor:color, backgroundColor:'transparent', borderWidth:2, pointRadius:0, tension:0.2 }]
+    },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{labels:{color:'#8896b0'}} },
+      scales:{ x:axisStyle, y:axisStyle }
+    }
+  });
+}
+
+function closeCdsModal(){
+  document.getElementById('cdsModal').classList.remove('open');
+}
+
+/* =========================================================
    데이터 로드: data.json / news-data.json 이 있으면 실데이터, 없으면 SAMPLE로 폴백
    ========================================================= */
 let spreadIsSample = true;
@@ -414,6 +636,7 @@ fetch('data.json?t=' + Date.now())
   .then(data => { spreadIsSample = false; return data; })
   .catch(() => SAMPLE_SPREAD_DATA)
   .then(data => {
+    lastSpreadData = data;
     renderMatrix(data);
     renderUploadTable(data);
     renderCharts(data);
@@ -428,6 +651,13 @@ fetch('news-data.json?t=' + Date.now())
   .then(data => {
     renderNews(data);
     updateBadge();
+  });
+
+fetch('cds-history.json?t=' + Date.now())
+  .then(r => { if(!r.ok) throw new Error('no cds-history.json'); return r.json(); })
+  .catch(() => SAMPLE_CDS_HISTORY)
+  .then(data => {
+    renderCdsGrid(data);
   });
 </script>
 </body>
