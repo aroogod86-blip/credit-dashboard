@@ -98,6 +98,21 @@ _DEFAULT_BOND_ISINS = [
     "XS3423950313",
 ]
 
+def load_issuer_financials():
+    """issuer_financials.json이 있으면 로드, 없으면 빈 dict"""
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    path = os.path.join(script_dir, "issuer_financials.json")
+    if os.path.exists(path):
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                d = json.load(f)
+            print(f"  📋 issuer_financials.json에서 {len(d.get('issuers', {}))}개 발행자 로드")
+            return d
+        except Exception as e:
+            print(f"  ⚠️  issuer_financials.json 읽기 오류: {e}")
+    return {"as_of": None, "issuers": {}}
+
+
 def load_bond_list():
     """bond_list.json이 있으면 거기서 ISIN 목록을 읽고, 없으면 기본 목록 사용"""
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -1433,10 +1448,11 @@ def load_sample_data():
 # ══════════════════════════════════════════════
 # 4. HTML 템플릿 생성
 # ══════════════════════════════════════════════
-def generate_html(data):
+def generate_html(data, issuer_data=None):
     """데이터를 받아 standalone HTML 대시보드 문자열을 반환"""
 
     data_json = json.dumps(data, ensure_ascii=False)
+    issuer_json = json.dumps(issuer_data or {"as_of": None, "issuers": {}}, ensure_ascii=False)
 
     html = f'''<!DOCTYPE html>
 <html lang="ko">
@@ -1525,9 +1541,8 @@ textarea:focus,.ti:focus{{border-color:var(--ac)}}
   <div class="tab active" data-tab="t1">🎯 보유 채권</div>
   <div class="tab" data-tab="t2">📊 크레딧 지표</div>
   <div class="tab" data-tab="t3">🏢 발행자별 곡선</div>
-  <div class="tab" data-tab="t4">💼 거래 내역</div>
+  <div class="tab" data-tab="t8">💰 기업별 유동성 지표</div>
   <div class="tab" data-tab="t6">🆕 최근 발행<span id="techBadge"></span></div>
-  <div class="tab" data-tab="t5">📝 리서치 메모</div>
   <div class="tab" data-tab="t7">⚙️ 종목 관리</div>
 </div>
 <div class="ct">
@@ -1642,13 +1657,6 @@ textarea:focus,.ti:focus{{border-color:var(--ac)}}
   <div class="ig" id="ic"></div>
   <div class="cd"><div class="ct2">🏭 섹터 평균 곡선</div><div class="ch" style="height:300px"><canvas id="c7"></canvas></div></div>
 </div>
-<!-- TAB 4 -->
-<div class="tp" id="t4">
-  <div class="ib">💼 TRACE 거래 데이터 (최근 7일)</div>
-  <div class="cd"><div class="ct2">💹 거래 내역</div>
-    <div class="tw" style="max-height:600px;overflow-y:auto">
-      <table><thead><tr><th>날짜</th><th>채권</th><th>소스</th><th>가격</th><th>YTM(%)</th><th>거래 Spread</th><th>YAS Spread</th><th>변동</th><th>거래량</th><th>사이즈</th></tr></thead><tbody id="t4b"></tbody></table></div></div>
-</div>
 <!-- TAB 6: New Issues -->
 <div class="tp" id="t6">
   <div class="ib">🆕 Bloomberg PREL 워크시트 기반 최근 발행 내역 — <span id="niCount"></span></div>
@@ -1670,19 +1678,7 @@ textarea:focus,.ti:focus{{border-color:var(--ac)}}
   </div>
 </div>
 <!-- TAB 5 -->
-<div class="tp" id="t5">
-  <div class="ib">📝 리서치 핵심 내용을 메모해두세요. 브라우저에 자동 저장됩니다.</div>
-  <div class="cd">
-    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px">
-      <div style="flex:1;min-width:180px"><label style="font-size:12px;color:var(--tx3);display:block;margin-bottom:4px">발행자/섹터</label><input class="ti" id="rk" placeholder="예: HSBC"></div>
-      <div style="flex:2;min-width:200px"><label style="font-size:12px;color:var(--tx3);display:block;margin-bottom:4px">제목</label><input class="ti" id="rt" placeholder="리서치 제목"></div></div>
-    <label style="font-size:12px;color:var(--tx3);display:block;margin-bottom:4px">요약 / 메모</label>
-    <textarea id="rc" rows="5" placeholder="핵심 내용을 메모..."></textarea>
-    <div style="margin-top:12px;display:flex;gap:12px;align-items:center">
-      <button class="bt pr" onclick="SM()">저장</button><span id="rs" style="font-size:12px;color:var(--tx3)"></span></div>
-  </div>
-  <div class="cd"><div class="ct2">🗂 저장된 리서치 메모</div><div id="rl"></div></div>
-</div>
+<div class="tp" id="t5" style="display:none">
 </div>
 <!-- TAB 7: Bond Management -->
 <div class="tp" id="t7">
@@ -1720,11 +1716,66 @@ textarea:focus,.ti:focus{{border-color:var(--ac)}}
     </div>
   </div>
 </div>
+
+<!-- TAB 8: Issuer Financials -->
+<div class="tp" id="t8">
+  <div style="padding:16px 32px">
+    <div style="display:flex;gap:12px;align-items:center;margin-bottom:16px">
+      <input id="t8-search" type="text" placeholder="발행자명 검색..."
+        style="flex:1;max-width:280px;padding:6px 10px;border:1px solid var(--bd);border-radius:6px;background:var(--bg);color:var(--tx1)"
+        oninput="R8()">
+      <label style="font-size:12px;color:var(--tx3)">
+        <input type="checkbox" id="t8-hide-nodata" checked onchange="R8()"> 데이터 없는 발행자 숨기기
+      </label>
+      <span style="font-size:11px;color:var(--tx3)" id="t8-asof"></span>
+    </div>
+
+    <div class="ct2" style="margin-bottom:8px">🏭 일반기업 <span style="font-weight:400;color:var(--tx3);font-size:12px" id="t8-corp-count"></span></div>
+    <div class="tw" style="margin-bottom:24px">
+      <table>
+        <thead><tr id="t8-corp-th"></tr></thead>
+        <tbody id="t8-corp-tb"></tbody>
+      </table>
+    </div>
+
+    <div class="ct2" style="margin-bottom:8px">🏦 금융기관 <span style="font-weight:400;color:var(--tx3);font-size:12px" id="t8-fin-count"></span></div>
+    <div class="tw" style="margin-bottom:24px">
+      <table>
+        <thead><tr id="t8-fin-th"></tr></thead>
+        <tbody id="t8-fin-tb"></tbody>
+      </table>
+    </div>
+
+    <div class="ct2" style="margin-bottom:8px">🏛️ 한국 공사채 <span style="font-weight:400;color:var(--tx3);font-size:12px" id="t8-kr-count"></span></div>
+    <div class="tw">
+      <table>
+        <thead><tr id="t8-kr-th"></tr></thead>
+        <tbody id="t8-kr-tb"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 추이 차트: 인라인이 아니라 화면 중앙에 뜨는 모달 팝업 -->
+  <div id="t8-chart-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:1000;align-items:center;justify-content:center"
+       onclick="if(event.target===this)document.getElementById('t8-chart-overlay').style.display='none'">
+    <div id="t8-chart-panel" style="width:min(900px,90vw);background:var(--sf);border:1px solid var(--bd);border-radius:10px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,0.5)">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <div id="t8-chart-title" style="font-weight:600;font-size:15px"></div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <select id="t8-metric-select" onchange="renderT8Chart()" style="font-size:12px;padding:4px 6px;border-radius:6px;border:1px solid var(--bd);background:var(--bg);color:var(--tx1)"></select>
+          <span style="cursor:pointer;font-size:14px;color:var(--tx3)" onclick="document.getElementById('t8-chart-overlay').style.display='none'">✕ 닫기</span>
+        </div>
+      </div>
+      <canvas id="t8-chart-canvas" height="100"></canvas>
+    </div>
+  </div>
+</div>
 </div>
 <div class="en" id="en">✅ CSV 파일이 다운로드됩니다</div>
 <script>
 // ═══ DATA ═══
 const D = {data_json};
+const ISSUER_D = {issuer_json};
 
 const CL = ['#3b82f6','#10b981','#ef4444','#8b5cf6','#f59e0b','#06b6d4','#ec4899','#14b8a6','#f97316','#6366f1','#84cc16','#e11d48','#0ea5e9','#a855f7','#22c55e'];
 
@@ -1754,7 +1805,7 @@ document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{{
   document.querySelectorAll('.tp').forEach(x=>x.classList.remove('active'));
   t.classList.add('active');document.getElementById(t.dataset.tab).classList.add('active');
   if(t.dataset.tab==='t2')R2();if(t.dataset.tab==='t3')R3();
-  if(t.dataset.tab==='t4')R4();if(t.dataset.tab==='t6')R6();if(t.dataset.tab==='t5')RL();if(t.dataset.tab==='t7')R7();
+  if(t.dataset.tab==='t6')R6();if(t.dataset.tab==='t7')R7();if(t.dataset.tab==='t8')R8();
 }}));
 
 // ═══ TAB 1 ═══
@@ -3121,6 +3172,169 @@ function downloadBondList(){{
   setTimeout(function(){{document.getElementById('dlMsg').textContent=''}},5000);
 }}
 
+// ═══ TAB 8: 발행자 재무 (일반기업/금융기관 분리) ═══
+const T8_METRICS_CORP = [
+  {{key:'revenue_growth_yoy',  label:'매출증가율',   pct:true}},
+  {{key:'earnings_growth_yoy', label:'이익증가율',   pct:true}},
+  {{key:'net_debt_to_ebitda',  label:'Net Debt/EBITDA', pct:false}},
+  {{key:'ebitda_to_interest',  label:'EBITDA/이자',   pct:false}},
+  {{key:'ffo_to_interest',     label:'FFO/이자',      pct:false}},
+  {{key:'ffo_to_debt',         label:'FFO/Debt',      pct:true}},
+  {{key:'fcf_to_debt',         label:'FCF/Debt',      pct:true}},
+  {{key:'liquidity_ratio',     label:'유동성비율',    pct:false}},
+  {{key:'ebitda_margin',       label:'EBITDA마진',   pct:true}},
+];
+const T8_METRICS_FIN = [
+  {{key:'roe',             label:'ROE',      pct:true}},
+  {{key:'tier1_ratio',     label:'Tier1비율', pct:true}},
+  {{key:'npl_ratio',       label:'NPL비율',   pct:true}},
+  {{key:'nim',             label:'NIM',      pct:true}},
+  {{key:'loan_to_deposit', label:'예대율',    pct:true}},
+  {{key:'leverage_ratio',  label:'레버리지',  pct:false}},
+];
+
+let t8sc={{corp:'ebitda_to_interest', fin:'tier1_ratio', kr:'ebitda_to_interest'}};
+let t8sd={{corp:-1, fin:-1, kr:-1}};
+let t8CurrentGroup='corp';
+
+function t8fmt(v, pct){{
+  if(v==null||isNaN(v)) return '-';
+  if(pct) return (v*100).toFixed(1)+'%';
+  return v.toFixed(2)+'x';
+}}
+
+// 발행자 하나당 카테고리 하나만 배정 (우선순위: 한국 공사채 > 금융기관 > 일반기업)
+function t8Category(d){{
+  if(d.is_kr_public_corp===true) return 'kr';
+  if(d.is_financial===true) return 'fin';
+  return 'corp';
+}}
+
+function getT8Group(groupKey){{
+  const src = (ISSUER_D && ISSUER_D.issuers) || {{}};
+  const hideNoData = document.getElementById('t8-hide-nodata') ? document.getElementById('t8-hide-nodata').checked : true;
+  const q = (document.getElementById('t8-search')||{{value:''}}).value.trim().toLowerCase();
+  let arr = Object.keys(src).map(function(ticker){{
+    const d = src[ticker];
+    return Object.assign({{ticker:ticker}}, d);
+  }});
+  arr = arr.filter(function(d){{ return t8Category(d) === groupKey; }});
+  if(hideNoData) arr = arr.filter(function(d){{return d.data_status==='ok'}});
+  if(q) arr = arr.filter(function(d){{return (d.issuer_name||'').toLowerCase().indexOf(q)>=0}});
+  const sc = t8sc[groupKey], sd = t8sd[groupKey];
+  arr.sort(function(a,b){{
+    const av=(a.latest||{{}})[sc], bv=(b.latest||{{}})[sc];
+    const an=(av==null)?-Infinity:av, bn=(bv==null)?-Infinity:bv;
+    return (an-bn)*sd;
+  }});
+  return arr;
+}}
+
+function renderT8Table(groupKey, thId, tbId, countId, metricsList){{
+  const rows = getT8Group(groupKey);
+  document.getElementById(countId).textContent = '(' + rows.length + '개)';
+
+  const th = document.getElementById(thId);
+  let thHtml = '<th data-col="issuer_name" style="cursor:pointer">발행자</th>'
+    + '<th style="text-align:center;color:var(--tx3);font-weight:400">기준시점</th>';
+  for(let i=0;i<metricsList.length;i++){{
+    const m = metricsList[i];
+    thHtml += '<th data-col="'+m.key+'" style="cursor:pointer;text-align:right">'+m.label+'</th>';
+  }}
+  th.innerHTML = thHtml;
+  th.querySelectorAll('th[data-col]').forEach(function(el){{
+    el.addEventListener('click', function(){{ t8sort(groupKey, el.getAttribute('data-col')); }});
+  }});
+
+  const tb = document.getElementById(tbId);
+  let bodyHtml = '';
+  for(let i=0;i<rows.length;i++){{
+    const d = rows[i];
+    const L = d.latest || {{}};
+    let rowHtml = '<tr data-ticker="'+d.ticker+'" style="cursor:pointer"><td>'+(d.issuer_name||d.ticker)+'</td>'
+      + '<td style="text-align:center;color:var(--tx3);font-size:12px">'+(L.as_of_period||'-')+'</td>';
+    for(let j=0;j<metricsList.length;j++){{
+      const m = metricsList[j];
+      rowHtml += '<td style="text-align:right">'+t8fmt(L[m.key], m.pct)+'</td>';
+    }}
+    rowHtml += '</tr>';
+    bodyHtml += rowHtml;
+  }}
+  tb.innerHTML = bodyHtml;
+  tb.querySelectorAll('tr').forEach(function(el){{
+    el.addEventListener('click', function(){{ openT8Chart(el.getAttribute('data-ticker'), groupKey); }});
+  }});
+}}
+
+function R8(){{
+  const asof = (ISSUER_D && ISSUER_D.as_of) || '-';
+  document.getElementById('t8-asof').textContent = '데이터 기준일: ' + asof;
+  renderT8Table('corp', 't8-corp-th', 't8-corp-tb', 't8-corp-count', T8_METRICS_CORP);
+  renderT8Table('fin',  't8-fin-th',  't8-fin-tb',  't8-fin-count',  T8_METRICS_FIN);
+  renderT8Table('kr',   't8-kr-th',   't8-kr-tb',   't8-kr-count',   T8_METRICS_CORP);
+}}
+
+function t8sort(groupKey, col){{
+  if(t8sc[groupKey]===col) t8sd[groupKey]*=-1; else {{ t8sc[groupKey]=col; t8sd[groupKey]=-1; }}
+  R8();
+}}
+
+let t8ChartObj=null;
+let t8CurrentTicker=null;
+
+function openT8Chart(ticker, groupKey){{
+  t8CurrentTicker = ticker;
+  t8CurrentGroup = groupKey;
+  const d = ISSUER_D.issuers[ticker];
+  if(!d) return;
+  document.getElementById('t8-chart-title').textContent = (d.issuer_name||ticker) + ' — 연도별 추이';
+  const metricsList = (groupKey==='fin') ? T8_METRICS_FIN : T8_METRICS_CORP;
+  const sel = document.getElementById('t8-metric-select');
+  let optHtml = '';
+  for(let i=0;i<metricsList.length;i++){{
+    const m = metricsList[i];
+    optHtml += '<option value="'+m.key+'">'+m.label+'</option>';
+  }}
+  sel.innerHTML = optHtml;
+  document.getElementById('t8-chart-overlay').style.display='flex';
+  renderT8Chart();
+}}
+
+function renderT8Chart(){{
+  if(!t8CurrentTicker) return;
+  const d = ISSUER_D.issuers[t8CurrentTicker];
+  if(!d || !d.history) return;
+  const metricsList = (t8CurrentGroup==='fin') ? T8_METRICS_FIN : T8_METRICS_CORP;
+  const metric = document.getElementById('t8-metric-select').value;
+  const metricMeta = metricsList.find(function(m){{return m.key===metric}}) || metricsList[0];
+  const labels = d.history.map(function(h){{return h.period}});
+  const values = d.history.map(function(h){{return h[metric]!=null ? (metricMeta.pct? h[metric]*100 : h[metric]) : null}});
+
+  const ctx = document.getElementById('t8-chart-canvas').getContext('2d');
+  if(t8ChartObj) t8ChartObj.destroy();
+  t8ChartObj = new Chart(ctx, {{
+    type: 'line',
+    data: {{
+      labels: labels,
+      datasets: [{{
+        label: metricMeta.label + (metricMeta.pct ? ' (%)' : ' (x)'),
+        data: values,
+        borderColor: '#4a90d9',
+        backgroundColor: 'rgba(74,144,217,0.12)',
+        tension: 0.25,
+        spanGaps: true,
+        pointRadius: 3,
+        fill: true,
+      }}]
+    }},
+    options: {{
+      responsive: true,
+      plugins: {{ legend: {{ display: true }} }},
+      scales: {{ y: {{ beginAtZero: false }} }}
+    }}
+  }});
+}}
+
 // ═══ INIT ═══
 PF();R1();
 </script>
@@ -3278,8 +3492,11 @@ if __name__ == "__main__":
             print(f"\n⚠️  Bloomberg 연결 실패 ({e}) → 샘플 데이터로 생성")
             data = load_sample_data()
 
+    # 발행자 재무 데이터 로드 (issuer_financials.json)
+    issuer_data = load_issuer_financials()
+
     # HTML 생성
-    html_content = generate_html(data)
+    html_content = generate_html(data, issuer_data)
 
     # index.html로 저장 (GitHub Pages용 고정 파일명)
     script_dir = os.path.dirname(os.path.abspath(__file__))
