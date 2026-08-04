@@ -1,53 +1,53 @@
 {
-  "date": "2026-08-03",
+  "date": "2026-08-04",
   "items": [
     {
       "t": "AAPL",
-      "h": "4거래일 연속 하락, 낙폭 10% 상회",
-      "m": "AAPL은 월요일 정규장에서 약 1.5~1.8% 추가 하락하며 4거래일 누적 낙폭이 10%를 넘어섰다. 2025년 4월 이후 최악의 4일 성과로, MSFT/AMZN/GOOG 등 여타 빅테크의 강세와 대조적인 흐름을 보였다. 3분기 실적은 EPS·매출 모두 컨센서스를 상회했으나 관세 환급 효과(약 $0.11) 등 일회성 요인이 있었고, 공급 제약에 따른 약한 가이던스가 부담 요인으로 지목된다.",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/apple-stock-falls-again-four-204149277.html"
+      "h": "4일 연속 조정 후 반등, 브로커리지 등급 하향 지속",
+      "m": "AAPL은 지난 4거래일간 10% 이상 하락(2025년 4월 이후 최악의 4일 구간)한 뒤 8/4 장중 2% 반등해 $309~310 부근에서 거래됨. China Renaissance, DZ Bank 등 복수 하우스가 메모리 원가 상승 및 공급 제약 우려로 투자의견을 Hold/Reduce로 하향. Apple은 OpenAI를 상대로 영업비밀 관련 예비 금지명령을 신청하는 등 법적 이슈도 병행.",
+      "url": "https://www.tickerreport.com/banking-finance/13529885/apple-nasdaqaapl-trading-2-higher-time-to-buy.html"
     },
     {
       "t": "NVDA",
-      "h": "장중 반등, 3%대 상승 마감",
-      "m": "NVDA는 장 초반 약세에서 반전해 정규장에서 약 3% 상승 마감했다(종가 $206.70 부근). 클라우드 업체들의 Blackwell 시스템 투자 확대와 생산 수율 개선 기대가 반등 배경으로 거론됐으나, 대형 기술주의 대규모 자본지출이 실제 칩 수요로 이어질지에 대한 투자자들의 의구심도 상존한다. 2분기(FY2027) 실적 발표는 8월 26일 예정.",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-stock-reverses-early-loss-183444121.html"
+      "h": "8/26 실적 앞두고 주가 강세, 7년 만에 최저 P/E",
+      "m": "NVDA는 $210 부근까지 반등하며 기술적 저항선을 상회. 8/26 2분기(FY27) 실적 발표를 앞두고 매출 컨센서스는 약 $91B. AI 인프라 관련 최대 $250B 규모 파이낸싱 딜에 대한 신용시장의 관전 지속. Nvidia 주도 Open Secure AI Alliance(OSAA)는 AI 사이버보안 인시던트 보고 가이드라인(SAFE) 초안 발표.",
+      "url": "https://www.fxleaders.com/news/2026/08/04/nvidia-stock-forecast-today-nvda-reclaims-210-as-ai-demand-outweighs-financing-concerns/"
     },
     {
       "t": "META",
-      "h": "모건스탠리 안심 코멘트에 6%대 급등",
-      "m": "META는 모건스탠리 애널리스트들이 AI 인프라 투자 확대에도 불구하고 회사 전망에 대해 긍정적 코멘트를 내놓으며 6% 이상 급등했다. 지난주 실적 발표 후 매출은 컨센서스를 상회했으나 EPS는 예상치를 하회했고(주당 $6.18 vs 예상 $7.17), 분기 자본지출 $31.1B로 인해 잉여현금흐름은 -$784M을 기록한 바 있다. 연간 capex는 $130~145B로 가이던스 제시.",
+      "h": "실적 쇼크 후 반등 지속, 데이터센터 리스부채 급증 부담",
+      "m": "META는 7/29 실적에서 EPS가 컨센서스를 하회(FCF가 전년 대비 91% 급감)했으나, Morgan Stanley 등 하우스의 긍정적 코멘트에 힘입어 최근 2거래일 연속 강세(8/3 +6.2%, 8/4 추가 상승). 향후 미래 리스부채(주로 AI 데이터센터向)가 직전 분기 대비 53% 증가한 $279B로 확대된 점이 신용 이슈로 부각. 애널리스트들은 연내 FCF 마이너스 전환 및 2027년까지 지속 가능성을 경고.",
       "url": "https://www.fool.com/investing/2026/08/03/why-meta-platforms-stock-popped-today/"
     },
     {
       "t": "GOOGL",
-      "h": "모건스탠리 코멘트에 5%대 상승, 클라우드 성장 부각",
-      "m": "GOOGL/GOOG는 모건스탠리가 대규모 AI 인프라 투자에도 회사 펀더멘털에 문제가 없다고 평가하며 5%대 급등했다. 구글 클라우드 매출은 전년 대비 82% 성장했고, 지난 12개월 잉여현금흐름은 $53.3B로 여전히 플러스를 유지 중이나, 모건스탠리는 내년에는 AI 투자로 인해 FCF가 마이너스로 전환될 가능성을 언급했다. 구글은 텍사스에 앤트로픽向 15억달러 규모 데이터센터 캠퍼스 투자도 지원 중.",
-      "url": "https://www.fool.com/investing/2026/08/03/why-alphabet-stock-popped-today/"
-    },
-    {
-      "t": "MU",
-      "h": "메모리 수요 우려로 4% 안팎 하락, 반도체 전반 약세",
-      "m": "MU는 메모리 반도체 수요·가격 우려 속에 4% 안팎 하락했다. Western Digital, Applied Materials, Marvell, AMD, NVDA 등 반도체 업종 전반이 동반 약세를 보였으며, 삼성 잠정실적 부진과 중국 CXMT의 D램 증설 우려, 딥시크의 자체 AI 칩 개발 소식 등이 하방 압력으로 작용했다. 다만 씨티그룹 등 일부 애널리스트는 12개월 목표주가 $1,400을 유지하며 AI 수요 회복에 따른 강세 전망을 재확인했다.",
-      "url": "https://www.timothysykes.com/news/micron-technology-inc-mu-news-2026_08_03-2/"
-    },
-    {
-      "t": "AVGO",
-      "h": "3분기(FY26) 실적 발표일 9월 2일로 확정",
-      "m": "AVGO는 2026 회계연도 3분기 실적을 9월 2일 장 마감 후 발표한다고 공식 발표했다. 주가는 이날 소폭 등락에 그쳤으며($388~392 부근), AI 반도체 및 네트워킹 수요 확대가 지속적인 관심사로 언급됐다. 최근 애플과 2031년까지 이어지는 $30B 이상 규모의 칩 공급계약을 갱신한 바 있다.",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/broadcom-inc-announce-third-quarter-120000388.html"
+      "h": "클라우드 매출 +82% 서프라이즈, Capex 우려는 상존",
+      "m": "GOOGL은 8/4 장중 $375 부근까지 상승. Google Cloud 매출이 전년비 82% 급증한 $24.8B를 기록했고, 2분기 EPS $9.11(컨센서스 $2.88 대폭 상회)의 대형 서프라이즈. 다만 2026년 capex 가이던스가 $195~205B로 유지되며 FCF 압박 우려가 지속. SpaceX 지분평가익이 2분기 실적에 약 $100B 기여.",
+      "url": "https://www.fxleaders.com/news/2026/08/04/alphabet-stock-forecast-today-goog-tests-375-as-cloud-revenue-jumps-82/"
     },
     {
       "t": "AMZN",
-      "h": "시가총액 3조달러 돌파, 사상 최고가 경신",
-      "m": "AMZN은 5%대 급등하며 사상 처음으로 시가총액 3조달러를 돌파, 역대 5번째로 이 기록을 달성한 기업이 됐다. 지난주 2분기 실적에서 AWS 매출 성장률이 37%로 재가속했고 매출 $200.6B, 백로그 $496B(전년비 150%+ 증가)를 기록한 데 따른 랠리가 이어졌다. OpenAI에 대한 추가 $35B 투자도 발표됐으며, 3거래일간 26%대 급등은 2009년 10월 이후 최대 3일 상승폭이다.",
-      "url": "https://www.bloomberg.com/news/articles/2026-08-03/amazon-joins-elite-list-of-stocks-to-top-3-trillion-in-value"
+      "h": "2026 Capex $220B로 상향, 추가 채권 발행 가능성 열어둬",
+      "m": "Amazon은 7월 $25B 규모 8-트랜치 채권(2029~2066년 만기) 발행 이후 연내 추가 발행 없음을 언더라이터에 전달했으나, 메모리 가격 급등을 이유로 2026 capex 목표를 $200B→$220B로 상향. Jassy CEO는 향후 자금조달 방식에 대해 구체적 언급을 자제(\"Nothing to share today\"). Moody's는 하이퍼스케일러 섹터 전체 2026년 capex가 $785B, 2027년 $1조에 육박할 것으로 추정.",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/amazon-raised-2026-capex-20-080156533.html"
+    },
+    {
+      "t": "MU",
+      "h": "Palantir 실적 서프라이즈에 동반 강세, HBM 수요 지속",
+      "m": "MU 주가는 8/4 Palantir의 어닝 서프라이즈(매출 +93% YoY)를 계기로 AI 인프라 관련주 전반의 강세 속에 상승. 최근 조정에도 불구하고 HBM4 출하는 2027년까지 예약된 상태이며 Morgan Stanley는 2026년 반도체 최선호주로 유지. Microchip과 PCIe Gen 6 스토리지 데모를 공동 발표.",
+      "url": "https://www.tipranks.com/news/why-are-nvidia-micron-amd-marvell-and-broadcom-stocks-rising-today-august-4"
+    },
+    {
+      "t": "AVGO",
+      "h": "AI 네트워킹 수요에 4%대 강세, EU 반독점 소송서 패소",
+      "m": "AVGO는 8/4 4.35% 상승. Goldman Sachs는 Conviction List에서는 제외했으나 Buy 등급은 유지. VMware 인수 관련 EU 반독점 조사에서 미국 법률자문 특권 문서 제출 유예 신청이 기각됨. 삼성과 체결한 $200B 규모 AI 칩 협력 MOU가 지속적으로 부각되는 재료로 작용.",
+      "url": "https://www.tradingkey.com/news/market-movers/262073799-market-movers-avgo-20260804"
     },
     {
       "t": "ORCL",
-      "h": "$638B 백로그發 현금전환 우려 속에도 AI랠리 동반 5%대 상승",
-      "m": "ORCL은 대형 기술주 AI 랠리에 동참하며 5%대 상승, 7월 29일 종가 대비로는 16.5% 반등했다. 다만 잔여수행의무(RPO)가 $638B로 예상 매출의 9.5배, 시가총액의 1.6배에 달하는 반면 잉여현금흐름은 -$23.7B를 기록해 백로그의 실제 현금화 여부가 과제로 지목된다. 구글 클라우드와의 제미나이 AI 파트너십 확대, 국방부와의 $7B 규모 10년 계약 등이 우호적 재료로 작용했다.",
-      "url": "https://ts2.tech/en/oracle-shares-up-5-6-as-company-confronts-638-billion-backlog-cash-challenge/"
+      "h": "5Y CDS 200bp 육박, 신용시장 AI 부채 리스크 바로미터로 재부상",
+      "m": "Oracle의 5년 CDS 스프레드가 2008년 금융위기 수준을 넘어서는 사상 최고치(약 200bp 안팎)를 기록. Barclays는 ORCL CDS가 회사 고유 펀더멘털을 넘어 AI capex·OpenAI 실행 리스크에 대한 유동성 헤지 수단으로 재차 활용되고 있다고 평가. S&P는 최근 신용등급을 BBB-로 한 노치 강등(투기등급 한 단계 위)했고 Moody's는 부정적 전망을 유지 중.",
+      "url": "https://www.cnbc.com/2026/07/24/bond-market-anxiety-ai-capex-spending.html"
     }
   ]
 }
