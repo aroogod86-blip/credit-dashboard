@@ -1,53 +1,53 @@
 {
-  "date": "2026-08-04",
+  "date": "2026-08-05",
   "items": [
     {
       "t": "AAPL",
-      "h": "4일 연속 조정 후 반등, 브로커리지 등급 하향 지속",
-      "m": "AAPL은 지난 4거래일간 10% 이상 하락(2025년 4월 이후 최악의 4일 구간)한 뒤 8/4 장중 2% 반등해 $309~310 부근에서 거래됨. China Renaissance, DZ Bank 등 복수 하우스가 메모리 원가 상승 및 공급 제약 우려로 투자의견을 Hold/Reduce로 하향. Apple은 OpenAI를 상대로 영업비밀 관련 예비 금지명령을 신청하는 등 법적 이슈도 병행.",
-      "url": "https://www.tickerreport.com/banking-finance/13529885/apple-nasdaqaapl-trading-2-higher-time-to-buy.html"
+      "h": "OpenAI 소송 확대, UK 암호화 데이터 접근 요구에 법적 대응",
+      "m": "Apple이 OpenAI와 전직 직원들을 상대로 한 영업비밀 소송에서 예비 금지명령을 법원에 요청했다고 Reuters가 보도. 별도로 애플은 영국 정부의 암호화 데이터 접근 요구에 새로운 법적 이의를 제기함. 주가는 8/4 +1.96% 상승 마감 후 8/5 프리마켓 소폭 조정.",
+      "url": "https://www.cnbc.com/quotes/AAPL"
     },
     {
       "t": "NVDA",
-      "h": "8/26 실적 앞두고 주가 강세, 7년 만에 최저 P/E",
-      "m": "NVDA는 $210 부근까지 반등하며 기술적 저항선을 상회. 8/26 2분기(FY27) 실적 발표를 앞두고 매출 컨센서스는 약 $91B. AI 인프라 관련 최대 $250B 규모 파이낸싱 딜에 대한 신용시장의 관전 지속. Nvidia 주도 Open Secure AI Alliance(OSAA)는 AI 사이버보안 인시던트 보고 가이드라인(SAFE) 초안 발표.",
-      "url": "https://www.fxleaders.com/news/2026/08/04/nvidia-stock-forecast-today-nvda-reclaims-210-as-ai-demand-outweighs-financing-concerns/"
+      "h": "SpaceX, Nvidia 프로세서 독점 채택 발표 후 주가 급등",
+      "m": "Elon Musk가 SpaceX 실적 콜에서 지상 및 궤도 AI 컴퓨팅 인프라 구축에 Nvidia Vera Rubin 아키텍처를 독점 사용한다고 확인. 이 소식에 Nvidia 주가 8/5 장중 +4.3%대 상승. 반면 SpaceX(SPCX)는 실적 발표 후 CapEx 급증(분기 184억 달러) 우려로 주가 하락.",
+      "url": "https://www.fxleaders.com/news/2026/08/05/dow-jones-crosses-54500-as-nvidia-nvda-220-breakout-fires-up-ai-rally/"
     },
     {
       "t": "META",
-      "h": "실적 쇼크 후 반등 지속, 데이터센터 리스부채 급증 부담",
-      "m": "META는 7/29 실적에서 EPS가 컨센서스를 하회(FCF가 전년 대비 91% 급감)했으나, Morgan Stanley 등 하우스의 긍정적 코멘트에 힘입어 최근 2거래일 연속 강세(8/3 +6.2%, 8/4 추가 상승). 향후 미래 리스부채(주로 AI 데이터센터向)가 직전 분기 대비 53% 증가한 $279B로 확대된 점이 신용 이슈로 부각. 애널리스트들은 연내 FCF 마이너스 전환 및 2027년까지 지속 가능성을 경고.",
-      "url": "https://www.fool.com/investing/2026/08/03/why-meta-platforms-stock-popped-today/"
+      "h": "AI 데이터센터 리스 부채 2,790억 달러로 53% 급증",
+      "m": "Meta의 향후 리스 의무(주로 AI 데이터센터 관련)가 전분기 대비 53% 증가한 2,790억 달러로 확대됐다고 목요일 증권신고서에서 공시. Q2 실적은 매출 28% 성장했으나 비용이 55% 급증하며 영업이익은 8% 감소, 주가는 실적 발표 후 11거래일 연속 하락하는 최장 약세 기록 중.",
+      "url": "https://stockanalysis.com/stocks/meta/"
     },
     {
       "t": "GOOGL",
-      "h": "클라우드 매출 +82% 서프라이즈, Capex 우려는 상존",
-      "m": "GOOGL은 8/4 장중 $375 부근까지 상승. Google Cloud 매출이 전년비 82% 급증한 $24.8B를 기록했고, 2분기 EPS $9.11(컨센서스 $2.88 대폭 상회)의 대형 서프라이즈. 다만 2026년 capex 가이던스가 $195~205B로 유지되며 FCF 압박 우려가 지속. SpaceX 지분평가익이 2분기 실적에 약 $100B 기여.",
-      "url": "https://www.fxleaders.com/news/2026/08/04/alphabet-stock-forecast-today-goog-tests-375-as-cloud-revenue-jumps-82/"
-    },
-    {
-      "t": "AMZN",
-      "h": "2026 Capex $220B로 상향, 추가 채권 발행 가능성 열어둬",
-      "m": "Amazon은 7월 $25B 규모 8-트랜치 채권(2029~2066년 만기) 발행 이후 연내 추가 발행 없음을 언더라이터에 전달했으나, 메모리 가격 급등을 이유로 2026 capex 목표를 $200B→$220B로 상향. Jassy CEO는 향후 자금조달 방식에 대해 구체적 언급을 자제(\"Nothing to share today\"). Moody's는 하이퍼스케일러 섹터 전체 2026년 capex가 $785B, 2027년 $1조에 육박할 것으로 추정.",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/amazon-raised-2026-capex-20-080156533.html"
+      "h": "Jeff Dean 등 AI 수석 인력 이탈에 주가 4% 하락, FCF 첫 마이너스 전환",
+      "m": "Google 수석과학자 Jeff Dean을 포함한 핵심 AI 연구진의 사임 소식에 8/5 GOOGL/GOOG 주가가 3.5~4%대 하락. 2026년 CapEx 가이던스를 1,950~2,050억 달러로 상향하며 분기 기준 사상 첫 마이너스 잉여현금흐름(-58.6억 달러) 기록, 장기부채도 465억→982억 달러로 증가.",
+      "url": "https://247wallst.com/investing/2026/08/05/alphabet-is-still-up-16-in-2026-what-will-it-take-to-get-googl-stock-above-400/"
     },
     {
       "t": "MU",
-      "h": "Palantir 실적 서프라이즈에 동반 강세, HBM 수요 지속",
-      "m": "MU 주가는 8/4 Palantir의 어닝 서프라이즈(매출 +93% YoY)를 계기로 AI 인프라 관련주 전반의 강세 속에 상승. 최근 조정에도 불구하고 HBM4 출하는 2027년까지 예약된 상태이며 Morgan Stanley는 2026년 반도체 최선호주로 유지. Microchip과 PCIe Gen 6 스토리지 데모를 공동 발표.",
-      "url": "https://www.tipranks.com/news/why-are-nvidia-micron-amd-marvell-and-broadcom-stocks-rising-today-august-4"
+      "h": "메모리 가격 강세 지속 속 내부자 매도 논란에도 주가 상승세",
+      "m": "Micron은 8/4 +7.6%, 8/5 장중 +3.6% 추가 상승. 다만 CEO Sanjay Mehrotra 등 경영진의 최근 대규모 자사주 매도(SEC Form 4) 공시가 부담 요인으로 지목됐고, 중국 CXMT의 상하이 IPO 급등(+466%) 등 역내 경쟁 심화 우려도 병존.",
+      "url": "https://www.tradingkey.com/news/market-movers/262078740-market-movers-mu-20260805"
     },
     {
       "t": "AVGO",
-      "h": "AI 네트워킹 수요에 4%대 강세, EU 반독점 소송서 패소",
-      "m": "AVGO는 8/4 4.35% 상승. Goldman Sachs는 Conviction List에서는 제외했으나 Buy 등급은 유지. VMware 인수 관련 EU 반독점 조사에서 미국 법률자문 특권 문서 제출 유예 신청이 기각됨. 삼성과 체결한 $200B 규모 AI 칩 협력 MOU가 지속적으로 부각되는 재료로 작용.",
-      "url": "https://www.tradingkey.com/news/market-movers/262073799-market-movers-avgo-20260804"
+      "h": "Apple와 300억 달러 이상 반도체 공급 계약 지속 부각",
+      "m": "Apple과 Broadcom이 2031년까지 300억 달러 이상 규모의 갱신된 칩 공급 계약을 발표한 데 따른 훈풍이 이어지는 가운데, AI 가속기·네트워킹 수요 강세로 8/4 주가 +4.8% 마감.",
+      "url": "https://robinhood.com/us/en/stocks/AVGO/"
+    },
+    {
+      "t": "AMZN",
+      "h": "Jassy CEO, AWS AI 공급 '2028년까지 대부분 예약' 발언에 주가 강세",
+      "m": "Amazon은 Q2 AWS 매출이 전년비 37% 성장(422억 달러, 18분기 만의 최고 성장률)했다고 발표했고, Jassy CEO는 AWS AI/칩 사업이 각각 250억 달러 런레이트를 넘어섰다고 언급. 실적 발표(7/30) 이후 주가는 사상 최고치로 25% 상승. 다만 Bezos의 1,500만주(약 40.7억 달러) 매도 신고는 부담 요인.",
+      "url": "https://247wallst.com/investing/2026/08/05/amazons-aws-ceo-just-sent-shivers-down-the-spines-of-ai-bears-supply-is-mostly-spoken-for-through-2028/"
     },
     {
       "t": "ORCL",
-      "h": "5Y CDS 200bp 육박, 신용시장 AI 부채 리스크 바로미터로 재부상",
-      "m": "Oracle의 5년 CDS 스프레드가 2008년 금융위기 수준을 넘어서는 사상 최고치(약 200bp 안팎)를 기록. Barclays는 ORCL CDS가 회사 고유 펀더멘털을 넘어 AI capex·OpenAI 실행 리스크에 대한 유동성 헤지 수단으로 재차 활용되고 있다고 평가. S&P는 최근 신용등급을 BBB-로 한 노치 강등(투기등급 한 단계 위)했고 Moody's는 부정적 전망을 유지 중.",
-      "url": "https://www.cnbc.com/2026/07/24/bond-market-anxiety-ai-capex-spending.html"
+      "h": "CDS 스프레드 사상 최고치 경신, 부채 우려로 주가 하락",
+      "m": "Oracle의 5년물 CDS 스프레드가 사상 최고 수준으로 확대됐다는 Bloomberg 데이터 인용 보도에 따라 8/5 장초반 주가 약 2% 하락. 직전에는 Google Cloud 파트너십 확대 및 6,380억 달러 규모의 기록적 RPO 백로그 소식에 8/3 +9.2% 급등한 바 있어 변동성 확대.",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/oracle-stock-tumbles-debt-risk-123543035.html"
     }
   ]
 }
