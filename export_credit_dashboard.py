@@ -2032,8 +2032,11 @@ function RM(){{
   const s2=GS(),avg=s2.length?s2.reduce((a,b)=>a+(b.spread||0),0)/s2.length:0;
   const mx=s2.length?Math.max(...s2.map(b=>b.spread||0)):0;
   const mn=s2.length?Math.min(...s2.map(b=>b.spread||0)):0;
+  // 평균 I-spread (G-spread와 동일한 표본 s2 기준; I-spread 미존재 종목은 제외)
+  const s2i=s2.filter(b=>b.ispread!=null);
+  const avgI=s2i.length?s2i.reduce((a,b)=>a+(b.ispread||0),0)/s2i.length:null;
   const u10=D.ustCurve.now[8];
-  // 보유 수량 가중평균 G-spread (USD 채권만 대상; 통화별 커브가 다른 EUR/JPY 등은 별도 집계)
+  // 보유 수량 가중평균 G-spread / I-spread (USD 채권만 대상; 통화별 커브가 다른 EUR/JPY 등은 별도 집계)
   // UST(US9128xx): G-spread=0이므로 크레딧 가중평균 제외
   // 참고: JPY채는 액면이 JPY 단위라 기존 근사 환산(÷130)을 유지. EUR 등 다른 통화가 JPY와 함께 섞이는 경우
   // 서로 다른 통화 액면을 그대로 합산하게 되어 가중치가 부정확할 수 있음(라이브 FX 미적용, 근사치).
@@ -2043,6 +2046,8 @@ function RM(){{
   const savedQty=getPnLQty();
   let wSum=0, wQty=0, wCnt=0;
   let nwSum=0, nwQty=0, nwCnt=0; // 비USD (EUR/JPY 등) 집계
+  let wSumI=0, wQtyI=0, wCntI=0; // I-spread 가중평균 (USD)
+  let nwSumI=0, nwQtyI=0, nwCntI=0; // I-spread 가중평균 (비USD)
   bonds.forEach(function(b){{
     if(isUST(b.isin)) return;
     const k=qtyKey(b.label);
@@ -2053,21 +2058,34 @@ function RM(){{
       if(isNonUsd){{ nwSum+=b.spread*q; nwQty+=q; nwCnt++; }}
       else{{ wSum+=b.spread*q; wQty+=q; wCnt++; }}
     }}
+    if(q>0&&b.ispread!=null){{
+      if(isNonUsd){{ nwSumI+=b.ispread*q; nwQtyI+=q; nwCntI++; }}
+      else{{ wSumI+=b.ispread*q; wQtyI+=q; wCntI++; }}
+    }}
   }});
   const wAvg=wQty>0?wSum/wQty:null;
   const nwAvg=nwQty>0?nwSum/nwQty:null;
+  const wAvgI=wQtyI>0?wSumI/wQtyI:null;
+  const nwAvgI=nwQtyI>0?nwSumI/nwQtyI:null;
   const mk=(l,v)=>`<div class="mc"><div class="lb">${{l}}</div><div class="vl">${{v}}</div></div>`;
   const wDetail=wQty>0?`<div style="font-size:11px;color:var(--tx3);margin-top:4px;font-family:var(--mn)">${{wCnt}}개 · ${{wQty.toFixed(1)}}M (UST채 제외, USD만)</div>`:'';
+  const wDetailI=wQtyI>0?`<div style="font-size:11px;color:var(--tx3);margin-top:4px;font-family:var(--mn)">${{wCntI}}개 · ${{wQtyI.toFixed(1)}}M (UST채 제외, USD만)</div>`:'';
   const cards=[
     mk('모니터링 종목',bonds.length+'개'),
     mk('평균 G-spread',avg.toFixed(0)+' bps'),
+    mk('평균 I-spread',avgI!=null?avgI.toFixed(0)+' bps':'-'),
     `<div class="mc"><div class="lb">보유 가중평균 G-spread (USD)</div><div class="vl">${{wAvg!=null?wAvg.toFixed(1)+' bps':'-'}}</div>${{wDetail}}</div>`,
+    `<div class="mc"><div class="lb">보유 가중평균 I-spread (USD)</div><div class="vl">${{wAvgI!=null?wAvgI.toFixed(1)+' bps':'-'}}</div>${{wDetailI}}</div>`,
     mk('최고 / 최저',mx+' / '+mn+' bps'),
     mk('UST 10Y',(u10||0).toFixed(2)+'%')
   ];
   if(nwCnt>0){{
     const nwDetail=`<div style="font-size:11px;color:var(--tx3);margin-top:4px;font-family:var(--mn)">${{nwCnt}}개 · ${{nwQty.toFixed(1)}}M (자국 국채 대비)</div>`;
     cards.push(`<div class="mc"><div class="lb">보유 가중평균 G-spread (비USD)</div><div class="vl">${{nwAvg!=null?nwAvg.toFixed(1)+' bps':'-'}}</div>${{nwDetail}}</div>`);
+  }}
+  if(nwCntI>0){{
+    const nwDetailI=`<div style="font-size:11px;color:var(--tx3);margin-top:4px;font-family:var(--mn)">${{nwCntI}}개 · ${{nwQtyI.toFixed(1)}}M (자국 국채 대비)</div>`;
+    cards.push(`<div class="mc"><div class="lb">보유 가중평균 I-spread (비USD)</div><div class="vl">${{nwAvgI!=null?nwAvgI.toFixed(1)+' bps':'-'}}</div>${{nwDetailI}}</div>`);
   }}
   document.getElementById('m1').innerHTML=cards.join('');
   try{{RCW()}}catch(e){{console.error('RCW:',e)}}
@@ -2877,8 +2895,14 @@ function R3(){{
   const byIssuer={{}};
   all.forEach(b=>{{if(b.issuer&&b.duration&&b.ytm){{(byIssuer[b.issuer]=byIssuer[b.issuer]||[]).push(b)}} }});
 
-  // Top issuers by bond count (min 3 bonds)
-  const top=Object.entries(byIssuer).filter(([,bs])=>bs.length>=3).sort((a,b)=>b[1].length-a[1].length).slice(0,10);
+  // 발행자 선정: 보유 채권이 많은 발행자를 최우선으로 노출 (min 2 bonds — 비교물 없이 보유 종목만으로도 표시)
+  // 정렬 기준: ① 보유 종목수 내림차순 ② 전체(보유+비보유) 종목수 내림차순
+  const top=Object.entries(byIssuer)
+    .map(([issuer,bs])=>[issuer,bs,bs.filter(b=>b.is_owned).length])
+    .filter(([,bs])=>bs.length>=2)
+    .sort((a,b)=>(b[2]-a[2])||(b[1].length-a[1].length))
+    .slice(0,12)
+    .map(([issuer,bs])=>[issuer,bs]);
 
   const container=document.getElementById('ic');
   container.innerHTML=top.map(([issuer,bs],idx)=>{{
