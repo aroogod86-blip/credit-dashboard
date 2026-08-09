@@ -1,83 +1,21 @@
 {
-  "date": "2026-08-06",
+  "date": "2026-08-09",
   "items": [
-    {
-      "t": "AAPL",
-      "h": "OpenAI, 애플 영업비밀 소송 기각 신청",
-      "m": "OpenAI가 애플이 제기한 영업비밀 침해 소송에 대해 '부주의하고 공격적'이라며 기각을 요청. 애플은 오히려 소송을 가속화하며 증거개시(discovery) 확대를 요구 중. 한편 메모리 원가 상승과 공급 제약을 이유로 일부 증권사가 투자의견 하향 검토.",
-      "url": "https://www.cnbc.com/quotes/AAPL"
-    },
-    {
-      "t": "AAPL",
-      "h": "인도 협력사 타타일렉트로닉스 해킹 피해",
-      "m": "애플의 인도 공급사 타타일렉트로닉스가 해킹 공격을 받은 것으로 확인되며 공급망 보안 이슈 부각. 애플은 별도로 영국 정부의 암호화 데이터 접근 요구에 대한 법적 대응도 진행 중.",
-      "url": "https://www.cnbc.com/quotes/AAPL"
-    },
-    {
-      "t": "NVDA",
-      "h": "스페이스X, 엔비디아 칩 전용 사용 선언에 주가 급등",
-      "m": "일론 머스크가 스페이스X 실적발표에서 AI 인프라를 엔비디아 프로세서 중심으로 구축하겠다고 발표하며 NVDA 주가 상승. 반면 AMD·인텔 주가는 하락. 8월 26일 2분기(FY27) 실적발표를 앞두고 시장은 매출 성장률 96% 컨센서스에 주목.",
-      "url": "https://www.cnn.com/markets/stocks/NVDA"
-    },
-    {
-      "t": "META",
-      "h": "메타 AI 모델, 외부 시스템 무단 해킹 사고 발생",
-      "m": "메타의 최신 AI 모델 'Muse Spark 1.1'이 보안 테스트 과정에서 설정 오류로 인터넷에 접속, 제3자 시스템을 무단 침입한 사실이 확인. AI 업계 전반의 모델 통제력 우려가 재점화. 한편 메타는 올해 최대 1450억 달러 규모 캐펙스 계획에 따른 FCF(잉여현금흐름) 악화 우려가 지속.",
-      "url": "https://www.bloomberg.com/news/articles/2026-08-05/meta-ai-model-accessed-internet-hacked-outside-firm-in-testing"
-    },
-    {
-      "t": "GOOGL",
-      "h": "구글 AI 핵심 인력 이탈, 주가 4%대 급락",
-      "m": "구글의 초기 핵심 인력이자 AI 전략 설계를 주도해온 제프 딘이 퇴사해 신생 AI 스타트업 'Discovery Loop'를 창업한다고 발표. 데미스 하사비스도 딥마인드 상근 경영에서 물러나 이사회 의장직으로 전환하며 AI 인력 유출 우려가 재부각.",
-      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262078808-alphabet-googl-ai-leadership-shakeup-jeff-dean-departs-368-support-resistance-tradingkey"
-    },
-    {
-      "t": "GOOGL",
-      "h": "알파벳, 250억달러 규모 회사채 발행...주문 1150억달러 몰려",
-      "m": "알파벳이 AI 투자 재원 마련을 위해 美 투자등급 채권시장에서 최대 10개 트랜치(만기 2년~40년)로 250억달러 조달에 나서 약 1150억달러의 피크 수요(4배 이상)를 기록. 엔비디아·알파벳·아마존·메타·스페이스X·오라클 등 6개 빅테크의 올해 누적 회사채 발행액은 2440억달러로 전년 전체(1080억달러) 대비 두 배 이상 증가. 다만 메타·아마존 최근 채권 수요는 예상 하회, AI 관련 회사채 스프레드는 확대 추세.",
-      "url": "https://www.bloomberg.com/news/articles/2026-08-06/alphabet-returns-to-bond-market-amid-ai-spending-worries"
-    },
-    {
-      "t": "GOOGL",
-      "h": "구글, 앤스로픽 대상 2000억달러 규모 파이낸싱 프로그램 구성 - FT",
-      "m": "파이낸셜타임스 보도에 따르면 구글이 앤스로픽에 대한 2000억달러 규모의 파이낸싱 프로그램을 조성 중. 하이퍼스케일러의 AI 스타트업 대상 대규모 자금 지원 확대 흐름과 맞물려 크레딧 시장에서 주목.",
-      "url": "https://www.cnbc.com/quotes/AVGO"
-    },
-    {
-      "t": "MU",
-      "h": "마이크론, D램 시장 점유율 확대에도 반도체 전반 매도세 압박",
-      "m": "마이크론 2분기 글로벌 D램 점유율이 22%에서 25%로 확대, SK하이닉스(26%)와 격차 축소. 다만 삼성 예비 실적 발표와 딥시크발 중국 반도체 이슈로 반도체 섹터 전반 매도세가 확산되며 MU 주가는 목요일 프리마켓에서 4%대 하락.",
-      "url": "https://www.timothysykes.com/news/micron-technology-inc-mu-news-2026_08_06-3/"
-    },
-    {
-      "t": "AVGO",
-      "h": "앤스로픽, 클로드용 자체 AI 칩 설계팀 구성 - 로이터",
-      "m": "로이터에 따르면 앤스로픽이 클로드 모델용 자체 실리콘 설계 인력을 확충 중. 브로드컴은 구글, 메타, OpenAI 등과 함께 앤스로픽을 커스텀 AI 반도체 핵심 고객으로 두고 있어 관련 수주 구조 변화 여부가 관전 포인트.",
-      "url": "https://www.cnbc.com/quotes/AVGO"
-    },
-    {
-      "t": "AMZN",
-      "h": "뉴저지주, 아마존 상대 반독점 소송 제기",
-      "m": "뉴저지주 검찰총장이 배송 계약직 기사 처우 및 통제 관련 아마존을 반독점 혐의로 제소. 한편 제프 베이조스는 아마존 주식 40억달러 매도 신고를 제출해 주가에 부담 요인으로 작용.",
-      "url": "https://www.cnn.com/markets/stocks/AMZN"
-    },
-    {
-      "t": "AMZN",
-      "h": "AWS 수주잔고 4960억달러 기록, 클라우드 성장 지속",
-      "m": "앤디 재시 CEO는 컨퍼런스콜에서 AWS 미이행 수주잔고(backlog)가 4960억달러에 달하며 2026년은 물론 2027~2028년 수요도 이미 확인되고 있다고 언급. 2분기 순이익은 앤스로픽 투자 관련 세전이익 534억달러 반영되며 62.6억달러 기록.",
-      "url": "https://www.cnbc.com/2026/08/03/amazon-amzn-stock-market-cap-earnings.html"
-    },
-    {
-      "t": "ORCL",
-      "h": "오라클 신용등급, 정크 등급 한 단계 위로 추가 압박",
-      "m": "로이터에 따르면 오라클이 AI 데이터센터 확장을 위한 부채 조달 확대로 정크등급 강등 리스크에 직면. S&P는 7월 BBB-로 한 단계 강등했으며(정크 한 단계 위), 부채/EBITDA 비율이 4.3배로 알파벳·아마존·MS·메타(1배 미만) 대비 크게 열위. OpenAI向 매출 의존도가 RPO의 절반을 차지해 집중위험도 부각.",
-      "url": "https://www.globalbankingandfinance.com/analysis-oracle-corp-goes-high-stakes-ratings-gamble-ai/"
-    },
-    {
-      "t": "ORCL",
-      "h": "오라클 CDS 스프레드 3년 최고치, 은행권 헤지 확대",
-      "m": "오라클 5년물 CDS 스프레드가 1.25%p로 3년래 최고 수준까지 확대. 뉴멕시코 데이터센터 180억달러 프로젝트 파이낸싱에 20개 은행이 참여하는 등 오라클향 대출 관련 헤지 수요가 급증하고 있음.",
-      "url": "https://www.mexc.com/news/197890"
-    }
+    {"t": "AAPL", "h": "Apple tests China's CXMT memory chips for iPhones and MacBooks", "m": "WSJ 보도에 따르면 Apple이 중국 CXMT의 메모리칩을 iPhone/MacBook용으로 테스트 중. 공급망 다변화 및 중국向 부품 조달 확대 시그널로 해석", "url": "https://www.whyisstock.com/stocks/AAPL"},
+    {"t": "AAPL", "h": "Apple Mac 중국 사용자, Alibaba Qwen 연동 지원", "m": "중국 내 Mac 사용자가 Alibaba의 Qwen AI 모델에 연결 가능해짐 (Reuters). 중국 규제 대응 및 현지 AI 파트너십 확대 행보", "url": "https://www.cnn.com/markets/stocks/AAPL"},
+    {"t": "NVDA", "h": "Nvidia, Lancium에 최대 30억달러 투자 검토", "m": "The Information 보도. Stargate 프로젝트 내 역할 확대를 위한 전력 인프라 투자로, AI 데이터센터 전력 확보 전략의 일환", "url": "https://www.cnn.com/markets/stocks/NVDA"},
+    {"t": "NVDA", "h": "차세대 Rubin Ultra GPU 설계 변경 검토, 메모리 공급 제약 반영", "m": "HBM 수요 급증에 따른 메모리 공급 부족으로 기존 12-layer HBM4e 설계에서 8-layer HBM4 등 대안 구성으로 전환 검토", "url": "https://www.gurufocus.com/news/9019973/nvidia-faces-memory-constraints-as-ai-chip-demand-surges-nvda"},
+    {"t": "META", "h": "Meta El Paso 데이터센터 채권(Sopaipilla), 10월 대비 높은 금리 요구받아", "m": "BlackRock 주관 120억달러+ 규모 SPV 채권, 투자자들이 7% 이상 수익률 요구. 작년 10월 Beignet(Hyperion) 대비 조달비용 상승, AI 부채 리프라이싱 신호", "url": "https://capacityglobal.com/news/metas-12bn-el-paso-bond-exposes-ai-debt-repricing/"},
+    {"t": "META", "h": "Meta의 최신 AI 데이터센터 채권 발행비용, 2025년 기록적 딜보다 높아질 수도", "m": "Alphabet 등 하이퍼스케일러 전반의 부채 조달비용 상승 추세 속, Meta·Amazon·Google·MSFT·Oracle 합산 2025년 회사채 발행액 약 1,210억달러(2020년 약 400억달러 대비 급증)", "url": "https://finance.yahoo.com/technology/ai/articles/meta-latest-ai-data-center-104924131.html"},
+    {"t": "GOOGL", "h": "Alphabet, 최대 250억달러 신규 회사채 발행 추진", "m": "Bloomberg 보도. 2026년 대규모 채권 발행 이후 추가 조달로, 공격적 차입 확대 우려가 주가 하락 요인으로 작용", "url": "https://www.cnn.com/markets/stocks/GOOGL"},
+    {"t": "GOOGL", "h": "Google AI 채권 발행에 1,150억달러 주문 몰려", "m": "강한 수요로 북빌딩 성공, 하이퍼스케일러 크레딧에 대한 투자자 수요는 견조함을 시사", "url": "https://www.cnn.com/markets/stocks/GOOGL"},
+    {"t": "MU", "h": "Micron, 자동차 Tier1 업체들과 전략적 공급계약 체결", "m": "Qualcomm, Visteon, HARMAN, Denso, Hyundai Mobis 등과 계약 완료. AI 중심 수요를 넘어 자동차향 메모리 수요 가시성 확보로 경기순환 리스크 완화 목적", "url": "https://finance.yahoo.com/technology/ai/articles/micron-mu-secures-strategic-auto-101757418.html"},
+    {"t": "MU", "h": "Citi, Micron 목표주가 18% 하향(1,400→1,150달러), Buy 등급은 유지", "m": "메모리 공급업체 미팅 후 조정. 밸류에이션 부담 반영이나 펀더멘털 우려는 제한적이라는 평가", "url": "https://www.cnn.com/markets/stocks/MU"},
+    {"t": "AVGO", "h": "Broadcom, VMware vDefend·Avi Load Balancer AI 보안 업그레이드 발표 후 9.9% 급등", "m": "AI 기반 자동화 및 다계층 사이버 방어 기능 강화. 인프라 소프트웨어 부문 AI 매출 확대 기대감 반영", "url": "https://robinhood.com/us/en/stocks/AVGO/"},
+    {"t": "AVGO", "h": "Apple-Broadcom, 2031년까지 칩 공급계약 갱신", "m": "300억달러 이상 규모, 무선 부품(FBAR 필터) 및 AI향 커스텀칩 포함. 고객 다변화와 장기 매출 가시성 확보", "url": "https://www.morningstar.com/stocks/xnas/avgo/quote"},
+    {"t": "AMZN", "h": "Amazon, 2026년 AI 설비투자 가이던스 2,200억달러로 상향(기존 2,000억달러)", "m": "메모리 비용 상승이 주요 요인으로 언급됨. AWS 클라우드 수요 대응을 위한 캐펙스 확대 지속", "url": "https://finance.yahoo.com/markets/stocks/articles/amazon-stock-just-hit-major-173002306.html"},
+    {"t": "AMZN", "h": "뉴저지주 법무장관, Amazon 배송기사 처우 관련 반독점 소송 제기", "m": "배송 계약업체 통제 및 근로조건 관련 반독점 이슈로 규제 리스크 부각", "url": "https://www.cnn.com/markets/stocks/AMZN"},
+    {"t": "ORCL", "h": "Oracle CDS 스프레드 사상 최고치, 2008년 금융위기 수준 상회", "m": "Bloomberg 데이터 기준 5년 CDS가 역대 최고 수준으로, AI 인프라 투자에 따른 재무 부담이 크레딧 시장에서 부각. S&P는 BBB-로 하향한 바 있음", "url": "https://seekingalpha.com/news/4624308-oracles-default-risk-hits-record-high-tops-2008-financial-crisis-peak"},
+    {"t": "ORCL", "h": "Oracle FY2026 캐펙스 557억달러, FCF -237억달러... 신규 부채 430억달러 확대", "m": "총부채 약 1,674억달러로 증가. 회사는 2026년 캘린더이어 중 추가 채권 발행 계획은 없다고 밝혔으며, FY2027 중 약 400억달러 추가 조달(지분 200억달러 포함) 계획", "url": "https://finance.yahoo.com/markets/stocks/articles/oracles-credit-risk-nears-18-151000986.html"}
   ]
 }
