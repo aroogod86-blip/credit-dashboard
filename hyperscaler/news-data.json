@@ -3,56 +3,56 @@
   "items": [
     {
       "t": "AAPL",
-      "h": "Jefferies downgrades Apple to Underperform on all-glass iPhone cancellation",
-      "m": "Jefferies cut AAPL from Hold to Underperform, pre-market shares fell ~1.3%, citing the scrapped all-glass iPhone and rising memory-cost inflation pressuring margins.",
+      "h": "Jefferies, 올글래스 아이폰 취소 이유로 Apple 투자의견 하향",
+      "m": "Jefferies가 AAPL 투자의견을 Hold에서 Underperform으로 하향, 프리마켓 주가 약 -1.3%. 계획했던 올글래스 아이폰 취소와 메모리 원가 인플레이션에 따른 마진 압박을 근거로 제시.",
       "url": "https://www.gurufocus.com/news/9020962/apple-inc-aapl-faces-downgrade-amid-iphone-pricing-challenges"
     },
     {
       "t": "AAPL",
-      "h": "Apple tests CXMT memory chips to ease supply squeeze",
-      "m": "WSJ reported Apple has held preliminary talks with China's CXMT to source memory chips for iPhones/MacBooks as the AI-driven memory shortage bites; raises US policy concerns over tech transfer.",
+      "h": "Apple, 공급난 대응 위해 중국 CXMT 메모리칩 테스트",
+      "m": "WSJ 보도에 따르면 Apple이 아이폰·맥북용 메모리칩을 중국 CXMT로부터 공급받는 방안을 두고 예비 논의를 진행 중. AI발 메모리 공급난 심화 속 대응 조치이나, 미국 기술이전 우려도 제기됨.",
       "url": "https://investrade.com/morning-preview-august-10-2026/"
     },
     {
       "t": "NVDA",
-      "h": "Nvidia falls ~2-3% on $500B AI financing plan and Microsoft chip competition",
-      "m": "NVDA shares dropped as investors weighed a reported $500B financing push (with Apollo, Blackstone, BlackRock's GIP, Brookfield) to fund AI data centers/power, plus concerns Microsoft's in-house Maia 300 chip threatens share; Mark Cuban warned the financing structure could make the market fragile.",
+      "h": "Nvidia, $500B AI 파이낸싱 우려와 MSFT 칩 경쟁으로 2~3%대 하락",
+      "m": "Apollo, Blackstone, BlackRock GIP, Brookfield 등과 함께 추진 중인 것으로 알려진 $500B 규모 AI 데이터센터·전력 파이낸싱 계획에 대한 우려, 그리고 Microsoft 자체 Maia 300 AI칩의 경쟁 위협이 부각되며 NVDA 주가 하락. Mark Cuban은 해당 파이낸싱 구조가 시장을 취약하게 만들 수 있다고 경고.",
       "url": "https://www.fxleaders.com/news/2026/08/10/nvidia-stock-dives-as-more-spending-and-microsoft-chip-competition-weigh-on-nvda-while-financial-firms-partner-with-nvidia-for-funding/"
     },
     {
       "t": "META",
-      "h": "Zuckerberg publishes AI vision essay, launches open-weight Muse Glimmer model",
-      "m": "Meta released Muse Glimmer, a downloadable open-weight agentic model runnable on a single-GPU laptop, alongside a 6,510-word Zuckerberg essay arguing against centralized AI control and for lower US barriers to open-source AI versus Chinese rivals. Stock ended roughly flat.",
+      "h": "저커버그, AI 비전 에세이 발표하며 오픈웨이트 모델 'Muse Glimmer' 공개",
+      "m": "Meta가 단일 GPU 노트북에서도 구동 가능한 오픈웨이트 에이전틱 모델 Muse Glimmer를 출시. 저커버그는 6,510단어 분량 에세이를 통해 AI 통제 집중화에 반대하고, 중국 경쟁사에 대응하기 위한 미국 오픈소스 AI 규제 완화를 촉구. 주가는 보합 마감.",
       "url": "https://finance.yahoo.com/technology/live/tech-stocks-today-meta-lays-out-new-ai-path-intel-to-sell-15-billion-in-stock-135605566.html"
     },
     {
       "t": "GOOGL",
-      "h": "Alphabet cloud backlog highlighted after 82% Cloud revenue growth print",
-      "m": "Coverage continued to focus on Alphabet's Google Cloud backlog reaching $514B and 82% cloud revenue growth last quarter, with commentary on whether next quarter's cloud momentum can extend further; stock traded in a $352.71-$357.90 range.",
+      "h": "Alphabet, 클라우드 백로그 $514B·매출 성장률 82% 모멘텀 지속 부각",
+      "m": "지난 분기 Google Cloud 매출이 전년 대비 82% 성장하며 계약 백로그가 $514B까지 확대된 점이 지속적으로 조명됨. 주가는 $352.71~$357.90 범위에서 등락.",
       "url": "https://robinhood.com/us/en/stocks/GOOGL/"
     },
     {
       "t": "MU",
-      "h": "Micron says demand signals 'exceptional', expects 2027 tighter than 2026",
-      "m": "At the KeyBanc Technology Leadership Forum, Micron executives said AI-driven memory demand is outpacing supply, noted Strategic Customer Agreements now cover roughly half of revenue through 2030, and flagged calendar 2027 as an even tighter supply year than 2026.",
+      "h": "Micron \"수요 시그널 매우 강력\"…2027년이 2026년보다 더 타이트할 것",
+      "m": "KeyBanc 테크놀로지 리더십 포럼에서 Micron 경영진은 AI발 메모리 수요가 공급 증가 속도를 앞서고 있다고 언급. 전략적 고객계약(SCA)이 2030년까지 매출의 약 절반을 커버하고 있으며, 2027년 캘린더이어가 2026년보다도 더 타이트한 공급 환경이 될 것으로 전망.",
       "url": "https://www.investing.com/news/transcripts/micron-at-technology-leadership-forum-2026-ai-tightens-memory-market-93CH-4849994"
     },
     {
       "t": "AVGO",
-      "h": "Broadcom shares consolidate near $427 as VMware AI security upgrades support sentiment",
-      "m": "AVGO traded in a $424.50-$432.68 range; bullish commentary continued to cite Broadcom's custom AI accelerator positioning (guided to top $100B in 2027 custom silicon revenue) and recent VMware Cloud Foundation security enhancements (vDefend, Avi Load Balancer).",
+      "h": "Broadcom, $427선 컨솔리데이션…VMware 보안 업그레이드로 투자심리 지지",
+      "m": "AVGO 주가는 $424.50~$432.68 범위에서 등락. 커스텀 AI 가속기 부문이 2027년 매출 $100B를 상회할 것이라는 가이던스와 최근 VMware Cloud Foundation 보안 강화(vDefend, Avi Load Balancer)가 강세 논거로 지속 언급됨.",
       "url": "https://robinhood.com/us/en/stocks/AVGO/"
     },
     {
       "t": "AMZN",
-      "h": "Amazon triggers bullish 'Power Inflow' signal, plans Texas natural-gas power plant",
-      "m": "AMZN saw a notable institutional/retail buy-side inflow signal intraday (shares ranged $272.12-$278.31), while separate reporting said Amazon is investing in a natural-gas power plant for a Texas data center even as it maintains climate pledges.",
+      "h": "Amazon, 장중 강한 매수세 신호 포착·텍사스 천연가스 발전소 투자",
+      "m": "AMZN이 장중 기관·개인 양측의 강한 매수 유입을 시사하는 'Power Inflow' 시그널을 기록(주가 $272.12~$278.31 범위). 별도로 Amazon이 텍사스 데이터센터용 천연가스 발전소에 투자한다는 보도가 나오며, 기후 공약과의 상충 우려도 제기됨.",
       "url": "https://www.benzinga.com/Opinion/26/08/61090004/amazon-shares-up-nearly-2-percent-after-key-trading-signal"
     },
     {
       "t": "ORCL",
-      "h": "Oracle rises ~1.5-2% despite ongoing debt-funded AI data-center concerns",
-      "m": "ORCL gained near $149 as dip-buyers returned, even as investors continued to weigh Oracle's negative free cash flow, ~$260B in data-center lease obligations, and the July S&P downgrade to BBB- one notch above speculative grade; Michael Burry's short remains a talking point.",
+      "h": "Oracle, 부채 기반 AI 데이터센터 확장 우려에도 저가매수 유입으로 +1.5~2%",
+      "m": "ORCL 주가는 $149선까지 상승. 7월 S&P의 BBB- 신용등급 하향(투기등급 한 단계 위), 마이너스 잉여현금흐름, 약 $260B에 달하는 데이터센터 리스 부채 부담에도 불구하고 저가매수세가 유입됨. Michael Burry의 공매도 포지션도 계속 화제.",
       "url": "https://www.benzinga.com/markets/tech/26/08/61084268/oracle-stock-is-gaining-monday-whats-going-on"
     }
   ]
