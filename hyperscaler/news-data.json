@@ -1,21 +1,59 @@
 {
-  "date": "2026-08-09",
+  "date": "2026-08-10",
   "items": [
-    {"t": "AAPL", "h": "Apple tests China's CXMT memory chips for iPhones and MacBooks", "m": "WSJ 보도에 따르면 Apple이 중국 CXMT의 메모리칩을 iPhone/MacBook용으로 테스트 중. 공급망 다변화 및 중국向 부품 조달 확대 시그널로 해석", "url": "https://www.whyisstock.com/stocks/AAPL"},
-    {"t": "AAPL", "h": "Apple Mac 중국 사용자, Alibaba Qwen 연동 지원", "m": "중국 내 Mac 사용자가 Alibaba의 Qwen AI 모델에 연결 가능해짐 (Reuters). 중국 규제 대응 및 현지 AI 파트너십 확대 행보", "url": "https://www.cnn.com/markets/stocks/AAPL"},
-    {"t": "NVDA", "h": "Nvidia, Lancium에 최대 30억달러 투자 검토", "m": "The Information 보도. Stargate 프로젝트 내 역할 확대를 위한 전력 인프라 투자로, AI 데이터센터 전력 확보 전략의 일환", "url": "https://www.cnn.com/markets/stocks/NVDA"},
-    {"t": "NVDA", "h": "차세대 Rubin Ultra GPU 설계 변경 검토, 메모리 공급 제약 반영", "m": "HBM 수요 급증에 따른 메모리 공급 부족으로 기존 12-layer HBM4e 설계에서 8-layer HBM4 등 대안 구성으로 전환 검토", "url": "https://www.gurufocus.com/news/9019973/nvidia-faces-memory-constraints-as-ai-chip-demand-surges-nvda"},
-    {"t": "META", "h": "Meta El Paso 데이터센터 채권(Sopaipilla), 10월 대비 높은 금리 요구받아", "m": "BlackRock 주관 120억달러+ 규모 SPV 채권, 투자자들이 7% 이상 수익률 요구. 작년 10월 Beignet(Hyperion) 대비 조달비용 상승, AI 부채 리프라이싱 신호", "url": "https://capacityglobal.com/news/metas-12bn-el-paso-bond-exposes-ai-debt-repricing/"},
-    {"t": "META", "h": "Meta의 최신 AI 데이터센터 채권 발행비용, 2025년 기록적 딜보다 높아질 수도", "m": "Alphabet 등 하이퍼스케일러 전반의 부채 조달비용 상승 추세 속, Meta·Amazon·Google·MSFT·Oracle 합산 2025년 회사채 발행액 약 1,210억달러(2020년 약 400억달러 대비 급증)", "url": "https://finance.yahoo.com/technology/ai/articles/meta-latest-ai-data-center-104924131.html"},
-    {"t": "GOOGL", "h": "Alphabet, 최대 250억달러 신규 회사채 발행 추진", "m": "Bloomberg 보도. 2026년 대규모 채권 발행 이후 추가 조달로, 공격적 차입 확대 우려가 주가 하락 요인으로 작용", "url": "https://www.cnn.com/markets/stocks/GOOGL"},
-    {"t": "GOOGL", "h": "Google AI 채권 발행에 1,150억달러 주문 몰려", "m": "강한 수요로 북빌딩 성공, 하이퍼스케일러 크레딧에 대한 투자자 수요는 견조함을 시사", "url": "https://www.cnn.com/markets/stocks/GOOGL"},
-    {"t": "MU", "h": "Micron, 자동차 Tier1 업체들과 전략적 공급계약 체결", "m": "Qualcomm, Visteon, HARMAN, Denso, Hyundai Mobis 등과 계약 완료. AI 중심 수요를 넘어 자동차향 메모리 수요 가시성 확보로 경기순환 리스크 완화 목적", "url": "https://finance.yahoo.com/technology/ai/articles/micron-mu-secures-strategic-auto-101757418.html"},
-    {"t": "MU", "h": "Citi, Micron 목표주가 18% 하향(1,400→1,150달러), Buy 등급은 유지", "m": "메모리 공급업체 미팅 후 조정. 밸류에이션 부담 반영이나 펀더멘털 우려는 제한적이라는 평가", "url": "https://www.cnn.com/markets/stocks/MU"},
-    {"t": "AVGO", "h": "Broadcom, VMware vDefend·Avi Load Balancer AI 보안 업그레이드 발표 후 9.9% 급등", "m": "AI 기반 자동화 및 다계층 사이버 방어 기능 강화. 인프라 소프트웨어 부문 AI 매출 확대 기대감 반영", "url": "https://robinhood.com/us/en/stocks/AVGO/"},
-    {"t": "AVGO", "h": "Apple-Broadcom, 2031년까지 칩 공급계약 갱신", "m": "300억달러 이상 규모, 무선 부품(FBAR 필터) 및 AI향 커스텀칩 포함. 고객 다변화와 장기 매출 가시성 확보", "url": "https://www.morningstar.com/stocks/xnas/avgo/quote"},
-    {"t": "AMZN", "h": "Amazon, 2026년 AI 설비투자 가이던스 2,200억달러로 상향(기존 2,000억달러)", "m": "메모리 비용 상승이 주요 요인으로 언급됨. AWS 클라우드 수요 대응을 위한 캐펙스 확대 지속", "url": "https://finance.yahoo.com/markets/stocks/articles/amazon-stock-just-hit-major-173002306.html"},
-    {"t": "AMZN", "h": "뉴저지주 법무장관, Amazon 배송기사 처우 관련 반독점 소송 제기", "m": "배송 계약업체 통제 및 근로조건 관련 반독점 이슈로 규제 리스크 부각", "url": "https://www.cnn.com/markets/stocks/AMZN"},
-    {"t": "ORCL", "h": "Oracle CDS 스프레드 사상 최고치, 2008년 금융위기 수준 상회", "m": "Bloomberg 데이터 기준 5년 CDS가 역대 최고 수준으로, AI 인프라 투자에 따른 재무 부담이 크레딧 시장에서 부각. S&P는 BBB-로 하향한 바 있음", "url": "https://seekingalpha.com/news/4624308-oracles-default-risk-hits-record-high-tops-2008-financial-crisis-peak"},
-    {"t": "ORCL", "h": "Oracle FY2026 캐펙스 557억달러, FCF -237억달러... 신규 부채 430억달러 확대", "m": "총부채 약 1,674억달러로 증가. 회사는 2026년 캘린더이어 중 추가 채권 발행 계획은 없다고 밝혔으며, FY2027 중 약 400억달러 추가 조달(지분 200억달러 포함) 계획", "url": "https://finance.yahoo.com/markets/stocks/articles/oracles-credit-risk-nears-18-151000986.html"}
+    {
+      "t": "AAPL",
+      "h": "Jefferies downgrades Apple to Underperform on all-glass iPhone cancellation",
+      "m": "Jefferies cut AAPL from Hold to Underperform, pre-market shares fell ~1.3%, citing the scrapped all-glass iPhone and rising memory-cost inflation pressuring margins.",
+      "url": "https://www.gurufocus.com/news/9020962/apple-inc-aapl-faces-downgrade-amid-iphone-pricing-challenges"
+    },
+    {
+      "t": "AAPL",
+      "h": "Apple tests CXMT memory chips to ease supply squeeze",
+      "m": "WSJ reported Apple has held preliminary talks with China's CXMT to source memory chips for iPhones/MacBooks as the AI-driven memory shortage bites; raises US policy concerns over tech transfer.",
+      "url": "https://investrade.com/morning-preview-august-10-2026/"
+    },
+    {
+      "t": "NVDA",
+      "h": "Nvidia falls ~2-3% on $500B AI financing plan and Microsoft chip competition",
+      "m": "NVDA shares dropped as investors weighed a reported $500B financing push (with Apollo, Blackstone, BlackRock's GIP, Brookfield) to fund AI data centers/power, plus concerns Microsoft's in-house Maia 300 chip threatens share; Mark Cuban warned the financing structure could make the market fragile.",
+      "url": "https://www.fxleaders.com/news/2026/08/10/nvidia-stock-dives-as-more-spending-and-microsoft-chip-competition-weigh-on-nvda-while-financial-firms-partner-with-nvidia-for-funding/"
+    },
+    {
+      "t": "META",
+      "h": "Zuckerberg publishes AI vision essay, launches open-weight Muse Glimmer model",
+      "m": "Meta released Muse Glimmer, a downloadable open-weight agentic model runnable on a single-GPU laptop, alongside a 6,510-word Zuckerberg essay arguing against centralized AI control and for lower US barriers to open-source AI versus Chinese rivals. Stock ended roughly flat.",
+      "url": "https://finance.yahoo.com/technology/live/tech-stocks-today-meta-lays-out-new-ai-path-intel-to-sell-15-billion-in-stock-135605566.html"
+    },
+    {
+      "t": "GOOGL",
+      "h": "Alphabet cloud backlog highlighted after 82% Cloud revenue growth print",
+      "m": "Coverage continued to focus on Alphabet's Google Cloud backlog reaching $514B and 82% cloud revenue growth last quarter, with commentary on whether next quarter's cloud momentum can extend further; stock traded in a $352.71-$357.90 range.",
+      "url": "https://robinhood.com/us/en/stocks/GOOGL/"
+    },
+    {
+      "t": "MU",
+      "h": "Micron says demand signals 'exceptional', expects 2027 tighter than 2026",
+      "m": "At the KeyBanc Technology Leadership Forum, Micron executives said AI-driven memory demand is outpacing supply, noted Strategic Customer Agreements now cover roughly half of revenue through 2030, and flagged calendar 2027 as an even tighter supply year than 2026.",
+      "url": "https://www.investing.com/news/transcripts/micron-at-technology-leadership-forum-2026-ai-tightens-memory-market-93CH-4849994"
+    },
+    {
+      "t": "AVGO",
+      "h": "Broadcom shares consolidate near $427 as VMware AI security upgrades support sentiment",
+      "m": "AVGO traded in a $424.50-$432.68 range; bullish commentary continued to cite Broadcom's custom AI accelerator positioning (guided to top $100B in 2027 custom silicon revenue) and recent VMware Cloud Foundation security enhancements (vDefend, Avi Load Balancer).",
+      "url": "https://robinhood.com/us/en/stocks/AVGO/"
+    },
+    {
+      "t": "AMZN",
+      "h": "Amazon triggers bullish 'Power Inflow' signal, plans Texas natural-gas power plant",
+      "m": "AMZN saw a notable institutional/retail buy-side inflow signal intraday (shares ranged $272.12-$278.31), while separate reporting said Amazon is investing in a natural-gas power plant for a Texas data center even as it maintains climate pledges.",
+      "url": "https://www.benzinga.com/Opinion/26/08/61090004/amazon-shares-up-nearly-2-percent-after-key-trading-signal"
+    },
+    {
+      "t": "ORCL",
+      "h": "Oracle rises ~1.5-2% despite ongoing debt-funded AI data-center concerns",
+      "m": "ORCL gained near $149 as dip-buyers returned, even as investors continued to weigh Oracle's negative free cash flow, ~$260B in data-center lease obligations, and the July S&P downgrade to BBB- one notch above speculative grade; Michael Burry's short remains a talking point.",
+      "url": "https://www.benzinga.com/markets/tech/26/08/61084268/oracle-stock-is-gaining-monday-whats-going-on"
+    }
   ]
 }
