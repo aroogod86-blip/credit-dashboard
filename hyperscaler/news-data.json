@@ -3,51 +3,51 @@
   "items": [
     {
       "t": "AAPL",
-      "h": "Apple, AI 취약점 탐색 도구 확산 속 보안 패치 속도전",
-      "m": "OpenAI의 신규 사이버보안 특화 모델이 Chrome 제로데이 2건을 발견해 화제가 된 가운데, Apple도 AI 기반 취약점 발굴이 빨라지며 보안 결함 대응에 속도를 내고 있다고 CNBC가 보도. 동시에 AI가 생성한 부정확한 버그 신고('AI 슬롭')가 Apple의 버그바운티 프로그램에 몰려 정상적인 심각한 취약점 접수가 지연될 수 있다는 우려도 지속.",
-      "url": "https://money.whatfinger.com/2026/08/10/apple-races-to-fix-string-of-security-flaws/"
+      "h": "Jefferies, iPhone 혁신 둔화 우려로 Apple 투자의견 추가 하향",
+      "m": "Jefferies가 8/12 Apple 투자의견을 재차 하향 조정하며 향후 아이폰 혁신 모멘텀에 대한 시장 우려를 반영. 다만 Apple은 같은 날 미 대법원으로부터 Epic Games와의 반독점 소송 관련 하급심 절차 정지를 임시로 허가받는 등 일부 우호적 소식도 병존. GuruFocus는 현재 주가가 적정가치 대비 약 6.8% 고평가 상태라고 평가.",
+      "url": "https://www.gurufocus.com/news/9026950/apples-stock-rating-downgraded-as-concerns-grow-over-future-iphone-innovations-aapl"
     },
     {
       "t": "NVDA",
-      "h": "Nvidia, 메모리 부족으로 차세대 Rubin Ultra GPU 설계 조정",
-      "m": "Nvidia가 AI 칩 수요 급증에 따른 메모리 공급난으로 차세대 Rubin Ultra GPU의 메모리 탑재량을 낮춘 버전을 테스트 중인 것으로 알려짐. 역설적으로 이는 HBM 등 고대역폭 메모리에 대한 수요를 오히려 더 끌어올려 Micron 등 메모리 공급사에 우호적일 수 있다는 분석.",
-      "url": "https://www.gurufocus.com/news/9019973/nvidia-faces-memory-constraints-as-ai-chip-demand-surges-nvda"
+      "h": "Nvidia, $500B AI 파이낸싱 놓고 '자산화' 주장 대 '순환금융' 비판 충돌",
+      "m": "Nvidia가 Apollo·BlackRock·Blackstone·Brookfield·Goldman Sachs·KKR와 $500B 규모 제3자 자본을 AI 인프라(데이터센터·전력·반도체 공장)에 동원하는 MOU를 체결. 젠슨 황은 GPU를 '투자 가능한 자산군'으로 규정했으나, Michael Burry는 이를 2008년 금융위기와 유사한 '순환 부채 구조'라며 강하게 비판.",
+      "url": "https://www.cnbc.com/2026/08/10/nvidia-wall-street-asset-managers-500-billion-ai-push.html"
     },
     {
       "t": "META",
-      "h": "Meta·Google·Snap, 소셜미디어 중독 소송 패소로 수천 건 배상 리스크 노출",
-      "m": "법원 판결로 Meta와 Google이 소셜미디어 피해 관련 재판에서 책임이 있다는 평결을 받으며, 알고리즘 추천 설계에 대한 법적 책임 공방이 본격화. 기존 LA $6M, 뉴멕시코 $567M 배상 판결에 이어 수천 건의 추가 소송이 이어질 것으로 전망되어 향후 법적 비용 부담이 신용 이슈로 부각될 소지.",
-      "url": "https://aiweekly.co/ai-news-today"
+      "h": "저커버그 연 $145B AI 자본지출에도 생산성 효과는 아직 불투명",
+      "m": "Meta의 2026년 AI 인프라 자본지출이 최대 $145B에 달할 전망인 가운데, Barclays 수석 이코노미스트 Jonathan Millar는 CNBC 인터뷰(8/10)에서 업계 전체 연 $800B 규모의 AI 투자에도 불구하고 거시 생산성 지표에는 아직 뚜렷한 개선이 나타나지 않고 있다고 지적. Meta의 2분기 잉여현금흐름은 전년 대비 91% 급감한 바 있음.",
+      "url": "https://www.aol.com/articles/zuckerberg-plans-spend-145-billion-110118000.html"
     },
     {
       "t": "GOOGL",
-      "h": "Alphabet, Nvidia $500B 파이낸싱 발표 후 동반 약세…AI 컴퓨트 경쟁 부담 재부각",
-      "m": "Nvidia의 $500B AI 인프라 파이낸싱 계획 발표 이후 GOOGL 주가가 약 2% 하락. Alphabet의 클라우드 성장이 자체 프론티어 AI 경쟁력 확보를 위한 컴퓨트 확보 경쟁으로 더욱 부담을 받고 있다는 CNBC 코멘트도 재조명됨.",
-      "url": "https://finance.yahoo.com/quote/GOOGL/"
+      "h": "Alphabet, Gemini 경쟁력 확보 위한 내부 조직개편 배경 로이터 단독 보도",
+      "m": "로이터(8/12)에 따르면 공동창업자 세르게이 브린이 올해 4월 타운홀에서 Google DeepMind 조직에 속도를 낼 것을 직접 촉구했으며, Gemini 신규 플래그십 모델 출시가 코딩 등 일부 영역에서 경쟁사 대비 뒤처진다는 내부 테스트 결과로 두 달 연기됨. 8/6 전사 미팅에서는 일부 팀이 DeepMind에서 코퍼레이트 구글로 이관되는 조직개편도 공개됨.",
+      "url": "https://finance.yahoo.com/technology/ai/articles/exclusive-inside-google-executive-moves-173536292.html"
     },
     {
       "t": "MU",
-      "h": "Micron, CEO $37M 자사주 매도 속 주가 $900선 하회 지속",
-      "m": "Mizuho가 목표주가 $1,375를 유지하며 DRAM·NAND 공급 타이트 지속(2027년까지)을 근거로 강세 의견을 냈음에도, Sanjay Mehrotra CEO의 $37M 규모 지분 매도와 중국발 경쟁 심화 우려로 투자심리가 흔들리며 주가는 3거래일 연속 하락, $861 마감.",
-      "url": "https://www.fxleaders.com/news/2026/08/11/micron-mu-stock-struggles-below-900-despite-mizuho-1375-price-target-on-dram-and-nand-tight-supply-prediction/"
+      "h": "Micron, AI 인프라 파트너발 긍정적 시그널에 +4.7% 급등 출발",
+      "m": "Nvidia의 $500B 파이낸싱 발표 등 AI 인프라 투자 확대 기대감이 메모리 수요 전망을 뒷받침하며 Micron 주가가 8/12 장 초반 +4.72% 상승. UBS는 목표주가 $1,625를 유지했으며, Citi는 메모리 가격 상승세 둔화 및 중국발 생산능력 리스크를 이유로 목표주가를 $1,150로 하향했음에도 프리마켓에서는 강세 유지.",
+      "url": "https://www.tradingkey.com/news/market-movers/262099542-market-movers-mu-20260812"
     },
     {
       "t": "AVGO",
-      "h": "Broadcom, 12개월 강세 랠리 이후 차익실현으로 소폭 조정",
-      "m": "나스닥·S&P500 상승에도 불구하고 AVGO는 최근 12개월간의 강한 상승 이후 차익실현 매물로 소폭 하락. 20일 이동평균 대비 여전히 +6.3% 높은 수준을 유지하며 장기 상승 추세는 유지. 9월 2일 실적 발표를 앞두고 있으며 컨센서스는 EPS $3.16, 매출 $29.44B로 전년 대비 큰 폭 성장 예상.",
-      "url": "https://www.benzinga.com/markets/tech/26/08/61110298/whats-going-on-with-broadcom-stock-tuesday-8"
+      "h": "Broadcom, Google의 AI 컴퓨트 공급망 다변화 시도가 리스크로 부각",
+      "m": "Broadcom의 커스텀 AI 가속기 사업이 여전히 Google을 최대 고객으로 두고 있는 가운데, Google이 AI 컴퓨트 공급업체를 다변화하려는 움직임을 보이고 있다는 점이 Broadcom 주가에 리스크 요인으로 재조명됨. 애널리스트 평균 목표주가는 $501.58 수준으로 Strong Buy 컨센서스 유지, 9/2 실적 발표 앞두고 있음.",
+      "url": "https://public.com/stocks/avgo/forecast-price-target"
     },
     {
       "t": "AMZN",
-      "h": "베이조스 $4B 규모 지분 매각 이후 투자자 우려 재점화",
-      "m": "Jeff Bezos의 대규모 Amazon 지분 매각($4B+)을 두고 투자자들 사이에서 우려 섞인 논의가 이어지는 가운데, AWS는 내부적으로 엔지니어들에게 CPU 낭비 절감을 독려하고 있는 것으로 알려짐(The Information 보도). 주가는 $3T 시가총액을 돌파한 이후 등락 지속.",
-      "url": "https://www.fool.com/investing/2026/08/08/huge-news-for-amazon-stock-investors/"
+      "h": "Amazon, $220B 자본지출 부담에 $270선 하회…AWS 성장은 견조",
+      "m": "실적 발표 후 $287까지 급등했던 AMZN 주가가 $220B로 상향된 2026년 자본지출 가이던스(메모리·부품비 상승분 반영) 부담과 내부자 매도 우려 속에 $270선 아래로 후퇴. AWS 매출은 여전히 전년 대비 37% 성장하며 성장 동력을 유지하고 있으나, 대규모 AI 투자 대비 이익 창출 속도에 대한 투자자 의구심이 지속.",
+      "url": "https://www.fxleaders.com/news/2026/08/12/amazon-amzn-stock-slips-below-270-as-220-billion-spending-plan-raises-margin-concerns/"
     },
     {
       "t": "ORCL",
-      "h": "Oracle, TikTok 연방기기 금지 해제 호재에도 주가 -3.7% 하락",
-      "m": "트럼프 행정부가 연방정부 기기 내 TikTok 사용 금지를 해제하며 TikTok 지분 과반을 보유한 Oracle 컨소시엄에 우호적 뉴스가 나왔음에도, 대차대조표 부담과 공격적 자본지출 우려가 재부각되며 ORCL 주가는 -3.69% 하락. 마이너스 잉여현금흐름·높은 부채 수준·신용등급 압박이 지속적인 투자심리 부담 요인으로 지목됨.",
-      "url": "https://www.fool.com/investing/2026/08/11/why-did-oracle-stock-drop-after-todays-tiktok-news/"
+      "h": "Oracle, 추가 인력 감축 계획에 오히려 주가 반등",
+      "m": "Oracle이 2분기 회계연도를 앞두고 추가 정리해고 대상자 명단 작성을 관리자들에게 지시했다는 소식이 전해지며 시간외 거래에서 주가가 오히려 +1.2%~+5% 상승. 시장은 이를 비용 절감 의지로 긍정 평가했으나, 지난 회계연도에만 이미 21,000명(전체 인력의 13%)을 감축하며 $1.84B의 퇴직 관련 비용이 발생한 바 있어 재무 부담 우려는 여전.",
+      "url": "https://www.gurufocus.com/news/9027551/oracle-plans-job-cuts-stock-orcl-sees-postannouncement-gains"
     }
   ]
 }
