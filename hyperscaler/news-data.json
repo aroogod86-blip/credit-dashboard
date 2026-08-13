@@ -1,59 +1,59 @@
 {
-  "date": "2026-08-12",
+  "date": "2026-08-14",
   "items": [
     {
-      "t": "AAPL",
-      "h": "Jefferies, iPhone 혁신 둔화 우려로 Apple 투자의견 추가 하향",
-      "m": "Jefferies가 8/12 Apple 투자의견을 재차 하향 조정하며 향후 아이폰 혁신 모멘텀에 대한 시장 우려를 반영. 다만 Apple은 같은 날 미 대법원으로부터 Epic Games와의 반독점 소송 관련 하급심 절차 정지를 임시로 허가받는 등 일부 우호적 소식도 병존. GuruFocus는 현재 주가가 적정가치 대비 약 6.8% 고평가 상태라고 평가.",
-      "url": "https://www.gurufocus.com/news/9026950/apples-stock-rating-downgraded-as-concerns-grow-over-future-iphone-innovations-aapl"
-    },
-    {
-      "t": "NVDA",
-      "h": "Nvidia, $500B AI 파이낸싱 놓고 '자산화' 주장 대 '순환금융' 비판 충돌",
-      "m": "Nvidia가 Apollo·BlackRock·Blackstone·Brookfield·Goldman Sachs·KKR와 $500B 규모 제3자 자본을 AI 인프라(데이터센터·전력·반도체 공장)에 동원하는 MOU를 체결. 젠슨 황은 GPU를 '투자 가능한 자산군'으로 규정했으나, Michael Burry는 이를 2008년 금융위기와 유사한 '순환 부채 구조'라며 강하게 비판.",
-      "url": "https://www.cnbc.com/2026/08/10/nvidia-wall-street-asset-managers-500-billion-ai-push.html"
+      "t": "ORCL",
+      "h": "오라클 CDS 스프레드 18년래 최고치, S&P 신용등급 강등 여파 지속",
+      "m": "S&P가 오라클 신용등급을 BBB-(투기등급 바로 위)로 한 단계 강등한 이후 5년 CDS 프리미엄이 2.03%p까지 급등해 2008년 이후 최고 수준을 기록. FY2026 설비투자가 557억달러에 달했고 FCF는 -237억달러 적자. 하이퍼스케일러 그룹 내 CDS 스프레드가 피어(구글·아마존·MS·메타) 대비 가장 큰 폭으로 확대되며 AI 부채 리스크의 대표 지표로 자리잡음.",
+      "url": "https://finance.biggo.com/news/8d518fad-924d-4476-b1d8-47ea237a437e"
     },
     {
       "t": "META",
-      "h": "저커버그 연 $145B AI 자본지출에도 생산성 효과는 아직 불투명",
-      "m": "Meta의 2026년 AI 인프라 자본지출이 최대 $145B에 달할 전망인 가운데, Barclays 수석 이코노미스트 Jonathan Millar는 CNBC 인터뷰(8/10)에서 업계 전체 연 $800B 규모의 AI 투자에도 불구하고 거시 생산성 지표에는 아직 뚜렷한 개선이 나타나지 않고 있다고 지적. Meta의 2분기 잉여현금흐름은 전년 대비 91% 급감한 바 있음.",
-      "url": "https://www.aol.com/articles/zuckerberg-plans-spend-145-billion-110118000.html"
-    },
-    {
-      "t": "GOOGL",
-      "h": "Alphabet, Gemini 경쟁력 확보 위한 내부 조직개편 배경 로이터 단독 보도",
-      "m": "로이터(8/12)에 따르면 공동창업자 세르게이 브린이 올해 4월 타운홀에서 Google DeepMind 조직에 속도를 낼 것을 직접 촉구했으며, Gemini 신규 플래그십 모델 출시가 코딩 등 일부 영역에서 경쟁사 대비 뒤처진다는 내부 테스트 결과로 두 달 연기됨. 8/6 전사 미팅에서는 일부 팀이 DeepMind에서 코퍼레이트 구글로 이관되는 조직개편도 공개됨.",
-      "url": "https://finance.yahoo.com/technology/ai/articles/exclusive-inside-google-executive-moves-173536292.html"
-    },
-    {
-      "t": "MU",
-      "h": "Micron, AI 인프라 파트너발 긍정적 시그널에 +4.7% 급등 출발",
-      "m": "Nvidia의 $500B 파이낸싱 발표 등 AI 인프라 투자 확대 기대감이 메모리 수요 전망을 뒷받침하며 Micron 주가가 8/12 장 초반 +4.72% 상승. UBS는 목표주가 $1,625를 유지했으며, Citi는 메모리 가격 상승세 둔화 및 중국발 생산능력 리스크를 이유로 목표주가를 $1,150로 하향했음에도 프리마켓에서는 강세 유지.",
-      "url": "https://www.tradingkey.com/news/market-movers/262099542-market-movers-mu-20260812"
+      "h": "메타 2분기 FCF 91% 급감, 연간 설비투자 가이던스 1,300~1,450억달러로 상향",
+      "m": "매출은 28% 성장한 608억달러로 예상치 상회했으나, 분기 설비투자가 311억달러로 거의 2배 증가하며 잉여현금흐름은 8.55억달러에서 7.84억달러로 91% 급감. 영업현금흐름(319억달러)의 98%가 capex로 소진. 3분기 매출 가이던스도 컨센서스를 하회하며 주가 급락.",
+      "url": "https://www.techtimes.com/articles/322139/20260729/meta-q2-beats-revenue-while-legal-charges-ai-spending-destroy-free-cash-flow.htm"
     },
     {
       "t": "AVGO",
-      "h": "Broadcom, Google의 AI 컴퓨트 공급망 다변화 시도가 리스크로 부각",
-      "m": "Broadcom의 커스텀 AI 가속기 사업이 여전히 Google을 최대 고객으로 두고 있는 가운데, Google이 AI 컴퓨트 공급업체를 다변화하려는 움직임을 보이고 있다는 점이 Broadcom 주가에 리스크 요인으로 재조명됨. 애널리스트 평균 목표주가는 $501.58 수준으로 Strong Buy 컨센서스 유지, 9/2 실적 발표 앞두고 있음.",
-      "url": "https://public.com/stocks/avgo/forecast-price-target"
+      "h": "브로드컴, 블랙스톤·아폴로 XPV 플랫폼 리스크로 BofA 채권등급 하향",
+      "m": "BofA가 브로드컴의 발행자·채권 등급을 Overweight에서 Marketweight로 하향. XPV 플랫폼(20GW 규모, 최대 잔존가치 보증 3,700억달러) 관련 신용 불확실성이 원인. 9월 실적 발표에서 추가 명확성 기대. 총부채/EBITDA 레버리지는 1.3배로 안정적.",
+      "url": "https://www.tradingpedia.com/2026/08/11/broadcom-debt-outlook-cut-on-ai-financing-risks/"
+    },
+    {
+      "t": "NVDA",
+      "h": "엔비디아 2분기(FY2027) 실적 발표 8월 26일 예정, 블랙웰 수요 지속 확인 주목",
+      "m": "1분기(FY2027) 데이터센터 매출이 사상 최대인 752억달러(+92% YoY)를 기록한 가운데, 8월 26일 장 마감 후 2분기 실적 발표 예정. 최근 발행한 250억달러 7트랜치 회사채(만기 2046년물 기준) 스프레드가 발행 후 8bp 확대되며 2차 시장 약세 조짐도 관찰됨.",
+      "url": "https://www.wallstreethorizon.com/nvidia-earnings-calendar"
     },
     {
       "t": "AMZN",
-      "h": "Amazon, $220B 자본지출 부담에 $270선 하회…AWS 성장은 견조",
-      "m": "실적 발표 후 $287까지 급등했던 AMZN 주가가 $220B로 상향된 2026년 자본지출 가이던스(메모리·부품비 상승분 반영) 부담과 내부자 매도 우려 속에 $270선 아래로 후퇴. AWS 매출은 여전히 전년 대비 37% 성장하며 성장 동력을 유지하고 있으나, 대규모 AI 투자 대비 이익 창출 속도에 대한 투자자 의구심이 지속.",
-      "url": "https://www.fxleaders.com/news/2026/08/12/amazon-amzn-stock-slips-below-270-as-220-billion-spending-plan-raises-margin-concerns/"
-    },
-    {
-      "t": "ORCL",
-      "h": "Oracle, 추가 인력 감축 계획에 오히려 주가 반등",
-      "m": "Oracle이 2분기 회계연도를 앞두고 추가 정리해고 대상자 명단 작성을 관리자들에게 지시했다는 소식이 전해지며 시간외 거래에서 주가가 오히려 +1.2%~+5% 상승. 시장은 이를 비용 절감 의지로 긍정 평가했으나, 지난 회계연도에만 이미 21,000명(전체 인력의 13%)을 감축하며 $1.84B의 퇴직 관련 비용이 발생한 바 있어 재무 부담 우려는 여전.",
-      "url": "https://www.gurufocus.com/news/9027551/oracle-plans-job-cuts-stock-orcl-sees-postannouncement-gains"
+      "h": "아마존 250억달러 '깜짝' 회사채 발행, 연내 추가 발행 없다고 선언",
+      "m": "7월 7일 250억달러 채권을 발행하며 올해 누적 발행액이 920억달러로 구글·메타·오라클을 모두 상회. 장기물에 18~21bp의 추가 프리미엄을 제시했음에도 응찰배수는 2.5배로 3월(3.2배) 대비 저조해 수요 약화 시그널로 해석됨. AWS 데이터센터 투자 재원 확보 목적.",
+      "url": "https://fortune.com/2026/07/08/amazons-25-billion-surprise-bond-sale-dangled-extra-yield-to-lure-in-buyers/"
     },
     {
       "t": "SPCX",
-      "h": "SpaceX, 락업 해제·내부자 매도 우려 속에서도 +3~7%대 반등",
-      "m": "6월 IPO 이후 첫 락업 해제(8/6)로 최대 9억 1,150만 주 매도 가능 물량이 시장에 풀릴 수 있다는 우려와 IPO 이후 처음으로 리테일 투자자가 순매도로 전환했다는 소식에도, SpaceX 주가는 8/12 장중 +3~7%대 반등하며 $135~143 구간에서 거래. Morgan Stanley는 AI·Starlink 사업 가치를 근거로 $600 상단 시나리오를 제시했고, 회사는 2026년 말까지 $100B ARR 목표를 재확인.",
-      "url": "https://www.fool.com/investing/2026/08/05/spacexs-lockup-expires-on-aug-6-heres-why-9115-mil/"
+      "h": "스페이스X 250억달러 회사채, 2차 시장서 스프레드 급격히 확대",
+      "m": "IPO 직후인 6월 발행한 250억달러 채권(5개 트랜치, 2031~2056년 만기)이 2차 시장에서 이례적으로 빠르게 약세 전환. 2056년물은 발행 스프레드(국채+1.75%p) 대비 최대 0.28%p까지 확대되며 평가손실이 약 3.05억달러에 달함. CDS 거래도 활발해지며 헤지 수요 증가.",
+      "url": "https://www.advisorperspectives.com/articles/2026/06/26/bond-traders-stunned-losses-spacexs-debt-growing"
+    },
+    {
+      "t": "MU",
+      "h": "마이크론, HBM 완판 지속에 3분기 매출 사상 최대 414억달러",
+      "m": "3분기(FY2026) 매출이 전년비 약 345% 급증한 414억달러를 기록했고 매출총이익률은 81%까지 상승. HBM 생산능력이 2026년까지 완전 매진 상태이며 수요가 공급을 50~67% 초과. 4분기 매출 가이던스는 500억달러(±10억달러)로 추가 상향.",
+      "url": "https://intellectia.ai/blog/micron-earnings-record-q3-2026-ai-memory"
+    },
+    {
+      "t": "GOOGL",
+      "h": "알파벳, 2026년 설비투자 가이던스 1,950~2,050억달러로 재상향",
+      "m": "1분기 대비 capex 가이던스를 175~185억달러에서 195~205억달러로 상향 조정. 최근 분기 잉여현금흐름은 사상 처음으로 마이너스 전환했다는 보도가 나오며 채권시장의 우려를 자극. 6월에는 847.5억달러 규모의 대형 유상증자도 단행.",
+      "url": "https://insight.factset.com/hyperscalers-tap-external-financing-as-ai-capex-outruns-cash-flow"
+    },
+    {
+      "t": "AAPL",
+      "h": "애플, 9월 아이폰18 프로 이벤트 준비 본격화",
+      "m": "애플은 타 하이퍼스케일러 대비 AI 데이터센터 capex 노출이 제한적이며, 9월 중순 아이폰18 프로/프로맥스 및 신규 '아이폰 울트라' 라인업 공개가 임박. 신용시장에서는 여전히 안정적 발행자로 분류되며 별도의 CDS 스프레드 확대 이슈는 관찰되지 않음.",
+      "url": "https://www.macrumors.com/2026/08/04/apple-september-2026-announcements/"
     }
   ]
 }
