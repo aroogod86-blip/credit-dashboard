@@ -745,6 +745,28 @@ def load_bloomberg_data():
         print(f"  YTD BDH 오류: {e}")
         hist_ytd = pd.DataFrame(index=pd.bdate_range(YTD_START, END_DATE))
 
+    # ─── YTD I-spread 시계열 (연초~현재, 보유가중평균 I-spread 추이 차트 전용) ───
+    # I-spread는 벤치마크 차감 없이 YAS_ISPREAD 필드를 시계열로 직접 조회
+    try:
+        raw_i_ytd = blp.bdh(tickers, "YAS_ISPREAD",
+                            YTD_START.strftime("%Y%m%d"), END_DATE.strftime("%Y%m%d"))
+        ipdf_ytd = _nw(raw_i_ytd)
+        bond_ispread_ts_ytd = ipdf_ytd.pivot(index="date", columns="ticker", values="value")
+        bond_ispread_ts_ytd.index = pd.to_datetime(bond_ispread_ts_ytd.index)
+        bond_ispread_ts_ytd = bond_ispread_ts_ytd.apply(pd.to_numeric, errors="coerce")
+
+        label_map_iytd = dict(zip(snap.index, snap["label"]))
+        ihist_ytd = pd.DataFrame(index=bond_ispread_ts_ytd.index)
+        for t in tickers:
+            label = label_map_iytd.get(t, t)
+            if t in bond_ispread_ts_ytd.columns:
+                ihist_ytd[label] = bond_ispread_ts_ytd[t]
+        ihist_ytd = ihist_ytd.dropna(how="all")
+        print(f"  → I-spread YTD 시계열: {len(ihist_ytd)}일, {ihist_ytd.notna().any().sum()}개 종목")
+    except Exception as e:
+        print(f"  YTD I-spread BDH 오류: {e}")
+        ihist_ytd = pd.DataFrame(index=pd.bdate_range(YTD_START, END_DATE))
+
     # spread 변동 계산 + 과거 YTM
     for idx, row in snap.iterrows():
         lbl = row["label"]
@@ -1086,6 +1108,7 @@ def load_bloomberg_data():
         "allBonds": bonds_to_json(combined),
         "spreadHistory": ts_to_json(hist),
         "spreadHistoryYTD": ts_to_json(hist_ytd),
+        "ispreadHistoryYTD": ts_to_json(ihist_ytd),
         "ustCurve": {
             "tenors": list(UST_TICKERS.keys()),
             "years": [1/12,.25,.5,1,2,3,5,7,10,20,30],
@@ -1342,6 +1365,14 @@ def load_sample_data():
         vals = np.clip(base + noise - noise[-1], base * 0.5, base * 1.6)
         series_ytd[b["label"]] = [round(float(v), 1) for v in vals]
 
+    # I-spread 시계열 (YTD, 보유가중평균 I-spread 추이 차트 전용) — 샘플 데이터
+    iseries_ytd = {}
+    for b in bonds:
+        base = b.get("ispread") or (b["spread"] - 8)
+        noise = np.cumsum(np.random.randn(len(dates_ytd)) * 3)
+        vals = np.clip(base + noise - noise[-1], base * 0.5, base * 1.6)
+        iseries_ytd[b["label"]] = [round(float(v), 1) for v in vals]
+
     # 시장 지표
     mkt_dates = pd.bdate_range(MKT_START, END_DATE)
     mkt_date_strs = [d.strftime("%Y-%m-%d") for d in mkt_dates]
@@ -1415,6 +1446,7 @@ def load_sample_data():
         "allBonds": all_bonds,
         "spreadHistory": {"dates": date_strs, "series": series},
         "spreadHistoryYTD": {"dates": date_ytd_strs, "series": series_ytd},
+        "ispreadHistoryYTD": {"dates": date_ytd_strs, "series": iseries_ytd},
         "ustCurve": {
             "tenors": list(UST_TICKERS.keys()),
             "years": [1/12,.25,.5,1,2,3,5,7,10,20,30],
@@ -1549,7 +1581,7 @@ textarea:focus,.ti:focus{{border-color:var(--ac)}}
 <!-- TAB 1 -->
 <div class="tp active" id="t1">
   <div class="ms" id="m1"></div>
-  <div class="cd"><div class="ct2">📊 보유가중평균 G-spread 추이 (USD, bps, 연초~현재)</div><div class="ch" style="height:280px"><canvas id="c-wavg"></canvas></div></div>
+  <div class="cd"><div class="ct2">📊 보유가중평균 G-spread / I-spread 추이 (USD, bps, 연초~현재)</div><div class="ch" style="height:280px"><canvas id="c-wavg"></canvas></div></div>
   <!-- 스프레드 요약 매트릭스 -->
   <div class="cd" id="smt-wrap" style="margin-bottom:10px">
     <div class="ct2">
@@ -2029,14 +2061,11 @@ function RST(){{
 }}
 
 function RM(){{
-  const s2=GS(),avg=s2.length?s2.reduce((a,b)=>a+(b.spread||0),0)/s2.length:0;
+  const s2=GS();
   const mx=s2.length?Math.max(...s2.map(b=>b.spread||0)):0;
   const mn=s2.length?Math.min(...s2.map(b=>b.spread||0)):0;
-  // 평균 I-spread (G-spread와 동일한 표본 s2 기준; I-spread 미존재 종목은 제외)
-  const s2i=s2.filter(b=>b.ispread!=null);
-  const avgI=s2i.length?s2i.reduce((a,b)=>a+(b.ispread||0),0)/s2i.length:null;
   const u10=D.ustCurve.now[8];
-  // 보유 수량 가중평균 G-spread / I-spread (USD 채권만 대상; 통화별 커브가 다른 EUR/JPY 등은 별도 집계)
+  // 보유 수량 가중평균 G-spread / I-spread / 듀레이션 (USD 채권만 대상; 통화별 커브가 다른 EUR/JPY 등은 별도 집계)
   // UST(US9128xx): G-spread=0이므로 크레딧 가중평균 제외
   // 참고: JPY채는 액면이 JPY 단위라 기존 근사 환산(÷130)을 유지. EUR 등 다른 통화가 JPY와 함께 섞이는 경우
   // 서로 다른 통화 액면을 그대로 합산하게 되어 가중치가 부정확할 수 있음(라이브 FX 미적용, 근사치).
@@ -2048,12 +2077,15 @@ function RM(){{
   let nwSum=0, nwQty=0, nwCnt=0; // 비USD (EUR/JPY 등) 집계
   let wSumI=0, wQtyI=0, wCntI=0; // I-spread 가중평균 (USD)
   let nwSumI=0, nwQtyI=0, nwCntI=0; // I-spread 가중평균 (비USD)
+  let wSumD=0, wQtyD=0, wCntD=0; // 듀레이션 가중평균 (USD; UST 포함)
   bonds.forEach(function(b){{
-    if(isUST(b.isin)) return;
     const k=qtyKey(b.label);
     let q=savedQty[k]!==undefined?savedQty[k]:(QTY_DATA[b.isin]!==undefined?QTY_DATA[b.isin]:0);
     const isNonUsd = b.ccy && b.ccy!=='USD';
     if(isNonUsd && JPY_ISINS.has(b.isin)) q=q/JPY_FX;
+    // 듀레이션은 UST를 포함한 실제 포트폴리오 금리 민감도이므로 UST 제외하지 않음 (USD만 집계)
+    if(!isNonUsd && q>0 && b.duration!=null){{ wSumD+=b.duration*q; wQtyD+=q; wCntD++; }}
+    if(isUST(b.isin)) return;
     if(q>0&&b.spread!=null&&b.spread>0){{
       if(isNonUsd){{ nwSum+=b.spread*q; nwQty+=q; nwCnt++; }}
       else{{ wSum+=b.spread*q; wQty+=q; wCnt++; }}
@@ -2067,15 +2099,16 @@ function RM(){{
   const nwAvg=nwQty>0?nwSum/nwQty:null;
   const wAvgI=wQtyI>0?wSumI/wQtyI:null;
   const nwAvgI=nwQtyI>0?nwSumI/nwQtyI:null;
+  const wAvgD=wQtyD>0?wSumD/wQtyD:null;
   const mk=(l,v)=>`<div class="mc"><div class="lb">${{l}}</div><div class="vl">${{v}}</div></div>`;
   const wDetail=wQty>0?`<div style="font-size:11px;color:var(--tx3);margin-top:4px;font-family:var(--mn)">${{wCnt}}개 · ${{wQty.toFixed(1)}}M (UST채 제외, USD만)</div>`:'';
   const wDetailI=wQtyI>0?`<div style="font-size:11px;color:var(--tx3);margin-top:4px;font-family:var(--mn)">${{wCntI}}개 · ${{wQtyI.toFixed(1)}}M (UST채 제외, USD만)</div>`:'';
+  const wDetailD=wQtyD>0?`<div style="font-size:11px;color:var(--tx3);margin-top:4px;font-family:var(--mn)">${{wCntD}}개 · ${{wQtyD.toFixed(1)}}M (UST 포함, USD만)</div>`:'';
   const cards=[
     mk('모니터링 종목',bonds.length+'개'),
-    mk('평균 G-spread',avg.toFixed(0)+' bps'),
-    mk('평균 I-spread',avgI!=null?avgI.toFixed(0)+' bps':'-'),
     `<div class="mc"><div class="lb">보유 가중평균 G-spread (USD)</div><div class="vl">${{wAvg!=null?wAvg.toFixed(1)+' bps':'-'}}</div>${{wDetail}}</div>`,
     `<div class="mc"><div class="lb">보유 가중평균 I-spread (USD)</div><div class="vl">${{wAvgI!=null?wAvgI.toFixed(1)+' bps':'-'}}</div>${{wDetailI}}</div>`,
+    `<div class="mc"><div class="lb">보유 가중평균 듀레이션 (USD)</div><div class="vl">${{wAvgD!=null?wAvgD.toFixed(2)+'년':'-'}}</div>${{wDetailD}}</div>`,
     mk('최고 / 최저',mx+' / '+mn+' bps'),
     mk('UST 10Y',(u10||0).toFixed(2)+'%')
   ];
@@ -2093,6 +2126,7 @@ function RM(){{
 
 function RCW(){{
   const H=D.spreadHistoryYTD||D.spreadHistory;
+  const HI=D.ispreadHistoryYTD;
   const cvs=document.getElementById('c-wavg');
   if(!H||!H.dates||!H.dates.length||!cvs) return;
   function isUST(isin){{return /^US912[0-9]/.test(isin||'')||isin==='US912810UC08';}}
@@ -2107,36 +2141,49 @@ function RCW(){{
   }});
   // 종목별 스프레드 forward-fill: 휴장일 등으로 특정일 데이터가 비어있으면 직전 유효값을 이어받아
   // 그날 표본에 남은 소수 종목만으로 평균이 왜곡되는 것을 방지
-  const filled={{}};
-  weights.forEach(function(w){{
-    const arr=H.series[w.label]||[];
-    const out=new Array(H.dates.length).fill(null);
-    let last=null;
-    for(let i=0;i<H.dates.length;i++){{
-      const v=arr[i];
-      if(v!=null&&v>0) last=v;
-      out[i]=last;
-    }}
-    filled[w.label]=out;
-  }});
-  const totalQty=weights.reduce((a,w)=>a+w.q,0);
-  const wUsd=[];
-  H.dates.forEach(function(d,di){{
-    let sU=0,qU=0;
+  // + 날짜별 보유 가중평균 계산 (표본 커버리지 50% 미만인 날은 공백 처리)
+  function buildWeightedSeries(hist){{
+    if(!hist||!hist.dates||!hist.dates.length) return null;
+    const filled={{}};
     weights.forEach(function(w){{
-      const v=filled[w.label][di];
-      if(v==null) return;
-      sU+=v*w.q;qU+=w.q;
+      const arr=(hist.series||{{}})[w.label]||[];
+      const out=new Array(hist.dates.length).fill(null);
+      let last=null;
+      for(let i=0;i<hist.dates.length;i++){{
+        const v=arr[i];
+        if(v!=null&&v>0) last=v;
+        out[i]=last;
+      }}
+      filled[w.label]=out;
     }});
-    // 표본 커버리지가 총 액면의 50% 미만인 날은 신뢰 불가로 보고 공백(null) 처리 (차트에서 끊어짐, spanGaps로 이어보임)
-    wUsd.push(qU>=totalQty*0.5?sU/qU:null);
-  }});
+    const totalQty=weights.reduce((a,w)=>a+w.q,0);
+    const out=[];
+    hist.dates.forEach(function(d,di){{
+      let sU=0,qU=0;
+      weights.forEach(function(w){{
+        const v=filled[w.label][di];
+        if(v==null) return;
+        sU+=v*w.q;qU+=w.q;
+      }});
+      out.push(qU>=totalQty*0.5?sU/qU:null);
+    }});
+    return out;
+  }}
+  const wUsd=buildWeightedSeries(H);
+  const wUsdI=buildWeightedSeries(HI);
   if(chW) chW.destroy();
   const datasets=[{{
     label:'보유 가중평균 G-spread (USD)',
     data:wUsd, borderColor:'#e94f4f', backgroundColor:'rgba(233,79,79,.08)',
     borderWidth:2, pointRadius:0, pointHitRadius:8, tension:.3, spanGaps:true
   }}];
+  if(wUsdI){{
+    datasets.push({{
+      label:'보유 가중평균 I-spread (USD)',
+      data:wUsdI, borderColor:'#3b82f6', backgroundColor:'rgba(59,130,246,.08)',
+      borderWidth:2, pointRadius:0, pointHitRadius:8, tension:.3, spanGaps:true, borderDash:[5,3]
+    }});
+  }}
   chW=new Chart(cvs.getContext('2d'),{{type:'line',data:{{labels:H.dates,datasets:datasets}},
     options:{{responsive:true,maintainAspectRatio:false,interaction:{{mode:'index',intersect:false}},
       plugins:{{legend:{{display:true,position:'top'}},
