@@ -1,59 +1,59 @@
 {
-  "date": "2026-08-18",
+  "date": "2026-08-19",
   "items": [
     {
-      "t": "NVDA",
-      "h": "엔비디아, 30년물 국채금리 급등과 AMD 경쟁 우려로 2%대 하락",
-      "m": "30년물 국채금리가 2007년 이후 최고치를 기록하며 미래 이익 할인폭이 커진 가운데, 제프리스는 AMD의 'Advancing AI 2026' 행사에서 AMD가 일부 AI 가속기·서버 영역에서 엔비디아를 앞설 수 있다고 평가. 앤스로픽·오픈AI가 AMD의 Helios·ROCm.AI를 신속 도입할 것이라는 관측도 부담 요인. 서드포인트는 2분기 중 엔비디아·메타·KLA·램리서치 지분을 전량 청산한 것으로 확인됨.",
-      "url": "https://www.timothysykes.com/news/nvidia-corporation-nvda-news-2026_08_18/"
-    },
-    {
       "t": "ORCL",
-      "h": "오라클, 틱톡 미국 사업 컨소시엄 참여 보도에 5.3% 급등",
-      "m": "CBS뉴스가 미중 프레임워크 합의가 성사될 경우 오라클이 틱톡의 미국 내 사업 지속을 지원하는 컨소시엄에 참여한다고 보도하며 주가 급등. 다만 업종 전반에는 국채금리 급등에 따른 매도 압력이 이어지고 있으며, 향후 데이터센터 임대 약정액 약 2,600억달러와 FY2027 설비투자 최대 950억달러 규모가 재무 부담 요인으로 지속 거론.",
-      "url": "https://www.investing.com/news/stock-market-news/oracle-alphabet-and-novo-nordisk-rise-premarket-dave--busters-falls-4240320"
+      "h": "오라클, 기술주 약세 속 '나 홀로 반등' 1%대 상승",
+      "m": "나스닥이 0.10% 하락하고 기술섹터 전체가 0.8% 밀린 가운데서도 오라클은 저가 매수세 유입으로 1%대 상승하며 상대적 강세를 보임. 오라클 헬스의 임상 AI 에이전트에 진료기록·코딩·차트 리뷰 신기능을 추가한다고 발표. 9월 8일로 예정된 실적 발표에서는 EPS 1.67달러(전년 1.47달러), 매출 191.3억달러(전년 149.3억달러)가 컨센서스이며, 평균 목표주가는 258.50달러(Buy 컨센서스).",
+      "url": "https://www.benzinga.com/trading-ideas/movers/26/08/61309872/whats-going-on-with-oracle-stock-wednesday-3"
     },
     {
       "t": "META",
-      "h": "메타, 국채금리發 기술주 조정 속 3%대 하락",
-      "m": "30년물 국채금리 급등 여파로 메타·브로드컴이 나란히 3%대, AMD는 5%, 엔비디아는 2%대 하락. 필라델피아반도체지수(SMH)는 4.3% 급락. 아마존·알파벳·메타·오라클의 올해 7월 초까지 누적 채권 발행액이 약 1,940억달러로 전년 대비 79% 증가했다는 로이터·LSEG 집계도 재조명되며 AI 부채 부담 논쟁이 지속.",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-amd-broadcom-meta-slide-154244427.html"
+      "h": "메타 청소년 유해성 재판 이틀째, 전직 엔지니어 증언으로 파장",
+      "m": "오클랜드 연방법원에서 진행 중인 29개 주(州) 대표 소송에서 전직 메타 엔지니어 아르투로 베하르가 증인으로 출석, 자신의 딸이 인스타그램 계정 개설 직후 낯선 이용자들로부터 노골적인 메시지와 이미지를 받았던 사례를 포함해 플랫폼 내 유해 콘텐츠에 대한 우려를 회사 내부에서 제기했었다고 증언. 이날 메타 주가는 반도체주 약세 속에서도 0.43% 소폭 상승.",
+      "url": "https://finance.yahoo.com/technology/live/tech-stocks-today-openais-growth-disappoints-meta-trial-continues-132945569.html"
     },
     {
       "t": "GOOGL",
-      "h": "알파벳, 반도체·성장주 약세 속 동반 하락",
-      "m": "TheStreet에 따르면 이날 나스닥은 국채금리 급등과 이란 관련 지정학적 긴장 재부각으로 1.02% 하락, S&P500도 0.44% 밀림. 알파벳은 스페이스X·델 테크놀로지스 등과 함께 성장주 매도 압력이 집중된 종목으로 거론됨. 다만 최근 알파벳이 보유한 스페이스X 지분 가치가 약 780억달러로 평가받으며 숨은 자산으로 재조명되고 있는 점은 긍정적 요인.",
-      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-aug-18-2026"
+      "h": "알파벳, 마벨과 커스텀칩 협력 강화 및 워런트 발행 속 프리마켓 약세",
+      "m": "마벨테크놀로지와 알파벳이 커스텀칩 협력을 확대한다고 발표하며, 알파벳에 주당 206.58달러 행사가로 최대 5,897만주(약 121.8억달러 규모)를 매입할 수 있는 워런트를 부여. 7월 29일 체결한 상업계약에 따라 마벨이 알파벳에 커스텀칩을 공급하며, 관련 매출 발생에 연동해 워런트가 순차적으로 베스팅될 예정. 다만 이날 알파벳 주가는 반도체·기술주 전반의 약세 속 프리마켓에서 하락.",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262091571-us-stock-spacex-spcx-price-prediction-tradingkey"
     },
     {
       "t": "MU",
-      "h": "마이크론, 메모리株 전반 약세 속 4% 하락",
-      "m": "국채금리 급등에 따른 기술주 전반 조정 속에 마이크론이 4% 하락, 샌디스크(-4.4%), 웨스턴디지털(-5.4%), AMD(-3.3%)도 동반 약세. TheStreet는 \"아시아·유럽 장에서 반도체 강세가 멈췄고 채권시장의 움직임은 부담이 커지고 있음을 시사한다\"는 시장 참여자 코멘트를 전함.",
-      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-aug-18-2026"
+      "h": "마이크론, 반도체 업종 전반 매도세 속 7% 급락",
+      "m": "기록적 실적과 HBM4 출하, 다수의 다년 고객계약(2026~2030년 커버) 등 우호적 펀더멘털에도 불구하고, 이날 반도체 섹터 전반의 매도 압력 속 마이크론 주가는 7% 하락. SK하이닉스와 샌디스크도 4%대 동반 약세를 보임.",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262091571-us-stock-spacex-spcx-price-prediction-tradingkey"
     },
     {
       "t": "AVGO",
-      "h": "브로드컴, 채권금리 급등 여파로 3%대 하락",
-      "m": "30년물 국채수익률이 2007년 이후 최고 수준까지 오르며 브로드컴 주가도 3%대 하락. 다만 이는 업종 전반의 조정으로, 9월 2일 예정된 실적 발표에서의 AI 반도체 매출 성장(전년비 200%대 예상)이 여전히 핵심 관전 포인트로 지목됨.",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-amd-broadcom-meta-slide-154244427.html"
+      "h": "브로드컴, 4거래일 연속 하락하며 360달러 지지선 근접",
+      "m": "브로드컴 주가가 이날까지 4거래일 연속 하락하며 주요 지지선인 360달러 부근까지 밀림. 최근 5거래일 낙폭은 7% 이상으로, 국채금리 상승과 밸류에이션 부담, 앤스로픽 재무 성과에 대한 실망 우려 등이 복합적으로 작용. 9월 초로 예정된 회계연도 3분기 실적 발표가 다음 핵심 이벤트로 지목됨.",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262091571-us-stock-spacex-spcx-price-prediction-tradingkey"
     },
     {
       "t": "AMZN",
-      "h": "아마존, 오라클·알파벳과 함께 AI 부채 논쟁의 중심에",
-      "m": "로이터·LSEG 집계에 따르면 아마존·알파벳·메타·오라클의 올해 7월 초까지 채권 발행액이 총 1,940억달러로 전년 동기 대비 79% 급증. 다만 전 뉴욕연은 트레이더 조셉 왕은 AI 부채가 국채를 실질적으로 구축(crowding out)하고 있다는 근거는 아직 뚜렷하지 않다고 평가. 10년물 국채금리는 이날 4.73%까지 상승, 폴리마켓에서는 연내 4.8% 도달 가능성을 77%로 반영.",
-      "url": "https://www.benzinga.com/markets/prediction-markets/26/08/61279181/nvidia-amd-tech-stocks-bond-yields"
+      "h": "아마존, 오픈AI·앤스로픽 매출 격차 부각 속 클라우드 경쟁구도 재조명",
+      "m": "오픈AI가 2분기 매출 67억달러(전분기比 18% 증가)를 발표했으나 투자자 반응은 미온적이었던 반면, 블룸버그는 앤스로픽의 분기 예비매출이 전년 7.87억달러에서 115억달러로 14배 폭증했다고 보도. 앤스로픽은 9~10월경 기업공개를 준비 중이며 목표 밸류에이션은 2조달러 수준으로 파이낸셜타임스가 전함. AWS 프로젝트 레이니어(앤스로픽 전용 인프라) 성장성이 재부각되는 계기가 됨.",
+      "url": "https://finance.yahoo.com/technology/live/tech-stocks-today-openais-growth-disappoints-meta-trial-continues-132945569.html"
     },
     {
       "t": "SPCX",
-      "h": "스페이스X, 커서(Cursor) 60억달러 인수 완료 속 2%대 하락",
-      "m": "스페이스X가 AI 코드 편집기 스타트업 커서(Cursor) 인수를 60억달러에 완료했다고 확인했으나, 국채금리 급등에 따른 성장주 매도 압력 속 주가는 프리마켓에서 2.2% 하락한 143.04달러를 기록. 8월 20일로 예정된 추가 락업 해제도 주가 변동성 요인으로 지목됨.",
-      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-aug-18-2026"
+      "h": "스페이스X, 2차 락업 해제 물결 앞두고 100달러 재시험 우려",
+      "m": "TradingKey는 스페이스X가 1차 락업 해제 이후 150달러 돌파에 실패한 데 이어, 향후 예정된 2차 락업 해제 물량 부담으로 100달러 부근까지 재차 하락할 리스크가 있다고 진단. 최근 분기 매출은 전년비 92% 증가한 78억달러를 기록했으나, AI 사업 관련 158억달러를 포함해 총 184억달러의 설비투자가 집행되며 실행 리스크가 부각되고 있음.",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262091571-us-stock-spacex-spcx-price-prediction-tradingkey"
     },
     {
       "t": "AAPL",
-      "h": "애플, '탈(脫)AI 프리미엄'이 오히려 발목 잡는 국면 진입",
-      "m": "블룸버그는 상반기 동안 'AI 과잉투자 회피주'로 각광받던 애플이 이제는 오히려 부담으로 작용하고 있다고 진단. 7월 28일 사상 최고가 이후 약 10% 하락했으며, 마이크로소프트·아마존·알파벳 실적이 AI 과잉투자 우려를 완화시키면서 자금이 다시 AI 수혜주·반도체주로 회귀하는 로테이션이 발생하고 있다고 분석.",
-      "url": "https://www.bloomberg.com/news/articles/2026-08-18/apple-s-anti-ai-position-suddenly-becomes-stock-market-baggage"
+      "h": "애플, 이틀 연속 상승하며 315달러 부근 회복",
+      "m": "반도체·AI 대형주 전반이 조정을 겪는 가운데 애플은 이틀 연속 상승하며 주가가 315달러 부근까지 올라섬. 앞서 블룸버그가 애플의 '탈AI 프리미엄'이 오히려 부담으로 작용하고 있다고 진단했던 것과는 결이 다른 반등으로, 상대적 안전자산 성격의 매수세가 재유입된 것으로 해석됨.",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262091571-us-stock-spacex-spcx-price-prediction-tradingkey"
+    },
+    {
+      "t": "NVDA",
+      "h": "엔비디아, SB에너지 30억달러 투자 논의·반도체 조정 국면 지속",
+      "m": "엔비디아는 소프트뱅크 자회사 SB에너지(오하이오 오픈AI向 대형 데이터센터 프로젝트 개발사)에 최대 30억달러를 투자하는 방안을 논의 중인 것으로 The Information이 보도. 다만 이날도 반도체 섹터 전반의 조정 국면이 이어지며 기술주 약세 흐름에 연동된 움직임을 보임.",
+      "url": "https://www.cnbc.com/2026/08/16/stock-market-today-live-updates-.html"
     }
   ]
 }
