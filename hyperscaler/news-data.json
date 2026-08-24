@@ -1,53 +1,59 @@
 {
-  "date": "2026-08-21",
+  "date": "2026-08-24",
   "items": [
     {
       "t": "NVDA",
-      "h": "엔비디아, AI 코딩 스타트업 풀사이드에 70억달러 규모 라이선스·투자·인재 영입",
-      "m": "엔비디아가 AI 코딩 스타트업 풀사이드(Poolside)를 정식 인수하는 대신, 60억달러 규모의 비독점 기술 라이선스 계약과 별도의 10억달러 지분 투자(기업가치 120억달러 산정)를 결합한 구조의 딜을 체결했다고 Newcomer가 보도. 풀사이드 직원 약 109명에게도 엔비디아 입사 제안이 전달됨. 8월 26일 실적 발표를 앞두고 메모리 가격 급등에 따른 AI 서버 가격 15%대 상승 이슈도 부각.",
-      "url": "https://techstartups.com/2026/08/21/top-tech-news-today-august-21-2026-anthropic-apple-broadcom-google-nvidia-openai-tesla-more/"
+      "h": "엔비디아, 이란 제재·서버 가격 인상 우려 속 2.9~3% 하락",
+      "m": "트럼프 행정부가 이란 관련 세컨더리 제재 확대를 예고한 '경제적 D데이' 캠페인과 8월 26일 실적 발표를 앞둔 경계감이 겹치며 반도체株 전반이 매도세를 보임. 필라델피아반도체지수는 2.6% 하락. 서버 제조업체들이 마이크로소프트·알파벳·오라클 등 고객사에 서버 가격 인상을 통보했다는 보도도 AI 인프라 원가 부담 우려로 재부각됨. 시장 컨센서스는 EPS 2.09달러, 매출 920억달러(전년비 96% 증가).",
+      "url": "https://finance.yahoo.com/technology/live/tech-stocks-today-all-eyes-on-nvidia-as-meta-trial-resumes-125406169.html"
+    },
+    {
+      "t": "META",
+      "h": "메타, 오클랜드 SNS 중독 재판 재개 속 1.66% 상승",
+      "m": "지난주 배심원 병가로 연기됐던 29개 주(州) 대표 SNS 중독 재판이 오클랜드 법원에서 재개됨. 반도체株 전반의 조정 국면에서도 메타는 통신서비스 섹터 강세에 힘입어 1.66% 상승하며 상대적으로 견조한 흐름을 보임.",
+      "url": "https://finance.yahoo.com/technology/live/tech-stocks-today-all-eyes-on-nvidia-as-meta-trial-resumes-125406169.html"
     },
     {
       "t": "ORCL",
-      "h": "오라클, 일본 소버린 클라우드 훈풍에 3%대 반등",
-      "m": "오라클 주가가 최근의 약세를 딛고 일본 소버린 클라우드 사업 관련 긍정적 소식에 힘입어 3.1~3.6% 상승, $146대까지 회복. 30일 옵션 내재변동성은 71(52주 범위 41~85)로 여전히 높은 수준이며, 콜/풋 비율은 1.8배로 10월 175달러 콜옵션에 매수세가 집중됨.",
-      "url": "https://www.startuphub.ai/ai-news/ai-stocks-daily/2026/ai-stocks-2026-08-21"
-    },
-    {
-      "t": "AVGO",
-      "h": "브로드컴, 앤스로픽 연계 AI칩 파이낸싱용 600억달러 이상 부채 조달 추진",
-      "m": "블룸버그에 따르면 브로드컴이 앤스로픽 등을 포함한 AI 칩 파이낸싱 딜을 위해 600억달러 이상의 부채를 조달할 계획인 것으로 전해지며, 이 소식에 주가가 프리마켓에서 1% 이상 상승. 전일 반도체株 전반의 강세(마벨 +6%, 마이크론 급등) 흐름과도 맞물림.",
-      "url": "https://www.schwab.com/learn/story/stock-market-update-open"
-    },
-    {
-      "t": "MU",
-      "h": "마이크론, 반도체 강세 흐름 속 급등 마감",
-      "m": "전일 반도체株 전반이 채권시장 안정과 함께 강세를 보인 가운데 마이크론이 큰 폭 상승. 8월 26일 예정된 엔비디아 실적 발표를 앞두고 30일 옵션 내재변동성은 65(52주 범위 45~108) 수준이며, 메모리 가격 상승이 AI 서버 원가에 미치는 영향이 지속 관전 포인트로 지목됨.",
-      "url": "https://www.schwab.com/learn/story/stock-market-update-open"
+      "h": "오라클, AI 성장株 매도세 속 스페이스X·알파벳과 동반 4%대 하락",
+      "m": "이날 8월 성장주 매도세 속에서 오라클이 스페이스X·델테크놀로지스와 함께 낙폭이 컸던 종목으로 거론됨. 고유가·지정학적 긴장·인플레이션 우려가 성장주 전반에 부담으로 작용. 서버 제조업체들이 오라클을 포함한 하이퍼스케일러 고객사에 서버 가격 인상을 통보했다는 보도도 재무 부담 요인으로 지목.",
+      "url": "https://www.timothysykes.com/news/space-exploration-technologies-corp-spcx-news-2026_08_24/"
     },
     {
       "t": "GOOGL",
-      "h": "알파벳, 옵션시장서 매수 우위 지속되며 1.4% 상승",
-      "m": "Cboe 옵션 데이터에 따르면 알파벳 클래스A 주가가 1.38% 상승한 가운데 콜옵션 매수세가 두드러진 것으로 나타남. 구글은 이날 월마트와의 탭투페이(Tap to Pay) 연동을 다음 주부터 시작한다고 발표하는 등 결제 생태계 확장도 지속.",
-      "url": "https://www.cnn.com/markets/stocks/GOOGL"
+      "h": "알파벳, 반도체株 조정 속에서도 0.76% 상승하며 선방",
+      "m": "나스닥이 미·캐나다 무역협상 결렬 및 이란 제재 우려로 0.69% 하락한 가운데, 알파벳은 아마존·애플과 함께 매그니피센트 세븐 내 상대적 강세 종목으로 거론되며 0.76% 상승. 다만 서버 가격 인상 통보 대상 고객사로 오라클·마이크로소프트와 함께 지목되며 AI 인프라 원가 부담 우려에서 자유롭지 않은 것으로 평가.",
+      "url": "https://hdfcsky.com/news/nasdaq-100-falls-0-69percent-in-early-trade-as-tech-selloff-deepens-dow-jones-gains-0-15percent-amid-iran-sanctions-nvidia-earnings-jitters-august-24-2026"
+    },
+    {
+      "t": "MU",
+      "h": "마이크론, 중국 메모리업체 상하이 IPO 소식에 5.6~5.8% 급락",
+      "m": "또 다른 중국 메모리반도체 업체가 상하이 증시 IPO를 신청했다는 소식이 전해지며 마이크론·샌디스크 등 메모리株가 동반 급락. 필라델피아반도체지수 하락을 주도한 종목 중 하나로 지목되며, 중국발 메모리 공급 증가 우려가 투자심리를 냉각시킴.",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-aug-24-213541834.html"
+    },
+    {
+      "t": "AVGO",
+      "h": "브로드컴, 반도체 섹터 매도세 속 2.1~2.6% 하락",
+      "m": "이란 제재 확대 예고와 나스닥 조정 국면 속 브로드컴 주가가 2%대 하락하며 필라델피아반도체지수 낙폭에 일조. 서버 가격 인상 관련 보도로 AI 인프라 고객사들의 원가 부담이 부각되는 가운데, 8월 26일 엔비디아·8월 27일 마벨 실적을 앞두고 업종 전반의 관망세도 짙어짐.",
+      "url": "https://www.marketscreener.com/news/tech-drags-s-p-500-nasdaq-lower-as-more-iran-sanctions-nvidia-earnings-loom-ce7858dbdf8cf525"
     },
     {
       "t": "AMZN",
-      "h": "아마존, 매그니피센트 세븐 중 올해 615억달러 AI 투자 3대 '스트롱바이' 종목에 포함",
-      "m": "TipRanks가 매그니피센트 세븐 중 올해 총 6,150억달러 규모의 AI 투자를 집행 중인 3대 '스트롱바이' 등급 종목을 선정하며 아마존을 포함시킴. 전일 반도체株 강세와 국채금리 안정 속 이날 S&P500이 0.42% 상승하는 등 대형 기술주 전반에 저가 매수세가 유입됨.",
-      "url": "https://www.cnn.com/markets/stocks/GOOGL"
+      "h": "아마존, 매그니피센트 세븐 중 최대 상승폭인 1.31% 기록",
+      "m": "이날 기술주 전반이 조정을 받는 가운데서도 아마존은 매그니피센트 세븐 종목 중 가장 큰 상승폭(1.31%)을 기록하며 두드러진 강세를 보임. 미·캐나다 무역협상 결렬, 이란 제재 확대 예고 등 매크로 불확실성 속에서도 상대적 방어력을 보여줌.",
+      "url": "https://hdfcsky.com/news/nasdaq-100-falls-0-69percent-in-early-trade-as-tech-selloff-deepens-dow-jones-gains-0-15percent-amid-iran-sanctions-nvidia-earnings-jitters-august-24-2026"
     },
     {
       "t": "SPCX",
-      "h": "스페이스X, 3.19억주 락업 해제 소화 속 DZ방크 매도의견 첫 제시",
-      "m": "이번 주 3억 1,900만주 규모의 2차 락업 해제 물량을 소화한 가운데, 스페이스X는 프리마켓에서 1.1% 상승한 135.42달러를 기록. 다만 독일 DZ뱅크의 애널리스트 마르쿠스 라이스트너가 목표주가 100달러의 매도(Sell) 의견을 처음으로 제시하며 밸류에이션 부담을 경고.",
-      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-aug-21-2026"
+      "h": "스페이스X, 8월 성장주 매도세 속 3~4%대 하락",
+      "m": "2분기 매출이 92% 증가한 78.1억달러를 기록하며 예상치를 상회했음에도, 158억달러에 달하는 AI 관련 설비투자 부담과 최근 락업 해제 물량 출회 우려가 겹치며 SPCX 주가가 이날 3~4%대 하락. 골드만삭스는 헤지펀드와 뮤추얼펀드 모두 스페이스X에 대해 비중 확대 포지션을 취하고 있다고 분석, 이는 주가 지지 요인이자 동시에 대규모 매물 출회 리스크 요인으로 지목됨. 신규 밴스페이스 라이드셰어 계약 발표에도 주가 반등에는 실패.",
+      "url": "https://ts2.tech/en/spacex-stock-slips-as-institutional-crowding-meets-a-93-times-valuation/"
     },
     {
       "t": "AAPL",
-      "h": "애플, 월마트 애플페이·구글페이 전격 허용에 결제 생태계 확대 기대감",
-      "m": "월마트가 그동안 거부해온 애플페이·구글페이 사용을 마침내 허용한다고 발표하면서, 애플의 결제 생태계 확장 기대감이 부각됨. 다만 이날 월마트 주가는 실적 우려로 하락. 애플은 최근 존 터너스로의 COO/CEO 승계 구도 변화, 브로드컴과의 300억달러대 미국 내 커스텀칩 협력 등이 계속 거론되는 가운데 상대적으로 견조한 흐름을 이어감.",
-      "url": "https://www.cnn.com/markets/stocks/GOOGL"
+      "h": "애플, 매그니피센트 세븐 중 강세 지속하며 0.71% 상승",
+      "m": "기술주 전반의 조정 국면에서도 애플은 아마존·알파벳과 함께 이날 상승 마감한 종목으로 거론되며 0.71% 오름세를 기록. 미·캐나다 무역갈등과 이란 제재 확대 예고 등 매크로 리스크가 부각되는 가운데서도 상대적으로 견조한 흐름을 이어감.",
+      "url": "https://hdfcsky.com/news/nasdaq-100-falls-0-69percent-in-early-trade-as-tech-selloff-deepens-dow-jones-gains-0-15percent-amid-iran-sanctions-nvidia-earnings-jitters-august-24-2026"
     }
   ]
 }
