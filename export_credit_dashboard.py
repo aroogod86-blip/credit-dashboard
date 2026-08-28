@@ -14,6 +14,7 @@ Dash 서버 대신 standalone HTML 파일을 생성합니다.
 
 import sys
 import io
+import calendar
 # Windows CP949 환경에서 이모지/한글 출력 깨짐 방지
 if sys.stdout.encoding and sys.stdout.encoding.lower() not in ("utf-8", "utf8"):
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
@@ -266,6 +267,22 @@ MACRO_TICKERS = {
 
 # 계절성 분석용 장기 히스토리 lookback (US IG OAS 레벨, 캘린더 월별 패턴 계산용)
 SEASONALITY_LOOKBACK_YEARS = 10
+
+
+def month_progress_fields(as_of=None):
+    """
+    계절성 오버레이용 '이번 달 → 다음 달' 진행도 필드.
+    월말에 가까울수록 다음 달 계절성 비중을 자연스럽게 높이기 위해 사용
+    (JS 쪽에서 dayOfMonth/daysInMonth로 currentMonth↔nextMonth 블렌딩 가중치 계산).
+    """
+    d = as_of or datetime.today()
+    days_in_month = calendar.monthrange(d.year, d.month)[1]
+    return {
+        "currentMonth": d.month,
+        "nextMonth": (d.month % 12) + 1,
+        "dayOfMonth": d.day,
+        "daysInMonth": days_in_month,
+    }
 
 ETF_TICKERS = {
     "VCSH US Equity":  "VCSH",
@@ -1082,7 +1099,7 @@ def load_bloomberg_data():
 
     # ─── 계절성 (US IG OAS 장기 히스토리 → 캘린더 월별 패턴) ───
     print("\n[5c/9] 계절성 히스토리 로드 중...")
-    seasonality = {"currentMonth": END_DATE.month, "sampleYears": 0, "byMonth": {}}
+    seasonality = {**month_progress_fields(END_DATE), "sampleYears": 0, "byMonth": {}}
     try:
         season_start = END_DATE - timedelta(days=int(365.25 * SEASONALITY_LOOKBACK_YEARS))
         r = blp.bdh(["LUACTRUU Index"], "INDEX_OAS_TSY_BP",
@@ -1103,7 +1120,7 @@ def load_bloomberg_data():
                         "widenPct": round(float((vals > 0).mean() * 100), 0),
                     }
             n_years_total = int(monthly_chg.index.year.nunique())
-            seasonality = {"currentMonth": END_DATE.month, "sampleYears": n_years_total, "byMonth": by_month}
+            seasonality = {**month_progress_fields(END_DATE), "sampleYears": n_years_total, "byMonth": by_month}
     except Exception as e:
         print(f"  계절성 히스토리 오류: {e}")
     print(f"  → 계절성 샘플 {seasonality.get('sampleYears', 0)}년치 로드")
@@ -1623,7 +1640,7 @@ def load_sample_data():
 
     # 계절성 샘플 (실제로는 10년 히스토리에서 계산되지만, 샘플 모드는 대표적인 계절 패턴을 하드코딩)
     seasonality = {
-        "currentMonth": END_DATE.month,
+        **month_progress_fields(END_DATE),
         "sampleYears": 10,
         "byMonth": {
             1: {"medianChangeBp": -2.1, "nYears": 10, "widenPct": 30},
@@ -2853,15 +2870,25 @@ function buildSentimentWidget(){{
 
   // ══════════════════════════════════════════════════════════════════════
   // ⑤ 계절성 오버레이 — 과거 N년 캘린더 월별 US IG OAS 변화 패턴
+  //    월말에 가까울수록 "이번 달"보다 "다음 달" 계절성이 실제 포지셔닝에 더
+  //    중요해지므로, 월 진행률(dayOfMonth/daysInMonth)로 currentMonth→nextMonth를
+  //    부드럽게 블렌딩 (예: 8/31일 지난 시점이면 9월 계절성 비중이 훨씬 커짐)
   // ══════════════════════════════════════════════════════════════════════
   const seas = D.seasonality||{{}};
-  const seasMonth = seas.byMonth && seas.byMonth[seas.currentMonth];
+  const seasCurM  = seas.currentMonth;
+  const seasNextM = seas.nextMonth || (seasCurM%12)+1;
+  const monthProgress = (seas.daysInMonth>0) ? Math.min(1, Math.max(0, (seas.dayOfMonth||1)/seas.daysInMonth)) : 0;
+  const seasCur  = seas.byMonth && seas.byMonth[seasCurM];
+  const seasNext = seas.byMonth && seas.byMonth[seasNextM];
+  function seasScoreOf(m){{ return m ? Math.max(-1, Math.min(1, -m.medianChangeBp/5)) : 0; }}
   let seasonalScore=0, seasonalDesc='계절성 데이터 없음';
-  if(seasMonth){{
+  if(seasCur || seasNext){{
     // 해당 월 평균 변화가 +면(과거 와이드닝 경향) → 아직 안 넓어졌으니 매수 대기 = 숏 신호 강화
     // 해당 월 평균 변화가 -면(과거 타이트닝 경향) → 계절적으로도 지지받는 타이트 = 숏 신호 완화
-    seasonalScore = Math.max(-1, Math.min(1, -seasMonth.medianChangeBp/5));
-    seasonalDesc = `과거 ${{seas.sampleYears}}년 ${{seas.currentMonth}}월 평균 ${{seasMonth.medianChangeBp>=0?'+':''}}${{seasMonth.medianChangeBp}}bp (${{seasMonth.widenPct}}%가 와이드닝)`;
+    seasonalScore = seasScoreOf(seasCur)*(1-monthProgress) + seasScoreOf(seasNext)*monthProgress;
+    const curTxt  = seasCur  ? `${{seasCurM}}월 ${{seasCur.medianChangeBp>=0?'+':''}}${{seasCur.medianChangeBp}}bp(${{seasCur.widenPct}}%와이드닝)`  : `${{seasCurM}}월 데이터없음`;
+    const nextTxt = seasNext ? `${{seasNextM}}월 ${{seasNext.medianChangeBp>=0?'+':''}}${{seasNext.medianChangeBp}}bp(${{seasNext.widenPct}}%와이드닝)` : `${{seasNextM}}월 데이터없음`;
+    seasonalDesc = `과거 ${{seas.sampleYears}}년 — ${{curTxt}} → ${{nextTxt}} (다음달 비중 ${{Math.round(monthProgress*100)}}%, ${{seas.dayOfMonth}}/${{seas.daysInMonth}}일 경과)`;
   }}
 
   // ══════════════════════════════════════════════════════════════════════
@@ -3108,7 +3135,7 @@ function buildSentimentWidget(){{
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
         <div style="background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:10px 12px;">
-          <div style="font-size:11px;font-weight:600;color:var(--tx2);margin-bottom:4px;">📅 계절성 (${{seas.currentMonth||'-'}}월)</div>
+          <div style="font-size:11px;font-weight:600;color:var(--tx2);margin-bottom:4px;">📅 계절성 (${{seasCurM||'-'}}월→${{seasNextM||'-'}}월)</div>
           <div style="font-size:11px;color:var(--tx3);">${{seasonalDesc}}</div>
           <div style="font-size:10px;color:var(--tx3);margin-top:3px;">오버레이 기여도: ${{seasonalScore>=0?'+':''}}${{(seasonalScore*10).toFixed(1)}}점</div>
         </div>
