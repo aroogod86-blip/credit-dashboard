@@ -254,6 +254,19 @@ MARKET_TICKERS = {
     "MOVE Index":         ("MOVE",       "PX_LAST"),
 }
 
+# ── 매크로 레짐 지표 ──
+# 크레딧 센티먼트 스코어보드의 "매크로 오버레이"에 쓰이는 지표.
+# PX_LAST 하나의 필드만 쓰는 단순 레벨 지표들로, MARKET_TICKERS와 동일한 BDH 루틴으로 로드.
+MACRO_TICKERS = {
+    "BFCIUS Index":  ("US FCI",        "PX_LAST"),  # Bloomberg US 금융여건지수 (낮을수록/마이너스일수록 완화적)
+    "NAPMPMI Index": ("ISM Mfg PMI",   "PX_LAST"),  # ISM 제조업 PMI (50 기준 확장/위축)
+    "INJCJC Index":  ("Jobless Claims","PX_LAST"),  # 신규실업수당청구 (4주 평균 추세로 해석)
+    "USYC2Y10 Index":("2s10s Curve",   "PX_LAST"),  # 2Y-10Y 국채 스프레드 (bp, 음수=역전)
+}
+
+# 계절성 분석용 장기 히스토리 lookback (US IG OAS 레벨, 캘린더 월별 패턴 계산용)
+SEASONALITY_LOOKBACK_YEARS = 10
+
 ETF_TICKERS = {
     "VCSH US Equity":  "VCSH",
     "VCIT US Equity":  "VCIT",
@@ -909,6 +922,61 @@ def load_bloomberg_data():
         mkt_changes[name] = {"1d": None, "1w": None, "1m": None}
     print(f"  → {len(mkt_current)}개 지표 로드")
 
+    # ─── 매크로 레짐 지표 (FCI / ISM / 실업수당청구 / 2s10s) ───
+    print("\n[5b/9] 매크로 레짐 지표 로드 중...")
+    macro_ts = {}
+    macro_current = {}
+    macro_changes = {}
+    for tk, (name, field) in MACRO_TICKERS.items():
+        try:
+            r = blp.bdh([tk], field, MKT_START.strftime("%Y%m%d"), END_DATE.strftime("%Y%m%d"))
+            mpdf = _nw(r)
+            if len(mpdf) > 0:
+                s = mpdf.set_index("date")["value"]
+                s = pd.to_numeric(s, errors="coerce").dropna().sort_index()
+                s.index = pd.to_datetime(s.index)
+                if len(s) > 0:
+                    macro_ts[name] = {d.strftime("%Y-%m-%d"): float(v) for d, v in s.items()}
+                    macro_current[name] = float(s.iloc[-1])
+                    chg = {}
+                    for lbl, n in [("1d",1),("1w",5),("1m",21)]:
+                        chg[lbl] = float(s.iloc[-1] - s.iloc[-(n+1)]) if len(s) > n else None
+                    macro_changes[name] = chg
+                    continue
+        except Exception as e:
+            print(f"  {name} 오류: {e}")
+        macro_current[name] = None
+        macro_changes[name] = {"1d": None, "1w": None, "1m": None}
+    print(f"  → {len(macro_current)}개 매크로 지표 로드")
+
+    # ─── 계절성 (US IG OAS 장기 히스토리 → 캘린더 월별 패턴) ───
+    print("\n[5c/9] 계절성 히스토리 로드 중...")
+    seasonality = {"currentMonth": END_DATE.month, "sampleYears": 0, "byMonth": {}}
+    try:
+        season_start = END_DATE - timedelta(days=int(365.25 * SEASONALITY_LOOKBACK_YEARS))
+        r = blp.bdh(["LUACTRUU Index"], "INDEX_OAS_TSY_BP",
+                    season_start.strftime("%Y%m%d"), END_DATE.strftime("%Y%m%d"))
+        spdf = _nw(r)
+        if len(spdf) > 0:
+            s = pd.to_numeric(spdf.set_index("date")["value"], errors="coerce").dropna().sort_index()
+            s.index = pd.to_datetime(s.index)
+            monthly_last = s.resample("ME").last()
+            monthly_chg = monthly_last.diff().dropna()
+            by_month = {}
+            for m in range(1, 13):
+                vals = monthly_chg[monthly_chg.index.month == m]
+                if len(vals) > 0:
+                    by_month[m] = {
+                        "medianChangeBp": round(float(vals.median()), 1),
+                        "nYears": int(len(vals)),
+                        "widenPct": round(float((vals > 0).mean() * 100), 0),
+                    }
+            n_years_total = int(monthly_chg.index.year.nunique())
+            seasonality = {"currentMonth": END_DATE.month, "sampleYears": n_years_total, "byMonth": by_month}
+    except Exception as e:
+        print(f"  계절성 히스토리 오류: {e}")
+    print(f"  → 계절성 샘플 {seasonality.get('sampleYears', 0)}년치 로드")
+
     # ─── 거래 데이터 - TRACE (최근 7일) ───
     # --trace 플래그 없으면 스킵 (Bloomberg TRACE 라이선스 없을 때 무한 대기 방지)
     LOAD_TRACE = "--trace" in sys.argv
@@ -1122,6 +1190,10 @@ def load_bloomberg_data():
         "marketTimeseries": mkt_ts,
         "marketCurrent": {k: round(v, 2) if v else None for k, v in mkt_current.items()},
         "marketChanges": mkt_changes,
+        "macroTimeseries": macro_ts,
+        "macroCurrent": {k: round(v, 2) if v is not None else None for k, v in macro_current.items()},
+        "macroChanges": macro_changes,
+        "seasonality": seasonality,
         "etfTimeseries": etf_ts,
         "etfCurrent": {k: round(v, 2) if v else None for k, v in etf_current.items()},
         "etfChanges": etf_changes,
@@ -1397,6 +1469,45 @@ def load_sample_data():
             "1m": round(vals[-1] - vals[-22], 1) if len(vals) > 21 else None,
         }
 
+    # 매크로 지표 샘플
+    macro_bases = {"US FCI": -0.4, "ISM Mfg PMI": 48.5, "Jobless Claims": 232, "2s10s Curve": 55}
+    macro_vols  = {"US FCI": 0.05, "ISM Mfg PMI": 0.6,  "Jobless Claims": 4,   "2s10s Curve": 3}
+    macro_ts = {}
+    macro_current = {}
+    macro_changes = {}
+    for name, base in macro_bases.items():
+        vol = macro_vols[name]
+        vals = [base]
+        for i in range(1, len(mkt_dates)):
+            vals.append(vals[-1] + (np.random.random() - 0.5) * vol)
+        macro_ts[name] = {mkt_date_strs[i]: round(float(v), 2) for i, v in enumerate(vals)}
+        macro_current[name] = round(vals[-1], 2)
+        macro_changes[name] = {
+            "1d": round(vals[-1] - vals[-2], 2) if len(vals) > 1 else None,
+            "1w": round(vals[-1] - vals[-6], 2) if len(vals) > 5 else None,
+            "1m": round(vals[-1] - vals[-22], 2) if len(vals) > 21 else None,
+        }
+
+    # 계절성 샘플 (실제로는 10년 히스토리에서 계산되지만, 샘플 모드는 대표적인 계절 패턴을 하드코딩)
+    seasonality = {
+        "currentMonth": END_DATE.month,
+        "sampleYears": 10,
+        "byMonth": {
+            1: {"medianChangeBp": -2.1, "nYears": 10, "widenPct": 30},
+            2: {"medianChangeBp": -0.8, "nYears": 10, "widenPct": 40},
+            3: {"medianChangeBp": 1.2,  "nYears": 10, "widenPct": 50},
+            4: {"medianChangeBp": -1.5, "nYears": 10, "widenPct": 30},
+            5: {"medianChangeBp": 0.5,  "nYears": 10, "widenPct": 50},
+            6: {"medianChangeBp": -0.9, "nYears": 10, "widenPct": 40},
+            7: {"medianChangeBp": -1.8, "nYears": 10, "widenPct": 20},
+            8: {"medianChangeBp": 2.4,  "nYears": 10, "widenPct": 60},
+            9: {"medianChangeBp": 3.1,  "nYears": 10, "widenPct": 70},
+            10:{"medianChangeBp": 1.0,  "nYears": 10, "widenPct": 50},
+            11:{"medianChangeBp": -1.2, "nYears": 10, "widenPct": 30},
+            12:{"medianChangeBp": -2.6, "nYears": 10, "widenPct": 20},
+        },
+    }
+
     # 거래 샘플 (TRACE 형식)
     sources = ["D2D","CT","AT","BN","ML","GS","JP","MS","CS","UB"]
     trades = []
@@ -1460,6 +1571,10 @@ def load_sample_data():
         "marketTimeseries": mkt_ts,
         "marketCurrent": mkt_current,
         "marketChanges": mkt_changes,
+        "macroTimeseries": macro_ts,
+        "macroCurrent": macro_current,
+        "macroChanges": macro_changes,
+        "seasonality": seasonality,
         "etfTimeseries": etf_ts,
         "etfCurrent": etf_current,
         "etfChanges": etf_changes,
@@ -2567,9 +2682,63 @@ function buildSentimentWidget(){{
   const lvlPct    = maxSub>0 ? (lvlTotal + maxSub) / (maxSub * 2) : 0.5;
   const momPct    = maxSub>0 ? (momTotal + maxSub) / (maxSub * 2) : 0.5;
 
-  // ── 종합 판정 ──────────────────────────────────────────────────────
+  // ══════════════════════════════════════════════════════════════════════
+  // ④ 매크로 레짐 오버레이 — FCI / ISM / 실업수당청구 / 2s10s 커브
+  //    레벨·모멘텀 신호가 진짜 리스크 신호인지, 우호적 매크로가 뒷받침하는
+  //    "정당한 타이트"인지 구분하기 위한 컨펌 레이어 (가중치는 작게 유지)
+  // ══════════════════════════════════════════════════════════════════════
+  const macC = D.macroCurrent||{{}};
+  const macG = D.macroChanges||{{}};
+  const macroFactors=[];
+  function addMacroFactor(name, val, chg1m, goodDir, thresh, unit, desc){{
+    // goodDir: 'high' → 값이 높을수록 크레딧 우호적(+1), 'low' → 낮을수록 우호적(+1)
+    if(val==null) return;
+    let score=0;
+    if(goodDir==='high') score = val>=thresh ? 1 : (val<=thresh*0.9 ? -1 : 0);
+    else                 score = val<=thresh ? 1 : (val>=thresh*1.1 ? -1 : 0);
+    macroFactors.push({{name,val,chg1m,score,unit,desc}});
+  }}
+  addMacroFactor('ISM 제조업 PMI',     macC['ISM Mfg PMI'],    macG['ISM Mfg PMI']?.['1m'],     'high', 50,  '',  '50 상회=확장, 하회=위축');
+  addMacroFactor('금융여건지수(FCI)',  macC['US FCI'],         macG['US FCI']?.['1m'],          'low',  0,   '',  '음수=완화적, 양수=긴축적');
+  addMacroFactor('신규실업수당청구',   macC['Jobless Claims'], macG['Jobless Claims']?.['1m'],  'low',  250, 'K', '상승 추세=노동시장 균열 신호');
+  addMacroFactor('2s10s 커브',        macC['2s10s Curve'],    macG['2s10s Curve']?.['1m'],     'high', 0,   'bp', '역전 심화/재역전은 후반 사이클 경계');
+  const macroScore = macroFactors.length ? macroFactors.reduce((a,f)=>a+f.score,0)/macroFactors.length : 0; // -1~+1
+
+  // ══════════════════════════════════════════════════════════════════════
+  // ⑤ 계절성 오버레이 — 과거 N년 캘린더 월별 US IG OAS 변화 패턴
+  // ══════════════════════════════════════════════════════════════════════
+  const seas = D.seasonality||{{}};
+  const seasMonth = seas.byMonth && seas.byMonth[seas.currentMonth];
+  let seasonalScore=0, seasonalDesc='계절성 데이터 없음';
+  if(seasMonth){{
+    // 해당 월 평균 변화가 +면(과거 와이드닝 경향) 숏 신호를 완화, -면 강화
+    seasonalScore = Math.max(-1, Math.min(1, -seasMonth.medianChangeBp/5));
+    seasonalDesc = `과거 ${{seas.sampleYears}}년 ${{seas.currentMonth}}월 평균 ${{seasMonth.medianChangeBp>=0?'+':''}}${{seasMonth.medianChangeBp}}bp (${{seasMonth.widenPct}}%가 와이드닝)`;
+  }}
+
+  // ══════════════════════════════════════════════════════════════════════
+  // ⑥ 신호 지속 페널티 — US IG OAS가 "타이트" 구간에 얼마나 오래 머물렀는지
+  //    오래 머물렀는데 실현 와이드닝이 없으면 숏 신호의 신뢰도를 자동 감쇠
+  //    (몇 달째 숏인데 안 넓어지는 상황에 대한 보정)
+  // ══════════════════════════════════════════════════════════════════════
+  let persistDecay=1.0, persistMonths=0;
+  const igTs = D.marketTimeseries?.['US IG OAS'];
+  if(igTs){{
+    const dates = Object.keys(igTs).sort();
+    const lvlTightThresh = 85; // US IG OAS addIndicator 호출과 동일 기준
+    let days=0;
+    for(let i=dates.length-1;i>=0;i--){{
+      if(igTs[dates[i]]<=lvlTightThresh) days++; else break;
+    }}
+    persistMonths = Math.round(days/21*10)/10;
+    if(persistMonths>3) persistDecay = Math.max(0.5, 1 - 0.08*(persistMonths-3));
+  }}
+
+  // ── 종합 판정 (레벨×모멘텀 원점수에 매크로/계절성/지속페널티 오버레이 반영) ──
   let verdict, verdictColor, verdictEmoji, verdictDesc, verdictSub;
-  const normScore = maxWeighted>0 ? totalWeighted / maxWeighted : 0; // -1 ~ +1
+  const rawNormScore = maxWeighted>0 ? totalWeighted / maxWeighted : 0; // -1~+1, 레벨×모멘텀 순수치
+  let normScore = rawNormScore * persistDecay + 0.15*macroScore + 0.10*seasonalScore;
+  normScore = Math.max(-1, Math.min(1, normScore));
   if(normScore>=0.55){{
     verdict='강한 롱'; verdictColor='#22c55e'; verdictEmoji='🟢';
     verdictDesc='스프레드 와이드 + 확대 추세 — 크레딧 채권 적극 매수 구간';
@@ -2656,6 +2825,7 @@ function buildSentimentWidget(){{
         <div style="font-size:11px;color:var(--tx3);margin-bottom:6px;letter-spacing:.5px;">크레딧 종합 판단</div>
         <div style="font-size:26px;font-weight:900;color:${{verdictColor}};line-height:1.1;">${{verdictEmoji}} ${{verdict}}</div>
         <div style="font-size:11px;color:var(--tx3);margin-top:8px;">가중 스코어 ${{totalWeighted>=0?'+':''}}${{totalWeighted.toFixed(1)}} / ${{maxWeighted.toFixed(1)}}</div>
+        <div style="font-size:10px;color:var(--tx3);margin-top:4px;">레벨×모멘텀 원점수 ${{(rawNormScore*100).toFixed(0)}}점 → 오버레이 반영 ${{(normScore*100).toFixed(0)}}점${{persistDecay<1?` (지속페널티 ×${{persistDecay.toFixed(2)}})`:''}}</div>
       </div>
 
       <!-- 게이지 패널 -->
@@ -2727,6 +2897,41 @@ function buildSentimentWidget(){{
         ⚠️ 레벨 기준 — IG OAS: 와이드≥120 / 타이트≤85 bps &nbsp;|&nbsp; HY OAS: ≥450 / ≤320 &nbsp;|&nbsp; CDX IG: ≥80 / ≤55 &nbsp;|&nbsp; CDX HY: ≥420 / ≤310 &nbsp;|&nbsp; VIX: ≥25 / ≤15 &nbsp;|&nbsp; MOVE: ≥140 / ≤100<br>
         모멘텀 임계 — MTD 변화가 IG OAS ±8bps, HY OAS ±25bps, CDX IG ±6bps, CDX HY ±20bps, VIX ±3, MOVE ±10 초과 시 신호 발생<br>
         본 인디케이터는 보조 참고용이며, 실제 투자 판단은 매크로·개별신용·유동성 분석을 종합해야 합니다.
+      </div>
+    </div>
+
+    <!-- ④ 매크로·계절성 오버레이 -->
+    <div style="background:var(--sf2);border:1px solid var(--bd);border-radius:10px;padding:14px 18px;margin-top:12px;">
+      <div style="font-size:12px;font-weight:600;color:var(--tx2);margin-bottom:10px;">🌐 매크로·계절성 오버레이 — 레벨×모멘텀 신호의 컨펌/디스컨펌 레이어</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px;">
+        ${{macroFactors.map(f=>{{
+          const fc = f.score>0?'#22c55e':f.score<0?'#ef4444':'#94a3b8';
+          const fl = f.score>0?'우호적':f.score<0?'비우호적':'중립';
+          return `<div style="background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:9px 12px;min-width:150px;flex:1;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px;">
+              <span style="font-size:11px;font-weight:600;color:var(--tx3);">${{f.name}}</span>
+              <span style="font-size:10px;font-weight:700;padding:1px 6px;border-radius:4px;background:${{fc}}22;color:${{fc}};">${{fl}}</span>
+            </div>
+            <div style="font-size:16px;font-weight:800;font-family:var(--mn);color:var(--tx);">${{f.val.toFixed(1)}}${{f.unit?' '+f.unit:''}}</div>
+            <div style="font-size:10px;color:var(--tx3);margin-top:2px;">${{f.desc}}</div>
+          </div>`;
+        }}).join('')}}
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div style="background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:10px 12px;">
+          <div style="font-size:11px;font-weight:600;color:var(--tx2);margin-bottom:4px;">📅 계절성 (${{seas.currentMonth||'-'}}월)</div>
+          <div style="font-size:11px;color:var(--tx3);">${{seasonalDesc}}</div>
+          <div style="font-size:10px;color:var(--tx3);margin-top:3px;">오버레이 기여도: ${{seasonalScore>=0?'+':''}}${{(seasonalScore*10).toFixed(1)}}점</div>
+        </div>
+        <div style="background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:10px 12px;">
+          <div style="font-size:11px;font-weight:600;color:var(--tx2);margin-bottom:4px;">⏳ 신호 지속 페널티</div>
+          <div style="font-size:11px;color:var(--tx3);">US IG OAS 타이트(≤85bp) 구간 ${{persistMonths}}개월째 지속${{persistDecay<1?' — 신뢰도 감쇠 적용':' — 아직 페널티 미적용(3개월 이하)'}}</div>
+          <div style="font-size:10px;color:var(--tx3);margin-top:3px;">숏 신호 배율: ×${{persistDecay.toFixed(2)}}</div>
+        </div>
+      </div>
+      <div style="font-size:10px;color:var(--tx3);margin-top:10px;padding-top:8px;border-top:1px solid var(--bd);">
+        가중치 — 레벨×모멘텀 원점수(지속페널티 적용) 100% 기준 + 매크로 레짐 ±15%p + 계절성 ±10%p 오버레이. 계절성은 US IG OAS 과거 ${{seas.sampleYears||0}}년 캘린더 월별 변화 패턴 기반.<br>
+        매크로 기준 — ISM PMI: 50 상회 우호 / 하회 비우호 &nbsp;|&nbsp; FCI: 0 이하 완화적(우호) / 이상 긴축적 &nbsp;|&nbsp; 실업수당청구: 낮고 안정적일수록 우호 &nbsp;|&nbsp; 2s10s: 정상 기울기(+) 우호 / 역전(-) 비우호
       </div>
     </div>
   </div>
