@@ -489,6 +489,137 @@ def merge_new_issues(new_issues):
     return merged
 
 
+def parse_amt_to_mm(amt_str):
+    """PREL의 발행액 문자열('1.00B','750.00M')을 $MM 단위 float로 변환"""
+    if not amt_str:
+        return None
+    s = str(amt_str).strip().upper().replace(",", "")
+    try:
+        if s.endswith("B"):
+            return float(s[:-1]) * 1000
+        elif s.endswith("M"):
+            return float(s[:-1])
+        return float(s)
+    except Exception:
+        return None
+
+
+def get_monthly_issuance_log_path():
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    return os.path.join(script_dir, "monthly_issuance_log.json")
+
+
+def load_monthly_issuance_log():
+    path = get_monthly_issuance_log_path()
+    if os.path.exists(path):
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            pass
+    return {}
+
+
+def save_monthly_issuance_log(log):
+    with open(get_monthly_issuance_log_path(), "w", encoding="utf-8") as f:
+        json.dump(log, f, ensure_ascii=False, indent=2)
+
+
+def compute_issuance_supply(new_issues, write_log=True):
+    """
+    PREL 30일 롤링 누적 데이터에서 IG 신규발행 공급압박 지표 계산.
+    - pipeline: 현재 30일 파이프라인 총액/건수/평균 NIC (즉시 사용 가능)
+    - monthlyLog: 캘린더 월별 IG 발행총액 누적 로그. 매 실행마다 이번 달분을
+      갱신해 monthly_issuance_log.json에 쌓아두면, 몇 달~1년 뒤부터는 진짜
+      "계절적 발행량 평균 대비 이번 달 페이스" 비교가 가능해짐.
+    """
+    ig_issues = [i for i in new_issues if i.get("ighy") == "IG"]
+    amts = [a for a in (parse_amt_to_mm(i.get("amt")) for i in ig_issues) if a is not None]
+    nics = [i.get("nic") for i in ig_issues if i.get("nic") is not None]
+
+    pipeline = {
+        "totalAmtMM": round(sum(amts), 0) if amts else 0,
+        "dealCount": len(ig_issues),
+        "avgNic": round(sum(nics) / len(nics), 1) if nics else None,
+        "windowDays": 30,
+    }
+
+    today = datetime.today()
+    cur_key = today.strftime("%Y-%m")
+
+    log = load_monthly_issuance_log()
+    month_amts = [a for a in (parse_amt_to_mm(i.get("amt"))
+                               for i in ig_issues if str(i.get("full_date", "")).startswith(cur_key)) if a is not None]
+    month_count = sum(1 for i in ig_issues if str(i.get("full_date", "")).startswith(cur_key))
+    log[cur_key] = {"totalAmtMM": round(sum(month_amts), 0), "dealCount": month_count, "asOfDay": today.day}
+
+    if len(log) > 36:  # 최근 36개월만 유지
+        for k in sorted(log.keys())[:-36]:
+            del log[k]
+    if write_log:
+        save_monthly_issuance_log(log)
+
+    completed = {k: v for k, v in log.items() if k != cur_key}
+    recent_completed = sorted(completed.items())[-6:]  # 최근 완료월 최대 6개월
+    avg_prior = round(sum(v["totalAmtMM"] for _, v in recent_completed) / len(recent_completed), 0) if recent_completed else None
+
+    pace_adj = None
+    if log[cur_key]["asOfDay"] > 0:
+        pace_adj = round(log[cur_key]["totalAmtMM"] / log[cur_key]["asOfDay"] * 30, 0)
+
+    return {
+        "pipeline": pipeline,
+        "monthlyLog": log,
+        "avgPriorMonthAmt": avg_prior,
+        "paceAdjustedCurrentMonthAmt": pace_adj,
+        "sampleMonths": len(completed),
+    }
+
+
+def backfill_monthly_issuance(entries, overwrite=False):
+    """
+    monthly_issuance_log.json 웜스타트용 수동 백필.
+    entries: [{"month":"2025-09","totalAmtMM":142000,"dealCount":71}, ...] 형태의 리스트.
+    기본적으로 이미 로그에 있는 달(오늘 실행분으로 이미 채워진 이번 달 등)은 덮어쓰지 않음
+    (overwrite=True로 강제 덮어쓰기 가능).
+    사용법: python export_credit_dashboard.py --backfill-issuance backfill.csv
+            (CSV 헤더: month,totalAmtMM,dealCount)
+    """
+    log = load_monthly_issuance_log()
+    added, skipped = 0, 0
+    for e in entries:
+        month = str(e.get("month", "")).strip()
+        if not month:
+            continue
+        if month in log and not overwrite:
+            skipped += 1
+            continue
+        log[month] = {
+            "totalAmtMM": round(float(e.get("totalAmtMM", 0)), 0),
+            "dealCount": int(e.get("dealCount", 0)) if e.get("dealCount") is not None else None,
+            "asOfDay": 31,  # 백필 데이터는 해당 월이 이미 완료된 것으로 간주
+            "source": "backfill",
+        }
+        added += 1
+    save_monthly_issuance_log(log)
+    print(f"  📦 웜스타트 완료: {added}개월 추가, {skipped}개월 스킵(이미 존재, --overwrite로 덮어쓰기 가능)")
+    return log
+
+
+def load_backfill_csv(path):
+    """CSV(month,totalAmtMM,dealCount 헤더)를 backfill_monthly_issuance() 입력 형태로 로드"""
+    import csv
+    entries = []
+    with open(path, "r", encoding="utf-8-sig") as f:
+        for row in csv.DictReader(f):
+            entries.append({
+                "month": row.get("month", "").strip(),
+                "totalAmtMM": row.get("totalAmtMM") or row.get("total_amt_mm") or 0,
+                "dealCount": row.get("dealCount") or row.get("deal_count") or None,
+            })
+    return entries
+
+
 # ══════════════════════════════════════════════
 # 2. narwhals 헬퍼
 # ══════════════════════════════════════════════
@@ -1140,6 +1271,7 @@ def load_bloomberg_data():
     print("\n  📋 PREL 최근 발행 데이터 로드...")
     today_issues = load_prel_data()
     new_issues = merge_new_issues(today_issues) if today_issues else load_issues_history()
+    issuance_supply = compute_issuance_supply(new_issues, write_log=True)
 
     # 보유 + 추가 합치기
     combined = pd.concat([snap, extra_snap]) if not extra_snap.empty else snap.copy()
@@ -1199,6 +1331,7 @@ def load_bloomberg_data():
         "etfChanges": etf_changes,
         "trades": trades,
         "newIssues": new_issues,
+        "issuanceSupply": issuance_supply,
         "bdcCurrent": bdc_current,
         "bdcChanges": bdc_changes,
         "bdcTimeseries": bdc_ts,
@@ -1589,6 +1722,20 @@ def load_sample_data():
             {"date":"05/19","cor":"US","ighy":"IG","ticker":"MBGL 6.05 06/15/36","issuer":"Mobility Global Inc","sp":None,"ipt":"T + 170 Area","fg":"T + 170 Area","nic":None,"amt":"700.00M","ccy":"USD","coupon":6.05,"tenor":"10.0","status":"Priced","rank":"Sr Unsecured","reg":"SEC"},
             {"date":"05/19","cor":"US","ighy":"HY","ticker":"RRD 0 5.00Y","issuer":"RR Donnelley & Sons Co","sp":None,"ipt":"11%","fg":None,"nic":None,"amt":"750.00M","ccy":"USD","coupon":None,"tenor":"5-NC2","status":"Talk","rank":"Sr Unsecured","reg":"144a"},
         ]),
+        "issuanceSupply": {
+            "pipeline": {"totalAmtMM": 24800, "dealCount": 19, "avgNic": 21.4, "windowDays": 30},
+            "monthlyLog": {
+                "2026-03": {"totalAmtMM": 118000, "dealCount": 62, "asOfDay": 31},
+                "2026-04": {"totalAmtMM": 96500,  "dealCount": 51, "asOfDay": 30},
+                "2026-05": {"totalAmtMM": 132000, "dealCount": 68, "asOfDay": 31},
+                "2026-06": {"totalAmtMM": 101000, "dealCount": 49, "asOfDay": 30},
+                "2026-07": {"totalAmtMM": 88500,  "dealCount": 44, "asOfDay": 31},
+                END_DATE.strftime("%Y-%m"): {"totalAmtMM": 24800, "dealCount": 19, "asOfDay": END_DATE.day},
+            },
+            "avgPriorMonthAmt": 107200,
+            "paceAdjustedCurrentMonthAmt": round(24800 / max(END_DATE.day, 1) * 30, 0),
+            "sampleMonths": 5,
+        },
         "bdcCurrent":    {meta["short"]: {"price": None, "pb": None, "nav": None} for meta in BDC_TICKERS.values()},
         "bdcChanges":    {meta["short"]: {"1d": None, "1w": None, "1m": None} for meta in BDC_TICKERS.values()},
         "bdcTimeseries": {},
@@ -2699,7 +2846,7 @@ function buildSentimentWidget(){{
     macroFactors.push({{name,val,chg1m,score,unit,desc}});
   }}
   addMacroFactor('ISM 제조업 PMI',     macC['ISM Mfg PMI'],    macG['ISM Mfg PMI']?.['1m'],     'high', 50,  '',  '50 상회=확장, 하회=위축');
-  addMacroFactor('금융여건지수(FCI)',  macC['US FCI'],         macG['US FCI']?.['1m'],          'low',  0,   '',  '음수=완화적, 양수=긴축적');
+  addMacroFactor('금융여건지수(FCI)',  macC['US FCI'],         macG['US FCI']?.['1m'],          'high', 0,   '',  '양수=완화적, 음수=긴축적');
   addMacroFactor('신규실업수당청구',   macC['Jobless Claims'], macG['Jobless Claims']?.['1m'],  'low',  250, 'K', '상승 추세=노동시장 균열 신호');
   addMacroFactor('2s10s 커브',        macC['2s10s Curve'],    macG['2s10s Curve']?.['1m'],     'high', 0,   'bp', '역전 심화/재역전은 후반 사이클 경계');
   const macroScore = macroFactors.length ? macroFactors.reduce((a,f)=>a+f.score,0)/macroFactors.length : 0; // -1~+1
@@ -2711,7 +2858,8 @@ function buildSentimentWidget(){{
   const seasMonth = seas.byMonth && seas.byMonth[seas.currentMonth];
   let seasonalScore=0, seasonalDesc='계절성 데이터 없음';
   if(seasMonth){{
-    // 해당 월 평균 변화가 +면(과거 와이드닝 경향) 숏 신호를 완화, -면 강화
+    // 해당 월 평균 변화가 +면(과거 와이드닝 경향) → 아직 안 넓어졌으니 매수 대기 = 숏 신호 강화
+    // 해당 월 평균 변화가 -면(과거 타이트닝 경향) → 계절적으로도 지지받는 타이트 = 숏 신호 완화
     seasonalScore = Math.max(-1, Math.min(1, -seasMonth.medianChangeBp/5));
     seasonalDesc = `과거 ${{seas.sampleYears}}년 ${{seas.currentMonth}}월 평균 ${{seasMonth.medianChangeBp>=0?'+':''}}${{seasMonth.medianChangeBp}}bp (${{seasMonth.widenPct}}%가 와이드닝)`;
   }}
@@ -2734,10 +2882,47 @@ function buildSentimentWidget(){{
     if(persistMonths>3) persistDecay = Math.max(0.5, 1 - 0.08*(persistMonths-3));
   }}
 
-  // ── 종합 판정 (레벨×모멘텀 원점수에 매크로/계절성/지속페널티 오버레이 반영) ──
+  // ══════════════════════════════════════════════════════════════════════
+  // ⑦ 신규발행 공급압박 — PREL 30일 파이프라인 + 월별 누적 로그
+  //    이번 달 페이스(연환산)가 최근 완료월 평균보다 과다하면 공급 과잉 →
+  //    NIC 확대·기존물 스프레드 압박 요인으로 보고 숏 신호에 컨펌
+  //    (월별 로그는 스크립트를 매일 돌릴 때마다 쌓여, 몇 달 뒤부터 진짜
+  //     계절 비교가 가능해짐 — 초기엔 샘플 부족으로 중립 처리)
+  // ══════════════════════════════════════════════════════════════════════
+  const isup = D.issuanceSupply||{{}};
+  const pace = isup.paceAdjustedCurrentMonthAmt;
+  const avgPrior = isup.avgPriorMonthAmt;
+  let supplyScore=0, supplyDesc, supplyRatio=null;
+  if(pace!=null && avgPrior!=null && avgPrior>0){{
+    supplyRatio = pace/avgPrior;
+    supplyScore = Math.max(-1, Math.min(1, -(supplyRatio-1)*2)); // 과다공급(>100%)이면 음수(숏 컨펌)
+    supplyDesc = `이번 달 페이스(연환산) ${{Math.round(pace).toLocaleString()}}mm vs 최근 ${{isup.sampleMonths}}개월 평균 ${{Math.round(avgPrior).toLocaleString()}}mm (${{(supplyRatio*100).toFixed(0)}}%)`;
+  }} else {{
+    supplyDesc = `월별 로그 누적 ${{isup.sampleMonths||0}}개월차 — 계절 비교엔 데이터 더 필요 (매일 실행 시 자동 축적, 3개월 이상부터 반영)`;
+  }}
+  const pipe = isup.pipeline||{{}};
+
+  // ── 정렬 스트립용 방향 판정 ──
+  function dirLabel(v, posT, negT){{ return v>posT?'롱':v<negT?'숏':'중립'; }}
+  const dirLvl    = dirLabel(lvlTotal, 0.05, -0.05);
+  const dirMom    = dirLabel(momTotal, 0.05, -0.05);
+  const dirMacro  = dirLabel(macroScore, 0.15, -0.15);
+  const dirSeason = dirLabel(seasonalScore, 0.15, -0.15);
+  const dirSupply = dirLabel(supplyScore, 0.15, -0.15);
+  const dirList = [
+    {{label:'레벨',   dir:dirLvl}},   {{label:'모멘텀', dir:dirMom}},
+    {{label:'매크로', dir:dirMacro}}, {{label:'계절성', dir:dirSeason}},
+    {{label:'공급',   dir:dirSupply}},
+  ];
+  const shortCnt = dirList.filter(d=>d.dir==='숏').length;
+  const longCnt  = dirList.filter(d=>d.dir==='롱').length;
+  const dirIcon = d=>d==='롱'?'🟢':d==='숏'?'🔴':'⬜';
+  const alignSummary = shortCnt>longCnt ? `${{shortCnt}}/5 숏 컨펌` : longCnt>shortCnt ? `${{longCnt}}/5 롱 컨펌` : '방향 혼재';
+
+  // ── 종합 판정 (레벨×모멘텀 원점수에 매크로/계절성/지속페널티/공급 오버레이 반영) ──
   let verdict, verdictColor, verdictEmoji, verdictDesc, verdictSub;
   const rawNormScore = maxWeighted>0 ? totalWeighted / maxWeighted : 0; // -1~+1, 레벨×모멘텀 순수치
-  let normScore = rawNormScore * persistDecay + 0.15*macroScore + 0.10*seasonalScore;
+  let normScore = rawNormScore * persistDecay + 0.15*macroScore + 0.10*seasonalScore + 0.08*supplyScore;
   normScore = Math.max(-1, Math.min(1, normScore));
   if(normScore>=0.55){{
     verdict='강한 롱'; verdictColor='#22c55e'; verdictEmoji='🟢';
@@ -2826,6 +3011,10 @@ function buildSentimentWidget(){{
         <div style="font-size:26px;font-weight:900;color:${{verdictColor}};line-height:1.1;">${{verdictEmoji}} ${{verdict}}</div>
         <div style="font-size:11px;color:var(--tx3);margin-top:8px;">가중 스코어 ${{totalWeighted>=0?'+':''}}${{totalWeighted.toFixed(1)}} / ${{maxWeighted.toFixed(1)}}</div>
         <div style="font-size:10px;color:var(--tx3);margin-top:4px;">레벨×모멘텀 원점수 ${{(rawNormScore*100).toFixed(0)}}점 → 오버레이 반영 ${{(normScore*100).toFixed(0)}}점${{persistDecay<1?` (지속페널티 ×${{persistDecay.toFixed(2)}})`:''}}</div>
+        <div style="display:flex;gap:6px;justify-content:center;margin-top:8px;font-size:10px;color:var(--tx3);">
+          ${{dirList.map(d=>`<span title="${{d.label}}">${{dirIcon(d.dir)}} ${{d.label}}</span>`).join('')}}
+        </div>
+        <div style="font-size:11px;font-weight:700;color:${{verdictColor}};margin-top:3px;">${{alignSummary}}</div>
       </div>
 
       <!-- 게이지 패널 -->
@@ -2917,7 +3106,7 @@ function buildSentimentWidget(){{
           </div>`;
         }}).join('')}}
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
         <div style="background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:10px 12px;">
           <div style="font-size:11px;font-weight:600;color:var(--tx2);margin-bottom:4px;">📅 계절성 (${{seas.currentMonth||'-'}}월)</div>
           <div style="font-size:11px;color:var(--tx3);">${{seasonalDesc}}</div>
@@ -2928,9 +3117,15 @@ function buildSentimentWidget(){{
           <div style="font-size:11px;color:var(--tx3);">US IG OAS 타이트(≤85bp) 구간 ${{persistMonths}}개월째 지속${{persistDecay<1?' — 신뢰도 감쇠 적용':' — 아직 페널티 미적용(3개월 이하)'}}</div>
           <div style="font-size:10px;color:var(--tx3);margin-top:3px;">숏 신호 배율: ×${{persistDecay.toFixed(2)}}</div>
         </div>
+        <div style="background:var(--bg);border:1px solid var(--bd);border-radius:8px;padding:10px 12px;">
+          <div style="font-size:11px;font-weight:600;color:var(--tx2);margin-bottom:4px;">📦 신규발행 공급압박</div>
+          <div style="font-size:11px;color:var(--tx3);">${{supplyDesc}}</div>
+          <div style="font-size:10px;color:var(--tx3);margin-top:3px;">30일 파이프라인: ${{pipe.dealCount!=null?pipe.dealCount:'-'}}건 / ${{pipe.totalAmtMM!=null?Math.round(pipe.totalAmtMM).toLocaleString():'-'}}mm, 평균 NIC ${{pipe.avgNic!=null?pipe.avgNic:'-'}}bp</div>
+          <div style="font-size:10px;color:var(--tx3);margin-top:2px;">오버레이 기여도: ${{supplyScore>=0?'+':''}}${{(supplyScore*8).toFixed(1)}}점</div>
+        </div>
       </div>
       <div style="font-size:10px;color:var(--tx3);margin-top:10px;padding-top:8px;border-top:1px solid var(--bd);">
-        가중치 — 레벨×모멘텀 원점수(지속페널티 적용) 100% 기준 + 매크로 레짐 ±15%p + 계절성 ±10%p 오버레이. 계절성은 US IG OAS 과거 ${{seas.sampleYears||0}}년 캘린더 월별 변화 패턴 기반.<br>
+        가중치 — 레벨×모멘텀 원점수(지속페널티 적용) 100% 기준 + 매크로 레짐 ±15%p + 계절성 ±10%p + 신규발행 공급압박 ±8%p 오버레이. 계절성은 US IG OAS 과거 ${{seas.sampleYears||0}}년 캘린더 월별 변화 패턴 기반.<br>
         매크로 기준 — ISM PMI: 50 상회 우호 / 하회 비우호 &nbsp;|&nbsp; FCI: 0 이하 완화적(우호) / 이상 긴축적 &nbsp;|&nbsp; 실업수당청구: 낮고 안정적일수록 우호 &nbsp;|&nbsp; 2s10s: 정상 기울기(+) 우호 / 역전(-) 비우호
       </div>
     </div>
@@ -3746,7 +3941,14 @@ if __name__ == "__main__":
     parser.add_argument("--no-deploy", action="store_true", help="HTML만 생성, GitHub push 안 함")
     parser.add_argument("--setup", action="store_true", help="초기 설정 가이드 출력")
     parser.add_argument("--sample", action="store_true", help="샘플 데이터로 생성 (Bloomberg 무시)")
+    parser.add_argument("--backfill-issuance", metavar="CSV_PATH", help="발행량 로그 웜스타트: month,totalAmtMM,dealCount 헤더의 CSV 경로")
+    parser.add_argument("--overwrite", action="store_true", help="--backfill-issuance 사용 시 기존 월 데이터도 덮어쓰기")
     args = parser.parse_args()
+
+    if args.backfill_issuance:
+        entries = load_backfill_csv(args.backfill_issuance)
+        backfill_monthly_issuance(entries, overwrite=args.overwrite)
+        exit(0)
 
     if args.setup:
         print_setup_guide()
