@@ -526,6 +526,29 @@ def get_monthly_issuance_log_path():
     return os.path.join(script_dir, "monthly_issuance_log.json")
 
 
+def get_holdings_news_path():
+    return os.path.join(os.path.dirname(os.path.abspath(__file__)), "holdings_news.json")
+
+
+def load_holdings_news():
+    """
+    보유종목 뉴스 피드. 하이퍼스케일러 대시보드와 동일한 패턴 —
+    holdings_news.json (같은 폴더)을 수동/주기적으로 갱신하면 다음 export 때 반영됨.
+    스키마: {"date": "2026-08-28", "items": [{"cor":"AAPL","t":"제목","h":"헤드라인 원문(영문)","m":"한줄요약(국문)","url":"..."}]}
+    파일이 없으면 빈 목록으로 graceful fallback.
+    """
+    path = get_holdings_news_path()
+    if os.path.exists(path):
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                if isinstance(data, dict) and "items" in data:
+                    return data
+        except Exception:
+            pass
+    return {"date": None, "items": []}
+
+
 def load_monthly_issuance_log():
     path = get_monthly_issuance_log_path()
     if os.path.exists(path):
@@ -1349,6 +1372,7 @@ def load_bloomberg_data():
         "trades": trades,
         "newIssues": new_issues,
         "issuanceSupply": issuance_supply,
+        "holdingsNews": load_holdings_news(),
         "bdcCurrent": bdc_current,
         "bdcChanges": bdc_changes,
         "bdcTimeseries": bdc_ts,
@@ -1753,6 +1777,14 @@ def load_sample_data():
             "paceAdjustedCurrentMonthAmt": round(24800 / max(END_DATE.day, 1) * 30, 0),
             "sampleMonths": 5,
         },
+        "holdingsNews": {
+            "date": END_DATE.strftime("%Y-%m-%d"),
+            "items": [
+                {"cor": "AAPL", "t": "Apple 3분기 실적 컨센서스 상회, 서비스 부문 성장 지속", "m": "서비스 매출 호조로 FCF 개선, 크레딧 펀더멘털 우호적", "url": "https://example.com/news1"},
+                {"cor": "JPM",  "t": "JPMorgan 자본비율 목표 상향 시사", "m": "규제자본 여력 확대 발언, 자본구조 안정성 긍정적", "url": "https://example.com/news2"},
+                {"cor": "ORCL", "t": "Oracle CDS 프리미엄 사이클 고점권", "m": "클라우드 capex 부담 지속, 레버리지 우려 반영", "url": "https://example.com/news3"},
+            ],
+        },
         "bdcCurrent":    {meta["short"]: {"price": None, "pb": None, "nav": None} for meta in BDC_TICKERS.values()},
         "bdcChanges":    {meta["short"]: {"1d": None, "1w": None, "1m": None} for meta in BDC_TICKERS.values()},
         "bdcTimeseries": {},
@@ -1855,6 +1887,7 @@ textarea:focus,.ti:focus{{border-color:var(--ac)}}
 <div class="tabs">
   <div class="tab active" data-tab="t1">🎯 보유 채권</div>
   <div class="tab" data-tab="t2">📊 크레딧 지표</div>
+  <div class="tab" data-tab="t9">📰 보유종목 뉴스<span id="newsBadge"></span></div>
   <div class="tab" data-tab="t3">🏢 발행자별 곡선</div>
   <div class="tab" data-tab="t8">💰 기업별 유동성 지표</div>
   <div class="tab" data-tab="t6">🆕 최근 발행<span id="techBadge"></span></div>
@@ -1995,6 +2028,17 @@ textarea:focus,.ti:focus{{border-color:var(--ac)}}
 <!-- TAB 5 -->
 <div class="tp" id="t5" style="display:none">
 </div>
+<!-- TAB 9: Holdings News -->
+<div class="tp" id="t9">
+  <div class="ib" id="newsMeta">📰 보유종목 관련 뉴스 — 수동/주기적 갱신 (holdings_news.json)</div>
+  <div class="cd">
+    <div class="fl">
+      <label>종목</label><select id="nwf1" onchange="RNW()"><option value="ALL">전체</option></select>
+      <label>검색</label><input type="text" id="nwf2" placeholder="제목/요약 검색..." oninput="RNW()" style="width:220px">
+    </div>
+    <div id="newsCards" style="display:flex;flex-direction:column;gap:8px;margin-top:8px"></div>
+  </div>
+</div>
 <!-- TAB 7: Bond Management -->
 <div class="tp" id="t7">
   <div class="ib">⚙️ 보유 채권 ISIN 목록을 관리합니다. 변경 후 다운로드 → 폴더에 저장 → 다음 실행 시 반영됩니다.</div>
@@ -2115,12 +2159,18 @@ function isTechIssue(i){{
   const b=document.getElementById('techBadge');
   if(n>0)b.innerHTML=' <span style="background:var(--rd,#c0392b);color:#fff;border-radius:8px;padding:0 5px;font-size:10px;font-weight:700">'+n+'</span>';
 }})();
+(function(){{
+  const n=(D.holdingsNews?.items||[]).length;
+  const b=document.getElementById('newsBadge');
+  if(n>0)b.innerHTML=' <span style="background:var(--ac,#3b82f6);color:#fff;border-radius:8px;padding:0 5px;font-size:10px;font-weight:700">'+n+'</span>';
+}})();
 document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{{
   document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
   document.querySelectorAll('.tp').forEach(x=>x.classList.remove('active'));
   t.classList.add('active');document.getElementById(t.dataset.tab).classList.add('active');
   if(t.dataset.tab==='t2')R2();if(t.dataset.tab==='t3')R3();
   if(t.dataset.tab==='t6')R6();if(t.dataset.tab==='t7')R7();if(t.dataset.tab==='t8')R8();
+  if(t.dataset.tab==='t9')R9();
 }}));
 
 // ═══ TAB 1 ═══
@@ -3594,6 +3644,43 @@ function EX(){{
   a.href=u;a.download=`ig_credit_${{D.generated.split(' ')[0]}}.csv`;a.click();URL.revokeObjectURL(u);
   const e=document.getElementById('en');e.classList.add('show');setTimeout(()=>e.classList.remove('show'),2000);
 }}
+
+// ═══ TAB 9: Holdings News ═══
+function RNW(){{
+  const items=(D.holdingsNews?.items||[]).slice();
+  const f1=document.getElementById('nwf1').value;
+  const q=(document.getElementById('nwf2').value||'').toLowerCase();
+  const filtered=items.filter(i=>
+    (f1==='ALL'||i.cor===f1) &&
+    (!q || (i.t||'').toLowerCase().includes(q) || (i.m||'').toLowerCase().includes(q))
+  );
+  const wrap=document.getElementById('newsCards');
+  const meta=document.getElementById('newsMeta');
+  const dateTxt=D.holdingsNews?.date ? `기준일 ${{D.holdingsNews.date}}` : '갱신 이력 없음';
+  meta.innerHTML=`📰 보유종목 관련 뉴스 — ${{dateTxt}} · 총 ${{items.length}}건 (holdings_news.json 수동/주기적 갱신)`;
+  if(!filtered.length){{
+    wrap.innerHTML='<div style="text-align:center;padding:30px;color:var(--tx3)">표시할 뉴스가 없습니다. holdings_news.json을 갱신해주세요.</div>';
+    return;
+  }}
+  wrap.innerHTML=filtered.map(i=>`
+    <div style="background:var(--sf2);border:1px solid var(--bd);border-radius:8px;padding:12px 14px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:4px;">
+        <span style="font-size:11px;font-weight:700;color:var(--ac,#3b82f6);background:var(--ac,#3b82f6)22;padding:1px 8px;border-radius:4px;">${{i.cor||'-'}}</span>
+        ${{i.url?`<a href="${{i.url}}" target="_blank" rel="noopener" style="font-size:10px;color:var(--tx3);text-decoration:none;">원문 →</a>`:''}}
+      </div>
+      <div style="font-size:13px;font-weight:600;color:var(--tx);margin-bottom:3px;">${{i.t||''}}</div>
+      <div style="font-size:12px;color:var(--tx2);">${{i.m||''}}</div>
+    </div>
+  `).join('');
+}}
+function R9(){{
+  const items=(D.holdingsNews?.items||[]);
+  const cors=[...new Set(items.map(i=>i.cor).filter(Boolean))].sort();
+  const sel=document.getElementById('nwf1');
+  sel.innerHTML='<option value="ALL">전체</option>'+cors.map(c=>`<option value="${{c}}">${{c}}</option>`).join('');
+  RNW();
+}}
+
 
 // ═══ TAB 7: Bond Management ═══
 var bondList=(D.bondIsins||[]).slice();
