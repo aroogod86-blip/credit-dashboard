@@ -1,59 +1,59 @@
 {
-  "date": "2026-09-11",
+  "date": "2026-09-14",
   "items": [
     {
-      "t": "ORCL",
-      "h": "오라클, RPO 260억달러 증가 발표에 7.8% 급등했다 되돌리며 2% 하락 마감…엘리슨 75억달러 매도계획 공개",
-      "m": "전일 실적 발표 후속으로 RPO(잔여계약이행금액)가 660억달러 이상 늘었다는 소식에 장 초반 7.8%까지 급등했으나, 마이너스 잉여현금흐름(-54억달러)과 285억달러에 달하는 분기 설비투자 부담이 부각되며 낙폭을 반납, 결국 2% 하락 마감. 이날 규제 공시를 통해 래리 엘리슨 이사회 의장이 보유주식 최대 5,000만주(75억달러 상당)를 10월 24일까지 매도할 수 있는 10b5-1 트레이딩 플랜을 체결한 사실이 공개돼 투자심리에 추가 부담으로 작용(엘리슨은 이후 주말인 9/12 해당 계획을 전면 취소한다고 발표, 실제 매도된 주식은 없음). 총부채는 1,250억달러로 집계됨.",
-      "url": "https://www.staradvertiser.com/2026/09/12/breaking-news/larry-ellison-cancels-plan-to-sell-oracle-stock/"
-    },
-    {
-      "t": "META",
-      "h": "메타, JPMorgan 목표주가 820달러로 상향되며 CPI 반등장 속 상승",
-      "m": "JPMorgan이 메타를 비중확대(Overweight)로 상향하며 목표주가를 820달러로 제시, 전날 공개한 개인화 AI 에이전트 '뮤즈' 출시가 근거로 지목됨. 이날 발표된 8월 CPI(전월비 0.4%, 컨센서스 부합이나 근원 CPI 0.3%로 예상치 상회)에도 시장이 안도 랠리를 펼치며 메타를 포함한 매그니피센트 세븐 전 종목이 상승, 다우·나스닥 각각 0.9%, S&P500 0.8% 오름.",
-      "url": "https://www.cnbc.com/quotes/META"
-    },
-    {
-      "t": "SPCX",
-      "h": "스페이스X, 월 11.1억달러 규모 AI 호스팅 계약 체결…연내 ARR 1,000억달러 목표",
-      "m": "스페이스X가 월 11.1억달러(연환산 약 133억달러) 규모의 AI 호스팅 계약을 새롭게 체결했다고 밝히며, 연말까지 연간 반복매출(ARR) 1,000억달러 달성에 대한 자신감을 재확인. 이날 CPI 발표 이후 시장 전반의 안도 랠리 속에 스페이스X도 강세 흐름에 동참.",
-      "url": "https://seekingalpha.com/news/4642027-4-stocks-to-watch-oon-friday-kr-nvo-avgo-and-spcx"
-    },
-    {
-      "t": "AVGO",
-      "h": "브로드컴, EU 집행위 VMware 라이선스 정책 반독점 조사 착수 소식",
-      "m": "유럽연합 집행위원회가 브로드컴의 VMware 라이선스 정책 변경이 중소형 유럽 클라우드 사업자에 대한 불공정한 제한에 해당하는지 조사에 착수했다는 소식이 전해짐. 다만 이날 CPI 발표 이후 안도 랠리 속에 브로드컴도 시장 전반의 상승 흐름에 동참했으며, 애널리스트들은 AI반도체 매출이 FY2027 1,150억달러, FY2028 2,300억달러까지 늘어날 것으로 전망.",
-      "url": "https://seekingalpha.com/news/4642027-4-stocks-to-watch-oon-friday-kr-nvo-avgo-and-spcx"
-    },
-    {
       "t": "NVDA",
-      "h": "엔비디아, CPI 발표 이후 안도 랠리 속 매그니피센트 세븐 전종목 동반 상승",
-      "m": "8월 CPI가 전월비 0.4%로 컨센서스에 부합했으나 근원 CPI는 0.3%(예상 0.2%)로 다소 높게 나오며 다음 주 FOMC의 금리인상 베팅이 굳어지는 가운데서도, 시장은 불확실성 해소에 초점을 맞추며 안도 랠리를 펼침. 엔비디아를 포함한 애플·알파벳·마이크로소프트·아마존·메타·테슬라 등 매그니피센트 세븐 전 종목이 상승 마감, 다만 4거래일 연속 하락에 따른 주간 기준으로는 여전히 하락 마감.",
-      "url": "https://ca.finance.yahoo.com/news/stock-market-today-friday-september-11-dow-sp-500-nasdaq-cpi-inflation-082201751.html"
+      "h": "엔비디아, AI 속도조절 논쟁 속 3.26~3.4% 하락",
+      "m": "앤스로픽 CEO 다리오 아모데이가 지난 토요일(9/12) \"AI 모델의 성능 향상 속도를 늦춰야 한다\"는 에세이를 발표, 오픈AI 샘 알트먼·SpaceX 일론 머스크·구글 딥마인드 데미스 하사비스까지 잇달아 동의를 표명하며 AI 관련주 전반이 이날 큰 타격을 받음. 엔비디아는 정규장에서 3.26~3.4% 하락. 한편 로이터는 엔비디아가 앤스로픽의 IPO(최대 2조달러 밸류)에 최대 100억달러 앵커 투자자로 참여하는 방안을 논의 중이라고 보도, \"안전 경고\"와 \"베팅 확대\"의 모순이 부각됨. 트럼프 대통령은 SNS를 통해 아모데이를 직접 비판하며 AI 규제 강화 움직임에 반대 입장을 표명.",
+      "url": "https://www.cnbc.com/2026/09/14/ai-stocks-slowdown-amodei-altman.html"
+    },
+    {
+      "t": "ORCL",
+      "h": "오라클, 신규 정리해고 소식과 겹치며 4~4.9% 급락, 2주 만에 최저치",
+      "m": "오라클이 일부 팀 대상 새로운 정리해고(최대 두 자릿수 비율)를 단행한다는 보도가 나온 가운데, 지난 토요일 래리 엘리슨의 75억달러 주식매도 계획 취소 소식까지 겹치며 오라클 주가가 이날 4~4.9% 급락, 141달러선까지 밀리며 2주 만에 최저치를 기록. AI 관련주 전반의 매도세 속에서 아테리스(Arteris)와 함께 낙폭이 가장 컸던 종목 중 하나로 지목됨.",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262166892-oracle-orcl-layoffs-ai-infrastructure-larry-ellison-share-sale-restructuring-700-million-tradingkey"
     },
     {
       "t": "GOOGL",
-      "h": "알파벳, CPI 안도 랠리 속 상승하며 주간 낙폭 일부 만회",
-      "m": "이날 시장은 8월 CPI가 예상 부합 수준(전월비 0.4%)으로 나오자 안도하며 11개 S&P500 섹터가 모두 상승, 기술 섹터(XLK)가 상승을 주도. 알파벳도 이날 상승 흐름에 동참했으나, 4거래일 연속 하락 이후인 만큼 주간 기준으로는 여전히 하락세를 기록.",
-      "url": "https://ca.finance.yahoo.com/news/stock-market-today-friday-september-11-dow-sp-500-nasdaq-cpi-inflation-082201751.html"
+      "h": "알파벳, AI 설비투자 비의존 그룹으로 분류되며 2.15% 상승",
+      "m": "이날 시장은 AI 설비투자 지속에 직접 노출된 기업(엔비디아·오라클·아마존)과 상대적으로 덜 의존적인 기업(알파벳·메타·마이크로소프트)을 구분하는 로테이션을 보이며, 알파벳이 다우존스 지수 내 최대 상승 종목 중 하나(+2.15%)로 부상. AI 속도조절 논쟁이 오히려 이미 자체 TPU 등 인프라를 확보한 알파벳에는 상대적으로 우호적으로 해석되는 모습.",
+      "url": "https://tradingeconomics.com/united-states/stock-market"
+    },
+    {
+      "t": "META",
+      "h": "메타, AI 안전성 논쟁 속에서도 약 2% 상승하며 상대적 강세",
+      "m": "AI 관련 반도체·인프라주가 대거 하락한 이날, 메타는 알파벳·마이크로소프트와 함께 약 2% 상승하며 AI 설비투자 부담이 상대적으로 덜한 종목으로 재평가받는 모습을 보임. 시장 참여자들은 \"레버리지가 낮은\" 빅테크가 이번 AI 안전성 논쟁의 상대적 수혜주가 되고 있다고 진단.",
+      "url": "https://www.theepochtimes.com/business/nasdaq-sp-500-open-lower-on-calls-for-ai-slowdown-6087159"
     },
     {
       "t": "AMZN",
-      "h": "아마존, CPI 발표 이후 안도 랠리 동참하며 상승 마감",
-      "m": "8월 CPI가 예상에 부합한 가운데 시장이 다음 주 FOMC를 앞두고 안도 랠리를 펼치며 아마존도 이날 상승 마감. 소고기 등 일부 식품 가격 상승세가 다소 진정되는 조짐도 나타나며 인플레이션 우려가 부분적으로 완화되는 모습.",
-      "url": "https://ca.finance.yahoo.com/news/stock-market-today-friday-september-11-dow-sp-500-nasdaq-cpi-inflation-082201751.html"
+      "h": "아마존, AI 설비투자 직접 노출 우려로 1.5% 하락",
+      "m": "AI 속도조절 논쟁의 여파로 아마존은 이날 약 1.5% 하락, AWS의 대규모 AI 인프라 투자 지속 여부에 대한 시장의 우려가 반영됨. 10년물 국채금리가 장중 한때 2023년 이후 처음으로 5%를 돌파하며 이번 주 예정된 FOMC에서의 금리인상 가능성(88.5%)이 굳어진 점도 부담 요인으로 작용.",
+      "url": "https://www.theepochtimes.com/business/nasdaq-sp-500-open-lower-on-calls-for-ai-slowdown-6087159"
     },
     {
       "t": "MU",
-      "h": "마이크론, 반도체 섹터 안도 랠리 속 상승 마감",
-      "m": "이날 CPI 발표 이후 시장 전반이 안도 랠리를 펼치며 마이크론도 반도체 섹터 강세 흐름에 동참, 기술 섹터(XLK)가 이날 S&P500 11개 섹터 중 최대 상승폭을 기록. 다만 4거래일 연속 하락에 따른 주간 기준 낙폭은 완전히 만회하지 못한 것으로 평가됨.",
-      "url": "https://ca.finance.yahoo.com/news/stock-market-today-friday-september-11-dow-sp-500-nasdaq-cpi-inflation-082201751.html"
+      "h": "마이크론, 반도체株 최대 낙폭 중 하나로 5~7% 급락",
+      "m": "AI 속도조절 논쟁으로 메모리·반도체 수요 둔화 우려가 커지며 마이크론이 이날 5~7% 급락, 인텔(-5~6.8%)·AMD(-4~5.8%)·마벨(-6.2~7.2%)과 함께 반도체 섹터 낙폭을 주도. 아시아 시장에서도 SK하이닉스(-6~7%)·삼성전자(-4%)가 동반 급락하며 글로벌 메모리株 전반에 타격.",
+      "url": "https://www.investing.com/news/economy-news/ai-warnings-knock-nasdaq-futures-pressure-tech-stocks-4898987"
+    },
+    {
+      "t": "AVGO",
+      "h": "브로드컴, AI 반도체 수요 둔화 우려로 4~4.2% 하락",
+      "m": "AI 프론티어 모델 개발 속도조절 요구가 서버·AI 가속기 수요에 미칠 영향에 대한 우려로 브로드컴이 이날 4~4.2% 하락. 다만 일부 시장 참여자는 이번 논쟁이 실제 칩 구매 축소를 요구하는 것은 아니라며, 엔비디아의 FY2027 매출 70% 성장 가이던스가 여전히 공급 제약을 반영한다는 반론도 제기.",
+      "url": "https://dailycaller.com/2026/09/14/ai-leaders-hit-the-brakes-tech-stocks-tumble/"
+    },
+    {
+      "t": "SPCX",
+      "h": "스페이스X, 일론 머스크의 AI 속도조절 동의 표명에도 1% 하락에 그쳐",
+      "m": "스페이스X CEO 일론 머스크가 앤스로픽·오픈AI와 함께 AI 속도조절에 동의한다는 입장을 표명했음에도, 스페이스X 주가는 이날 1% 하락에 그치며 반도체·AI 인프라주 대비 상대적으로 선방하는 모습을 보임. 로켓·위성 사업 비중이 높은 만큼 AI 설비투자 직접 노출도가 낮게 평가되는 것으로 해석됨.",
+      "url": "https://www.theepochtimes.com/business/nasdaq-sp-500-open-lower-on-calls-for-ai-slowdown-6087159"
     },
     {
       "t": "AAPL",
-      "h": "애플, 아이폰 듀오 흥행 모멘텀 속 CPI 안도 랠리 동참",
-      "m": "전일 3.6% 급등에 이어 이날도 CPI 발표 이후 안도 랠리 속에 상승 마감, 매그니피센트 세븐 전종목 강세 흐름에 동참. 아이폰 듀오 출시 성공에 대한 투자심리가 여전히 견조하게 유지되는 모습.",
-      "url": "https://ca.finance.yahoo.com/news/stock-market-today-friday-september-11-dow-sp-500-nasdaq-cpi-inflation-082201751.html"
+      "h": "애플, AI 설비투자 비의존 프리미엄 재확인되며 소폭 상승",
+      "m": "AI 반도체·인프라주가 대거 하락한 이날, 애플은 마이크로소프트와 함께 소폭 상승하며 'AI 설비투자 노출도가 낮은' 종목으로 재차 주목받음. 다우존스는 152.09포인트(-0.29%) 하락, 나스닥종합지수는 0.56% 하락한 26,186.41을 기록하며 전체 지수는 약세 마감.",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262166892-oracle-orcl-layoffs-ai-infrastructure-larry-ellison-share-sale-restructuring-700-million-tradingkey"
     }
   ]
 }
