@@ -1,59 +1,59 @@
 {
-  "date": "2026-09-15",
+  "date": "2026-09-16",
   "items": [
     {
-      "t": "NVDA",
-      "h": "엔비디아, 10년물 국채금리 5.045%(2007년 이후 최고) 속 FOMC 첫날 관망세",
-      "m": "연준의 9월 FOMC 회의 첫날(9/15~16 양일간 진행)을 맞아 10년물 국채금리가 장중 5.045%까지 치솟으며 2007년 이후 최고치를 기록, 25bp 금리인상 가능성이 92%까지 반영됨. 전일 AI 속도조절 논쟁으로 3%대 하락했던 엔비디아는 이날 씨티그룹이 \"AI 설비투자 위축 우려는 과도하다\"며 매수 추천을 재확인한 가운데 시장 전반의 반등 흐름에 일부 동참. 브렌트유는 배럴당 105달러를 웃돌며 인플레이션 우려를 지속 자극.",
-      "url": "https://parameter.io/citi-analysts-recommend-nvidia-nvda-and-broadcom-avgo-amid-chip-stock-decline/"
-    },
-    {
-      "t": "GOOGL",
-      "h": "알파벳, AI 안전성 논쟁의 상대적 수혜주 지위 이어가며 강세 지속",
-      "m": "전일 3% 이상 급등했던 알파벳은 이날도 AI 설비투자 비의존 그룹으로 재평가받으며 다우존스 지수 내 상대적 강세 흐름을 이어감. 시장은 AI 하드웨어(엔비디아·브로드컴·마이크론)와 AI 소프트웨어·플랫폼(알파벳·마이크로소프트·메타)을 구분해 후자에 우호적인 로테이션을 지속하는 모습.",
-      "url": "https://www.fool.com/investing/2026/09/14/market-indexes-drop-as-chip-stocks-take-the-weeken/"
-    },
-    {
-      "t": "META",
-      "h": "메타, 아크인베스트 매수세 유입 속 뮤즈(Muse) AI 낙관론 지속",
-      "m": "아크인베스트가 지난 월요일(9/14) 뮤즈(Muse) AI 모델에 대한 낙관론을 근거로 메타 주식을 매수하는 한편, AI 속도조절 우려 속에 아마존·AMD·알파벳·팔란티어는 매도한 것으로 확인됨(다만 알파벳은 이후 별도 사유로 급등). AI 소프트웨어 활용 기업으로서의 포지셔닝이 재차 부각되는 모습.",
-      "url": "https://www.benzinga.com/markets/prediction-markets/26/09/61781323/stock-market-will-sp-500-open-up-or-down-today-37"
-    },
-    {
-      "t": "AMZN",
-      "h": "아마존, 아크인베스트 매도 대상에 포함되며 AI 설비투자 직접노출 우려 지속",
-      "m": "아크인베스트가 AI 속도조절 우려를 근거로 아마존 보유 지분을 축소한 것으로 확인, AWS의 대규모 AI 인프라 투자 지속 여부에 대한 시장의 경계감이 이어짐. FOMC 회의 첫날을 맞아 국채금리 급등 속 대형 기술주 전반이 관망세를 보이는 가운데 아마존도 조정 흐름에 동참.",
-      "url": "https://www.benzinga.com/markets/prediction-markets/26/09/61781323/stock-market-will-sp-500-open-up-or-down-today-37"
+      "t": "SPCX",
+      "h": "스페이스X, 스타십 궤도비행 일정(9/22) 확정에 5.15% 급등",
+      "m": "연준의 3년 만의 첫 금리인상 발표로 시장이 하락한 이날, 스페이스X는 다음 궤도 시험비행 일정을 9월 22일로 확정했다고 발표하며 5.15% 급등, 나스닥종합지수에 가장 크게 기여한 종목이 됨. 이번 비행은 스타십을 실제 지구 궤도에 진입시키는 첫 시도로, 지금까지는 공공 안전을 위해 의도적으로 준궤도 경로만 비행해왔다고 회사측은 설명. 지난주 골드만삭스 컨퍼런스에서는 CFO 브렛 존슨이 내년 궤도상 첫 컴퓨팅 위성 발사를 목표로 한다고 밝힌 바 있음.",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-wednesday-september-16-dow-sp-500-nasdaq-fed-meeting-decision-080356525.html"
     },
     {
       "t": "ORCL",
-      "h": "오라클, RPO 호실적에도 부채 부담·OpenAI 지급능력 우려로 9월 이후 40% 이상 하락 지속",
-      "m": "9월 초 기록적인 RPO 증가를 발표하며 급등했던 오라클이었으나, 이후 시장은 대규모 부채 부담과 최대 고객사인 오픈AI의 데이터센터 임차료 지급 능력에 대한 의구심으로 시각을 선회, 9월 고점 대비 40% 이상 하락한 상태가 이어짐. 다만 오라클은 우량등급 신용등급 유지 의지를 재확인하며 AI 데이터센터 투자를 지속하겠다는 입장.",
-      "url": "https://finance.yahoo.com/news/revealed-2-top-ai-stock-142754736.html"
+      "h": "오라클, 5거래일 연속 하락 끝에 저가매수 유입되며 3.38% 반등",
+      "m": "9월 고점 대비 40% 이상 하락하며 5거래일 연속 약세를 이어가던 오라클이 이날 저가매수세 유입에 힘입어 3.38% 반등. Q1 클라우드 매출 성장세와 AI 수요가 여전히 견조하다는 투자심리가 뒷받침됐으나, 대규모 설비투자 계획과 높은 레버리지에 따른 장중 변동성은 지속되는 모습.",
+      "url": "https://www.tradingkey.com/news/market-movers/262171105-market-movers-orcl-20260916"
     },
     {
-      "t": "MU",
-      "h": "마이크론, 반도체株 낙폭과대 인식 속 저가매수 유입 조짐",
-      "m": "전일 5% 이상 급락했던 마이크론은 씨티그룹의 반도체 업종 매수 재확인과 함께, 나스닥·S&P500 낙폭이 AI 관련주 반등(코히런트 +2%, AMD +2%, 퀄컴 +4%)으로 일부 만회되는 흐름 속에 낙폭과대 인식이 확산되는 모습. 다만 10년물 국채금리 5% 근접 등 매크로 부담은 지속.",
-      "url": "https://www.cnbc.com/2026/09/14/stock-market-today-live-updates.html"
+      "t": "NVDA",
+      "h": "엔비디아, 금리인상 발표에도 반도체株 저가매수 유입되며 0.82~1.8% 상승",
+      "m": "연준이 12-0 만장일치로 25bp 금리인상(3.75~4.00%)을 발표하고 워시 의장이 매파적 어조를 보이며 다우가 631포인트(-1.21%) 급락했음에도, 엔비디아는 AI 인프라株 저가매수 유입 속에 0.82~1.8% 상승. AMD(+3.8~6.36%), 인텔(+7~7.67%), 암(+8.57%) 등 반도체株 전반이 며칠간의 조정 이후 반등하는 모습을 보임. 필라델피아반도체지수는 0.63% 상승.",
+      "url": "https://www.fool.com/investing/2026/09/16/the-dow-sp-500-and-nasdaq-split-ahead-of-rate-hike/"
     },
     {
-      "t": "AVGO",
-      "h": "브로드컴, 호크 탄 CEO의 FY2027 AI칩 매출 1,150억달러 목표 재확인 속 반등 시도",
-      "m": "브로드컴 CEO 호크 탄이 FY2027 AI반도체 매출 1,150억달러 목표를 재확인하며 AI 속도조절 논쟁에 정면 반박, 씨티그룹도 이를 근거로 브로드컴 매수 의견을 재확인. 전일 4% 이상 하락했던 주가는 이날 시장 전반의 AI 관련주 반등 흐름 속에 낙폭을 일부 만회.",
-      "url": "https://blockonomi.com/citi-recommends-nvidia-nvda-and-broadcom-avgo-stock-following-chip-sector-decline"
-    },
-    {
-      "t": "SPCX",
-      "h": "스페이스X, FOMC 회의 첫날 매크로 불확실성 속 관망세",
-      "m": "10년물 국채금리 5% 근접, 브렌트유 105달러 상회 등 매크로 리스크가 지속되는 가운데, 스페이스X도 이날 대형 성장주 전반의 관망세 흐름에 동참. 시장의 관심은 내일(9/16) 발표될 FOMC 금리결정 결과와 파월 후임 워시 의장의 기자회견으로 이동하는 분위기.",
-      "url": "https://www.kiplinger.com/investing/live/fed-meeting-updates-and-commentary-september-2026"
+      "t": "META",
+      "h": "메타, 금리인상 발표 속에서도 0.46% 소폭 상승",
+      "m": "다우존스가 631.21포인트(-1.21%) 급락한 이날, 메타는 나스닥종합지수(-0.01%)와 함께 상대적으로 견조한 흐름을 유지하며 0.46% 상승. AI 설비투자 부담이 상대적으로 낮은 소프트웨어·플랫폼 기업으로서의 포지셔닝이 재차 부각됨.",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262171740-us-stock-dow-nasdaq-drop-fed-rate-25-basis-points-chip-spacex-tradingkey"
     },
     {
       "t": "AAPL",
-      "h": "애플, AI 설비투자 비의존 프리미엄 지속되며 상대적 강세 유지",
-      "m": "AI 하드웨어株 조정이 이어지는 가운데 애플은 이날도 상대적으로 견조한 흐름을 이어감. 다우존스는 328.09포인트(-0.63%) 하락한 52,093.11, 나스닥종합지수는 0.78% 하락한 25,981.57로 마감했으나, 애플·마이크로소프트·알파벳 등 AI 설비투자 부담이 낮은 종목들은 상대적으로 선방하는 모습을 지속.",
-      "url": "https://www.cnbc.com/2026/09/14/stock-market-today-live-updates.html"
+      "h": "애플, 금리인상 발표 속에서도 0.32% 상승하며 견조",
+      "m": "10년물 국채금리가 5.02%까지 오르고 워시 의장의 매파적 발언으로 시장 전반이 약세를 보인 가운데, 애플은 스페이스X·메타·테슬라·엔비디아·브로드컴과 함께 이날 상승 마감한 몇 안 되는 대형주 중 하나로 지목됨. AI 설비투자 노출도가 낮은 종목으로서의 상대적 프리미엄이 지속되는 모습.",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262171740-us-stock-dow-nasdaq-drop-fed-rate-25-basis-points-chip-spacex-tradingkey"
+    },
+    {
+      "t": "AVGO",
+      "h": "브로드컴, 금리인상 발표 속 보합권(+0.07%) 유지",
+      "m": "이날 은행株가 낙폭을 주도한 가운데, 브로드컴은 대체로 보합권에서 거래를 마침. 호크 탄 CEO가 최근 AI 속도조절 논쟁에 대응해 컴퓨팅 인프라 수요가 여전히 강하다고 강조한 점이 투자심리를 지지하는 요인으로 지목됨.",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262171740-us-stock-dow-nasdaq-drop-fed-rate-25-basis-points-chip-spacex-tradingkey"
+    },
+    {
+      "t": "MU",
+      "h": "마이크론, 반도체株 전반 반등 흐름 속 강세",
+      "m": "연준의 금리인상 발표 이후 반도체株 전반이 며칠간의 조정을 딛고 반등하는 흐름 속에 마이크론도 강세 흐름에 동참. 9월 30일 예정된 4분기(FY2026) 실적 발표를 앞두고, 이번 금리결정이 실적 자체보다 주가에 더 큰 영향을 미칠 수 있다는 분석도 재조명됨.",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/feds-september-decision-could-hit-153500789.html"
+    },
+    {
+      "t": "AMZN",
+      "h": "아마존, 금리인상 발표 후 매파적 논조 속 0.99% 하락",
+      "m": "연준의 25bp 금리인상 발표 직후 워시 의장의 기자회견이 매파적으로 해석되며 시장이 낙폭을 확대, 아마존도 이날 0.99% 하락. 마이크로소프트(-1.37%)와 함께 AI 설비투자 직접노출 그룹으로 재차 분류되며 상대적 약세를 보임.",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262171740-us-stock-dow-nasdaq-drop-fed-rate-25-basis-points-chip-spacex-tradingkey"
+    },
+    {
+      "t": "GOOGL",
+      "h": "알파벳, 금리인상 발표 속 0.61% 하락",
+      "m": "연준이 2023년 이후 첫 금리인상을 단행하고 향후 추가 인상 가능성을 시사하는 매파적 점도표를 공개하며, 알파벳도 이날 0.61% 하락. 다만 전주 지속됐던 AI 설비투자 비의존 그룹 프리미엄 대비로는 상대적으로 완만한 조정에 그침.",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262171740-us-stock-dow-nasdaq-drop-fed-rate-25-basis-points-chip-spacex-tradingkey"
     }
   ]
 }
