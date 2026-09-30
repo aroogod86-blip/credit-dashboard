@@ -549,6 +549,37 @@ def load_holdings_news():
     return {"date": None, "items": []}
 
 
+# 섹터 뉴스 태그 (cor 필드에 사용) — 이 순서대로 필터 드롭다운에 표시
+SECTOR_NEWS_TAGS = [
+    "US BANKS", "EU BANKS", "JP BANKS", "INSURANCE", "TECH/SEMIS",
+    "ENERGY", "AUTOS", "TELECOM", "KP", "MACRO/RATES",
+]
+
+
+def get_sector_news_path():
+    return os.path.join(os.path.dirname(os.path.abspath(__file__)), "sector_news.json")
+
+
+def load_sector_news():
+    """
+    섹터 뉴스 피드 ("섹터 뉴스" 트리거로 생성, 전 미국 거래일 기준).
+    holdings_news.json과 파일을 분리해 두 피드가 서로 덮어쓰지 않도록 함.
+    같은 폴더의 sector_news.json을 읽어 보유종목 뉴스 탭에 함께 표시.
+    스키마: {"date": "2026-09-29", "items": [{"cor":"US BANKS","t":"제목","m":"한줄요약(국문)","url":"..."}]}
+    cor는 SECTOR_NEWS_TAGS 중 하나. 파일이 없으면 빈 목록으로 graceful fallback.
+    """
+    path = get_sector_news_path()
+    if os.path.exists(path):
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                if isinstance(data, dict) and "items" in data:
+                    return data
+        except Exception:
+            pass
+    return {"date": None, "items": []}
+
+
 def load_monthly_issuance_log():
     path = get_monthly_issuance_log_path()
     if os.path.exists(path):
@@ -1373,6 +1404,8 @@ def load_bloomberg_data():
         "newIssues": new_issues,
         "issuanceSupply": issuance_supply,
         "holdingsNews": load_holdings_news(),
+        "sectorNews": load_sector_news(),
+        "sectorNewsTags": SECTOR_NEWS_TAGS,
         "bdcCurrent": bdc_current,
         "bdcChanges": bdc_changes,
         "bdcTimeseries": bdc_ts,
@@ -1785,6 +1818,14 @@ def load_sample_data():
                 {"cor": "ORCL", "t": "Oracle CDS 프리미엄 사이클 고점권", "m": "클라우드 capex 부담 지속, 레버리지 우려 반영", "url": "https://example.com/news3"},
             ],
         },
+        "sectorNews": {
+            "date": END_DATE.strftime("%Y-%m-%d"),
+            "items": [
+                {"cor": "US BANKS", "t": "AI 에이전트發 예금 이탈 우려로 은행주 약세", "m": "저비용 예금 기반 잠식 가능성 부각, 선순위채 스프레드 영향은 제한적", "url": "https://example.com/sector1"},
+                {"cor": "MACRO/RATES", "t": "UST 10년 금리 보합, FOMC 의사록 대기", "m": "커브 스티프닝 기조 유지", "url": "https://example.com/sector2"},
+            ],
+        },
+        "sectorNewsTags": SECTOR_NEWS_TAGS,
         "bdcCurrent":    {meta["short"]: {"price": None, "pb": None, "nav": None} for meta in BDC_TICKERS.values()},
         "bdcChanges":    {meta["short"]: {"1d": None, "1w": None, "1m": None} for meta in BDC_TICKERS.values()},
         "bdcTimeseries": {},
@@ -2033,7 +2074,8 @@ textarea:focus,.ti:focus{{border-color:var(--ac)}}
   <div class="ib" id="newsMeta">📰 보유종목 관련 뉴스 — 수동/주기적 갱신 (holdings_news.json)</div>
   <div class="cd">
     <div class="fl">
-      <label>종목</label><select id="nwf1" onchange="RNW()"><option value="ALL">전체</option></select>
+      <label>구분</label><select id="nwf0" onchange="R9()"><option value="ALL">전체</option><option value="H">보유종목</option><option value="S">섹터</option></select>
+      <label>종목/섹터</label><select id="nwf1" onchange="RNW()"><option value="ALL">전체</option></select>
       <label>검색</label><input type="text" id="nwf2" placeholder="제목/요약 검색..." oninput="RNW()" style="width:220px">
     </div>
     <div id="newsCards" style="display:flex;flex-direction:column;gap:8px;margin-top:8px"></div>
@@ -2160,7 +2202,7 @@ function isTechIssue(i){{
   if(n>0)b.innerHTML=' <span style="background:var(--rd,#c0392b);color:#fff;border-radius:8px;padding:0 5px;font-size:10px;font-weight:700">'+n+'</span>';
 }})();
 (function(){{
-  const n=(D.holdingsNews?.items||[]).length;
+  const n=(D.holdingsNews?.items||[]).length+(D.sectorNews?.items||[]).length;
   const b=document.getElementById('newsBadge');
   if(n>0)b.innerHTML=' <span style="background:var(--ac,#3b82f6);color:#fff;border-radius:8px;padding:0 5px;font-size:10px;font-weight:700">'+n+'</span>';
 }})();
@@ -3645,39 +3687,64 @@ function EX(){{
   const e=document.getElementById('en');e.classList.add('show');setTimeout(()=>e.classList.remove('show'),2000);
 }}
 
-// ═══ TAB 9: Holdings News ═══
+// ═══ TAB 9: Holdings News (+ Sector News) ═══
+function NWALL(){{
+  const h=(D.holdingsNews?.items||[]).map(i=>Object.assign({{}},i,{{_k:'H'}}));
+  const s=(D.sectorNews?.items||[]).map(i=>Object.assign({{}},i,{{_k:'S'}}));
+  // 섹터 뉴스(전일) 먼저, 보유종목 뉴스 뒤
+  return s.concat(h);
+}}
 function RNW(){{
-  const items=(D.holdingsNews?.items||[]).slice();
+  const all=NWALL();
+  const f0=document.getElementById('nwf0').value;
   const f1=document.getElementById('nwf1').value;
   const q=(document.getElementById('nwf2').value||'').toLowerCase();
-  const filtered=items.filter(i=>
+  const filtered=all.filter(i=>
+    (f0==='ALL'||i._k===f0) &&
     (f1==='ALL'||i.cor===f1) &&
     (!q || (i.t||'').toLowerCase().includes(q) || (i.m||'').toLowerCase().includes(q))
   );
   const wrap=document.getElementById('newsCards');
   const meta=document.getElementById('newsMeta');
-  const dateTxt=D.holdingsNews?.date ? `기준일 ${{D.holdingsNews.date}}` : '갱신 이력 없음';
-  meta.innerHTML=`📰 보유종목 관련 뉴스 — ${{dateTxt}} · 총 ${{items.length}}건 (holdings_news.json 수동/주기적 갱신)`;
+  const hN=(D.holdingsNews?.items||[]).length, sN=(D.sectorNews?.items||[]).length;
+  const hD=D.holdingsNews?.date||'갱신 이력 없음', sD=D.sectorNews?.date||'갱신 이력 없음';
+  meta.innerHTML=`📰 보유종목 뉴스 ${{hN}}건 (기준일 ${{hD}}, holdings_news.json) · 섹터 뉴스 ${{sN}}건 (기준일 ${{sD}}, sector_news.json)`;
   if(!filtered.length){{
-    wrap.innerHTML='<div style="text-align:center;padding:30px;color:var(--tx3)">표시할 뉴스가 없습니다. holdings_news.json을 갱신해주세요.</div>';
+    wrap.innerHTML='<div style="text-align:center;padding:30px;color:var(--tx3)">표시할 뉴스가 없습니다. holdings_news.json / sector_news.json을 갱신해주세요.</div>';
     return;
   }}
-  wrap.innerHTML=filtered.map(i=>`
-    <div style="background:var(--sf2);border:1px solid var(--bd);border-radius:8px;padding:12px 14px;">
+  wrap.innerHTML=filtered.map(i=>{{
+    const c=i._k==='S'?'#d97706':'var(--ac,#3b82f6)';
+    const bg=i._k==='S'?'#d9770622':'var(--ac,#3b82f6)22';
+    const kind=i._k==='S'?'섹터':'보유종목';
+    return `
+    <div style="background:var(--sf2);border:1px solid var(--bd);border-left:3px solid ${{c}};border-radius:8px;padding:12px 14px;">
       <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:4px;">
-        <span style="font-size:11px;font-weight:700;color:var(--ac,#3b82f6);background:var(--ac,#3b82f6)22;padding:1px 8px;border-radius:4px;">${{i.cor||'-'}}</span>
+        <span>
+          <span style="font-size:10px;color:var(--tx3);margin-right:6px;">${{kind}}</span>
+          <span style="font-size:11px;font-weight:700;color:${{c}};background:${{bg}};padding:1px 8px;border-radius:4px;">${{i.cor||'-'}}</span>
+        </span>
         ${{i.url?`<a href="${{i.url}}" target="_blank" rel="noopener" style="font-size:10px;color:var(--tx3);text-decoration:none;">원문 →</a>`:''}}
       </div>
       <div style="font-size:13px;font-weight:600;color:var(--tx);margin-bottom:3px;">${{i.t||''}}</div>
       <div style="font-size:12px;color:var(--tx2);">${{i.m||''}}</div>
-    </div>
-  `).join('');
+    </div>`;
+  }}).join('');
 }}
 function R9(){{
-  const items=(D.holdingsNews?.items||[]);
-  const cors=[...new Set(items.map(i=>i.cor).filter(Boolean))].sort();
+  const f0=document.getElementById('nwf0').value;
+  const all=NWALL().filter(i=>f0==='ALL'||i._k===f0);
+  const order=D.sectorNewsTags||[];
+  const secs=order.filter(t=>all.some(i=>i._k==='S'&&i.cor===t))
+    .concat([...new Set(all.filter(i=>i._k==='S'&&!order.includes(i.cor)).map(i=>i.cor).filter(Boolean))].sort());
+  const cors=[...new Set(all.filter(i=>i._k==='H').map(i=>i.cor).filter(Boolean))].sort();
   const sel=document.getElementById('nwf1');
-  sel.innerHTML='<option value="ALL">전체</option>'+cors.map(c=>`<option value="${{c}}">${{c}}</option>`).join('');
+  const prev=sel.value;
+  let html='<option value="ALL">전체</option>';
+  if(secs.length)html+='<optgroup label="섹터">'+secs.map(c=>`<option value="${{c}}">${{c}}</option>`).join('')+'</optgroup>';
+  if(cors.length)html+='<optgroup label="보유종목">'+cors.map(c=>`<option value="${{c}}">${{c}}</option>`).join('')+'</optgroup>';
+  sel.innerHTML=html;
+  if([...sel.options].some(o=>o.value===prev))sel.value=prev;
   RNW();
 }}
 

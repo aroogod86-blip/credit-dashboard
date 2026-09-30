@@ -1,0 +1,65 @@
+{
+  "date": "2026-09-29",
+  "items": [
+    {
+      "cor": "MACRO/RATES",
+      "t": "UST 30년물 5.6%대 진입, 2002년 이후 최고치",
+      "m": "10년물 5.25% 부근으로 2007년 이후 최고권. 유가 하락에도 장기물 매도세 지속, 크레딧 all-in yield 상승 요인",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-tuesday-september-29-dow-sp-500-nasdaq-080526442.html"
+    },
+    {
+      "cor": "MACRO/RATES",
+      "t": "윌리엄스 뉴욕연은 총재 \"추가 인상 서두를 필요 없어\"",
+      "m": "9월 인상 이후 데이터 확인 여유 강조. 10월 인상 확률 약 70%에서 51.5% 수준으로 하락, 30일 PCE 발표 대기",
+      "url": "https://eurasiabusinessnews.com/2026/09/29/stock-market-today-treasury-yields-rise-despite-falling-oil-prices-as-dow-slips/"
+    },
+    {
+      "cor": "MACRO/RATES",
+      "t": "9월 컨퍼런스보드 소비자신뢰지수 예상 크게 하회",
+      "m": "수십 년래 최고 금리, 이란 전쟁 장기화, AI 우려 등 복합 요인. 소비 둔화 리스크 부각",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-tuesday-september-29-dow-sp-500-nasdaq-080526442.html"
+    },
+    {
+      "cor": "US BANKS",
+      "t": "Fed·FDIC, 대형 15개 은행 정리계획(living will) 결함 없음 판정",
+      "m": "자산 2,500억달러 초과 15개사 2025년 제출분 대상. BNP파리바의 2021년 지적사항도 해소 판정, 정리가능성 측면 우호적",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260929a.htm"
+    },
+    {
+      "cor": "US BANKS",
+      "t": "Citrini Research, 에이전트 AI 예금이탈 논리로 Truist 약세 의견",
+      "m": "고관성(inertia) 예금 비중 높은 리저널은행 지목. 신용 이슈가 아닌 예금비용·deposit beta 문제로, 선순위채보다 주가 영향 중심",
+      "url": "https://www.newsquawk.com/headlines/citrini-research-bearish-on-truist-tfc-says-agentic-ai-deposits-threaten-usd-66tln-of-bank-reserrves-bearish-on-tfc-due-to-high-inertia-deposits"
+    },
+    {
+      "cor": "EU BANKS",
+      "t": "Julius Baer, 스위스 규제당국 조치 종료로 주가 강세",
+      "m": "유럽 증시는 ECB 추가 인상 베팅 축소로 상승 출발. 스위스 PB업권 규제 불확실성 완화",
+      "url": "https://www.bloomberg.com/news/articles/2026-09-29/european-stocks-rise-as-julius-baer-jumps-on-end-to-swiss-probe"
+    },
+    {
+      "cor": "ENERGY",
+      "t": "브렌트유 1.7% 하락, 배럴당 96.16달러 마감",
+      "m": "미-이란 외교 진전 기대와 사우디 수출 확대 신호 반영. 다만 장기금리 상승 흐름은 유지",
+      "url": "https://www.bnnbloomberg.ca/markets/dow-jones/2026/09/29/us-indexes-edge-mostly-higher-in-early-trading-on-wall-street/"
+    },
+    {
+      "cor": "TECH/SEMIS",
+      "t": "앤트로픽 IPO 투자설명서 유출 보도, AI 트레이드 경계감 확대",
+      "m": "로이터 보도상 2조달러 밸류에이션 목표. 엔비디아는 장초반 상승분 반납 후 0.7% 하락 마감",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-tuesday-september-29-dow-sp-500-nasdaq-080526442.html"
+    },
+    {
+      "cor": "TECH/SEMIS",
+      "t": "마이크론 30일 장마감 후 실적 발표, AI 트레이드 시험대",
+      "m": "HBM 수요 수혜로 연초 대비 280% 이상 상승한 상태. 실적이 반도체 섹터 및 SK하이닉스 등 동종 크레딧 센티먼트에 영향",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/zacks-analyst-blog-highlights-micron-054800227.html"
+    },
+    {
+      "cor": "TELECOM",
+      "t": "AT&T, 코닝과 30억달러 이상 다년 광섬유 구매계약",
+      "m": "데이터 수요 증가 대응한 광통신망 확장 목적. 설비투자 부담 지속 신호",
+      "url": "https://stockanalysis.com/stocks/t/"
+    }
+  ]
+}
