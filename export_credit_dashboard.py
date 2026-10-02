@@ -316,6 +316,50 @@ YTD_START  = datetime(END_DATE.year, 1, 1)  # 보유가중평균 G-spread 추이
 PREL_FILE_PATH = r"C:\blp\data"
 PREL_FILE_PATTERN = "PREL"
 
+# 포트 운용 탭 (export_port_tab.py + 포트운용 엑셀)
+#  - None이면 이 스크립트 폴더에서 가장 최근에 저장된 "포트운용_IG크레딧*.xlsx"를 사용
+#  - 다른 위치면 전체 경로 지정 (또는 실행 시 --port-xlsx 경로)
+PORT_XLSX_PATH = None
+PORT_XLSX_PATTERN = "포트운용_IG크레딧*.xlsx"
+
+
+def find_port_xlsx(path=None):
+    """포트운용 엑셀 경로 결정: 인자 > PORT_XLSX_PATH > 스크립트 폴더 최신 파일"""
+    import glob
+    p = path or PORT_XLSX_PATH
+    if p:
+        return p if os.path.exists(p) else None
+    folder = os.path.dirname(os.path.abspath(__file__))
+    files = [f for f in glob.glob(os.path.join(folder, PORT_XLSX_PATTERN))
+             if not os.path.basename(f).startswith("~$")]
+    return max(files, key=os.path.getmtime) if files else None
+
+
+def load_port_tab_html(path=None):
+    """포트 운용 탭 HTML 조각 생성. 실패해도 대시보드 생성은 계속되도록 안내 문구를 반환."""
+    import html as _html
+
+    def _msg(text):
+        return f'<div class="ib">📐 포트 운용 데이터를 불러오지 못했습니다 — {_html.escape(text)}</div>'
+
+    try:
+        from export_port_tab import render_port_tab
+    except ImportError:
+        print("  ⚠️  export_port_tab.py 없음 → 포트 운용 탭 비움")
+        return _msg("export_port_tab.py를 이 스크립트와 같은 폴더에 두세요.")
+    xlsx = find_port_xlsx(path)
+    if not xlsx:
+        print("  ⚠️  포트운용 엑셀 없음 → 포트 운용 탭 비움")
+        return _msg(f"{PORT_XLSX_PATTERN} 파일을 찾지 못했습니다. PORT_XLSX_PATH 또는 --port-xlsx로 지정하세요.")
+    try:
+        frag = render_port_tab(xlsx)
+        print(f"  📐 포트 운용 탭: {os.path.basename(xlsx)} "
+              f"(저장 {datetime.fromtimestamp(os.path.getmtime(xlsx)):%Y-%m-%d %H:%M})")
+        return frag
+    except Exception as e:
+        print(f"  ⚠️  포트 운용 탭 생성 실패 ({e})")
+        return _msg(str(e))
+
 
 # ══════════════════════════════════════════════
 # 1.5 PREL 워크시트 로드
@@ -1836,8 +1880,9 @@ def load_sample_data():
 # ══════════════════════════════════════════════
 # 4. HTML 템플릿 생성
 # ══════════════════════════════════════════════
-def generate_html(data, issuer_data=None):
+def generate_html(data, issuer_data=None, port_html=None):
     """데이터를 받아 standalone HTML 대시보드 문자열을 반환"""
+    port_tab_html = port_html or '<div class="ib">📐 포트 운용 데이터 없음</div>'
 
     data_json = json.dumps(data, ensure_ascii=False)
     issuer_json = json.dumps(issuer_data or {"as_of": None, "issuers": {}}, ensure_ascii=False)
@@ -1927,6 +1972,7 @@ textarea:focus,.ti:focus{{border-color:var(--ac)}}
 <div class="hd"><div><h1>IG Credit Spread Dashboard</h1><div class="sub" id="hdr-sub"></div></div><a href="hyperscaler/hyperscaler-dashboard.html" style="color:var(--ac,#3b82f6);font-size:12px;font-weight:600;text-decoration:none;border:1px solid var(--ac,#3b82f6);padding:6px 14px;border-radius:20px;white-space:nowrap;margin-right:12px">🖥️ 하이퍼스케일러 →</a><div class="st" id="hdr-status"></div></div>
 <div class="tabs">
   <div class="tab active" data-tab="t1">🎯 보유 채권</div>
+  <div class="tab" data-tab="t10">📐 포트 운용</div>
   <div class="tab" data-tab="t2">📊 크레딧 지표</div>
   <div class="tab" data-tab="t9">📰 보유종목 뉴스<span id="newsBadge"></span></div>
   <div class="tab" data-tab="t3">🏢 발행자별 곡선</div>
@@ -2170,6 +2216,10 @@ textarea:focus,.ti:focus{{border-color:var(--ac)}}
       <canvas id="t8-chart-canvas" height="100"></canvas>
     </div>
   </div>
+</div>
+<!-- TAB 10: 포트 운용 (export_port_tab.py) -->
+<div class="tp" id="t10">
+{port_tab_html}
 </div>
 </div>
 <div class="en" id="en">✅ CSV 파일이 다운로드됩니다</div>
@@ -4124,6 +4174,7 @@ if __name__ == "__main__":
     parser.add_argument("--sample", action="store_true", help="샘플 데이터로 생성 (Bloomberg 무시)")
     parser.add_argument("--backfill-issuance", metavar="CSV_PATH", help="발행량 로그 웜스타트: month,totalAmtMM,dealCount 헤더의 CSV 경로")
     parser.add_argument("--overwrite", action="store_true", help="--backfill-issuance 사용 시 기존 월 데이터도 덮어쓰기")
+    parser.add_argument("--port-xlsx", metavar="XLSX_PATH", help="포트 운용 탭에 쓸 포트운용 엑셀 경로 (기본: 스크립트 폴더 최신 파일)")
     args = parser.parse_args()
 
     if args.backfill_issuance:
@@ -4158,8 +4209,11 @@ if __name__ == "__main__":
     # 발행자 재무 데이터 로드 (issuer_financials.json)
     issuer_data = load_issuer_financials()
 
+    # 포트 운용 탭 (포트운용 엑셀 → HTML 조각)
+    port_html = load_port_tab_html(args.port_xlsx)
+
     # HTML 생성
-    html_content = generate_html(data, issuer_data)
+    html_content = generate_html(data, issuer_data, port_html)
 
     # index.html로 저장 (GitHub Pages용 고정 파일명)
     script_dir = os.path.dirname(os.path.abspath(__file__))
