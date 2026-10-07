@@ -1,59 +1,59 @@
 {
-  "date": "2026-10-06",
+  "date": "2026-10-07",
   "items": [
     {
-      "t": "NVDA",
-      "h": "엔비디아, 사상 최고가 경신하며 시총 6조달러 목전…S&P500·나스닥 동반 신고가",
-      "m": "S&P500이 0.58% 상승한 7,818.95로 사상 최고치를 경신하고 나스닥종합지수도 0.45% 오른 27,599.79로 이틀 연속 신고가를 기록한 가운데, 엔비디아가 또다시 사상 최고가를 갱신하며 시가총액 6조달러에 근접. 옵션시장은 이달 말까지 6조달러 돌파 가능성을 높게 반영 중(7조달러 도달은 11월 20일까지 약 1/16 확률). AMD 리사 수 CEO가 \"AI 연산 수요가 공급을 초과해 2027년 칩 공급을 대폭 늘릴 계획\"이라고 밝히고 마벨이 2028년 매출 전망을 상향(+5.8%)하는 등 반도체 업종 전반에서 '수요 둔화 아닌 공급 부족' 논리가 재확인됨.",
-      "url": "https://alainguillot.com/stock-market-recap-october-6-2026"
+      "t": "META",
+      "h": "META -2.43% 720.91 마감, 하이퍼스케일러 중 최대 낙폭",
+      "m": "10/7(수) 종가 720.91달러(-2.43%). 고금리(30년물 2002년 이후 최고)·크레딧 스프레드 확대 속 AI 인프라 관련주 약세 동반. AI capex 조달 부담 관련 투자심리 위축 요인.",
+      "url": "https://tradingeconomics.com/united-states/stock-market"
     },
     {
-      "t": "GOOGL",
-      "h": "알파벳, 콘스텔레이션에너지와 20년·890MW 원전 전력구매계약 체결",
-      "m": "알파벳이 콘스텔레이션에너지와 20년 장기 890MW 전력구매계약(PPA)을 체결, 콘스텔레이션이 일리노이·펜실베이니아·뉴저지 원전 증설·업그레이드에 43억달러를 추가 투자해 PJM 전력망 내 알파벳 AI 데이터센터에 전력을 공급하게 됨(양사 합의 총 공급 규모는 PJM 시장 기준 3,590MW). 이에 콘스텔레이션 주가는 12.25% 급등한 300.40달러로 마감했고, 알파벳은 0.35% 소폭 상승. 하이퍼스케일러의 원전 PPA 경쟁(아마존 10/1, 메타 6월)이 AI 데이터센터 전력 확보전으로 확산되는 모습.",
-      "url": "https://www.fool.com/investing/2026/10/06/why-constellation-energy-rallied-today/"
+      "t": "NVDA",
+      "h": "NVDA -0.78% 237.38 마감",
+      "m": "10/7(수) 종가 237.38달러(-0.78%). 장기금리 급등·유가 상승에 따른 위험회피 분위기 속 반도체 전반 약세.",
+      "url": "https://tradingeconomics.com/united-states/stock-market"
     },
     {
       "t": "ORCL",
-      "h": "오라클, 하이퍼스케일러 채권 중 최고 수익률…2066년물 YTM 8.45%",
-      "m": "벤징가·트레이딩뷰 집계(10/5 기준)에 따르면 수익률 6% 이상 미국 상장 AI 하이퍼스케일러 채권 121종 중 오라클이 51종으로 최다이며, 오라클 6.85% 2066년 2월 만기물이 YTM 8.45%(가격 81.70), 6.125% 2065년 8월 만기물이 8.43%(가격 73.69)로 최고 수준. 하이퍼스케일러 중 7.5% 이상 수익률 채권을 보유한 곳은 오라클과 스페이스X뿐이며, 국채금리(10년물 5.3% 안팎)가 사실상 바닥 수익률로 작용. 주가는 142달러대에서 보합권 등락.",
-      "url": "https://benzinga.com/markets/large-cap/26/10/62161704/highest-yielding-hyperscaler-bonds-october-2026-spacex-oracle"
-    },
-    {
-      "t": "META",
-      "h": "메타, 신고가 장세 속 보합(-0.04%, 741.58달러)…채권 7.48%(2064년물)",
-      "m": "나스닥·S&P500 신고가 랠리에도 메타는 741.58달러로 -0.04% 보합 마감하며 전일(+1.9%) 상승분을 소화. 메타 채권은 총 15종이 수익률 6% 이상으로 집계됐고, 5.55% 2064년 8월 만기물이 YTM 7.48%(가격 75.80, 발행잔액 27.5억달러)로 오라클·스페이스X 다음으로 높은 수준. 9월 한 달간 25% 급등한 뒤 숨고르기 국면.",
-      "url": "https://www.investing.com/news/stock-market-news/constellation-energy-stock-outlook-analysis-after-20-year-nuclear-deal-with-google-93CH-4934346"
-    },
-    {
-      "t": "AMZN",
-      "h": "아마존, 하이퍼스케일러 채권 20종 6% 이상…신고가 장세 속 251달러대 보합",
-      "m": "아마존은 수익률 6% 이상 하이퍼스케일러 채권 121종 중 20종을 보유(마이크로소프트 17종, 메타 15종, 알파벳 14종, 스페이스X 4종)한 것으로 집계됨. 10월 1일 콘스텔레이션에너지 20년 원전 PPA(30억달러)·시놉시스 칩설계 IP 계약 등 AI 인프라 확장 모멘텀이 이어지는 가운데, 이날 주가는 251달러대에서 보합 등락. 최근 두 달간 마이크로소프트·메타·애플·알파벳·엔비디아 5개 종목이 지수 상승분의 90% 이상을 견인한 편중 장세가 지속.",
-      "url": "https://www.tradingview.com/news/benzinga:7522ce132094b:0-highest-yielding-hyperscaler-bonds-in-october-2026-spacex-joins-oracle-above-7-5/"
-    },
-    {
-      "t": "MU",
-      "h": "마이크론, '공급 부족 심화' 서사 재확인 속 한국 메모리주는 약세",
-      "m": "AMD가 2027년 공급 확대 계획을 밝히며 \"수요가 공급을 초과\"한다고 언급하고, 마벨이 2028년 매출 전망을 상향하는 등 AI 메모리·반도체 수요 서사가 재확인된 가운데 마이크론도 신고가 장세에 동참. 반면 같은 날 한국 증시에서는 SK하이닉스가 -2.7%, 삼성전자가 -0.4% 하락하며 외국인 순매도(5,645억원)가 이어져 미국·한국 메모리주 간 온도차가 부각됨. 삼성전자 3분기 잠정실적(10/8)이 다음 변수.",
-      "url": "https://www.brecorder.com/news/40442879/south-korean-shares-fall-as-chipmakers-decline-ahead-of-samsung-electronics-earnings"
-    },
-    {
-      "t": "AVGO",
-      "h": "브로드컴, 마벨·AMD 어닝 시그널 수혜 속 앤스로픽 600억달러 신디케이션 진행",
-      "m": "마벨이 2028년 매출 전망 상향(+5.8%), AMD가 2027년 공급 확대(+2.8%)를 시사하며 커스텀칩·AI 반도체 수요 서사가 강화된 가운데 브로드컴도 동반 수혜 구도. 앞서 블룸버그가 보도한 앤스로픽 연계 600억달러 AI칩 파이낸싱 신디케이션(BofA·씨티·모건스탠리 주선, 브로드컴 잔존가치 보증)과 420억달러 전환사채 대출까지 합치면 단일 고객 익스포저가 1,020억달러에 달해 순환 금융 우려도 지속.",
-      "url": "https://247wallst.com/investing/2026/10/04/broadcoms-massive-42-billion-chip-buying-deal-with-anthropic-raises-circular-financing-worries/"
+      "h": "ORCL -0.73% 143.71 마감",
+      "m": "10/7(수) 종가 143.71달러(-0.73%). 고금리·크레딧 스프레드 확대 국면에서 레버리지 부담 높은 AI 인프라 관련주 약세 흐름.",
+      "url": "https://tradingeconomics.com/united-states/stock-market"
     },
     {
       "t": "SPCX",
-      "h": "스페이스X, 158.79달러(-0.11%) 보합…회사채 2046·2056년물 YTM 7.7~7.8%",
-      "m": "신고가 랠리 속에서 스페이스X는 158.79달러(-0.11%)로 보합. 스페이스X 채권 4종 중 6.6% 2046년 7월 만기물이 YTM 7.84%(가격 87.60, 발행잔액 25.3억달러), 6.65% 2056년 7월 만기물이 YTM 7.67%(가격 88.03, 35.8억달러)로 오라클 다음으로 높은 하이퍼스케일러 채권 수익률을 기록. 알파벳은 스페이스X 지분 5억 5,120만주를 보유한 최대 기관투자자 중 하나로 확인.",
-      "url": "https://benzinga.com/markets/large-cap/26/10/62161704/highest-yielding-hyperscaler-bonds-october-2026-spacex-oracle"
+      "h": "SPCX -2.54% 167.56 마감",
+      "m": "10/7(수) 종가 167.56달러(-2.54%). 전일 급등(약 +8%) 후 차익실현성 조정.",
+      "url": "https://tradingeconomics.com/united-states/stock-market"
+    },
+    {
+      "t": "AMZN",
+      "h": "AMZN +1.41% 259.91 마감",
+      "m": "10/7(수) 종가 259.91달러(+1.41%). 지수 약세 속에서도 상승 마감한 하이퍼스케일러.",
+      "url": "https://tradingeconomics.com/united-states/stock-market"
     },
     {
       "t": "AAPL",
-      "h": "애플, 지수 상승분 90% 견인한 '5대 종목'에 포함되며 신고가 장세 동참",
-      "m": "더스트리트 집계에 따르면 최근 두 달간 S&P500 11개 섹터 중 4개만 상승한 가운데 마이크로소프트·메타·애플·알파벳·엔비디아 5개 종목이 7월 말 이후 지수 상승분의 90% 이상을 차지, 애플도 S&P500 신고가(7,818.95) 달성에 기여. 10개 섹터가 상승한 이날 유틸리티가 상승을 주도했고 국채금리 소폭 하락·유가 안정(브렌트 100.58달러, WTI 89.44달러)이 우호적으로 작용.",
-      "url": "https://pro.thestreet.com/portfolio/september-monthly-roundup-5-focus-areas-as-portfolio-keeps-its-ytd-lead"
+      "h": "AAPL +0.92% 336.70 마감",
+      "m": "10/7(수) 종가 336.70달러(+0.92%). 지수 약세 속 방어적 강세.",
+      "url": "https://tradingeconomics.com/united-states/stock-market"
+    },
+    {
+      "t": "GOOGL",
+      "h": "GOOGL 347대 보합 마감",
+      "m": "10/7(수) 종가 약 347.42달러, 전일 대비 보합권. 시장 약세 속 선방.",
+      "url": "https://tradingeconomics.com/united-states/stock-market"
+    },
+    {
+      "t": "MU",
+      "h": "MU 등락 출처 간 상충 (확인 필요)",
+      "m": "Trading Economics 표는 +3.92%(1,086.58달러)로 표기하나 동일 사이트 본문은 장중 최대 -2% 하락으로 서술. 종가 기준 등락 미확정 — 터미널 확인 필요.",
+      "url": "https://tradingeconomics.com/united-states/stock-market"
+    },
+    {
+      "t": "AVGO",
+      "h": "Broadcom, Anthropic向 칩 자금 약 600억달러 조달 추진",
+      "m": "10/2 Bloomberg 보도: 브로드컴이 Anthropic向 칩 공급 자금 마련을 위해 약 600억달러 규모 조달 추진(BofA·Citi·MS 참여). 10/7 종가 등락은 검증된 수치 없어 미기재.",
+      "url": "https://www.bloomberg.com/news/articles/2026-10-02/broadcom-starts-amassing-60-billion-to-fund-chips-for-anthropic"
     }
   ]
 }
