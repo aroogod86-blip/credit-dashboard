@@ -2,58 +2,58 @@
   "date": "2026-10-07",
   "items": [
     {
-      "t": "META",
-      "h": "META -2.43% 720.91 마감, 하이퍼스케일러 중 최대 낙폭",
-      "m": "10/7(수) 종가 720.91달러(-2.43%). 고금리(30년물 2002년 이후 최고)·크레딧 스프레드 확대 속 AI 인프라 관련주 약세 동반. AI capex 조달 부담 관련 투자심리 위축 요인.",
-      "url": "https://tradingeconomics.com/united-states/stock-market"
+      "t": "SPCX",
+      "h": "SpaceX, 엔비디아 칩 구매용 400억달러 차입 추진 보도(FT·Reuters)",
+      "m": "론 약 100억달러 + IG 채권 약 300억달러 구조. Apollo가 주관하고 Pimco 등 소수 대주단이 참여 협의 중이며 클로징은 2027년 예상. 엔비디아 칩 주문 자금 조달 목적으로 미확인 보도(회사·Apollo·엔비디아 무응답). SPCX는 10/7 -2.54%(167.56달러) 마감.",
+      "url": "https://www.benzinga.com/markets/tech/26/10/62208031/spacex-apollo-40-billion-nvidia-chips-financing"
+    },
+    {
+      "t": "MU",
+      "h": "마이크론 대만 노조 파업 승인…메모리주 약세, 등락 출처 간 상충",
+      "m": "타오위안 공장 노조가 파업 찬성 투표 가결(약 99%, 1,994명). 보너스 제도화(이익배분) 요구, 10/19 타이베이 집회·10/22 타이중 노조 조정 예정. 실제 파업·생산 차질은 아직 없음. TrendForce 기준 NAND 웨이퍼가 주간 -2.9%, 메모리 업종은 여름 고점 대비 30%+ 하락 상태. DA Davidson은 목표가 2,100→3,000달러 상향(Buy). 10/7 프리마켓 -2~3%였으나 종가 등락은 출처 상충(+3.9% 표기 vs 약세 서술)으로 미확정 — 터미널 확인 필요.",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/mu-stock-slides-fourth-day-114918967.html"
     },
     {
       "t": "NVDA",
-      "h": "NVDA -0.78% 237.38 마감",
-      "m": "10/7(수) 종가 237.38달러(-0.78%). 장기금리 급등·유가 상승에 따른 위험회피 분위기 속 반도체 전반 약세.",
-      "url": "https://tradingeconomics.com/united-states/stock-market"
+      "h": "엔비디아·MS, RTX Spark 탑재 윈도우 노트북 공개",
+      "m": "10/7 MS 윈도우·서피스 행사에서 엔비디아 Arm SoC 'RTX Spark'(GB10 기반) 탑재 Surface Laptop Ultra(2,599~5,899달러) 및 DGX Station for Windows 공개. 파트너사(ASUS·Dell·HP·Lenovo·MSI) 노트북은 10/16 출하. 엔비디아 Nemotron 로컬 모델도 윈도우 탑재 예정. 주가는 -0.78%(237.38달러) 마감.",
+      "url": "https://hothardware.com/news/microsoft-nvidia-windows-surface-rtx-spark-event"
     },
     {
-      "t": "ORCL",
-      "h": "ORCL -0.73% 143.71 마감",
-      "m": "10/7(수) 종가 143.71달러(-0.73%). 고금리·크레딧 스프레드 확대 국면에서 레버리지 부담 높은 AI 인프라 관련주 약세 흐름.",
-      "url": "https://tradingeconomics.com/united-states/stock-market"
+      "t": "META",
+      "h": "메타 AI 에이전트 '뮤즈', 윈도우 네이티브 앱 탑재 예정",
+      "m": "10/7 MS 행사에서 Meta Muse 에이전트가 올해 말 윈도우 네이티브 앱으로 제공된다고 발표. 한편 META는 -2.43%(720.91달러)로 하이퍼스케일러 중 낙폭 최대. 30년물 금리 2002년 이후 최고 등 금리 부담 국면에서 AI capex 비중이 큰 종목 약세.",
+      "url": "https://hothardware.com/news/microsoft-nvidia-windows-surface-rtx-spark-event"
     },
     {
-      "t": "SPCX",
-      "h": "SPCX -2.54% 167.56 마감",
-      "m": "10/7(수) 종가 167.56달러(-2.54%). 전일 급등(약 +8%) 후 차익실현성 조정.",
-      "url": "https://tradingeconomics.com/united-states/stock-market"
-    },
-    {
-      "t": "AMZN",
-      "h": "AMZN +1.41% 259.91 마감",
-      "m": "10/7(수) 종가 259.91달러(+1.41%). 지수 약세 속에서도 상승 마감한 하이퍼스케일러.",
-      "url": "https://tradingeconomics.com/united-states/stock-market"
+      "t": "AVGO",
+      "h": "브로드컴, 10/7 프리마켓 -1.2%…매크로 요인, 회사 고유 이벤트 없음",
+      "m": "프리마켓 371.20달러(-1.23%). 10년물 5.3%대(2002년 이후 최고)·유가 상승·FOMC 의사록 대기 등 위험회피 영향이며 회사 고유 악재는 없음. 컨센서스 Buy, 평균 목표가 약 519달러. 앞서 10/2 Bloomberg가 Anthropic向 칩 자금 약 600억달러 조달 추진을 보도(BofA·Citi·MS). 종가 등락은 미확인.",
+      "url": "https://www.benzinga.com/markets/tech/26/10/62215731/whats-going-on-with-broadcom-stock-wednesday-7"
     },
     {
       "t": "AAPL",
-      "h": "AAPL +0.92% 336.70 마감",
-      "m": "10/7(수) 종가 336.70달러(+0.92%). 지수 약세 속 방어적 강세.",
+      "h": "애플, 10월 신제품 공세 보도…폴더블 iPhone Duo·HomePad 등",
+      "m": "9to5Mac(10/6) 정리 기준 보도·루머: 홈 라인업(Apple TV 4K·HomePad·HomePod mini)이 10/13 전후, iPhone Duo(폴더블) 예약 10/16·첫 배송 10/23, M6 맥 라인업 및 iPad mini OLED 후속. 모두 미확정 루머. AAPL +0.92%(336.70달러) 마감.",
+      "url": "https://9to5mac.com/2026/10/06/apple-will-launch-7-new-products-in-october-heres-whats-coming/"
+    },
+    {
+      "t": "AMZN",
+      "h": "아마존, 10월 프라임 빅딜 데이 종료…3Q 실적 앞두고 AWS 기대",
+      "m": "10/7 프라임 빅딜 데이 종료. 3Q 실적 발표 전 AWS 성장 기대가 부각(Tradingpedia 10/5). 10/7 회사 고유 신규 발표는 확인되지 않음. 주가 +1.41%(259.91달러) 마감으로 지수 약세 속 상승.",
+      "url": "https://tradingpedia.com/2026/10/05/amazon-treads-water-as-aws-surges-ahead-of-q3-earnings"
+    },
+    {
+      "t": "ORCL",
+      "h": "오라클, 10/7 회사 고유 뉴스 없음 — 금리 민감 약세",
+      "m": "10/7 검증된 회사 고유 발표 없음. -0.73%(143.71달러) 마감. 고금리·크레딧 스프레드 확대 국면에서 AI 인프라 차입 부담 종목으로 약세 흐름.",
       "url": "https://tradingeconomics.com/united-states/stock-market"
     },
     {
       "t": "GOOGL",
-      "h": "GOOGL 347대 보합 마감",
-      "m": "10/7(수) 종가 약 347.42달러, 전일 대비 보합권. 시장 약세 속 선방.",
+      "h": "알파벳, 10/7 회사 고유 뉴스 없음 — 보합",
+      "m": "10/7 검증된 회사 고유 발표 없음. 종가 약 347.42달러로 보합권, 지수 약세 속 선방.",
       "url": "https://tradingeconomics.com/united-states/stock-market"
-    },
-    {
-      "t": "MU",
-      "h": "MU 등락 출처 간 상충 (확인 필요)",
-      "m": "Trading Economics 표는 +3.92%(1,086.58달러)로 표기하나 동일 사이트 본문은 장중 최대 -2% 하락으로 서술. 종가 기준 등락 미확정 — 터미널 확인 필요.",
-      "url": "https://tradingeconomics.com/united-states/stock-market"
-    },
-    {
-      "t": "AVGO",
-      "h": "Broadcom, Anthropic向 칩 자금 약 600억달러 조달 추진",
-      "m": "10/2 Bloomberg 보도: 브로드컴이 Anthropic向 칩 공급 자금 마련을 위해 약 600억달러 규모 조달 추진(BofA·Citi·MS 참여). 10/7 종가 등락은 검증된 수치 없어 미기재.",
-      "url": "https://www.bloomberg.com/news/articles/2026-10-02/broadcom-starts-amassing-60-billion-to-fund-chips-for-anthropic"
     }
   ]
 }
