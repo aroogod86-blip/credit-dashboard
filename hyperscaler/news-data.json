@@ -1,59 +1,59 @@
 {
-  "date": "2026-10-07",
+  "date": "2026-10-09",
   "items": [
     {
       "t": "SPCX",
-      "h": "SpaceX, 엔비디아 칩 구매용 400억달러 차입 추진 보도(FT·Reuters)",
-      "m": "론 약 100억달러 + IG 채권 약 300억달러 구조. Apollo가 주관하고 Pimco 등 소수 대주단이 참여 협의 중이며 클로징은 2027년 예상. 엔비디아 칩 주문 자금 조달 목적으로 미확인 보도(회사·Apollo·엔비디아 무응답). SPCX는 10/7 -2.54%(167.56달러) 마감.",
-      "url": "https://www.benzinga.com/markets/tech/26/10/62208031/spacex-apollo-40-billion-nvidia-chips-financing"
-    },
-    {
-      "t": "MU",
-      "h": "마이크론 대만 노조 파업 승인…메모리주 약세, 등락 출처 간 상충",
-      "m": "타오위안 공장 노조가 파업 찬성 투표 가결(약 99%, 1,994명). 보너스 제도화(이익배분) 요구, 10/19 타이베이 집회·10/22 타이중 노조 조정 예정. 실제 파업·생산 차질은 아직 없음. TrendForce 기준 NAND 웨이퍼가 주간 -2.9%, 메모리 업종은 여름 고점 대비 30%+ 하락 상태. DA Davidson은 목표가 2,100→3,000달러 상향(Buy). 10/7 프리마켓 -2~3%였으나 종가 등락은 출처 상충(+3.9% 표기 vs 약세 서술)으로 미확정 — 터미널 확인 필요.",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/mu-stock-slides-fourth-day-114918967.html"
-    },
-    {
-      "t": "NVDA",
-      "h": "엔비디아·MS, RTX Spark 탑재 윈도우 노트북 공개",
-      "m": "10/7 MS 윈도우·서피스 행사에서 엔비디아 Arm SoC 'RTX Spark'(GB10 기반) 탑재 Surface Laptop Ultra(2,599~5,899달러) 및 DGX Station for Windows 공개. 파트너사(ASUS·Dell·HP·Lenovo·MSI) 노트북은 10/16 출하. 엔비디아 Nemotron 로컬 모델도 윈도우 탑재 예정. 주가는 -0.78%(237.38달러) 마감.",
-      "url": "https://hothardware.com/news/microsoft-nvidia-windows-surface-rtx-spark-event"
-    },
-    {
-      "t": "META",
-      "h": "메타 AI 에이전트 '뮤즈', 윈도우 네이티브 앱 탑재 예정",
-      "m": "10/7 MS 행사에서 Meta Muse 에이전트가 올해 말 윈도우 네이티브 앱으로 제공된다고 발표. 한편 META는 -2.43%(720.91달러)로 하이퍼스케일러 중 낙폭 최대. 30년물 금리 2002년 이후 최고 등 금리 부담 국면에서 AI capex 비중이 큰 종목 약세.",
-      "url": "https://hothardware.com/news/microsoft-nvidia-windows-surface-rtx-spark-event"
-    },
-    {
-      "t": "AVGO",
-      "h": "브로드컴, 10/7 프리마켓 -1.2%…매크로 요인, 회사 고유 이벤트 없음",
-      "m": "프리마켓 371.20달러(-1.23%). 10년물 5.3%대(2002년 이후 최고)·유가 상승·FOMC 의사록 대기 등 위험회피 영향이며 회사 고유 악재는 없음. 컨센서스 Buy, 평균 목표가 약 519달러. 앞서 10/2 Bloomberg가 Anthropic向 칩 자금 약 600억달러 조달 추진을 보도(BofA·Citi·MS). 종가 등락은 미확인.",
-      "url": "https://www.benzinga.com/markets/tech/26/10/62215731/whats-going-on-with-broadcom-stock-wednesday-7"
-    },
-    {
-      "t": "AAPL",
-      "h": "애플, 10월 신제품 공세 보도…폴더블 iPhone Duo·HomePad 등",
-      "m": "9to5Mac(10/6) 정리 기준 보도·루머: 홈 라인업(Apple TV 4K·HomePad·HomePod mini)이 10/13 전후, iPhone Duo(폴더블) 예약 10/16·첫 배송 10/23, M6 맥 라인업 및 iPad mini OLED 후속. 모두 미확정 루머. AAPL +0.92%(336.70달러) 마감.",
-      "url": "https://9to5mac.com/2026/10/06/apple-will-launch-7-new-products-in-october-heres-whats-coming/"
-    },
-    {
-      "t": "AMZN",
-      "h": "아마존, 10월 프라임 빅딜 데이 종료…3Q 실적 앞두고 AWS 기대",
-      "m": "10/7 프라임 빅딜 데이 종료. 3Q 실적 발표 전 AWS 성장 기대가 부각(Tradingpedia 10/5). 10/7 회사 고유 신규 발표는 확인되지 않음. 주가 +1.41%(259.91달러) 마감으로 지수 약세 속 상승.",
-      "url": "https://tradingpedia.com/2026/10/05/amazon-treads-water-as-aws-surges-ahead-of-q3-earnings"
+      "h": "SpaceX, 전국 저대역 주파수 약 800MHz 인수 합의…통신 3사 8~13% 급락",
+      "m": "10/8 장 마감 후 발표된 인수(규모 약 80억달러 보도, 매도자는 Grain Management로 보도되나 일부 매체는 미공개로 표기)로 Starlink Mobile 구축 기반 확보. 최종 FCC 승인 필요. FCC는 모바일·D2D용 Starlink 위성 최대 15,000기 추가 승인. 보호예수 해제(약 3.2~3.3억주) 당일. 주가는 +1%대 상승(약 162달러대)이나 종가는 미확인. 10/8에는 OpenAI 매출 보도 여파로 -4%.",
+      "url": "https://www.marketbeat.com/instant-alerts/price-spacex-nasdaq-spcx-stock-jumps-12-heres-what-happened-2026-10-09/"
     },
     {
       "t": "ORCL",
-      "h": "오라클, 10/7 회사 고유 뉴스 없음 — 금리 민감 약세",
-      "m": "10/7 검증된 회사 고유 발표 없음. -0.73%(143.71달러) 마감. 고금리·크레딧 스프레드 확대 국면에서 AI 인프라 차입 부담 종목으로 약세 흐름.",
-      "url": "https://tradingeconomics.com/united-states/stock-market"
+      "h": "오라클, OpenAI 우려 완화로 반등…Mizuho Top pick·내부자 매수·텍사스 풍력 PPA",
+      "m": "10/8 OpenAI 연환산 매출이 기존 보도(약 700억달러)보다 약 200억달러 낮은 약 500억달러라는 FT 보도로 약 6% 급락 후, 총매출 vs 순매출 산정 방식 차이라는 해석이 확산되며 10/9 +3~4%대 반등(종가 미확정). Mizuho가 Top pick 편입, 내부자 매수 공시, 텍사스 풍력 가상 PPA 발표. 잠재 부담은 마이너스 FCF(약 -54억달러)·데이터센터 지연.",
+      "url": "https://www.tradingkey.com/news/market-movers/262208663-market-movers-orcl-20261009"
+    },
+    {
+      "t": "NVDA",
+      "h": "엔비디아, OpenAI 매출 충격(10/8 -2.9%) 후 소폭 하락 마감",
+      "m": "10/9 -0.52%(229.28달러)로 반등장에서 상대 부진. FT는 OpenAI 연환산 매출이 약 500억달러로 투자자 인식(약 700억달러)보다 낮다고 보도, 일각에서는 엔비디아 등 파트너십 매출 총액 계상 때문이라고 설명. OpenAI는 약 1.4조달러 가치 자금조달 협의 중이며 IPO는 지연. 실적발표는 11/17 예상(미확정).",
+      "url": "https://malaymail.com/news/money/2026/10/09/ai-hype-meets-revenue-reality-openai-figures-fall-us20b-short-of-earlier-reports/238332"
+    },
+    {
+      "t": "AMZN",
+      "h": "아마존 +3.29% 마감, 하이퍼스케일러 반등 주도",
+      "m": "10/9 종가 262.43달러(+3.29%). 프라임 빅딜 데이 이후 채널체크가 긍정적이라는 평가와 AWS·AI 수요 기대, 증권사 목표가 상향이 상승 요인. 평균 목표가 약 324달러. 다만 AI capex로 후행 FCF는 마이너스이며 FTC 광고 경매 소송, AWS 대상 EU DMA 조사 가능성이 리스크.",
+      "url": "https://www.tradingkey.com/news/market-movers/262209293-market-movers-amzn-20261009"
+    },
+    {
+      "t": "AAPL",
+      "h": "애플, iPhone 18 Pro 부품 발주 15~20% 감축 보도(Nikkei)",
+      "m": "Nikkei Asia는 애플이 10월분 iPhone 18 Pro 부품 주문을 당초 대비 15~20% 줄였다고 보도. 장 초반 -2.4~2.6%까지 하락했으나 종가 336.64달러(-1.11%). UBS는 사전예약 대기시간이 전년보다 짧다고 분석(중국 약세). 부가 보도: Taction 특허소송 배심 평결 57억달러(애플 항소 방침)·EU 대기업 정액부담금 검토 — 2차 출처이므로 확인 필요.",
+      "url": "https://finance.yahoo.com/technology/article/apple-stock-falls-on-report-that-company-is-cutting-component-orders-on-soft-iphone-18-pro-demand-132655752.html"
+    },
+    {
+      "t": "MU",
+      "h": "마이크론, 자사주 매입 한도 100억→351.6억달러 확대",
+      "m": "이사회가 임의 자사주 매입 한도를 최대 351.6억달러로 확대(기존 100억달러)했다고 GuruFocus가 보도. 10/9 -0.66%(1,029.00달러) 마감. 대만 노조 파업 승인 리스크(10/22 타이중 조정, 10/19 집회)는 지속.",
+      "url": "https://www.gurufocus.com/news/9117951/micron-mu-expands-stock-buyback-plan-amid-market-activity"
+    },
+    {
+      "t": "AVGO",
+      "h": "브로드컴, OCP 서밋(10/12~15)서 AI 네트워킹 신제품 공개 예고",
+      "m": "Tomahawk 6·Tomahawk Ultra·Jericho 4 이더넷 스위치, Thor Ultra 800G NIC, 3세대 CPO를 선보이고 15개+ 파트너와 10만개+ 가속기 클러스터 네트워킹 시연 예정. 10/9 +0.39%(361.54달러) 마감. 컨센서스 Buy, 평균 목표가 약 519달러. 앞서 Anthropic向 약 600억달러 조달 이슈 지속.",
+      "url": "https://www.benzinga.com/markets/tech/26/10/62269031/whats-going-on-with-broadcom-stock-friday-6"
     },
     {
       "t": "GOOGL",
-      "h": "알파벳, 10/7 회사 고유 뉴스 없음 — 보합",
-      "m": "10/7 검증된 회사 고유 발표 없음. 종가 약 347.42달러로 보합권, 지수 약세 속 선방.",
-      "url": "https://tradingeconomics.com/united-states/stock-market"
+      "h": "알파벳, Constellation과 3.59GW 전력계약(10/6 발표)",
+      "m": "20년 890MW(기존 원전 증설) + 15년 2,700MW 공급 계약. Constellation은 43억달러+ 투자 예정(첫 증설 2028년). 가격 비공개, 5년 기술 제휴 확대. 주가는 10/9 +0.97%(351.66달러, Trading Economics 기준)이나 GuruFocus는 -0.7%(347.94달러)로 서술해 출처 상충 — 확인 필요.",
+      "url": "https://gurufocus.com/news/9117421/alphabet-stocks-rise-higher-as-nuclear-deal-locks-36-gigawatts"
+    },
+    {
+      "t": "META",
+      "h": "메타, TikTok 광고 7개국 차단 보도…10/9 -0.31%",
+      "m": "Simply Wall St는 10/9 기준 메타가 ByteDance·TikTok의 페이스북·인스타그램 광고 구매를 7개국에서 제한했다고 보도(국가명 미공개). 구글과 18억달러 규모 AI 바이오 이니셔티브 추진이라는 서술도 있으나 단일 2차 출처로 확인 필요. 종가 718.67달러(-0.31%).",
+      "url": "https://simplywall.st/stocks/us/media/nasdaq-meta/meta-platforms/news/meta-platforms-meta-bars-rival-ads-in-seven-countries-while"
     }
   ]
 }
