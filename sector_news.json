@@ -1,23 +1,41 @@
 {
-  "date": "2026-10-07",
+  "date": "2026-10-09",
   "items": [
     {
-      "cor": "MACRO/RATES",
-      "t": "미 증시 하락 마감, S&P500 7,799.12(-0.25%)…30년물 금리 2002년 이후 최고",
-      "m": "S&P500 7,799.12(-0.25%, 사상 최고치 부근 후퇴), 다우 약 -341pt. 유가 급등·인플레이션 및 연준 긴축 우려, 호르무즈 유조선 피격 영향. 30년물 국채금리 2002년 이래 최고. FOMC 의사록 10/7 공개. WTI 약 90.35달러, 브렌트 약 101.55달러.",
-      "url": "https://www.zerohedge.com/markets/futures-slide-record-oil-jumps-hormuz-tanker-attacks-30y-yield-hits-2002-high"
+      "cor": "TELECOM",
+      "t": "SpaceX 저대역 주파수 인수 충격…AT&T -9.8%·VZ -8.8%·TMUS -13.3%",
+      "m": "SpaceX가 전국 저대역 주파수 약 800MHz를 인수(약 80억달러 보도)해 Starlink Mobile 기반 확보. 미국 4번째 이동통신사 부상 우려로 AT&T 22.17달러(-9.81%), Verizon 41.65달러(-8.75%), T-Mobile 148.58달러(-13.27%) 마감, S&P500 하락률 상위 3종목. 타워 3사(CCI·SBAC·AMT)는 +7~16%. 최종 FCC 승인 필요.",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/10/09/stock-market-today-oct-9-at-and-t-slides-on-spacex-spectrum-deal-threat/"
     },
     {
-      "cor": "KP",
-      "t": "코스피 6,803.90(-1.98%) 급락…채권금리 우려에 반도체주 약세",
-      "m": "코스피 6,803.90(-1.98%), 코스닥 898.43(-2.34%). 삼성전자 -1.29%, SK하이닉스 -2.82%. 외국인 2조원 이상 순매도. 10/8 삼성전자 3Q 잠정실적 발표, SK하이닉스 ADR 보호예수 해제 예정.",
-      "url": "https://www.koreajoongangdaily.com/business/kospi-drops-nearly-2-percent-as-bond-yield-worries-hit-tech-stocks/12909800"
+      "cor": "MACRO/RATES",
+      "t": "미 증시 반등 마감…S&P500 7,811.51(+0.59%), 10년물 5.25% 부근",
+      "m": "다우 51,655.01(+0.83%), S&P500 7,811.51(+0.59%), 나스닥 27,366.17(+0.64%). 주간 S&P500 +0.95%, 다우 +1.15%, 러셀2000 -0.91%. 전일 OpenAI 매출 보도 매도 후 기술주 반등. 10년물 약 5.25%(수요일 5.37% 24년 고점), 2년물 4.795%. 금 약 4,220달러. 차주 9월 CPI(10/14, 헤드라인 전년비 +3.6% 예상), FOMC 10/27~28(9월 인상 후 추가 인상 베팅 축소).",
+      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-09-2026"
+    },
+    {
+      "cor": "US BANKS",
+      "t": "차주 대형 은행 실적 시작…JPM·GS·C·WFC 10/13, MS·BAC 10/14",
+      "m": "S&P500 은행업종지수는 최근 1개월 -9%. 3Q S&P500 이익 전년비 +30%대 증가 예상(LSEG IBES). 고금리 장기화 속 NII·대손비용, 데이터센터·AI 관련 대출 코멘트가 관전 포인트.",
+      "url": "https://www.kitco.com/news/off-the-wire/2026-10-09/wall-st-week-ahead-bank-earnings-cpi-headline-busy-markets-week-sp-500"
     },
     {
       "cor": "ENERGY",
-      "t": "호르무즈 유조선 피격에 유가 반등",
-      "m": "호르무즈 해협 유조선 공격 보도로 유가 반등. WTI 약 90.35달러, 브렌트 약 101.55달러. 인플레이션 우려를 자극하며 장기금리 상승 요인으로 작용.",
-      "url": "https://www.zerohedge.com/markets/futures-slide-record-oil-jumps-hormuz-tanker-attacks-30y-yield-hits-2002-high"
+      "t": "트럼프 '미드텀 전 이란 공격 없다' 발언에 유가 하락, 걸프 허리케인 변수",
+      "m": "트럼프 대통령이 11/3 중간선거 전 이란 공격 계획이 없다고 언급해 유가 하락. WTI 약 91달러, 브렌트 약 103~104달러(출처별 소폭 상이). 허리케인으로 걸프 지역 원유 생산 약 63% 차질 보도. 델타항공은 연료비 부담으로 연간 이익 전망 하향.",
+      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-09-2026"
+    },
+    {
+      "cor": "TECH/SEMIS",
+      "t": "OpenAI 매출 갭 보도(FT)로 AI주 급락 후 반등",
+      "m": "FT는 OpenAI 연환산 매출이 9월말 약 500억달러로 기존 보도(약 700억달러)보다 약 200억달러 적다고 보도, 10/8 나스닥 -1.25%·엔비디아 -2.9%·오라클 약 -6%. 총매출 계상 방식 차이라는 설명이 나오며 10/9 반등. OpenAI 상장은 지연, Anthropic은 다음 달 상장 예상. AI capex 조달·카운터파티 리스크가 크레딧에도 부담 요인.",
+      "url": "https://malaymail.com/news/money/2026/10/09/ai-hype-meets-revenue-reality-openai-figures-fall-us20b-short-of-earlier-reports/238332"
+    },
+    {
+      "cor": "KP",
+      "t": "코스피 6,625.93(-2.62%) 마감, 삼성전자 3Q 잠정 영업익 107.4조에도 외국인 순매도",
+      "m": "10/8 코스피 6,625.93(-2.62%), 코스닥 892.27(-0.69%). 외국인 약 2.42조원·기관 약 2.09조원 순매도, 개인 약 3.74조원 순매수. 삼성전자 3Q 잠정 매출 195조원·영업이익 107.4조원(분기 최대)이나 반도체 고점 경계감으로 삼성전자 -2.05%·SK하이닉스 -2.15%(15:30 시세). 10/9 한글날 휴장, 10/12 재개장.",
+      "url": "https://core.asiae.co.kr/article/2026100816155957643"
     }
   ]
 }
