@@ -1,35 +1,35 @@
 {
-  "date": "2026-10-12",
+  "date": "2026-10-13",
   "items": [
     {
       "cor": "KP",
-      "t": "코스피 6,384.24(-3.65%) 급락, 두 달 만에 6,400선 붕괴…외국인 2조원 순매도",
-      "m": "코스피 6,384.24(-3.65%, 4거래일 연속 하락, 8/11 이후 6,400선 하회), 코스닥 849.19(-4.83%). 외국인 코스피 2조186억원 순매도. 삼성전자 -4.39%(250,500원), SK하이닉스 -4.52%(1,605,000원). 미 AI 성장성 우려, 중국 메모리 업체 점유율 확대 가능성, 미 장기금리 부담 및 옵션만기·ETF 리밸런싱 영향.",
-      "url": "https://www.newspim.com/news/view/20261012001236"
-    },
-    {
-      "cor": "TECH/SEMIS",
-      "t": "CXMT 신규 메모리셀 진전 발표…반도체·AI 인프라주 동반 약세",
-      "m": "중국 CXMT가 신규 메모리셀 설계 진전을 발표하고 연말 서버 메모리 출시를 목표로 제시. MU -3.85%, SanDisk -6%대, Marvell -3.42%, Semtech -10.15%, Lumentum 약 -10%. 기술 섹터 -1.25%로 S&P500 부문 최하위.",
-      "url": "https://www.fool.com/coverage/stock-market-today/2026/10/12/stock-market-today-oct-12-dow-gains-as-memory-stocks-weigh-on-nasdaq/"
-    },
-    {
-      "cor": "MACRO/RATES",
-      "t": "미 증시 혼조…다우 +0.38%, S&P500 -0.06%, 나스닥 -0.44%",
-      "m": "다우 51,850.55(+0.38%), S&P500 7,807.24(-0.06%), 나스닥 27,245.90(-0.44%), 러셀2000 -0.45%. 가치주 선호로 에너지(+1.45%)·통신서비스·필수소비재 강세, 기술 약세. 컬럼버스데이로 채권시장 휴장(10년물 직전 5.24% 부근). 금 4,167.56달러(-0.64%). 9월 CPI는 10/14, 소매판매는 10/15 발표 예정.",
-      "url": "https://www.fool.com/coverage/stock-market-today/2026/10/12/stock-market-today-oct-12-dow-gains-as-memory-stocks-weigh-on-nasdaq/"
+      "t": "코스피 6,035.35(-5.46%) 급락, 장중 6,000선 붕괴…SK하이닉스 -10.16%",
+      "m": "코스피 6,035.35(-5.46%, 장중 -7%대, 8/19 이후 최대 낙폭), 삼성전자 -7.19%(232,500원), SK하이닉스 -10.16%(1,442,000원). 프로그램 매도 사이드카 발동(09:47) 후 해제. 전일 미국 필라델피아반도체지수 -2.6%, 중국 CXMT 메모리 진전, 외국인 대규모 매도(장중 삼성전자·SK하이닉스 합산 약 10조원 순매도 보도, 확정 수치 아님)가 배경.",
+      "url": "https://www.seoul.co.kr/news/economy/securities/2026/10/13/20261013500211"
     },
     {
       "cor": "US BANKS",
-      "t": "JPM·GS·C·WFC 10/13 실적 발표…은행주 8월 고점 대비 -14%",
-      "m": "KBW 나스닥 은행지수는 8월 고점 대비 14%+ 하락. 3Q 실적 전망은 호조였던 2Q에 못 미칠 것으로 예상. 고금리가 은행 영업에 미치는 영향이 관전 포인트. BofA·MS는 10/14 발표 예정. 12일 금융주는 실적 앞두고 반등.",
-      "url": "https://finance.yahoo.com/markets/live/stock-market-today-monday-october-12-dow-sp-500-nasdaq-080321571.html"
+      "t": "3Q 은행 실적: GS 대폭 상회, JPM 하회, WFC 매출 실망",
+      "m": "골드만삭스 EPS 17.01달러(컨센서스 약 13~13.7달러), 매출 186.8억달러, 주식 매출 +72%(64.4억달러), FICC -1%, CET1 12.4%. JPM 순이익 153억달러(+6%), EPS 5.57달러(예상 5.90달러), 순이자이익 약 270.4억달러(+12.8%), 충당금 27.4억달러. 씨티 NII 169.8억달러(+13.7%) 상회, 카드 이익 -8%. 웰스파고 매출 218.7억달러로 실망, 충당금 10.3억달러(상승), NCO 0.38%. 광범위한 신용 악화는 아직 없으나 후기 사이클 정상화 징후.",
+      "url": "https://www.forbes.com/sites/mayrarodriguezvalladares/2026/10/13/big-bank-third-quarter-earnings-lenders-steady-wall-street-desks-surge/"
+    },
+    {
+      "cor": "TECH/SEMIS",
+      "t": "중국 CXMT 충격·브로드컴 CEO 'AI 카지노' 발언에 반도체 약세",
+      "m": "CXMT 신규 메모리셀 설계 진전과 혹 탄 브로드컴 CEO의 AI 투자 과열 경고가 맞물려 메모리·AI 인프라주 하락. MU -3.65%(장중 -5%대), SanDisk 약세. 아시아(한국) 증시 급락이 미국 반도체 약세와 동반.",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/10/13/stock-market-today-oct-13-markets-edge-lower-as-earnings-season-kicks-off/"
+    },
+    {
+      "cor": "MACRO/RATES",
+      "t": "미 증시 보합권 마감…S&P500 7,805.45(-0.02%), 10년물 5.24%",
+      "m": "S&P500 7,805.45(-0.02%), 나스닥 27,204.38(-0.15%), 다우 51,670.10(-0.35%). 은행 실적 혼조·반도체 약세. 10년물 5.24%로 고수준 유지, 금 4,181.80달러(-0.21%). J&J는 메드테크 부진으로 -6%, Blackstone은 금리 상승·목표가 하향으로 -4.18%. 9월 CPI는 10/14 발표 예정.",
+      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-13-2026"
     },
     {
       "cor": "ENERGY",
-      "t": "후티, 리야드 공항 공격…브렌트 106달러대",
-      "m": "후티의 사우디 주요 공항 공격(사망 12명 보도)과 유조선 2건 피격, 러시아의 우크라이나 발전소 공격 보도로 유가 상승. WTI 약 93달러(+1.1%), 브렌트 약 106달러(+1.2%). 트럼프는 미국이 사우디와 함께 후티를 공격할 수 있다고 시사. 에너지 섹터 +1.45%로 업종 1위.",
-      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-oct-12-2026-dow-futures-climb-as-wall-street-gears-up-for-busy-week"
+      "t": "러시아산 디젤 제한 일시 완화에 유가 -2%",
+      "m": "미 행정부의 러시아산 디젤 공급 제한 일시 완화로 WTI -2.09%(91.78달러), 브렌트 -2.09%(104.40달러). 그럼에도 에너지 섹터는 S&P500 업종 중 최상위 성과.",
+      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-13-2026"
     }
   ]
 }
