@@ -1,35 +1,35 @@
 {
-  "date": "2026-10-14",
+  "date": "2026-10-15",
   "items": [
     {
+      "cor": "KP",
+      "t": "코스피 5,554.22(-7.57%)·코스닥 760.82(-7.65%) 동반 서킷브레이커",
+      "m": "코스피 5,554.22(-7.57%, 장중 -8.0%), 코스닥 760.82(-7.65%). 코스닥 12:23·코스피 12:38 서킷브레이커 1단계 발동(동시 발동은 약 2.5개월 만), 오전 매도 사이드카도 발동. 외국인 코스피 약 3.6조원 순매도, 개인 약 1.3조원·기관 약 1.7조원 순매수. 삼성전자 -9.48%(210,000원), SK하이닉스 -11.06%(1,262,000원). 전일 필라델피아반도체지수 -4.3%, 미 CPI 상회, AI 인프라 자금조달 우려가 배경. 최근 7거래일 약 21% 하락.",
+      "url": "https://www.kdfnews.com/news/articleView.html?idxno=189358"
+    },
+    {
       "cor": "MACRO/RATES",
-      "t": "9월 CPI 3.7%로 상회…S&P500 -1.11%, 나스닥 -1.88%",
-      "m": "9월 CPI 전월비 +0.6%(예상 부합), 전년비 3.7%(예상 3.6%, 8월 3.4%), 근원 전월비 +0.3%(예상 0.2%)·전년비 2.6%(예상 2.5%). 휘발유 전월비 +7.1%. 10년물 5.28%(+6bp), 30년물 5.59%, 2년물 장중 4.93%(+14bp). 10/28 FOMC 추가 인상 확률 약 45%(장중 기준). 하셋 백악관 고문은 근원물가를 '일시적 blip'으로 평가. 다우 51,621.48(-0.09%), S&P500 7,718.94(-1.11%), 나스닥 26,692.87(-1.88%), 러셀2000 -1.93%, VIX 16.82. IT -3.0%, 헬스케어 +2.4%·필수소비재 +2.2%.",
-      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-14-2026"
+      "t": "미 9월 PPI 전년비 6.3%(2022년 이후 최대)…국채 랠리로 증시 낙폭 만회",
+      "m": "9월 생산자물가 전년비 +6.3%(전월비 +1.3% 보도). 전일 CPI(3.7%)에 이어 연준 10/27~28 추가 인상 가능성이 '반반(coin flip)'이라는 평가. 그럼에도 오후 국채 매수세로 10년물 5.085%(-10bp 수준)까지 하락, 다우는 +1%대 상승한 52,100선, S&P500은 소폭 상승 마감(대략 7,740, Trading Economics 기준), 나스닥은 보합권. 소매판매는 +0.4% 예상. 일본 닛케이 -5%, 대만 가권 -3%(TSMC -4%대) 등 아시아 증시 급락 선반영.",
+      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-15-2026"
     },
     {
       "cor": "TECH/SEMIS",
-      "t": "CoreWeave -15%, 채권금리 급등으로 AI 차입 우려 확산…SOXX 7일 연속 하락",
-      "m": "CoreWeave는 -15%대(종가 65.78달러)로 최근 5/6거래일 하락. 채권 수익률이 15%에 근접했다는 보도와 보험업권 자금조달 추진 보도로 AI 인프라 금융비용 부담 부각(머스크가 신용 압박 언급, 상세 조건은 미확인). 반도체 ETF SOXX는 7거래일 연속 하락. 바클레이즈의 Dell·HPE·NetApp 투자의견 하향으로 Dell -8%.",
-      "url": "https://www.gurufocus.com/news/9124182/coreweave-crwv-shares-slide-15-amid-insurance-funding-pursuit-for-ai-expansion"
+      "t": "AI 차입 우려 확산…CoreWeave 채권금리 15% 근접, TSMC 사상 최대 이익에도 하락",
+      "m": "CoreWeave는 전일 -15%대에 이어 장중 -7% 후 일부 회복, 젠슨 황이 CoreWeave 자본비용이 낮아지고 있다고 언급. 엔비디아 -1.8%, AMD -4%, Vertiv -6%(목표가 하향), 캐터필러 등 데이터센터 전력 프리미엄 되돌림. TSMC는 사상 최대 분기 이익에도 총마진 하락으로 -4%. 로켓랩은 중형 로켓 데뷔 지연으로 프리마켓 -10%. 벤더 금융 기반 차입이 수요를 부풀릴 수 있다는 우려 지속.",
+      "url": "https://finance.yahoo.com/markets/stocks/article/nvidia-stock-falls-amid-concerns-over-ai-financing-153440949.html"
     },
     {
       "cor": "US BANKS",
-      "t": "BofA·MS 실적 실망에 약세…BofA 12억달러+ 자금세탁 과태료",
-      "m": "BofA는 3Q 이익 감소, 12억달러+ 자금세탁 관련 제재금, 주식·FICC 트레이딩 매출 미달로 -4.8%(장중 -7%대). 모건스탠리는 주식 트레이딩이 예상을 상회했음에도 -2.7%. BlackRock은 자산운용 유입 호조로 +0.7%, State Street는 매출 미달로 큰 폭 하락(프리마켓 -7.6%). 전일 JPM·GS·씨티·웰스파고 실적과 함께 대형 은행의 후기 사이클 정상화 징후 지속.",
-      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-14-2026"
+      "t": "PNC 3Q 매출 예상 하회…은행 실적 '혼조~부진' 평가",
+      "m": "PNC Financial의 3Q 매출이 예상을 밑돌았고 US Bancorp·Charles Schwab도 이날 발표. 3Q 은행 실적은 전반적으로 혼조~부진으로 평가되나 금융주는 금리 하락(국채 랠리)에 힘입어 다우 상승을 지지. 전일 BofA(자금세탁 제재금 12억달러+, 트레이딩 부진)·MS 약세 이후 후기 사이클 정상화 징후 점검 필요.",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/10/15/stock-market-midday-oct-15-markets-mixed-as-ai-sell-off-continues/"
     },
     {
       "cor": "ENERGY",
-      "t": "유가 반등…WTI 95달러·브렌트 108달러, 휘발유 CPI 급등",
-      "m": "WTI 95.07달러, 브렌트 108달러(오후 기준)로 전일(WTI 91.78, 브렌트 104.40) 대비 상승. 9월 CPI에서 휘발유가 전월비 +7.1% 급등해 인플레이션 압력. 에너지 섹터 +0.65%. 금은 장중 -1.4%(약 4,119달러), 은 -5%대.",
-      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-14-2026"
-    },
-    {
-      "cor": "KP",
-      "t": "코스피 6,008.81(-0.44%) 6거래일 연속 하락, 6,000선 간신히 방어",
-      "m": "코스피 6,008.81(-0.44%, 장중 고점 6,190.65 후 저점 5,944.65), 코스닥 823.88(-1.57%). 외국인 코스피 약 1.36조원 순매도(7거래일 연속), 기관 약 9,690억원 순매수. 삼성전자 보합(232,000원), SK하이닉스 -1.66%(1,419,000원). 전일 급락 후 기술적 반등이 불발. 10/14 한국 시간 기준이며 미국 CPI 쇼크는 다음 거래일에 반영될 변수.",
-      "url": "https://www.fnnews.com/news/202610141600435929"
+      "t": "WTI 95달러·브렌트 104~106달러 고공 유지",
+      "m": "WTI 95.2달러, 브렌트 104.6달러(이른 시간 기준). 중동·이란 관련 긴장으로 브렌트가 105달러 안팎에서 등락. 에너지 섹터는 이날 약세. 금은 4,150~4,170달러, 구리는 3거래일 연속 하락(톤당 14,338달러).",
+      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-15-2026"
     }
   ]
 }
