@@ -1,35 +1,41 @@
 {
-  "date": "2026-10-20",
+  "date": "2026-10-21",
   "items": [
     {
       "cor": "MACRO/RATES",
-      "t": "다우 +1.02%, S&P500 +0.28%, 나스닥 -0.02%…주택지표 부진",
-      "m": "다우 52,495.88(+1.02%), S&P500 7,712.57(+0.28%), 나스닥 26,424.82(-0.02%), 러셀2000 +1.65%. VIX 17.44. 10년물 5.12%(-2bp). 9월 주택착공 122만건(-5.2%, 컨센 130만건), 이월계약 -7.3% MoM, 모기지 7.43%. 시장은 다음 FOMC 동결, 12월·내년 3월 25bp 인상 가능성 높게 반영(CNBC). 이번 주 Tesla·Meta 10/21 실적. 지수는 출처별 소폭 차이(TE S&P 7,733 등).",
-      "url": "https://vistapglobal.com/stock-market-today-october-20-2026-dow-gains-530-points-small-caps-lead-as-housing-weakens-amwl-brze-crm-docs-eprx-gm-lly-modd-noc-nvda-ser-spcx-tsla-wmt/"
-    },
-    {
-      "cor": "AUTOS",
-      "t": "GM 3Q 매출 500억달러·EPS 3.70달러 상회…200억달러 자사주 매입, 주가 -6.84%",
-      "m": "GM 3Q 매출 500억달러, 조정 EPS 3.70달러로 컨센서스 상회. 200억달러 자사주 매입을 발표하고 연간 이익 전망 범위를 좁힘. 주가는 S&P500 하락률 상위(-6.84%). 하락 사유는 출처에 상세 미기재(가이던스 범위 축소 영향 추정).",
-      "url": "https://vistapglobal.com/stock-market-today-october-20-2026-dow-gains-530-points-small-caps-lead-as-housing-weakens-amwl-brze-crm-docs-eprx-gm-lly-modd-noc-nvda-ser-spcx-tsla-wmt/"
+      "t": "나스닥 +1.05%·S&P500 +0.58% 상승, 10년물 5.15%",
+      "m": "다우 52,856.09(+0.69%), S&P500 7,757.17(+0.58%), 나스닥 26,702.86(+1.05%), 러셀2000 2,781.02(+0.27%). 10년물 5.15%(+3bp). 장중 나스닥 +1.24%에서 오후 3시경 +0.80%로 상승폭 축소(원인 불명). 버크셔 B주 사상 최고가 마감. Putin이 러-우-미 3자 회담 재개에 원칙 동의(11/10경, 미확정). 지수는 TradingKey·Yahoo 기준이며 Trading Economics는 선물 기반으로 소폭 상이.",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-wednesday-october-21-dow-sp-500-nasdaq-100000105.html"
     },
     {
       "cor": "TECH/SEMIS",
-      "t": "장중 칩주 약세 속 AI 반등 숨 고르기…Salesforce, Braze 56.6억달러 인수",
-      "m": "한국 데이터센터 업체 Elice가 서울 상장 첫날 -32% 하락하며 AI 트레이드 심리 악화(Yahoo). Salesforce가 Braze를 주당 47.5달러(약 56.6억달러) 현금 인수 합의(Braze +50%대). CoreWeave CDS 프리미엄은 주가 회복에도 높은 수준(CNBC). 10/19 SOX +1.61% 반등 후 조정.",
-      "url": "https://finance.yahoo.com/markets/live/copy-stock-market-today-dow-sp-500-nasdaq-futures-mixed-amid-volatile-week-111612062.html"
+      "t": "SOX +1.97% 상승(29/30종목), SpaceX 급등·Super Micro 매출 가이던스 상향",
+      "m": "SOX 11,505.56. Super Micro가 매출 전망을 상향하며 장중 최대 +12%. Dell +5%대. 웹 취약점(PHP) 공개로 Zscaler·Okta·Cloudflare·CrowdStrike +5~7%. Nvidia는 GTC Berlin 발표. SK하이닉스 자사주 매입 완료(금액 출처별 상이).",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262230142-us-stock-close-nasdaq-dow-sp500-rise-spacex-tesla-crowdstike-tradingkey"
+    },
+    {
+      "cor": "TELECOM",
+      "t": "AT&T -6%, 가입자 증가 컨센 하회·Starlink Mobile 경쟁 우려",
+      "m": "3Q 후불 휴대폰 순증 37.9만명으로 컨센서스(38.7만명) 소폭 하회. 투자자는 SpaceX의 Starlink Mobile 경쟁 위협에 주목. 실적은 시장 기대보다 나았다는 평도 있어 출처별 해석 상이. Netflix는 4Q 매출 전망(134.4억달러)이 컨센(135.1억달러)을 하회하고 광고 매출 가이던스를 30억→27억달러로 인하하며 -4~5%.",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-wednesday-october-21-dow-sp-500-nasdaq-100000105.html"
+    },
+    {
+      "cor": "US BANKS",
+      "t": "스테이블코인 규칙, 은행에 부정적(TD Cowen)…Circle·Coinbase +4%",
+      "m": "신규 스테이블코인 규칙이 플랫폼의 이자(yield) 지급을 완전히 금지하지 않아 은행 예금 경쟁 측면에서 부정적이라는 TD Cowen 평가. Circle·Coinbase는 각각 4% 넘게 상승. 은행 개별 실적·신용 뉴스는 확인되지 않음. 단일 출처.",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-wednesday-october-21-dow-sp-500-nasdaq-100000105.html"
     },
     {
       "cor": "ENERGY",
-      "t": "WTI 98달러 안팎 소폭 하락…브렌트 109달러 부근",
-      "m": "12월물 WTI 97.99달러(-0.56%). 장중에는 중동 공급 리스크로 98.5달러까지 반등(Stockhouse +0.41%) 등 출처별 상이. 브렌트는 109달러 부근. 트럼프 대통령은 수확기 농가 디젤비 지원 80억달러 프로그램 발표. 금 4,141.5달러(-0.45%).",
-      "url": "https://finance.yahoo.com/markets/live/copy-stock-market-today-dow-sp-500-nasdaq-futures-mixed-amid-volatile-week-111612062.html"
+      "t": "브렌트 110달러 부근 상승, WTI 98달러…사우디 아람코 유전 공격",
+      "m": "사우디 아람코 유전 공격으로 브렌트 약 110달러로 상승, WTI는 98달러 안팎. 에너지·산업재가 장중 강세. 금은 4,130달러대.",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-wednesday-october-21-dow-sp-500-nasdaq-100000105.html"
     },
     {
       "cor": "KP",
-      "t": "코스피 5,552.74(-3.73%) 급락, 코스닥 781.97(-3.33%)…외국인·기관 동반 매도",
-      "m": "코스피 -215.27p, 장중 저점 5,493.24. 외국인 약 5,300억원·기관 약 1조 48억원 순매도, 개인 약 8,981억원 순매수. 하락 773종목 vs 상승 118종목. 삼성전자 -2.98%, SK하이닉스 -4.23%, 현대차 -4.91%, LG에너지솔루션 -4.17%, 한화시스템·현대로템 -13%대. 원/달러 1,328.1원. 전일 5,768 반등분 하루 만에 반납. 출처에 구체적 하락 트리거 미기재. 한국 날짜 기준이며 미국 10/20 마감은 10/21 장에 반영.",
-      "url": "https://www.seoul.co.kr/news/economy/securities/2026/10/20/20261020500235"
+      "t": "코스피 5,735.66(+3.29%) 급반등, 두 달 만에 매수 사이드카",
+      "m": "코스피 +182.92p로 5,700선 회복. 외국인·기관 매수(파이낸셜뉴스·중앙이코노미 제목 기준), 반도체 훈풍이 배경. SK하이닉스 자사주 매입 완료 소식 병행. 세부 수급·업종은 본문 미확인. 한국 날짜 기준이며 미국 10/21 반등은 10/22 장에 반영.",
+      "url": "https://www.mt.co.kr/stock/2026/10/21/2026102115325717167"
     }
   ]
 }

@@ -1,58 +1,58 @@
 {
-  "date": "2026-10-20",
+  "date": "2026-10-21",
   "items": [
     {
       "t": "ORCL",
-      "h": "오라클 +1.11%(131.03달러), TD Cowen 'Nvidia 지원 가능성'·AstraZeneca AI 협력",
-      "m": "TD Cowen이 Nvidia가 금융 백스톱 또는 컴퓨트 임대·재임대 방식으로 오라클 데이터센터 구축을 지원할 수 있다고 분석(벤더 파이낸싱 협의 언급, 애널리스트 추정). BNP Paribas 서베이는 10월 소프트웨어 수요가 7월 대비 개선(OCI·Fusion, 유럽 양호). AstraZeneca와 헬스케어 AI 협력 발표. 신용: S&P BBB-(7/9 하향, 신규 조치 아님), 데이터센터 투자·조달 부담 지속. 상승률 출처별 +1.11%(TE)~+1.92%(Invezz).",
-      "url": "https://invezz.com/au/news/2026/10/20/oracle-stock-rises-nearly-2percent-today-heres-why/"
+      "h": "오라클 -1.61%(129.03달러), 데이터센터 FCF·레버리지 부담 지속…Nvidia 지원 가능성 보도",
+      "m": "MarketBeat: 대규모 데이터센터 투자로 FCF 크게 적자, 높은 레버리지, 정크 한 노치 위 등급이 부담. TD Cowen은 Nvidia가 데이터센터 조달을 지원할 가능성을 제기(애널리스트 추정). 뉴멕시코 데이터센터 프로젝트 불가항력(force majeure) 주장 보도로 실행 리스크 부각(출처 단일, 확인 필요). 긍정: Fusion AI 앱 출시, AstraZeneca 협력, 클라우드 백로그 6,640억달러 이상(보도치). 신용: S&P BBB-(7/9 하향, 신규 조치 아님). 차기 실적 12/14.",
+      "url": "https://www.marketbeat.com/instant-alerts/price-oracle-nyse-orcl-stock-falls-16-time-to-sell-2026-10-21/"
     },
     {
       "t": "AVGO",
-      "h": "브로드컴 -0.07%(334.37달러), 보합…칩주 반등 후 숨 고르기",
-      "m": "10/20 회사 고유 뉴스는 확인되지 않음. 장 초반 칩주가 나스닥 하락을 주도(Nasdaq 한때 -1.18%)했으나 마감 시 낙폭을 대부분 만회. 10/19 +1.78%에 이은 보합. 가격은 Trading Economics(CFD 기반) 기준.",
-      "url": "https://tradingeconomics.com/united-states/stock-market"
+      "h": "브로드컴 +1.03%(337.80달러), SOX 급반등(+1.97%) 동행",
+      "m": "SOX +1.97%(11,505.56, 30종목 중 29종목 상승)로 AI·칩주 반등 지속. 10/21 회사 고유 뉴스는 확인되지 않음. 가격은 Trading Economics(CFD 기반) 기준.",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262230142-us-stock-close-nasdaq-dow-sp500-rise-spacex-tesla-crowdstike-tradingkey"
     },
     {
       "t": "MU",
-      "h": "마이크론 -0.98%(896.07달러), SK하이닉스 급락·CXMT 우려 속 약세",
-      "m": "국내 반도체 급락(SK하이닉스 -4.23%)과 중국 CXMT의 DRAM 경쟁 우려가 부담. 10/19 BofA 'valuation 바닥' 평가 후 반등분 일부 반납. 10/20 회사 고유 공시는 확인되지 않음. 출처별 장중 낙폭 차이 큼.",
-      "url": "https://www.timothysykes.com/news/sk-hynix-inc-skhy-news-2026_10_20/"
+      "h": "마이크론 +2.14%(915.27달러), 칩주 강세·SK하이닉스 자사주 매입 완료",
+      "m": "SOX +1.97%에 동행. SK하이닉스가 자사주 매입을 계획보다 앞당겨 완료(금액은 출처별 4조원·40조원으로 상이, 확인 필요). 10/21 마이크론 고유 공시는 확인되지 않음.",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262230142-us-stock-close-nasdaq-dow-sp500-rise-spacex-tesla-crowdstike-tradingkey"
     },
     {
       "t": "META",
-      "h": "메타 -1.61%(694.09달러), 10/21 3Q 실적 앞두고 5일 -6.6%",
-      "m": "실적 발표(10/21 장 마감 후)를 앞두고 AI capex·Muse AI 에이전트 관련 업데이트가 관전 포인트. 5거래일 기준 -6.56%. Vantage는 AI 부채 우려와 실적 리스크로 고점 대비 약 10% 조정 언급. 회사 고유 신규 공시는 없음. 하락률 출처별 -1.59~-1.61%.",
-      "url": "https://stockhouse.com/news/market-updates/2026/10/20/market-open-meta-slips-ahead-earnings-as-chips-lead-nasdaq-lower-oct-20th"
+      "h": "메타 +0.46%(697.43달러), 3Q 매출 646억달러(+26%) 상회·capex 가이던스 상단 축소…시간외 상승",
+      "m": "3Q 매출 646억달러(컨센 633억달러), 영업이익 130억달러(컨센 169억달러, 마진 20%)로 이익은 하회. 주 검찰총장 청소년 안전 합의금 100억달러 반영(제외 시 영업이익 229억달러). 뉴멕시코 법원 250억달러 민사 제재 명령(항소 예정). capex 3Q 349억달러, 2026 가이던스 1,350~1,450억달러(1,300~1,450억달러에서 하단 상향), FCF -21억달러(전년 106억달러). 의결권 없는 Class C 주식 신설 보도. 시간외 약 +3%(Stocktwits)~+5.8%(Yahoo)로 출처 차이.",
+      "url": "https://fortune.com/2026/10/21/meta-q3-earnings-mark-zuckerberg-capex-muse/"
     },
     {
       "t": "GOOGL",
-      "h": "알파벳 -1.13%(340.28달러), KeyCorp 목표가 435→410달러 하향",
-      "m": "KeyCorp이 투자의견 Overweight를 유지하되 목표가를 435달러에서 410달러로 하향(사유는 기사에 미기재). 통신서비스·기술 섹터 약세가 나스닥을 압박. 회사 고유 공시는 확인되지 않음.",
-      "url": "https://www.marketbeat.com/instant-alerts/price-alphabet-nasdaq-googl-stock-falls-11-after-analyst-downgrade-2026-10-20/"
+      "h": "알파벳 -1.65%(334.65달러), 차주 실적 앞두고 약세",
+      "m": "차주 실적 발표를 앞두고 하락(Motley Fool). 통신서비스 섹터 약세와 동행. 회사 고유 공시는 확인되지 않음. 직전 거래일 KeyCorp 목표가 435→410달러 하향(Overweight 유지).",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/10/21/stock-market-midday-oct-21-tech-gains-lift-nasdaq-as-spacex-soars/"
     },
     {
       "t": "SPCX",
-      "h": "SpaceX -0.11%(147.79달러), 정규장 마감 후 3Q 실적 서프라이즈…시간외 +1.5%",
-      "m": "정규장은 실적 앞두고 보합권. 장 마감 후 발표: 매출 146억달러(+161%, 컨센서스 127억달러), 순이익 44억달러(첫 흑자), 영업이익 28억달러, EPS 0.35달러(컨센 0.13달러). AI 부문(Super Intelligence) 매출 76억달러, 영업이익 4.31억달러. Starlink 연결 매출 52억달러(+69%), 가입자 1,360만명. 설비투자 196억달러(AI 164억달러). 수치 중 컨센서스·시간외 등락은 단일 출처로 확인 필요. 반영은 10/21 정규장.",
-      "url": "https://teslanorth.com/2026/10/20/spacex-q3-2026-results/"
+      "h": "SpaceX +7.79%(159.31달러), 3Q 실적 서프라이즈·AI 부문 급성장",
+      "m": "매출 146억달러(+161%), 순이익 44억달러, 조정 EBITDA 88억달러, AI(Super Intelligence) 매출 76억달러. 가이던스: 1Q27 매출 330~370억달러(GuruFocus). 머스크는 SpaceX·Tesla 양사가 합병 논의를 위한 특별위원회를 구성했다고 언급(확정 아님). AT&T는 Starlink Mobile 경쟁 우려로 -6%. 프리마켓 +10%대에서 마감 +7.8%. 10/24 보호예수 해제 예정(10/16 조사분).",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262230142-us-stock-close-nasdaq-dow-sp500-rise-spacex-tesla-crowdstike-tradingkey"
     },
     {
       "t": "AMZN",
-      "h": "아마존 +0.07%(262.63달러), 전일 +5% 급등 후 보합",
-      "m": "10/19 Morgan Stanley Top Pick(목표가 350달러) 영향으로 급등한 뒤 숨 고르기. 10/20 회사 고유 뉴스는 확인되지 않음. 3Q 실적 10/29.",
+      "h": "아마존 -0.10%(262.37달러), 보합…고유 뉴스 없음",
+      "m": "10/19 Morgan Stanley Top Pick 급등 후 보합. 10/21 회사 고유 뉴스는 확인되지 않음. 3Q 실적 10/29. 출처 표기상 부호 불일치가 있어 소폭 하락으로 처리.",
       "url": "https://tradingeconomics.com/united-states/stock-market"
     },
     {
       "t": "NVDA",
-      "h": "엔비디아 -0.32%(216.39달러), 오라클 지원 가능성(TD Cowen)·AI 에이전트 안전 플랫폼",
-      "m": "TD Cowen은 Nvidia가 오라클 데이터센터 구축에 금융 백스톱 또는 임대 구조로 관여할 수 있다고 분석(추정, 확정 아님). 1,500억달러 자사주 매입 증액은 9/28 발표분으로 신규 아님(총 잔여 한도 2,350억달러). 소폭 하락.",
-      "url": "https://invezz.com/au/news/2026/10/20/oracle-stock-rises-nearly-2percent-today-heres-why/"
+      "h": "엔비디아 +2.54%(221.96달러), GTC Berlin 공급망 협력·OpenShell 에이전트 아키텍처 발표",
+      "m": "GTC Berlin에서 기판·패키징·테스트·광엔진 등 공급망 협력을 발표하고 보안 AI 에이전트 구축용 OpenShell Reference Architecture 공개(협력사·조건 미공개). Needham Buy·목표가 300달러 재확인. SOX +1.97% 주도. 상승률 출처별 +1.5%(장중)~+2.54%(TE).",
+      "url": "https://www.gurufocus.com/news/9135204/nvidia-nvda-unveils-strategic-supply-chain-partnerships-and-ai-platform-at-gtc-berlin"
     },
     {
       "t": "AAPL",
-      "h": "애플 -0.99%(339.55달러), 10/28 이벤트 앞두고 조정",
-      "m": "10/19 -0.14%에 이어 하락. 10/28 로스앤젤레스 이벤트(Bloomberg: 터치스크린 MacBook Pro 가능성, 미확정)를 앞둔 가운데 10/20 고유 뉴스는 확인되지 않음. 기술·통신 약세 동행.",
+      "h": "애플 +1.32%(343.99달러), 기술주 반등에 동참…고유 뉴스 없음",
+      "m": "10/20 -0.99% 후 반등. 10/28 로스앤젤레스 이벤트를 앞둔 가운데 10/21 고유 뉴스는 확인되지 않음.",
       "url": "https://tradingeconomics.com/united-states/stock-market"
     }
   ]
