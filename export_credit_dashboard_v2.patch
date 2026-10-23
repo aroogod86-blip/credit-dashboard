@@ -1,0 +1,180 @@
+--- export_credit_dashboard.py.orig
++++ export_credit_dashboard.py
+@@ -1883,6 +1883,12 @@
+ def generate_html(data, issuer_data=None, port_html=None):
+     """데이터를 받아 standalone HTML 대시보드 문자열을 반환"""
+     port_tab_html = port_html or '<div class="ib">📐 포트 운용 데이터 없음</div>'
++    # 커브 비교 탭 (export_curve_tab.py — 발행사별 장단기 G-spread 차이)
++    try:
++        from export_curve_tab import render_curve_tab
++        curve_tab_html = render_curve_tab()
++    except Exception as e:
++        curve_tab_html = f'<div class="ib">📏 커브 비교 모듈 로드 실패: {e}</div>'
+ 
+     data_json = json.dumps(data, ensure_ascii=False)
+     issuer_json = json.dumps(issuer_data or {"as_of": None, "issuers": {}}, ensure_ascii=False)
+@@ -1975,7 +1981,7 @@
+   <div class="tab" data-tab="t10">📐 포트 운용</div>
+   <div class="tab" data-tab="t2">📊 크레딧 지표</div>
+   <div class="tab" data-tab="t9">📰 보유종목 뉴스<span id="newsBadge"></span></div>
+-  <div class="tab" data-tab="t3">🏢 발행자별 곡선</div>
++  <div class="tab" data-tab="t11">📏 커브 비교</div>
+   <div class="tab" data-tab="t8">💰 기업별 유동성 지표</div>
+   <div class="tab" data-tab="t6">🆕 최근 발행<span id="techBadge"></span></div>
+   <div class="tab" data-tab="t7">⚙️ 종목 관리</div>
+@@ -2086,12 +2092,6 @@
+     <div class="cd"><div class="ct2">📉 HY / EM ETF (HYG / EMB / EMLC)</div><div class="ch" style="height:260px"><canvas id="c10"></canvas></div></div>
+   </div>
+ </div>
+-<!-- TAB 3 -->
+-<div class="tp" id="t3">
+-  <div class="ib">🏢 발행자별 개별 수익률 곡선 — ● 보유  ○ 비보유</div>
+-  <div class="ig" id="ic"></div>
+-  <div class="cd"><div class="ct2">🏭 섹터 평균 곡선</div><div class="ch" style="height:300px"><canvas id="c7"></canvas></div></div>
+-</div>
+ <!-- TAB 6: New Issues -->
+ <div class="tp" id="t6">
+   <div class="ib">🆕 Bloomberg PREL 워크시트 기반 최근 발행 내역 — <span id="niCount"></span></div>
+@@ -2218,6 +2218,9 @@
+   </div>
+ </div>
+ <!-- TAB 10: 포트 운용 (export_port_tab.py) -->
++<div class="tp" id="t11">
++{curve_tab_html}
++</div>
+ <div class="tp" id="t10">
+ {port_tab_html}
+ </div>
+@@ -2260,9 +2263,10 @@
+   document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+   document.querySelectorAll('.tp').forEach(x=>x.classList.remove('active'));
+   t.classList.add('active');document.getElementById(t.dataset.tab).classList.add('active');
+-  if(t.dataset.tab==='t2')R2();if(t.dataset.tab==='t3')R3();
++  if(t.dataset.tab==='t2')R2();
+   if(t.dataset.tab==='t6')R6();if(t.dataset.tab==='t7')R7();if(t.dataset.tab==='t8')R8();
+   if(t.dataset.tab==='t9')R9();
++  if(t.dataset.tab==='t11'&&window.RCurve)RCurve();
+ }}));
+ 
+ // ═══ TAB 1 ═══
+@@ -3505,120 +3509,6 @@
+   }}  // if etNames
+ }}  // R2
+ 
+-// ═══ TAB 3: Issuer Curves (fixed) ═══
+-let t3r=false;
+-function R3(){{
+-  if(t3r)return;t3r=true;
+-  const all=D.allBonds;
+-
+-  // Group by issuer
+-  const byIssuer={{}};
+-  all.forEach(b=>{{if(b.issuer&&b.duration&&b.ytm){{(byIssuer[b.issuer]=byIssuer[b.issuer]||[]).push(b)}} }});
+-
+-  // 발행자 선정: 보유 채권이 많은 발행자를 최우선으로 노출 (min 2 bonds — 비교물 없이 보유 종목만으로도 표시)
+-  // 정렬 기준: ① 보유 종목수 내림차순 ② 전체(보유+비보유) 종목수 내림차순
+-  const top=Object.entries(byIssuer)
+-    .map(([issuer,bs])=>[issuer,bs,bs.filter(b=>b.is_owned).length])
+-    .filter(([,bs])=>bs.length>=2)
+-    .sort((a,b)=>(b[2]-a[2])||(b[1].length-a[1].length))
+-    .slice(0,12)
+-    .map(([issuer,bs])=>[issuer,bs]);
+-
+-  const container=document.getElementById('ic');
+-  container.innerHTML=top.map(([issuer,bs],idx)=>{{
+-    const owned=bs.filter(b=>b.is_owned).length;
+-    const extra=bs.filter(b=>!b.is_owned).length;
+-    const sub=`보유 ${{owned}}개`+(extra>0?` + 비보유 ${{extra}}개`:'');
+-    return`<div class="ic">
+-      <div class="it">${{issuer}}</div>
+-      <div class="is">${{sub}} — <span style="color:var(--ac)">● 현재</span> <span style="color:var(--am)">◆ 1M전</span> <span style="color:var(--rd)">▲ 3M전</span></div>
+-      <div class="ch" style="height:260px"><canvas id="ic${{idx}}"></canvas></div></div>`;
+-  }}).join('');
+-
+-  top.forEach(([issuer,bs],idx)=>{{
+-    const color=CL[idx%CL.length];
+-    const allSorted=[...bs].sort((a,b)=>a.duration-b.duration);
+-
+-    const datasets=[];
+-
+-    // Current YTM — all bonds as line
+-    datasets.push({{
+-      label:'현재',
+-      data:allSorted.map(b=>({{x:b.duration,y:b.ytm}})),
+-      borderColor:color,backgroundColor:color,
+-      pointRadius:allSorted.map(b=>b.is_owned?7:5),
+-      pointStyle:allSorted.map(b=>b.is_owned?'circle':'circle'),
+-      pointBackgroundColor:allSorted.map(b=>b.is_owned?color:'transparent'),
+-      pointBorderColor:color,
+-      pointBorderWidth:allSorted.map(b=>b.is_owned?0:2),
+-      pointHoverRadius:9,
+-      showLine:true,tension:.3,borderWidth:2,
+-    }});
+-
+-    // 1M ago YTM
+-    const has1m=allSorted.filter(b=>b.ytm_1m_ago!=null);
+-    if(has1m.length>=2){{
+-      datasets.push({{
+-        label:'1M전',
+-        data:has1m.map(b=>({{x:b.duration,y:b.ytm_1m_ago}})),
+-        borderColor:'#f59e0b',backgroundColor:'transparent',
+-        pointRadius:4,pointStyle:'rect',pointBorderColor:'#f59e0b',pointBorderWidth:1.5,
+-        pointHoverRadius:6,showLine:true,tension:.3,borderWidth:1.5,borderDash:[4,3],
+-      }});
+-    }}
+-
+-    // 3M ago YTM
+-    const has3m=allSorted.filter(b=>b.ytm_3m_ago!=null);
+-    if(has3m.length>=2){{
+-      datasets.push({{
+-        label:'3M전',
+-        data:has3m.map(b=>({{x:b.duration,y:b.ytm_3m_ago}})),
+-        borderColor:'#ef4444',backgroundColor:'transparent',
+-        pointRadius:4,pointStyle:'triangle',pointBorderColor:'#ef4444',pointBorderWidth:1.5,
+-        pointHoverRadius:6,showLine:true,tension:.3,borderWidth:1.5,borderDash:[2,2],
+-      }});
+-    }}
+-
+-    const ctx=document.getElementById('ic'+idx).getContext('2d');
+-    new Chart(ctx,{{type:'scatter',data:{{datasets}},
+-      options:{{responsive:true,maintainAspectRatio:false,
+-        plugins:{{
+-          legend:{{display:true,position:'top',labels:{{font:{{size:10}},padding:8}}}},
+-          tooltip:{{callbacks:{{
+-            label:function(c){{
+-              const b=c.datasetIndex===0?allSorted[c.dataIndex]:(c.datasetIndex===1?has1m[c.dataIndex]:has3m[c.dataIndex]);
+-              if(!b)return c.dataset.label+': '+c.parsed.y?.toFixed(2)+'%';
+-              return b.label+' | '+c.parsed.x.toFixed(1)+'Y | '+c.parsed.y.toFixed(2)+'%';
+-            }}
+-          }}}}
+-        }},
+-        scales:{{
+-          x:{{title:{{display:true,text:'듀레이션(년)',font:{{size:10}}}},
+-              grid:{{color:'rgba(42,53,80,.2)'}},
+-              ticks:{{callback:v=>[1,2,3,5,7,10,15,20,30].includes(Math.round(v))?Math.round(v):'',font:{{size:10}}}}}},
+-          y:{{title:{{display:true,text:'YTM(%)',font:{{size:10}}}},
+-              ticks:{{callback:v=>v.toFixed(1)+'%',font:{{size:10}}}},
+-              grid:{{color:'rgba(42,53,80,.2)'}}}}
+-        }}
+-      }}
+-    }});
+-  }});
+-
+-  // Sector average curve — current only
+-  const bySector={{}};
+-  all.forEach(b=>{{if(b.sector&&b.duration&&b.ytm)(bySector[b.sector]=bySector[b.sector]||[]).push(b)}});
+-  const sds=Object.entries(bySector).filter(([,bs])=>bs.length>=3).map(([sec,bs],i)=>{{
+-    const bk={{}};bs.forEach(b=>{{const k=Math.round(b.duration);(bk[k]=bk[k]||[]).push(b.ytm)}});
+-    const pts=Object.entries(bk).map(([d,ys])=>({{x:+d,y:ys.reduce((a,v)=>a+v,0)/ys.length}})).sort((a,b)=>a.x-b.x);
+-    return{{label:sec,data:pts,borderColor:CL[i%CL.length],borderWidth:2,pointRadius:4,showLine:true,tension:.3}};
+-  }});
+-  new Chart(document.getElementById('c7').getContext('2d'),{{type:'scatter',data:{{datasets:sds}},
+-    options:{{responsive:true,maintainAspectRatio:false,plugins:{{legend:{{position:'top'}}}},
+-      scales:{{x:{{title:{{display:true,text:'듀레이션(년)'}},grid:{{color:'rgba(42,53,80,.3)'}}}},y:{{title:{{display:true,text:'YTM(%)'}},grid:{{color:'rgba(42,53,80,.3)'}}}}}}
+-    }}
+-  }});
+-}}
+-
+ // ═══ TAB 4 ═══
+ let t4r=false;
+ function R4(){{
