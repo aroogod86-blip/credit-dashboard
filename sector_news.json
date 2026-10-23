@@ -1,41 +1,41 @@
 {
-  "date": "2026-10-21",
+  "date": "2026-10-22",
   "items": [
     {
       "cor": "MACRO/RATES",
-      "t": "나스닥 +1.05%·S&P500 +0.58% 상승, 10년물 5.15%",
-      "m": "다우 52,856.09(+0.69%), S&P500 7,757.17(+0.58%), 나스닥 26,702.86(+1.05%), 러셀2000 2,781.02(+0.27%). 10년물 5.15%(+3bp). 장중 나스닥 +1.24%에서 오후 3시경 +0.80%로 상승폭 축소(원인 불명). 버크셔 B주 사상 최고가 마감. Putin이 러-우-미 3자 회담 재개에 원칙 동의(11/10경, 미확정). 지수는 TradingKey·Yahoo 기준이며 Trading Economics는 선물 기반으로 소폭 상이.",
-      "url": "https://finance.yahoo.com/markets/live/stock-market-today-wednesday-october-21-dow-sp-500-nasdaq-100000105.html"
+      "t": "나스닥 -2.60%(6월 초 이후 최대 낙폭)·S&P500 -1.21%, 다우 보합",
+      "m": "나스닥 26,008.86(-2.60%), S&P500 7,663.43(-1.21%), 다우 52,867.98(+0.02%), 러셀2000 +0.11%. VIX 19.03(+14%). 신규 실업수당 청구 19.4만건(3개월 최저). 시장은 연내 25bp 인상 가능성 반영. 10년물은 티커상 4.95%(-19bp)로 안전자산 선호가 유가발 인플레 우려를 압도했으나 시점 불명확해 확인 필요. 지수는 Yahoo 기준이며 Trading Economics(S&P 7,659.90 등)와 소폭 차이.",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/nasdaq-futures-drop-over-1-093849296.html"
     },
     {
       "cor": "TECH/SEMIS",
-      "t": "SOX +1.97% 상승(29/30종목), SpaceX 급등·Super Micro 매출 가이던스 상향",
-      "m": "SOX 11,505.56. Super Micro가 매출 전망을 상향하며 장중 최대 +12%. Dell +5%대. 웹 취약점(PHP) 공개로 Zscaler·Okta·Cloudflare·CrowdStrike +5~7%. Nvidia는 GTC Berlin 발표. SK하이닉스 자사주 매입 완료(금액 출처별 상이).",
-      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262230142-us-stock-close-nasdaq-dow-sp500-rise-spacex-tesla-crowdstike-tradingkey"
+      "t": "SOX -6.7%(7/29 이후 최저), Lam Research -9%·Intel/AMD/Sandisk/Marvell -8%대",
+      "m": "메타 3Q 약정 증가와 AI 투자 수익성 우려에 칩주 급락. Lam Research는 사상 최대 매출 82.2억달러(EPS 2.20달러)에도 가이던스 86억달러(컨센 부합)로 -9%. 메타 5년 CDS 사상 최고(약 119bp), 오라클·MSFT·브로드컴 CDS 동반 상승. 반면 Palo Alto +3.2%, Cloudflare +1.1% 등 사이버보안주는 강세. SOX 낙폭은 -6%(TradingKey)~-6.7%(Yahoo).",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262232787-us-stocks-plunge-nasdaq-what-reasons-prices-to-drop-tradingkey"
     },
     {
-      "cor": "TELECOM",
-      "t": "AT&T -6%, 가입자 증가 컨센 하회·Starlink Mobile 경쟁 우려",
-      "m": "3Q 후불 휴대폰 순증 37.9만명으로 컨센서스(38.7만명) 소폭 하회. 투자자는 SpaceX의 Starlink Mobile 경쟁 위협에 주목. 실적은 시장 기대보다 나았다는 평도 있어 출처별 해석 상이. Netflix는 4Q 매출 전망(134.4억달러)이 컨센(135.1억달러)을 하회하고 광고 매출 가이던스를 30억→27억달러로 인하하며 -4~5%.",
-      "url": "https://finance.yahoo.com/markets/live/stock-market-today-wednesday-october-21-dow-sp-500-nasdaq-100000105.html"
+      "cor": "TECH/SEMIS",
+      "t": "CoreWeave -10.06%(55.60달러) 52주 신저가, Bernstein 목표가 74→51달러",
+      "m": "Bernstein(Underperform)은 수주잔고 이행에 약 850억달러 조달이 필요하다고 추정. 금리·부채비용 부담에 Nebius -7.2%, IREN -8.4%. 황 CEO는 네오클라우드 수요 'off the charts', Blackstone Gray는 'underlying business 견조' 평가. 약정·금융비용 우려로 신용 시장 민감도 확대.",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/10/22/stock-market-today-oct-22-coreweave-slides-on-bernstein-downgrade-and-financing-worries/"
     },
     {
-      "cor": "US BANKS",
-      "t": "스테이블코인 규칙, 은행에 부정적(TD Cowen)…Circle·Coinbase +4%",
-      "m": "신규 스테이블코인 규칙이 플랫폼의 이자(yield) 지급을 완전히 금지하지 않아 은행 예금 경쟁 측면에서 부정적이라는 TD Cowen 평가. Circle·Coinbase는 각각 4% 넘게 상승. 은행 개별 실적·신용 뉴스는 확인되지 않음. 단일 출처.",
-      "url": "https://finance.yahoo.com/markets/live/stock-market-today-wednesday-october-21-dow-sp-500-nasdaq-100000105.html"
+      "cor": "AUTOS",
+      "t": "Tesla -3.08%(374.58달러), 3Q 영업이익 -56%·capex 가이던스 하향",
+      "m": "3Q 매출 280.5억달러(보합), 영업이익 7.18억달러(-56%, 마진 2.6%), 비GAAP EPS 0.48달러, FCF 15.3억달러(시장은 적자 예상). 인도량 486,532대(-2%), FSD 구독 174만건(+67%). 2026 capex 가이던스를 '200억달러 초과'로 하향(기존 250억달러 초과). 프리마켓 -4~5%에서 회복 후 마감 -3.1%.",
+      "url": "https://hollowpointtrading.substack.com/p/why-meta-and-tesla-are-down-today"
     },
     {
       "cor": "ENERGY",
-      "t": "브렌트 110달러 부근 상승, WTI 98달러…사우디 아람코 유전 공격",
-      "m": "사우디 아람코 유전 공격으로 브렌트 약 110달러로 상승, WTI는 98달러 안팎. 에너지·산업재가 장중 강세. 금은 4,130달러대.",
-      "url": "https://finance.yahoo.com/markets/live/stock-market-today-wednesday-october-21-dow-sp-500-nasdaq-100000105.html"
+      "t": "브렌트 113달러·WTI 100달러 부근 5개월 고점…후티 사우디 공격, 미·이스라엘 이란 추가 공습 보도",
+      "m": "후티의 사우디 공항·유전 공격과 '미·이스라엘이 중간선거 후 이란 공습 준비' 보도로 브렌트 약 +4%. 티커상 12월물 WTI는 99.1~99.3달러(-0.2~-0.4%)로 기사 수치와 시점 차이. 금 4,044.6달러(-0.4%).",
+      "url": "https://finance.yahoo.com/markets/article/stock-market-today-thursday-october-22-dow-sp-500-nasdaq-tesla-meta-112217857.html"
     },
     {
       "cor": "KP",
-      "t": "코스피 5,735.66(+3.29%) 급반등, 두 달 만에 매수 사이드카",
-      "m": "코스피 +182.92p로 5,700선 회복. 외국인·기관 매수(파이낸셜뉴스·중앙이코노미 제목 기준), 반도체 훈풍이 배경. SK하이닉스 자사주 매입 완료 소식 병행. 세부 수급·업종은 본문 미확인. 한국 날짜 기준이며 미국 10/21 반등은 10/22 장에 반영.",
-      "url": "https://www.mt.co.kr/stock/2026/10/21/2026102115325717167"
+      "t": "코스피 5,533.77(-3.52%)·코스닥 764.10(-3.62%), 한은 기준금리 3.00% 동결",
+      "m": "코스피 -201.89p. 외국인 약 3,991억원·기관 약 6,834억원 순매도, 개인 약 1.04조원 순매수. 삼성전자 -4.03%, SK하이닉스 -5.49%, LG에너지솔루션 -5.22%. 원/달러 1,324.2원. 10/23 개장은 코스피 5,403.17(-2.36%)로 미국 칩주 급락 반영. 한국 날짜 기준.",
+      "url": "https://www.newspim.com/news/view/20261022001100"
     }
   ]
 }
