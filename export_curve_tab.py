@@ -57,6 +57,7 @@ CSS = r"""
 #curve-tab .cv-tag.us{background:rgba(139,92,246,.18);color:var(--pu)}
 #curve-tab .cv-del{color:var(--tx3);cursor:pointer;margin-left:6px}
 #curve-tab .cv-del:hover{color:var(--rd)}
+#curve-tab .cv-bsel{font-size:11.5px;padding:3px 4px;background:var(--sf2);color:var(--tx);border:1px solid var(--bd);border-radius:4px;max-width:230px;font-family:var(--ft)}
 #curve-tab .cv-note{font-size:11px;color:var(--tx3);line-height:1.6;margin-top:10px}
 #curve-tab .cv-add{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 #curve-tab .cv-add select{padding:6px 10px;font-size:12px;background:var(--sf2);color:var(--tx);border:1px solid var(--bd);border-radius:6px;max-width:260px}
@@ -82,9 +83,10 @@ CSS = r"""
 
 HTML = r"""
 <section id="curve-tab">
-  <div class="ib">📏 발행사별 장단기 G-spread 차이 — 현재 커브가 최근 3·6개월 대비 얼마나 스팁한지, 장기→단기 교체 시점 판단 (행 클릭 시 추이 차트)</div>
+  <div class="ib">📏 발행사별 장단기 G-spread 차이 — 단기·장기 칸에서 종목을 바로 바꿀 수 있고, 행을 누르면 아래에 두 종목 추이·위치가 표시됩니다</div>
   <div class="cv-top">
     <label>조달비용 (SOFR+, bp)</label><input type="number" id="cv-fund" value="__FUND__" style="width:70px" oninput="RCurve()">
+    <label>G-spread 기준</label><select id="cv-basis" onchange="cvBasis()"><option value="interp">만기 보간 UST (엑셀 동일)</option><option value="bm">매칭 generic (보유채권 탭)</option></select>
     <label>구분</label><select id="cv-filter" onchange="RCurve()"><option value="ALL">전체</option><option value="교체후보">교체후보</option><option value="모니터">모니터</option></select>
     <span id="cv-asof" style="font-size:11px;color:var(--tx3);font-family:var(--mn)"></span>
   </div>
@@ -101,9 +103,9 @@ HTML = r"""
       </tr></thead><tbody id="cv-body"></tbody></table>
     </div>
     <div class="cv-note">
-      단위 bp · G-spread = 대시보드 보유채권 탭과 동일(매칭 generic UST 대비) · 시계열 = 연초~현재 일별 · 3M/6M = 최근 63/126 영업일<br>
+      단위 bp · G-spread 기준은 위 선택(만기 보간 UST = 엑셀과 동일 / 매칭 generic = 보유채권 탭 시계열) · 시계열 = 연초~현재 일별 · 3M/6M = 최근 63/126 영업일<br>
       교체 연간개선 = DV01 1bp당 연간 bp [(단기G−조달)/단기Dur + 단기롤] − [(장기G−조달)/장기Dur + 장기롤], 롤 가정: Dur 5년 미만 10bp · 5~10년 4bp · 10년 이상 0bp<br>
-      판단(교체후보): 6M 대비 초과 스팁폭 &gt; 연간개선 → <span class="j-bad">보류</span> · 절반 초과 → <span class="j-warn">단계 교체</span> · 그 이하 → <span class="j-good">교체 적기</span> · 6M 관측치 60일 미만 → 데이터 부족
+      판단(교체후보): 6M 대비 초과 스팁폭 ≥ 연간개선 → <span class="j-bad">보류</span> · 절반 이상 → <span class="j-warn">단계 교체</span> · 그 미만 → <span class="j-good">교체 적기</span> · 모니터: 6M 백분위 80% 이상 과도 스팁 / 20% 이하 평탄<br>단기·장기 칸의 드롭다운으로 같은 발행사 내 종목 변경 가능(이 브라우저에 저장, ↺로 기본 종목 복귀)
     </div>
   </div>
   <div class="cd" id="cmp">
@@ -142,8 +144,20 @@ const PRESETS=__PRESETS__;
 const LSKEY='curvePairs.v1';
 let selKey=null, addInit=false;
 function BM(){const m={};(D.allBonds||[]).forEach(b=>{m[b.isin]=b});(D.bonds||[]).forEach(b=>{m[b.isin]=Object.assign({},m[b.isin]||{},b)});return m;}
-function H(){return D.spreadHistoryYTD||{dates:[],series:{}};}
-function rollOf(d){return d>=10?0:(d>=5?4:10);}
+const CFG0={hold:1.0,stage:0.5,hi:80,lo:20,minN:60,r1:10,r2:4,r3:0};
+const CFG=CFG0;
+let BASIS=null;
+function hasInterp(){return !!(D.spreadInterpYTD&&Object.keys(D.spreadInterpYTD.series||{}).length);}
+function H(){if(BASIS===null)BASIS=hasInterp()?'interp':'bm';return (BASIS==='interp'&&D.spreadInterpYTD)?D.spreadInterpYTD:(D.spreadHistoryYTD||{dates:[],series:{}});}
+function rollOf(d){return d>=10?CFG.r3:(d>=5?CFG.r2:CFG.r1);}
+function cfgInit(){
+  const sb=document.getElementById('cv-basis');H();sb.value=BASIS;
+  if(!hasInterp()){sb.options[0].disabled=true;sb.options[0].text='만기 보간 UST (데이터 없음 — 스크립트 업데이트 필요)';}
+}
+const EDK='curvePairEdit.v1';
+function loadEd(){try{return JSON.parse(localStorage.getItem(EDK)||'{}')}catch(e){return {}}}
+function saveEd(o){try{localStorage.setItem(EDK,JSON.stringify(o))}catch(e){}}
+window.cvBasis=function(){BASIS=document.getElementById('cv-basis').value;window._cmpLastKey=null;dlInit=false;RCurve();};
 function loadU(){try{return JSON.parse(localStorage.getItem(LSKEY)||'[]')}catch(e){return []}}
 function saveU(a){try{localStorage.setItem(LSKEY,JSON.stringify(a))}catch(e){}}
 function f1(v){return v==null||isNaN(v)?'-':v.toFixed(1)}
@@ -152,14 +166,16 @@ function calc(p,bm,f){
   const o={p:p,bs:bm[p.s],bl:bm[p.l]};
   if(!o.bs||!o.bl){o.err='대시보드 종목 미포함';return o;}
   const h=H(),S=h.series[o.bs.label],L=h.series[o.bl.label];
-  o.sS=o.bs.spread;o.sL=o.bl.spread;o.dS=o.bs.duration;o.dL=o.bl.duration;
-  if(o.sS!=null&&o.sL!=null&&o.dS>0&&o.dL>0)o.X=((o.sS-f)/o.dS+rollOf(o.dS))-((o.sL-f)/o.dL+rollOf(o.dL));
+  o.dS=o.bs.duration;o.dL=o.bl.duration;
   if(!S||!L){o.err='시계열 없음';return o;}
   const diff=h.dates.map((d,i)=>(S[i]!=null&&L[i]!=null)?L[i]-S[i]:null);
   o.diff=diff;
   let last=-1;for(let i=diff.length-1;i>=0;i--){if(diff[i]!=null){last=i;break;}}
   if(last<0){o.err='시계열 없음';return o;}
   o.last=last;o.cur=diff[last];o.asof=h.dates[last];
+  // 단기·장기 SP와 연간개선은 장단기 차이와 같은 시계열(같은 날짜) 값으로 계산 — 보유채권 탭 스냅샷과 섞지 않음
+  o.sS=S[last];o.sL=L[last];
+  if(o.dS>0&&o.dL>0)o.X=((o.sS-f)/o.dS+rollOf(o.dS))-((o.sL-f)/o.dL+rollOf(o.dL));
   const fi=diff.findIndex(v=>v!=null);o.start=h.dates[fi];
   const win=n=>diff.slice(Math.max(0,last-n+1),last+1).filter(v=>v!=null);
   const w3=win(63),w6=win(126),avg=a=>a.reduce((x,y)=>x+y,0)/a.length;
@@ -179,33 +195,46 @@ function judge(o){
   if(o.err)return [o.err,'j-mute'];
   if(o.p.t==='모니터'){
     if(o.pct==null)return ['통계 대기','j-mute'];
-    if(o.n6<60)return ['데이터 부족(발행 후 기간 짧음)','j-mute'];
-    if(o.pct>=0.8)return ['커브 과도 스팁(6M 상위 20%)','j-bad'];
-    if(o.pct<=0.2)return ['커브 평탄(6M 하위 20%)','j-good'];
+    if(o.n6<CFG.minN)return ['데이터 부족(발행 후 기간 짧음)','j-mute'];
+    if(o.pct*100>=CFG.hi)return [`커브 과도 스팁(6M 상위 ${100-CFG.hi}%)`,'j-bad'];
+    if(o.pct*100<=CFG.lo)return [`커브 평탄(6M 하위 ${CFG.lo}%)`,'j-good'];
     return ['정상 범위','j-mute'];
   }
   if(o.X==null)return ['Dur·스프레드 확인 필요','j-mute'];
   if(o.X<=0)return ['교체 이점 없음','j-mute'];
   if(o.ex==null)return ['통계 대기','j-mute'];
-  if(o.n6<60)return ['데이터 부족(발행 후 기간 짧음)','j-mute'];
-  if(o.ex>o.X)return ['보류: 되돌림 손실 > 1년 이득','j-bad'];
-  if(o.ex>o.X/2)return ['단계 교체','j-warn'];
+  if(o.n6<CFG.minN)return ['데이터 부족(발행 후 기간 짧음)','j-mute'];
+  if(o.ex>=o.X*CFG.hold)return ['보류: 되돌림 손실 > 1년 이득','j-bad'];
+  if(o.ex>=o.X*CFG.stage)return ['단계 교체','j-warn'];
   return ['교체 적기','j-good'];
 }
 function exStyle(v){if(v==null)return '';const a=Math.min(Math.abs(v)/15,1)*0.35;return v>0?`background:rgba(239,68,68,${a})`:`background:rgba(16,185,129,${a})`;}
 function pairs(){
-  const pre=PRESETS.map(x=>({s:x[0],l:x[1],t:x[2],src:'pre'}));
-  const us=loadU().map(x=>({s:x.s,l:x.l,t:x.t,src:'user'}));
+  const ed=loadEd();
+  const pre=PRESETS.map((x,i)=>{const id='pre'+i,e=ed[id]||{};return {id,s:e.s||x[0],l:e.l||x[1],t:x[2],src:'pre',edited:!!(e.s||e.l),s0:x[0],l0:x[1]};});
+  const us=loadU().map((x,i)=>({id:'usr'+i,s:x.s,l:x.l,t:x.t,src:'user'}));
   return pre.concat(us);
 }
+function bondOpts(cur,other){
+  const h=H(),bm=BM(),b=bm[cur];if(!b)return `<option value="${cur}">${cur}</option>`;
+  const arr=Object.values(bm).filter(x=>x.issuer===b.issuer&&h.series[x.label]&&x.isin!==other).sort((a,c)=>a.duration-c.duration);
+  if(!arr.some(x=>x.isin===cur))arr.unshift(b);
+  return arr.map(x=>`<option value="${x.isin}" ${x.isin===cur?'selected':''}>${x.label} · ${x.duration!=null?x.duration.toFixed(1):'-'}y</option>`).join('');
+}
+window.cvEdit=function(id,side,isin){
+  if(id.startsWith('usr')){const a=loadU(),i=+id.slice(3);if(a[i]){a[i][side]=isin;const bm=BM();if(bm[a[i].s]&&bm[a[i].l]&&bm[a[i].s].duration>bm[a[i].l].duration){const t=a[i].s;a[i].s=a[i].l;a[i].l=t;}saveU(a);}}
+  else{const e=loadEd();e[id]=e[id]||{};e[id][side]=isin;saveEd(e);}
+  const p=pairs().find(x=>x.id===id);if(p)selKey=p.s+'|'+p.l;RCurve();
+};
+window.cvReset=function(id){const e=loadEd();delete e[id];saveEd(e);const p=pairs().find(x=>x.id===id);if(p)selKey=p.s+'|'+p.l;RCurve();};
 window.RCurve=function(){
   const bm=BM(),f=parseFloat(document.getElementById('cv-fund').value)||0,flt=document.getElementById('cv-filter').value;
   const rows=pairs().map(p=>calc(p,bm,f)).filter(o=>flt==='ALL'||o.p.t===flt);
   let asof=rows.map(o=>o.asof).filter(Boolean).sort().pop();
-  document.getElementById('cv-asof').textContent=asof?('기준일 '+asof+' · 시계열 '+(H().dates.length)+'영업일'):'';
+  document.getElementById('cv-asof').textContent=asof?('기준일 '+asof+' · 시계열 '+(H().dates.length)+'영업일 · '+(BASIS==='interp'?'만기 보간 UST 기준':'매칭 generic 기준')):'';
   const cnt={bad:0,warn:0,good:0,steep:0};
   const body=rows.map((o,i)=>{
-    const j=judge(o),key=o.p.s+'|'+o.p.l;
+    const key=o.p.s+'|'+o.p.l,j=judge(o);
     if(j[0].startsWith('보류'))cnt.bad++;if(j[0]==='단계 교체')cnt.warn++;if(j[0]==='교체 적기')cnt.good++;if(j[0].startsWith('커브 과도'))cnt.steep++;
     const tag=o.p.src==='user'?'<span class="cv-tag us">추가</span>':(o.p.t==='교체후보'?'<span class="cv-tag sw">교체후보</span>':'<span class="cv-tag mo">모니터</span>');
     const del=o.p.src==='user'?`<span class="cv-del" title="삭제" onclick="event.stopPropagation();cvDel('${key}')">✕</span>`:'';
@@ -214,8 +243,8 @@ window.RCurve=function(){
     return `<tr data-key="${key}" class="${key===selKey?'cv-sel':''}" onclick="cvPick('${key}')">
       <td class="tc">${tag}${o.p.t==='교체후보'&&o.p.src==='user'?' <span class="cv-tag sw">교체</span>':''}${del}</td>
       <td class="tc">${iss}</td>
-      <td class="tc">${o.bs?o.bs.label:o.p.s}<span style="color:var(--tx3)"> · ${o.dS!=null?o.dS.toFixed(1):'-'}y</span></td>
-      <td class="tc">${o.bl?o.bl.label:o.p.l}<span style="color:var(--tx3)"> · ${o.dL!=null?o.dL.toFixed(1):'-'}y</span></td>
+      <td class="tc" onclick="event.stopPropagation()">${o.bs?`<select class="cv-bsel" onchange="cvEdit('${o.p.id}','s',this.value)">${bondOpts(o.p.s,o.p.l)}</select>`:o.p.s}</td>
+      <td class="tc" onclick="event.stopPropagation()">${o.bl?`<select class="cv-bsel" onchange="cvEdit('${o.p.id}','l',this.value)">${bondOpts(o.p.l,o.p.s)}</select>`:o.p.l}${o.p.edited?` <span class="cv-del" title="기본 종목으로 되돌리기" onclick="cvReset('${o.p.id}')">↺</span>`:''}</td>
       <td class="nm">${f1(o.sS)}</td><td class="nm">${f1(o.sL)}</td>
       <td class="nm sp">${f1(o.cur)}</td><td class="nm">${f1(o.slope)}</td>
       <td class="nm ${o.c1m>0?'ps':(o.c1m<0?'ng':'')}">${o.c1m!=null?(o.c1m>0?'+':'')+o.c1m.toFixed(1):'-'}</td>
@@ -234,7 +263,7 @@ window.RCurve=function(){
   if(!selKey&&rows.length){const r0=rows.find(o=>!o.err);if(r0)selKey=r0.p.s+'|'+r0.p.l;}
   cvDraw(rows.find(o=>o.p.s+'|'+o.p.l===selKey));
   document.querySelectorAll('#cv-body tr').forEach(tr=>tr.classList.toggle('cv-sel',tr.dataset.key===selKey));
-  if(!addInit){cvInitAdd();addInit=true;}
+  if(!addInit){cvInitAdd();cfgInit();addInit=true;}
 };
 const PER={'1M':21,'3M':63,'6M':126,'YTD':100000};let cmpPer='6M',cmpA=null,cmpB=null,chA=null,chB=null,dlInit=false;
 function hasSer(b){return b&&H().series[b.label];}
