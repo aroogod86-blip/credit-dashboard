@@ -94,12 +94,12 @@ HTML = r"""
   <div class="cd">
     <div class="tw" style="max-height:560px;overflow-y:auto">
       <table><thead><tr>
-        <th>구분</th><th>발행사</th><th>단기</th><th>장기</th>
+        <th>구분</th><th>판단</th><th>발행사</th><th>단기</th><th>장기</th>
         <th style="text-align:right">단기 G</th><th style="text-align:right">장기 G</th>
         <th style="text-align:right">장단기 차이</th><th style="text-align:right">기울기/Dur1년</th>
         <th style="text-align:right">1M Δ</th><th style="text-align:right">3M 평균</th><th style="text-align:right">6M 평균</th>
         <th style="text-align:right">6M 범위</th><th style="text-align:right">6M 백분위</th><th style="text-align:right">z</th>
-        <th style="text-align:right">6M 대비 초과</th><th style="text-align:right">교체 연간개선</th><th>판단</th>
+        <th style="text-align:right">6M 대비 초과</th><th style="text-align:right">교체 연간개선</th>
       </tr></thead><tbody id="cv-body"></tbody></table>
     </div>
     <div class="cv-note">
@@ -242,6 +242,7 @@ window.RCurve=function(){
     const rng=(o.mn!=null)?(f1(o.mn)+' ~ '+f1(o.mx)):'-';
     return `<tr data-key="${key}" class="${key===selKey?'cv-sel':''}" onclick="cvPick('${key}')">
       <td class="tc">${tag}${o.p.t==='교체후보'&&o.p.src==='user'?' <span class="cv-tag sw">교체</span>':''}${del}</td>
+      <td class="cv-j ${j[1]}">${j[0]}</td>
       <td class="tc">${iss}</td>
       <td class="tc" onclick="event.stopPropagation()">${o.bs?`<select class="cv-bsel" onchange="cvEdit('${o.p.id}','s',this.value)">${bondOpts(o.p.s,o.p.l)}</select>`:o.p.s}</td>
       <td class="tc" onclick="event.stopPropagation()">${o.bl?`<select class="cv-bsel" onchange="cvEdit('${o.p.id}','l',this.value)">${bondOpts(o.p.l,o.p.s)}</select>`:o.p.l}${o.p.edited?` <span class="cv-del" title="기본 종목으로 되돌리기" onclick="cvReset('${o.p.id}')">↺</span>`:''}</td>
@@ -252,7 +253,7 @@ window.RCurve=function(){
       <td class="nm">${o.pct!=null?Math.round(o.pct*100)+'%':'-'}</td><td class="nm">${o.z!=null?o.z.toFixed(1):'-'}</td>
       <td class="nm sp" style="${exStyle(o.ex)}">${o.ex!=null?(o.ex>0?'+':'')+o.ex.toFixed(1):'-'}</td>
       <td class="nm">${f1(o.X)}</td>
-      <td class="cv-j ${j[1]}">${j[0]}</td></tr>`;
+</tr>`;
   }).join('');
   document.getElementById('cv-body').innerHTML=body||'<tr><td colspan="17" class="tc" style="color:var(--tx3)">쌍 없음</td></tr>';
   document.getElementById('cv-kpi').innerHTML=
