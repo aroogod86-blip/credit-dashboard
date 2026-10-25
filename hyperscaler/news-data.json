@@ -1,59 +1,59 @@
 {
-  "date": "2026-10-22",
+  "date": "2026-10-23",
   "items": [
     {
       "t": "ORCL",
-      "h": "오라클 -2.78%(125.54달러), 메타 CDS 사상 최고 속 AI 레버리지 우려 재부각",
-      "m": "메타 5년 CDS가 최대 8.9bp 올라 약 119.3bp로 사상 최고, 오라클·마이크로소프트·브로드컴 CDS도 동반 상승(TradingKey). 데이터센터 투자로 FCF 적자·레버리지 부담, 뉴멕시코 불가항력(force majeure) 보도(단일 출처, 확인 필요). 신용: S&P BBB-(7/9 하향, 신규 조치 아님). 하락률 출처별 -2.78%(TE)~-4.02%(TradingKey). 차기 실적 12/14.",
-      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262232787-us-stocks-plunge-nasdaq-what-reasons-prices-to-drop-tradingkey"
+      "h": "오라클 +1.14%(127.60달러), 칩주 안정 속 소폭 반등…고유 뉴스 없음",
+      "m": "10/22 -2.78% 후 반등. 10/23 오라클 고유 공시는 확인되지 않음. 메타 약정(약 8,250억달러)·CDS 사상 최고 영향으로 AI 레버리지 경계 지속. 신용: S&P BBB-(7/9 하향, 신규 조치 아님). 가격은 Trading Economics(CFD 기반, 상승률은 Movers 표 기준).",
+      "url": "https://tradingeconomics.com/united-states/stock-market"
     },
     {
       "t": "AVGO",
-      "h": "브로드컴 -4.31%(323.24달러), SOX -6.7% 급락 속 낙폭 확대",
-      "m": "Meta capex·약정 부담 부각으로 칩주 전반 매도. 회사 고유 공시는 확인되지 않음. TradingKey는 Anthropic AI 칩 리스 지원 420억달러 금융, 매출채권 증가율(+111%)이 매출 증가율(+85.5%) 상회 등을 리스크로 지적(해당 사실은 단일 출처로 확인 필요). 하락률 출처별 -4.31%(TE)~-4.36%(TradingKey).",
-      "url": "https://www.tradingkey.com/news/market-movers/262232753-market-movers-avgo-20261022"
+      "h": "브로드컴 -0.48%(321.68달러), 약보합…고유 뉴스 없음",
+      "m": "SOX +0.44%로 칩주가 전일 급락 후 진정된 가운데 브로드컴은 소폭 하락. 10/23 회사 고유 뉴스는 확인되지 않음. 차주 알파벳·마이크로소프트·아마존 실적 발표 대기.",
+      "url": "https://cappnotes.substack.com/p/closing-look-friday-october-23-2026"
     },
     {
       "t": "MU",
-      "h": "마이크론 -6.26%(856.49달러), 칩주 급락·SanDisk -6.8%",
-      "m": "SOX -6.7% 급락 속 메모리주 동반 하락. Stifel은 메모리 시황이 2~3년 더 지속될 수 있다고 평가(장전). 회사 고유 공시는 확인되지 않음. 하락률 출처별 -4.39%(TradingKey)~-6.26%(TE).",
-      "url": "https://invezz.com/news/2026/10/22/nvidia-amd-and-micron-plunge-sharply-why-wall-street-is-punishing-ai-spending-either-way/"
+      "h": "마이크론 +2.46%(877.55달러), 칩주 안정 속 메모리 반등",
+      "m": "SOX +0.44%, AMD·Intel과 함께 상승. 10/23 마이크론 고유 공시는 확인되지 않음. 10/22 -6.26% 급락분 일부 회복.",
+      "url": "https://cappnotes.substack.com/p/closing-look-friday-october-23-2026"
     },
     {
       "t": "META",
-      "h": "메타 -6.98%(648.85달러), 3Q capex·약정 부담에 FCF 적자…Class C 주식·1주 주식배당 발표",
-      "m": "3Q 매출 646억달러(+26%) 상회에도 영업이익 130억달러(법적비용 98.9억달러 포함, 제외 시 228.8억달러), capex 349억달러 대비 영업현금흐름 328억달러로 FCF -21억달러(10년 만의 현금 유출). 2026 capex 1,350~1,450억달러, 4Q 매출 가이던스 730~760억달러. 미래 약정은 9월 말 약 8,100~8,250억달러(출처별 상이, 7월 대비 약 +1,250억달러). 의결권 없는 Class C 주식 신설(2027년 1월 시행)과 조건부 1주 주식배당 발표. 5년 CDS 사상 최고(약 119bp), 채권 스프레드 확대.",
-      "url": "https://hollowpointtrading.substack.com/p/why-meta-and-tesla-are-down-today"
+      "h": "메타 -0.96%(642.62달러), 주간 -9.4%…약정 8,250억달러·FCF 적자 부담 지속",
+      "m": "10/22 -6.98% 후 장중 낙폭을 줄였으나 마감 약세. 주간 기준 -9.4%로 빅테크 중 최대 낙폭(Strategitz). 2026 capex 1,350~1,450억달러, 미래 약정 약 8,250억달러(Yahoo), 3Q FCF -21억달러. 5년 CDS는 10/22 사상 최고(약 119bp). Class C 의결권 없는 주식 신설은 2027년 1월 시행 예정.",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-friday-october-23-dow-sp-500-nasdaq-tesla-meta-093000521.html"
     },
     {
       "t": "GOOGL",
-      "h": "알파벳 -3.15%(324.22달러), 빅테크 AI 투자 수익성 우려에 동반 하락",
-      "m": "메타 -7.0%, 아마존 -4.6%, MSFT -2.2%와 함께 하락(StockTitan 기준). 알파벳 고유 공시는 확인되지 않음. 차주 실적 발표를 앞두고 경계.",
-      "url": "https://www.stocktitan.net/articles/why-is-nasdaq-down-today-october-22-2026-ai-chip-stocks"
+      "h": "알파벳 -1.24%(320.21달러), 주간 -6.0%…차주 실적 앞두고 약세",
+      "m": "통신서비스 섹터(XLC -1.78%) 약세 동행, 10/22 -3.15%에 이은 하락. 주간 -6.0%(Strategitz). 차주 실적 발표(알파벳·MSFT·아마존) 예정. 10/23 회사 고유 뉴스는 확인되지 않음.",
+      "url": "https://strategitz.substack.com/p/global-markets-close-october-23-2026"
     },
     {
       "t": "SPCX",
-      "h": "SpaceX -9.14%(144.75달러), 전일 실적 급등분 절반 이상 반납",
-      "m": "10/21 +7.79% 후 AI 자금조달 우려 속 급락(Yahoo: '전일 상승분의 절반 이상 반납'). 3Q 실적(매출 146억달러, 순이익 44억달러)은 전일 반영 완료, 10/22 회사 고유 신규 공시는 확인되지 않음. 머스크가 언급한 Tesla 합병 특별위원회는 미확정.",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/nasdaq-futures-drop-over-1-093849296.html"
+      "h": "SpaceX +1.89%(147.49달러), Phillip Securities 투자의견 Sell→Buy 2단계 상향·미국 셀사이트 8만곳 접근 협의 보도",
+      "m": "Phillip Securities(Glenn Thum)가 Sell에서 Buy로 상향(목표가 75→250달러로 3배, 헤드라인은 275달러로 상이). 근거: 3Q 매출 146억달러(+161%), AI(Super Intelligence) 매출 76억달러(전년 8.13억달러). Bloomberg는 SpaceX가 미국 셀룰러 사이트 8만곳 이상 접근을 협의 중이라고 보도(상대방 Crown Castle 거론되나 미확정, TD Cowen은 전국망 구축비 800억달러 이상 추정). JPMorgan은 SpaceX가 증자를 검토하지 않는다고 언급. Starlink 가입자 160만명 순증. 상승률 출처별 +1.58%~+1.89%.",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/10/23/stock-market-today-oct-23-spacex-achieves-rare-double-upgrade-to-buy-on-ai-growth/"
     },
     {
       "t": "AMZN",
-      "h": "아마존 -4.57%(250.38달러), 빅테크 AI 지출 부담에 급락",
-      "m": "S&P500 상위 빅테크 중 메타 다음 낙폭. 10/22 아마존 고유 뉴스는 확인되지 않음. 10/19 Morgan Stanley Top Pick 급등분을 거의 반납(262.45→250.38달러). 3Q 실적 10/29.",
-      "url": "https://www.stocktitan.net/articles/why-is-nasdaq-down-today-october-22-2026-ai-chip-stocks"
+      "h": "아마존 -0.95%(248.00달러), 차주 실적 앞두고 약세…고유 뉴스 없음",
+      "m": "10/22 -4.57%에 이은 하락으로 10/19 Morgan Stanley Top Pick 급등분 반납 지속(262.45→248.00달러). 임의소비재(XLY -1.66%) 약세 동행. 3Q 실적 차주(10/29로 안내된 일정, 확인 필요).",
+      "url": "https://tradingeconomics.com/united-states/stock-market"
     },
     {
       "t": "NVDA",
-      "h": "엔비디아 -4.40%(212.21달러), SOX -6.7% 급락 주도…시총 약 2,350억달러 증발",
-      "m": "나스닥100 내 가치 하락 1위(StockTitan 추정 약 2,350억달러). 메타 capex·약정 공개와 AI 자금조달 우려가 촉발. 황 CEO는 네오클라우드 수요가 'off the charts'라고 언급했으나 CoreWeave -10%. 일부 매체가 인용한 황 CEO '자본 부족' 발언은 본문 확인 못함. 하락률 출처별 -4.08%~-4.40%.",
-      "url": "https://www.fool.com/coverage/stock-market-today/2026/10/22/stock-market-today-oct-22-coreweave-slides-on-bernstein-downgrade-and-financing-worries/"
+      "h": "엔비디아 -0.59%(210.96달러), 소폭 하락…애플과 시총 1위 근접",
+      "m": "10/22 급락 후 혼조 마감. 장중 애플이 시총 약 5.1조달러로 일시 엔비디아를 앞섰다는 보도(Yahoo, 이후 엔비디아가 재역전). 10/23 엔비디아 고유 공시는 확인되지 않음.",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-friday-october-23-dow-sp-500-nasdaq-tesla-meta-093000521.html"
     },
     {
       "t": "AAPL",
-      "h": "애플 +1.25%(348.30달러), 빅테크 중 유일 강세…10/28 이벤트 앞두고 방어주 선호",
-      "m": "나스닥100 내 가치 증가 종목(Walmart와 함께 상위). 10/22 애플 고유 공시는 확인되지 않음. 10/28 로스앤젤레스 이벤트 예정. 10/16 기준 52주 고점(348.15달러) 상회 여부는 확인 필요.",
-      "url": "https://www.stocktitan.net/articles/why-is-nasdaq-down-today-october-22-2026-ai-chip-stocks"
+      "h": "애플 -0.14%(347.73달러), iPhone Duo(1,999달러) 출시…일시 시총 1위",
+      "m": "폴더블 iPhone Duo가 1,999달러에 판매 개시. 장중 엔비디아를 제치고 미국 시총 1위에 오른 적 있다는 보도(Yahoo, 단일 출처). 10/28 로스앤젤레스 이벤트 예정. 하락률 출처별 -0.14%(TE)~-0.22%(장중).",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-friday-october-23-dow-sp-500-nasdaq-tesla-meta-093000521.html"
     }
   ]
 }
