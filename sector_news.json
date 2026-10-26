@@ -1,47 +1,41 @@
 {
-  "date": "2026-10-23",
+  "date": "2026-10-26",
   "items": [
     {
       "cor": "MACRO/RATES",
-      "t": "S&P500 -0.52%·다우 -1.23%·나스닥 -0.21%, 10년물 5% 부근…FOMC 10/28",
-      "m": "S&P500 7,623.68(-0.52%), 다우 52,215.16(-1.23%), 나스닥 25,955.34(-0.21%), 러셀2000 -0.29%. 하락 종목 약 4분의 3(상승 135 vs 하락 367). 10년물 4.99~5.00%(+3~4bp), 30년물 5.31~5.33%, VIX 19.45. 10월 인상 확률 약 5%(15%에서 하락, 9월 말 37%), FOMC 10/28 동결 전망 우세. 미시간대 소비자심리 48.0(기록적 저점 부근), 1년 기대인플레 4.7%. 주간: 다우 상승(+0.41%~+1.4%, 출처별 상이), S&P500 -0.47%, 나스닥100 -0.79%. 유럽: 프랑스 OAT-Bund 스프레드 170bp로 2011년 이후 최대, Stoxx600 9월 초 이후 최대 주간 하락.",
-      "url": "https://cappnotes.substack.com/p/closing-look-friday-october-23-2026"
-    },
-    {
-      "cor": "ENERGY",
-      "t": "브렌트 116.72달러 6개월 고점 마감, WTI 103달러…3주 연속 주간 상승",
-      "m": "후티의 사우디 공격과 미·이스라엘의 이란 중간선거 후 공습 보도로 브렌트 +3.1%(116.72달러, 4/29 이후 최고), WTI +3.8%(103.2달러). 에너지(XLE +2.60%)만 뚜렷한 상승 업종. 항공(United·Delta·American)은 유가 부담에 약세.",
-      "url": "https://cappnotes.substack.com/p/closing-look-friday-october-23-2026"
-    },
-    {
-      "cor": "TELECOM",
-      "t": "SpaceX 셀룰러 사이트 8만곳 접근 협의 보도…AT&T·T-Mobile 약 -8%, Crown Castle +9~12%",
-      "m": "Bloomberg 보도로 SpaceX가 미국 셀룰러 사이트 8만곳 이상(기존 전용 셀타워의 약 절반) 접근을 협의 중. 대형 통신사 위협 부각으로 AT&T·T-Mobile 각각 약 -8%(Capp Notes), 타워사 Crown Castle은 임대 기대로 +9.06%(Capp)~+11.65%(TheStreet) 등 출처별 상이. 확정 계약 없음, 전국망 구축에는 안테나·백홀·코어망 등 추가 투자가 필요(TD Cowen 800억달러 이상 추정).",
-      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262235821-spacex-spcx-rises-pre-market-plans-access-80000-base-stations-tradingkey"
-    },
-    {
-      "cor": "US BANKS",
-      "t": "금융 업종 XLF -1.32%…American Express 인력 5% 감축, 매출 컨센 하회",
-      "m": "AXP -2.85%~-3.7%(출처별 상이): 약 3,500명(5%) 감원과 3.36억달러 구조조정 비용 반영. 3Q 매출 145억달러(+9%, 컨센 148억달러), 조정 EPS 4.68달러(+13%). 가이던스는 상향. 대형 은행 개별 뉴스는 확인되지 않음.",
-      "url": "https://finance.yahoo.com/markets/live/stock-market-today-friday-october-23-dow-sp-500-nasdaq-tesla-meta-093000521.html"
+      "t": "나스닥 +0.82%·S&P500 +0.70%·다우 +0.28%, 10년물 5%대 초반…FOMC 10/27~28",
+      "m": "나스닥 26,169.38(+0.82%), S&P500 7,676.80(+0.70%), 다우 52,361.52(+0.28%), 러셀2000 +0.43%. 10년물 4.98~5.00%, 2년물 4.71%. 2년물 690억달러 입찰 낙찰금리 4.708%. FOMC 10/27~28, 동결 가능성 높고 12월 신호 주목(10월 인상 확률 약 10%). 이번 주 MSFT·알파벳(10/28)·아마존(10/29) 실적, 중간선거 임박. 브라질 대선 결과로 XP -50%, Petrobras -14%, Nu Holdings 급락. 무디스는 프랑스 A3 유지, 프랑스 10년물 -7bp. 지수는 TheStreet 기준이며 Trading Economics(S&P 7,679.13)와 소폭 상이.",
+      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-26-2026"
     },
     {
       "cor": "TECH/SEMIS",
-      "t": "SOX +0.44% 소폭 반등…헤지펀드 전략 코로나 이후 최악의 하루(10/22)",
-      "m": "전일 SOX 급락(-6%대) 후 마이크론·AMD·Intel 상승, 엔비디아·메타 약세. 로이터 인용: 주요 헤지펀드 전략이 10/22 코로나 이후 최악의 일간 성과. 사이버보안(CIBR)·소프트웨어(IGV)는 주간 +7.4%·+6.0% 반등, 반도체(SMH)는 주간 -2.3%.",
-      "url": "https://cappnotes.substack.com/p/closing-look-friday-october-23-2026"
+      "t": "Anthropic, 나스닥 상장 S-1 공개(ANT)…AI 칩주 반등, 메타 증자·SpaceX 칩 금융 병행",
+      "m": "Anthropic(Claude 개발사)이 상반기 매출 163억달러, 순손실 807억달러(공정가치 변동 약 724억달러 포함), 영업손실 약 6.9억달러를 공시하고 상장 신청. 상장은 11월 중순 이후로 거론. 연 매출 10만달러 이상 고객 11,900여 곳(전년 950곳), 상위 2개 고객이 상반기 매출 약 20%. Intel +4%(90.49달러), Dell +3%, Micron +3%, AMD +2.8%. Microsoft 약 6만명 자발적 퇴직 프로그램 발표(XTB). 머스크는 네오클라우드 200여 곳 도태를 언급하며 CoreWeave·Nebius·IREN 하락.",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262239609-anthropic-ipo-ai-us-ant-us-openai-tradingkey"
+    },
+    {
+      "cor": "ENERGY",
+      "t": "유가 소폭 하락(WTI 101달러, 브렌트 115달러 부근), EQT의 Range Resources 500억달러 인수",
+      "m": "미·이란 긴장 완화 기대에 WTI·브렌트 하락(출처별 -0.2~-1%). 이란 공습은 중간선거 이후로 보는 시각이 우세하나 명령 후 96시간 내 대규모 타격 가능 보도. EQT가 Range Resources를 전액 주식으로 인수(가치 500억달러 이상). 유럽 가스는 100유로/MWh 접근. Galp는 Moeve와 합병 협상 결렬로 급락.",
+      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-26-2026"
     },
     {
       "cor": "AUTOS",
-      "t": "Tesla -0.63%(372.22달러), Volvo Cars 약 -24% 급락",
-      "m": "Tesla는 10/22 3Q 실적(영업이익 -56%, capex 가이던스 200억달러 초과로 하향) 이후 약세 지속. Volvo Cars 급락은 하락 사유가 출처에 미기재(확인 필요).",
-      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-23-2026"
+      "t": "Tesla +5~6%, Barclays 비중확대 상향·목표가 370→450달러",
+      "m": "Barclays가 Tesla를 Overweight로 상향하고 목표가를 370달러에서 450달러로 인상. 근거: SpaceX와의 연계 가능성, 로보택시 성장, 자동차 사업 회복. 상승률 출처별 +5~+6%.",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/10/26/stock-market-today-oct-26-ai-optimism-lifts-nasdaq-as-tech-stocks-rebound/"
+    },
+    {
+      "cor": "TELECOM",
+      "t": "Verizon 3Q EPS 1.31달러, 연간 가이던스 3분기 연속 상향",
+      "m": "Verizon이 3Q 조정 EPS 1.31달러를 보고하고 연간 전망을 3분기 연속 상향(XTB). 주가 반응은 확인하지 못함. 통신서비스 섹터 전반은 이날 매도 우위.",
+      "url": "https://www.xtb.com/int/market-analysis/news-and-research/daily-summary-falling-oil-prices-and-anthropic-prospectus-drive-markets"
     },
     {
       "cor": "KP",
-      "t": "코스피 5,550.30(+0.30%) 소폭 상승, 코스닥 751.69(-1.62%)",
-      "m": "코스피 +16.53p, 코스닥 -12.41p. 삼성전자·SK하이닉스는 외국인 매도 지속(헤드라인 기준), 개인은 단일종목 레버리지 상품을 규제 시행 후 처음 순매수. 세부 수급·업종은 본문 미확인. 한국 날짜 기준이며 미국 10/23 마감은 10/26 장에 반영.",
-      "url": "https://www.news1.kr/finance/general-stock/6330143"
+      "t": "코스피 5,469.47(-1.46%) 7개월래 저점, 외국인 약 6,955억원 순매도",
+      "m": "코스피 -80.83p, 하락 792종목 vs 상승 101종목. 기관 약 6,110억원 순매수, 개인 약 470억원 순매수, 프로그램 순매도 약 5,256억원. 삼성전자 -1.16%(213,000원), SK하이닉스 -0.16%(1,275,000원). FOMC 경계와 AI 투자 둔화 우려로 약세, 직전 1개월 -21.6%(10/23 기준). 코스닥은 헤드라인상 -3.26%(약 727)로 급락(확인 필요). 원/달러 1,323.1원. 한국 날짜 기준이며 미국 10/26 반등은 10/27 장에 반영.",
+      "url": "https://www.seoul.co.kr/news/economy/securities/2026/10/26/20261026500215"
     }
   ]
 }

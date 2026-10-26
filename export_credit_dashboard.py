@@ -1889,6 +1889,12 @@ def generate_html(data, issuer_data=None, port_html=None):
         curve_tab_html = render_curve_tab()
     except Exception as e:
         curve_tab_html = f'<div class="ib">📏 커브 비교 모듈 로드 실패: {e}</div>'
+    # 밸류에이션 시그널 (export_value_tab.py — 보유 채권 탭 고평가/저평가)
+    try:
+        from export_value_tab import render_value_html, render_value_js
+        value_html, value_js = render_value_html(), render_value_js()
+    except Exception as e:
+        value_html, value_js = f'<div class="ib">🔎 밸류에이션 모듈 로드 실패: {e}</div>', ''
 
     data_json = json.dumps(data, ensure_ascii=False)
     issuer_json = json.dumps(issuer_data or {"as_of": None, "issuers": {}}, ensure_ascii=False)
@@ -2028,6 +2034,7 @@ textarea:focus,.ti:focus{{border-color:var(--ac)}}
     <div class="cd"><div class="ct2">📊 현재 G-spread 비교</div><div class="ch" style="height:280px"><canvas id="c3"></canvas></div></div>
   </div>
 
+  {value_html}
   <!-- 포트폴리오 테이블 -->
   <div class="cd">
     <div class="ct2">📋 종목별 현황 + 포트폴리오 손익 <span style="font-size:11px;color:var(--tx3);font-weight:400;margin-left:8px">컬럼 클릭=정렬 | 행 클릭=선택 | 수량은 자동 저장됩니다</span></div>
@@ -3931,6 +3938,7 @@ function renderT8Chart(){{
   }});
 }}
 
+{value_js}
 // ═══ INIT ═══
 PF();R1();
 </script>
