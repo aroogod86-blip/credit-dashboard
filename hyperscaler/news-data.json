@@ -1,59 +1,59 @@
 {
-  "date": "2026-10-27",
+  "date": "2026-10-28",
   "items": [
     {
       "t": "ORCL",
-      "h": "오라클 +3.55%(130.53달러), Nvidia 파트너십 멀티기가와트로 확대·Google TPU 첫 도입",
-      "m": "Nvidia Vera Rubin 서버 기반 '멀티기가와트' 규모로 확장하고 Google TPU를 처음 제공, SambaNova·Cerebras 칩도 추가(계약 규모 미공개). 일부 Nvidia 네트워킹 칩 대신 자체 Acceleron 네트워킹 칩 사용. 칩 구매 조달 방식은 미공개이며 FY27 capex 목표 900~950억달러는 유지. 이번 주 투자자의 날 예정(일정 미확정). Cerebras +9%(2027년 상반기 오라클 배치). 신용: S&P BBB-(7/9 하향, 신규 조치 아님), FCF 적자·조달 부담 지속. 상승률은 Trading Economics(Movers 표) 기준.",
-      "url": "https://www.933thedrive.com/2026/10/27/oracle-expands-chip-supply-deal-with-nvidia-adds-google-and-cerebras-offerings/"
+      "h": "오라클 +10.73%(144.54달러), 투자자의 날: FY29 FCF 300억달러 목표·신규 조달 200억달러 상한",
+      "m": "FY2029(2029년 5월 종료) FCF 300억달러 목표(시장은 적자 예상, FY26 FCF -237억달러, FY26 capex 557억달러), 하반기 FY28부터 FCF 흑자 전환 전망. 데이터센터 용량 7GW 추가로 FY28 말 10GW 초과. 2030년 5월까지 신규 조달은 200억달러로 제한(주식·부채 각 절반), 벤더 파이낸싱·고객 제공 하드웨어·선수금으로 일부 충당. FY30 매출 2,250억달러 목표 유지. 장중 최대 +14%. 신용: S&P BBB-(7/9 하향) 이후 이번 행사에 대한 신규 등급 코멘트는 확인되지 않음. 마감 +10.58%(TradingKey 144.34달러)와 출처 차이.",
+      "url": "https://thenextweb.com/news/oracle-30b-free-cash-flow-2029-shares-jump"
     },
     {
       "t": "AVGO",
-      "h": "브로드컴 +4.00%(342.34달러), SOX +3.6%(30종목 전부 상승) 주도",
-      "m": "반도체 전반 랠리. 오라클의 Google TPU 도입 확대(브로드컴은 TPU 설계 파트너, 2031년까지 공급 계약) 등 TPU 생태계 확대 기대가 반영됐을 가능성이 있으나 10/27 브로드컴 고유 공시는 확인되지 않음. 차주 알파벳·MSFT·아마존 실적 및 FOMC(10/28) 대기.",
-      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262243619-us-stock-market-close-nasdaq-rise-chips-rally-coreweave-tradingkey"
+      "h": "브로드컴 +2.77%(351.81달러), SOX +1.75%·메모리 호조에 AI 반도체 동반 강세",
+      "m": "SOX +1.75%(11,674, 30종목 중 22종목 상승). SK하이닉스 호실적과 오라클 용량 확대 계획이 AI 인프라 수요 기대를 강화. 10/28 브로드컴 고유 공시는 확인되지 않음.",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262249004-us-stock-market-close-oracle-sk-hynix-fed-hold-sox-tradingkey"
     },
     {
       "t": "MU",
-      "h": "마이크론 +2.83%(929.23달러), 칩주 전면 상승 3거래일째",
-      "m": "SOX +3.6%로 전 종목이 상승한 가운데 메모리주 동반 강세. Anthropic IPO 신청서 공개 이후 AI 인프라 수요 기대 지속. 10/27 마이크론 고유 공시는 확인되지 않음.",
-      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262243619-us-stock-market-close-nasdaq-rise-chips-rally-coreweave-tradingkey"
+      "h": "마이크론 +5.86%(983.23달러), SK하이닉스 사상 최대 실적·'수요가 2030년까지 공급 초과' 발언",
+      "m": "SK하이닉스가 3Q 매출 104.6조원(+328% YoY), 영업이익 83.3조원(+632%)을 발표하고 향후 3년 물량 매진, 수요가 2030년까지 공급을 상회한다고 언급. 2028년 이후 메모리 수요 둔화 우려 완화. 머스크의 로봇용 메모리 수요 발언도 장전 상승 요인. 마이크론은 다년 비취소 계약으로 주요 고객 확보 중. 상승률 출처별 장중 +4.8%~마감 +5.86%.",
+      "url": "https://www.fool.com/investing/2026/10/28/why-micron-technology-stock-rallied-today/"
     },
     {
       "t": "META",
-      "h": "메타 -1.64%(620.19달러), 보통주 공모 250억달러로 상향·주당 625달러(전 거래일 종가 대비 2.7% 할인)",
-      "m": "TradingKey: 공모 규모를 250억달러로 상향, 수요는 공모액의 약 5배. 주당 625달러는 10/23 종가 대비 2.7% 할인 수준(해당 수치는 단일 출처로 확인 필요). 전일 발표한 최대 950억달러 증자 계획(공모 350억·ATM 600억)의 일부. 희석 우려로 약세. 에쿼티 조달 확대는 크레딧에는 레버리지 완화 요인.",
-      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262243619-us-stock-market-close-nasdaq-rise-chips-rally-coreweave-tradingkey"
+      "h": "메타 -1.24%(612.49달러), 대규모 증자 부담 지속…고유 신규 뉴스 없음",
+      "m": "10/26 발표한 최대 950억달러 증자 계획(공모 350억·ATM 600억)과 10/27 공모 250억달러 상향 보도(단일 출처, 주당 625달러)로 희석 부담이 이어짐. 3Q FCF -21억달러, 2026 capex 1,350~1,450억달러. 알파벳 실적(장 마감 후) 앞두고 약세.",
+      "url": "https://tradingeconomics.com/united-states/stock-market"
     },
     {
       "t": "GOOGL",
-      "h": "알파벳 +1.19%(320.58달러), 3개월 저점 후 반등…10/28 실적 앞두고 Genie 4 공개",
-      "m": "장중 3개월 저점을 기록한 뒤 상승 마감. Google은 2분간 시뮬레이션과 음성·영상 동기화를 지원하는 월드모델 Genie 4를 연구 프리뷰로 공개. 오라클이 Google TPU를 처음 도입한다고 발표. 3Q 실적 10/28 장 마감 후.",
-      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262243619-us-stock-market-close-nasdaq-rise-chips-rally-coreweave-tradingkey"
+      "h": "알파벳 +1.34%(324.89달러), 장 마감 후 3Q 실적 부진·FCF -91억달러에 시간외 -8%",
+      "m": "정규장은 실적 앞두고 상승. 장 마감 후: 매출 1,276억달러(+25%, 컨센 1,279억달러 소폭 하회), EPS 2.12달러(전년 2.87달러, 지분투자 평가손실 87억달러 포함), 영업이익 406억달러, Cloud 매출 307억달러(+48%, 마진 36.2%), 3Q capex 514억달러(전년 240억달러), FCF -91억달러(2Q -59억달러). 시간외 -8% 내외(정규장 반영은 10/29). 6월 848억달러 증자(버크셔 100억달러 포함) 이력.",
+      "url": "https://fortune.com/2026/10/28/alphabet-google-stock-drops-cloud-revenue-doubles-free-cash-flow-negative/"
     },
     {
       "t": "SPCX",
-      "h": "SpaceX +1.14%(148.58달러), Anthropic이 2029년까지 최대 1,205억달러 컴퓨팅 지급 보도",
-      "m": "TheStreet: Anthropic이 2029년까지 AI 컴퓨팅 인프라 대가로 SpaceX에 최대 1,205억달러를 지급하겠다고 밝힘(단일 출처, 계약 조건 확인 필요). 전일 Apollo와 400억달러 칩 리스 금융 확정 발표(약 5년 리스, 2027년 상반기 개시). 4Q capex 350~400억달러 예상. 상승률 출처별 +1.14~+1.2%.",
-      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-27-2026"
+      "h": "SpaceX -2.25%(145.23달러), 대규모 보호예수 해제 여파·우주주 부진",
+      "m": "최대 13억주 보호예수 해제 이후 약세 지속(10/22 -9%). 10/22~27 사이 Rocket Lab +13.8% 등 중소형 우주주가 SpaceX를 아웃퍼폼. 지지선 140달러, 50일선 약 150달러. Anthropic 상장(ANT) 기대에 따른 자금 이동 가능성도 거론되나 단일 원인은 미확인. 10/26 Apollo 400억달러 칩 리스 확정, 10/27 Anthropic 최대 1,205억달러 지급 보도(단일 출처)는 직전 반영.",
+      "url": "https://ca.finance.yahoo.com/news/spacex-stock-slides-back-toward-140-as-smaller-space-names-leave-it-behind-171331237.html"
     },
     {
       "t": "AMZN",
-      "h": "아마존 +1.61%(253.10달러), 10/29 실적 앞두고 상승…고유 뉴스 없음",
-      "m": "기술주 랠리에 동참. 10/27 아마존 고유 공시는 확인되지 않음. 3Q 실적 10/29 장 마감 후, AWS 성장률과 capex 가이던스 주목.",
-      "url": "https://tradingeconomics.com/united-states/stock-market"
+      "h": "아마존 +0.59%(254.60달러), 10/29 3Q 실적 앞두고 소폭 상승…알파벳 실적이 변수",
+      "m": "3Q 실적은 10/29 장 마감 후. 알파벳이 시간외 capex 514억달러·FCF 적자로 급락해 AI 투자 수익성 논쟁이 재점화되는 가운데 AWS 성장률과 capex 가이던스가 관건. 10/28 아마존 고유 공시는 확인되지 않음.",
+      "url": "https://fortune.com/2026/10/28/alphabet-google-stock-drops-cloud-revenue-doubles-free-cash-flow-negative/"
     },
     {
       "t": "NVDA",
-      "h": "엔비디아 +0.90%(217.94달러), 오라클 멀티기가와트 Vera Rubin 확대…30억달러 자사주 매입 보도(미확인)",
-      "m": "오라클과 Vera Rubin 기반 멀티기가와트 규모 확대 발표. 일부 매체는 장전에 엔비디아가 30억달러 자사주 매입을 계획한다고 보도(단일 사이드바 출처, 확인 필요). SOX +3.6%에 비해 상승폭은 제한적.",
-      "url": "https://www.933thedrive.com/2026/10/27/oracle-expands-chip-supply-deal-with-nvidia-adds-google-and-cerebras-offerings/"
+      "h": "엔비디아 -1.17%(215.38달러), 미 법무부 허깅페이스 약 130억달러 인수 검토 보도",
+      "m": "TradingKey는 DOJ가 엔비디아의 허깅페이스 인수(약 130억달러)를 들여다보고 있다고 보도(사이드바 단일 출처, 확인 필요). SOX +1.75%로 반도체가 강했으나 엔비디아는 약세. SK하이닉스 영업이익률 약 80%가 엔비디아(66.2%)를 상회한다는 비교 헤드라인.",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262249004-us-stock-market-close-oracle-sk-hynix-fed-hold-sox-tradingkey"
     },
     {
       "t": "AAPL",
-      "h": "애플 +0.93%(347.10달러), 10/28 이벤트·실적 주간 앞두고 반등…고유 뉴스 없음",
-      "m": "전 거래일 -1.10% 후 반등. 10/27 애플 고유 공시는 확인되지 않음. 10/28 로스앤젤레스 이벤트 예정, 이번 주 실적 발표(일정 확인 필요). 가격은 Trading Economics(Movers 표) 기준.",
-      "url": "https://tradingeconomics.com/united-states/stock-market"
+      "h": "애플 -0.93%(343.87달러), 터치스크린 MacBook Pro 공개(2,899달러부터·11/6 출시)",
+      "m": "10/28 이벤트에서 첫 터치스크린 MacBook Pro 공개: 2,899달러부터, 11월 6일 출시(Stocktitan 헤드라인). 이벤트 소화 후 약세. 이번 주 실적 발표 일정은 확인 필요.",
+      "url": "https://www.stocktitan.net/articles/stock-market-today-live-october-28-2026"
     }
   ]
 }
