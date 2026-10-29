@@ -316,50 +316,6 @@ YTD_START  = datetime(END_DATE.year, 1, 1)  # 보유가중평균 G-spread 추이
 PREL_FILE_PATH = r"C:\blp\data"
 PREL_FILE_PATTERN = "PREL"
 
-# 포트 운용 탭 (export_port_tab.py + 포트운용 엑셀)
-#  - None이면 이 스크립트 폴더에서 가장 최근에 저장된 "포트운용_IG크레딧*.xlsx"를 사용
-#  - 다른 위치면 전체 경로 지정 (또는 실행 시 --port-xlsx 경로)
-PORT_XLSX_PATH = None
-PORT_XLSX_PATTERN = "포트운용_IG크레딧*.xlsx"
-
-
-def find_port_xlsx(path=None):
-    """포트운용 엑셀 경로 결정: 인자 > PORT_XLSX_PATH > 스크립트 폴더 최신 파일"""
-    import glob
-    p = path or PORT_XLSX_PATH
-    if p:
-        return p if os.path.exists(p) else None
-    folder = os.path.dirname(os.path.abspath(__file__))
-    files = [f for f in glob.glob(os.path.join(folder, PORT_XLSX_PATTERN))
-             if not os.path.basename(f).startswith("~$")]
-    return max(files, key=os.path.getmtime) if files else None
-
-
-def load_port_tab_html(path=None):
-    """포트 운용 탭 HTML 조각 생성. 실패해도 대시보드 생성은 계속되도록 안내 문구를 반환."""
-    import html as _html
-
-    def _msg(text):
-        return f'<div class="ib">📐 포트 운용 데이터를 불러오지 못했습니다 — {_html.escape(text)}</div>'
-
-    try:
-        from export_port_tab import render_port_tab
-    except ImportError:
-        print("  ⚠️  export_port_tab.py 없음 → 포트 운용 탭 비움")
-        return _msg("export_port_tab.py를 이 스크립트와 같은 폴더에 두세요.")
-    xlsx = find_port_xlsx(path)
-    if not xlsx:
-        print("  ⚠️  포트운용 엑셀 없음 → 포트 운용 탭 비움")
-        return _msg(f"{PORT_XLSX_PATTERN} 파일을 찾지 못했습니다. PORT_XLSX_PATH 또는 --port-xlsx로 지정하세요.")
-    try:
-        frag = render_port_tab(xlsx)
-        print(f"  📐 포트 운용 탭: {os.path.basename(xlsx)} "
-              f"(저장 {datetime.fromtimestamp(os.path.getmtime(xlsx)):%Y-%m-%d %H:%M})")
-        return frag
-    except Exception as e:
-        print(f"  ⚠️  포트 운용 탭 생성 실패 ({e})")
-        return _msg(str(e))
-
 
 # ══════════════════════════════════════════════
 # 1.5 PREL 워크시트 로드
@@ -582,37 +538,6 @@ def load_holdings_news():
     파일이 없으면 빈 목록으로 graceful fallback.
     """
     path = get_holdings_news_path()
-    if os.path.exists(path):
-        try:
-            with open(path, "r", encoding="utf-8") as f:
-                data = json.load(f)
-                if isinstance(data, dict) and "items" in data:
-                    return data
-        except Exception:
-            pass
-    return {"date": None, "items": []}
-
-
-# 섹터 뉴스 태그 (cor 필드에 사용) — 이 순서대로 필터 드롭다운에 표시
-SECTOR_NEWS_TAGS = [
-    "US BANKS", "EU BANKS", "JP BANKS", "INSURANCE", "TECH/SEMIS",
-    "ENERGY", "AUTOS", "TELECOM", "KP", "MACRO/RATES",
-]
-
-
-def get_sector_news_path():
-    return os.path.join(os.path.dirname(os.path.abspath(__file__)), "sector_news.json")
-
-
-def load_sector_news():
-    """
-    섹터 뉴스 피드 ("섹터 뉴스" 트리거로 생성, 전 미국 거래일 기준).
-    holdings_news.json과 파일을 분리해 두 피드가 서로 덮어쓰지 않도록 함.
-    같은 폴더의 sector_news.json을 읽어 보유종목 뉴스 탭에 함께 표시.
-    스키마: {"date": "2026-09-29", "items": [{"cor":"US BANKS","t":"제목","m":"한줄요약(국문)","url":"..."}]}
-    cor는 SECTOR_NEWS_TAGS 중 하나. 파일이 없으면 빈 목록으로 graceful fallback.
-    """
-    path = get_sector_news_path()
     if os.path.exists(path):
         try:
             with open(path, "r", encoding="utf-8") as f:
@@ -1406,6 +1331,12 @@ def load_bloomberg_data():
             for c in ["spread","ispread","ytm","duration","price","coupon","oas","chg1d","chg1w","chg1m","chg3m","ytm_1m_ago","ytm_3m_ago"]:
                 v = row.get(c)
                 rec[c] = round(float(v), 3) if pd.notna(v) else None
+            # 만기일 (캐리/롤다운 계산용)
+            try:
+                mv = row.get("maturity")
+                rec["maturity"] = pd.Timestamp(mv).strftime("%Y-%m-%d") if mv is not None and pd.notna(mv) else None
+            except Exception:
+                rec["maturity"] = None
             rec["is_owned"] = bool(row.get("is_owned", True))
             records.append(rec)
         return records
@@ -1419,7 +1350,17 @@ def load_bloomberg_data():
             series[col] = [round(float(v), 2) if pd.notna(v) else None for v in df[col]]
         return {"dates": dates, "series": series}
 
+    # SOFR (캐리 계산용 기본값; 실패 시 None → 대시보드에서 수동 입력)
+    sofr_val = None
+    try:
+        _r = blp.bdp(["SOFRRATE Index"], ["PX_LAST"])
+        _sf = _nw(_r)
+        sofr_val = float(_sf["value"].iloc[0]) if len(_sf) > 0 else None
+    except Exception as e:
+        print(f"  SOFR 로드 실패(수동 입력 가능): {e}")
+
     result = {
+        "sofr": sofr_val,
         "generated": datetime.today().strftime("%Y-%m-%d %H:%M"),
         "bondCount": len(snap),
         "bondIsins": BOND_ISINS,
@@ -1448,8 +1389,6 @@ def load_bloomberg_data():
         "newIssues": new_issues,
         "issuanceSupply": issuance_supply,
         "holdingsNews": load_holdings_news(),
-        "sectorNews": load_sector_news(),
-        "sectorNewsTags": SECTOR_NEWS_TAGS,
         "bdcCurrent": bdc_current,
         "bdcChanges": bdc_changes,
         "bdcTimeseries": bdc_ts,
@@ -1516,6 +1455,7 @@ def load_sample_data():
             "rating": np.random.choice(RATINGS),
             "region": sample_region(issuer),
             "matBucket": np.random.choice(MAT_BUCKETS),
+            "maturity": f"20{mat_y}-{mat_m}-15",
             "spread": g_sp,
             "ispread": round(g_sp - (5 + np.random.random() * 15), 0),  # G-spread 대비 국채-스왑 베이시스만큼 낮게 샘플링
             "duration": round(1.5 + np.random.random() * 8, 1),
@@ -1819,6 +1759,7 @@ def load_sample_data():
             "now": [5.31,5.28,5.12,4.85,4.62,4.52,4.41,4.38,4.32,4.51,4.55],
             "ago3m": [5.05,5.10,4.95,4.68,4.44,4.33,4.25,4.22,4.18,4.37,4.43],
         },
+        "sofr": 4.30,
         "marketTimeseries": mkt_ts,
         "marketCurrent": mkt_current,
         "marketChanges": mkt_changes,
@@ -1862,14 +1803,6 @@ def load_sample_data():
                 {"cor": "ORCL", "t": "Oracle CDS 프리미엄 사이클 고점권", "m": "클라우드 capex 부담 지속, 레버리지 우려 반영", "url": "https://example.com/news3"},
             ],
         },
-        "sectorNews": {
-            "date": END_DATE.strftime("%Y-%m-%d"),
-            "items": [
-                {"cor": "US BANKS", "t": "AI 에이전트發 예금 이탈 우려로 은행주 약세", "m": "저비용 예금 기반 잠식 가능성 부각, 선순위채 스프레드 영향은 제한적", "url": "https://example.com/sector1"},
-                {"cor": "MACRO/RATES", "t": "UST 10년 금리 보합, FOMC 의사록 대기", "m": "커브 스티프닝 기조 유지", "url": "https://example.com/sector2"},
-            ],
-        },
-        "sectorNewsTags": SECTOR_NEWS_TAGS,
         "bdcCurrent":    {meta["short"]: {"price": None, "pb": None, "nav": None} for meta in BDC_TICKERS.values()},
         "bdcChanges":    {meta["short"]: {"1d": None, "1w": None, "1m": None} for meta in BDC_TICKERS.values()},
         "bdcTimeseries": {},
@@ -1880,21 +1813,8 @@ def load_sample_data():
 # ══════════════════════════════════════════════
 # 4. HTML 템플릿 생성
 # ══════════════════════════════════════════════
-def generate_html(data, issuer_data=None, port_html=None):
+def generate_html(data, issuer_data=None):
     """데이터를 받아 standalone HTML 대시보드 문자열을 반환"""
-    port_tab_html = port_html or '<div class="ib">📐 포트 운용 데이터 없음</div>'
-    # 커브 비교 탭 (export_curve_tab.py — 발행사별 장단기 G-spread 차이)
-    try:
-        from export_curve_tab import render_curve_tab
-        curve_tab_html = render_curve_tab()
-    except Exception as e:
-        curve_tab_html = f'<div class="ib">📏 커브 비교 모듈 로드 실패: {e}</div>'
-    # 밸류에이션 시그널 (export_value_tab.py — 보유 채권 탭 고평가/저평가)
-    try:
-        from export_value_tab import render_value_html, render_value_js
-        value_html, value_js = render_value_html(), render_value_js()
-    except Exception as e:
-        value_html, value_js = f'<div class="ib">🔎 밸류에이션 모듈 로드 실패: {e}</div>', ''
 
     data_json = json.dumps(data, ensure_ascii=False)
     issuer_json = json.dumps(issuer_data or {"as_of": None, "issuers": {}}, ensure_ascii=False)
@@ -1953,6 +1873,17 @@ td.tc{{font-family:var(--ft)}}td.nm{{text-align:right}}td.ps{{color:var(--rd)}}t
 .bg{{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}}
 .bt{{padding:6px 14px;font-size:12px;font-family:var(--ft);font-weight:500;border:1px solid var(--bd);border-radius:6px;background:var(--sf2);color:var(--tx2);cursor:pointer;transition:all .15s}}
 .grp-row:hover td{{background:rgba(59,130,246,.10)!important}}
+/* 보유채권 테이블: 채권명 고정 + 줄무늬 + 행 하이라이트 (종목-값 매칭용) */
+#t1 .tw table thead th:first-child{{left:0;z-index:5}}
+#t1 .tw table tbody td:first-child{{position:sticky;left:0;z-index:2;background:var(--sf);border-right:1px solid var(--bd);box-shadow:2px 0 4px rgba(0,0,0,.25);font-weight:600}}
+#t1 .tw table tbody tr:nth-child(even) td{{background:rgba(255,255,255,.03)}}
+#t1 .tw table tbody tr:nth-child(even) td:first-child{{background:var(--sf2)}}
+#t1 .tw table tbody tr.sel td{{background:rgba(59,130,246,.14)}}
+#t1 .tw table tbody tr.sel td:first-child{{background:#1a2a4d}}
+#t1 .tw table tbody tr:hover td{{background:rgba(59,130,246,.22)}}
+#t1 .tw table tbody tr:hover td:first-child{{background:#1f3159}}
+#t1 .tw table td.cy,#t1 .tw table th.cy{{background-color:rgba(16,185,129,.07)}}
+#t1 .tw table td.cy.first,#t1 .tw table th.cy.first{{border-left:2px solid rgba(16,185,129,.5)}}
 .bt:hover{{border-color:var(--acd);color:var(--tx);background:var(--sf3)}}
 .bt.pr{{background:var(--ac);color:#fff;border-color:var(--ac)}}.bt.pr:hover{{background:#2563eb}}
 .fl{{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}}
@@ -1984,10 +1915,9 @@ textarea:focus,.ti:focus{{border-color:var(--ac)}}
 <div class="hd"><div><h1>IG Credit Spread Dashboard</h1><div class="sub" id="hdr-sub"></div></div><a href="hyperscaler/hyperscaler-dashboard.html" style="color:var(--ac,#3b82f6);font-size:12px;font-weight:600;text-decoration:none;border:1px solid var(--ac,#3b82f6);padding:6px 14px;border-radius:20px;white-space:nowrap;margin-right:12px">🖥️ 하이퍼스케일러 →</a><div class="st" id="hdr-status"></div></div>
 <div class="tabs">
   <div class="tab active" data-tab="t1">🎯 보유 채권</div>
-  <div class="tab" data-tab="t10">📐 포트 운용</div>
   <div class="tab" data-tab="t2">📊 크레딧 지표</div>
   <div class="tab" data-tab="t9">📰 보유종목 뉴스<span id="newsBadge"></span></div>
-  <div class="tab" data-tab="t11">📏 커브 비교</div>
+  <div class="tab" data-tab="t3">🏢 발행자별 곡선</div>
   <div class="tab" data-tab="t8">💰 기업별 유동성 지표</div>
   <div class="tab" data-tab="t6">🆕 최근 발행<span id="techBadge"></span></div>
   <div class="tab" data-tab="t7">⚙️ 종목 관리</div>
@@ -2034,7 +1964,6 @@ textarea:focus,.ti:focus{{border-color:var(--ac)}}
     <div class="cd"><div class="ct2">📊 현재 G-spread 비교</div><div class="ch" style="height:280px"><canvas id="c3"></canvas></div></div>
   </div>
 
-  {value_html}
   <!-- 포트폴리오 테이블 -->
   <div class="cd">
     <div class="ct2">📋 종목별 현황 + 포트폴리오 손익 <span style="font-size:11px;color:var(--tx3);font-weight:400;margin-left:8px">컬럼 클릭=정렬 | 행 클릭=선택 | 수량은 자동 저장됩니다</span></div>
@@ -2052,8 +1981,12 @@ textarea:focus,.ti:focus{{border-color:var(--ac)}}
         <option value="1m" selected>MTD</option>
         <option value="3m">YTD</option>
       </select>
+      <span style="width:1px;height:20px;background:var(--bd);margin:0 6px"></span>
+      <label title="캐리 = YTM − 국채 − (조달금리 − SOFR)">조달금리(%)</label><input type="number" step="0.01" id="fd-fund" placeholder="SOFR와 동일" oninput="saveFund();RT()" style="width:80px">
+      <label>SOFR(%)</label><input type="number" step="0.01" id="fd-sofr" oninput="saveFund();RT()" style="width:70px">
       <button class="bt pr" onclick="EX()">📥 CSV</button>
     </div>
+    <div class="ib" style="margin-bottom:6px;font-size:11px">💱 <b>캐리(%/년)</b> = YTM − 국채(매칭만기) − (조달금리 − SOFR) &nbsp;≈ G-spread − 조달스프레드 &nbsp;|&nbsp; <b>롤다운(%)</b> = (현재 G-spread − 1년 뒤 만기 지점 G-spread, 동일 발행사 커브 보간) × 잔존듀레이션 &nbsp;|&nbsp; 채권 매수 + 국채 매도(금리헤지) 기준, 1년 보유 가정 · 발행사 커브 점이 1개면 롤다운 "-"</div>
     <div id="pnl-summary" class="ib" style="margin-bottom:6px"></div>
     <div class="tw" style="max-height:600px;overflow-y:auto"><table><thead><tr id="th"></tr></thead><tbody id="tb"></tbody></table></div>
   </div>
@@ -2099,6 +2032,12 @@ textarea:focus,.ti:focus{{border-color:var(--ac)}}
     <div class="cd"><div class="ct2">📉 HY / EM ETF (HYG / EMB / EMLC)</div><div class="ch" style="height:260px"><canvas id="c10"></canvas></div></div>
   </div>
 </div>
+<!-- TAB 3 -->
+<div class="tp" id="t3">
+  <div class="ib">🏢 발행자별 개별 수익률 곡선 — ● 보유  ○ 비보유</div>
+  <div class="ig" id="ic"></div>
+  <div class="cd"><div class="ct2">🏭 섹터 평균 곡선</div><div class="ch" style="height:300px"><canvas id="c7"></canvas></div></div>
+</div>
 <!-- TAB 6: New Issues -->
 <div class="tp" id="t6">
   <div class="ib">🆕 Bloomberg PREL 워크시트 기반 최근 발행 내역 — <span id="niCount"></span></div>
@@ -2127,8 +2066,7 @@ textarea:focus,.ti:focus{{border-color:var(--ac)}}
   <div class="ib" id="newsMeta">📰 보유종목 관련 뉴스 — 수동/주기적 갱신 (holdings_news.json)</div>
   <div class="cd">
     <div class="fl">
-      <label>구분</label><select id="nwf0" onchange="R9()"><option value="ALL">전체</option><option value="H">보유종목</option><option value="S">섹터</option></select>
-      <label>종목/섹터</label><select id="nwf1" onchange="RNW()"><option value="ALL">전체</option></select>
+      <label>종목</label><select id="nwf1" onchange="RNW()"><option value="ALL">전체</option></select>
       <label>검색</label><input type="text" id="nwf2" placeholder="제목/요약 검색..." oninput="RNW()" style="width:220px">
     </div>
     <div id="newsCards" style="display:flex;flex-direction:column;gap:8px;margin-top:8px"></div>
@@ -2224,13 +2162,6 @@ textarea:focus,.ti:focus{{border-color:var(--ac)}}
     </div>
   </div>
 </div>
-<!-- TAB 10: 포트 운용 (export_port_tab.py) -->
-<div class="tp" id="t11">
-{curve_tab_html}
-</div>
-<div class="tp" id="t10">
-{port_tab_html}
-</div>
 </div>
 <div class="en" id="en">✅ CSV 파일이 다운로드됩니다</div>
 <script>
@@ -2262,7 +2193,7 @@ function isTechIssue(i){{
   if(n>0)b.innerHTML=' <span style="background:var(--rd,#c0392b);color:#fff;border-radius:8px;padding:0 5px;font-size:10px;font-weight:700">'+n+'</span>';
 }})();
 (function(){{
-  const n=(D.holdingsNews?.items||[]).length+(D.sectorNews?.items||[]).length;
+  const n=(D.holdingsNews?.items||[]).length;
   const b=document.getElementById('newsBadge');
   if(n>0)b.innerHTML=' <span style="background:var(--ac,#3b82f6);color:#fff;border-radius:8px;padding:0 5px;font-size:10px;font-weight:700">'+n+'</span>';
 }})();
@@ -2270,10 +2201,9 @@ document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{{
   document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
   document.querySelectorAll('.tp').forEach(x=>x.classList.remove('active'));
   t.classList.add('active');document.getElementById(t.dataset.tab).classList.add('active');
-  if(t.dataset.tab==='t2')R2();
+  if(t.dataset.tab==='t2')R2();if(t.dataset.tab==='t3')R3();
   if(t.dataset.tab==='t6')R6();if(t.dataset.tab==='t7')R7();if(t.dataset.tab==='t8')R8();
   if(t.dataset.tab==='t9')R9();
-  if(t.dataset.tab==='t11'&&window.RCurve)RCurve();
 }}));
 
 // ═══ TAB 1 ═══
@@ -2709,6 +2639,9 @@ const TC=[
   {{id:'label',n:'채권명',t:'t'}},{{id:'ccy',n:'통화',t:'t'}},{{id:'ytm',n:'YTM(%)',t:'n',f:v=>v?.toFixed(2)}},
   {{id:'spread',n:'G-spread',t:'n',f:v=>v?.toFixed(0),c:'sp'}},
   {{id:'ispread',n:'I-spread',t:'n',f:v=>v?.toFixed(0),c:'sp'}},
+  {{id:'_carry',n:'캐리(%)',t:'n',f:v=>v!=null?v.toFixed(2):'-',c:'cy first'}},
+  {{id:'_roll',n:'롤다운(%)',t:'n',f:v=>v!=null?v.toFixed(2):'-',c:'cy'}},
+  {{id:'_tot',n:'1Y합계(%)',t:'n',f:v=>v!=null?v.toFixed(2):'-',c:'cy sp'}},
   {{id:'chg1d',n:'1D',t:'c',f:v=>v!=null?(v>=0?'+':'')+v.toFixed(1):'-'}},
   {{id:'chg1w',n:'1W',t:'c',f:v=>v!=null?(v>=0?'+':'')+v.toFixed(1):'-'}},
   {{id:'chg1m',n:'MTD',t:'c',f:v=>v!=null?(v>=0?'+':'')+v.toFixed(1):'-'}},
@@ -2727,6 +2660,66 @@ function getPnLQty(){{try{{return JSON.parse(localStorage.getItem('pnl_qty')||'{
 function setPnLQty(d){{localStorage.setItem('pnl_qty',JSON.stringify(d))}}
 function qtyKey(label){{return label.replace(/[^a-zA-Z0-9]/g,'_')}}
 
+// ═══ 캐리 + 롤다운 (채권 매수 / 국채 매도 헤지 기준) ═══
+function getFund(){{try{{return JSON.parse(localStorage.getItem('fund_inputs')||'{{}}')}}catch{{return{{}}}}}}
+function saveFund(){{
+  var f=document.getElementById('fd-fund').value, sf=document.getElementById('fd-sofr').value;
+  try{{localStorage.setItem('fund_inputs',JSON.stringify({{fund:f,sofr:sf}}))}}catch(e){{}}
+}}
+function initFund(){{
+  var st=getFund();
+  var sofr=st.sofr!==undefined&&st.sofr!==''?st.sofr:(D.sofr!=null?D.sofr:'');
+  document.getElementById('fd-sofr').value=sofr;
+  document.getElementById('fd-fund').value=st.fund!==undefined?st.fund:'';
+}}
+// 조달스프레드(bp) = 조달금리 − SOFR (조달금리 미입력 시 0)
+function fundSpreadBp(){{
+  var f=parseFloat(document.getElementById('fd-fund').value);
+  var sf=parseFloat(document.getElementById('fd-sofr').value);
+  if(isNaN(f)||isNaN(sf))return 0;
+  return (f-sf)*100;
+}}
+function yrsToMat(b){{
+  if(b.maturity){{var t=(new Date(b.maturity)-new Date(D.generated.split(' ')[0]))/31557600000;if(isFinite(t))return t}}
+  return b.duration!=null?b.duration*1.15:null;
+}}
+var CURVES=null;
+function buildCurves(){{
+  CURVES={{}};
+  (D.allBonds||D.bonds||[]).forEach(function(x){{
+    if(x.spread==null||!x.issuer)return;
+    var T=yrsToMat(x);if(T==null||T<=0)return;
+    var k=x.issuer+'|'+(x.ccy||'USD');
+    (CURVES[k]=CURVES[k]||[]).push({{T:T,s:x.spread}});
+  }});
+  Object.keys(CURVES).forEach(function(k){{CURVES[k].sort(function(a,b){{return a.T-b.T}})}});
+}}
+function curveAt(pts,t){{
+  if(t<=pts[0].T)return pts[0].s;
+  if(t>=pts[pts.length-1].T)return pts[pts.length-1].s;
+  for(var i=1;i<pts.length;i++){{
+    if(t<=pts[i].T){{var a=pts[i-1],b=pts[i];return b.T===a.T?b.s:a.s+(b.s-a.s)*(t-a.T)/(b.T-a.T)}}
+  }}
+  return pts[pts.length-1].s;
+}}
+function calcCarry(b){{
+  b._carry=null;b._roll=null;b._tot=null;
+  if(b.spread==null)return;
+  var T=yrsToMat(b);
+  var carry=(b.spread-fundSpreadBp())/100;       // %/년
+  var roll=null;
+  if(T!=null&&T<=1){{ carry=carry*Math.max(T,0); roll=0; }}   // 1년 내 만기: 만기까지만
+  else if(T!=null){{
+    var pts=CURVES&&CURVES[(b.issuer||'')+'|'+(b.ccy||'USD')];
+    if(pts&&pts.length>=2){{
+      var s1=curveAt(pts,T-1);
+      var dur1=Math.max((b.duration||0)-1,0);
+      roll=(b.spread-s1)*dur1/100;               // % (bp × duration / 100)
+    }}
+  }}
+  b._carry=carry;b._roll=roll;b._tot=carry+(roll||0);
+}}
+
 function getScenario(){{return document.getElementById('pnl-scenario').value}}
 function getDelta(b){{
   const s=getScenario();
@@ -2743,6 +2736,7 @@ function RH(theadId){{
     var c=TC[i];
     var a=sc===c.id?(sd>0?'▲':'▼'):'';
     var cls=sc===c.id?'so':'';
+    if(c.c&&c.c.indexOf('cy')>=0)cls+=' '+c.c.replace('sp','').trim();
     h+='<th class="'+cls+'" data-col="'+c.id+'">'+c.n+' <span style="font-size:10px">'+a+'</span></th>';
   }}
   var thead=document.getElementById(theadId);
@@ -2786,7 +2780,7 @@ function buildRows(d){{
         cells.push('<td class="'+cls+'">'+display+'</td>');
       }}
     }}
-    rows.push('<tr style="'+rs+'" data-label="'+b.label.replace(/"/g,'&quot;')+'">' + cells.join('') + '</tr>');
+    rows.push('<tr class="'+(isSel?'sel':'')+'" data-label="'+b.label.replace(/"/g,'&quot;')+'">' + cells.join('') + '</tr>');
   }}
   return rows;
 }}
@@ -2809,7 +2803,9 @@ function RT(){{
   const savedQty=getPnLQty();
 
   // _qty와 _pnl을 미리 계산해서 정렬 가능하게
+  if(!CURVES)buildCurves();
   d.forEach(function(b){{
+    calcCarry(b);
     const k=qtyKey(b.label);
     b._qty=savedQty[k]!==undefined?savedQty[k]:(QTY_DATA[b.isin]!==undefined?QTY_DATA[b.isin]:0);
     const delta=getDelta(b);
@@ -2848,13 +2844,16 @@ function updatePnLSummary(data){{
     document.getElementById('pnl-summary').innerHTML='💰 수량을 입력하면 포트폴리오 손익이 자동 계산됩니다 (수량은 브라우저에 저장)';
     return;
   }}
+  var carryUsd=0;
+  for(var ci2=0;ci2<data.length;ci2++){{ if(data[ci2]._qty>0&&data[ci2]._tot!=null)carryUsd+=data[ci2]._tot/100*data[ci2]._qty*1000000; }}
+  var carryTxt=' | 1Y 캐리+롤다운 ≈ <b style="color:var(--gn)">$'+Math.round(carryUsd).toLocaleString()+'</b> (조달스프레드 '+fundSpreadBp().toFixed(0)+'bp 반영)';
   var totalFmt=totalPnL>=0?'+$'+Math.abs(Math.round(totalPnL)).toLocaleString():'-$'+Math.abs(Math.round(totalPnL)).toLocaleString();
   var totalCls=totalPnL>0?'color:var(--gn)':totalPnL<0?'color:var(--rd)':'';
   var scenarioLabel={{'1d':'1일','1w':'1주','1m':'MTD','3m':'YTD'}}[getScenario()]||getScenario();
   document.getElementById('pnl-summary').innerHTML=
     '<b style="'+totalCls+';font-size:16px">'+totalFmt+'</b>'
     +' <span style="color:var(--tx3);font-size:12px">| '+scenarioLabel+' 스프레드 변동 기준 | '
-    +'보유 '+cnt+'개 | 총 액면 '+totalNotional.toFixed(1)+'M</span>';
+    +'보유 '+cnt+'개 | 총 액면 '+totalNotional.toFixed(1)+'M</span>'+carryTxt;
 }}
 
 function updateQty(el){{
@@ -3516,6 +3515,120 @@ function R2(){{
   }}  // if etNames
 }}  // R2
 
+// ═══ TAB 3: Issuer Curves (fixed) ═══
+let t3r=false;
+function R3(){{
+  if(t3r)return;t3r=true;
+  const all=D.allBonds;
+
+  // Group by issuer
+  const byIssuer={{}};
+  all.forEach(b=>{{if(b.issuer&&b.duration&&b.ytm){{(byIssuer[b.issuer]=byIssuer[b.issuer]||[]).push(b)}} }});
+
+  // 발행자 선정: 보유 채권이 많은 발행자를 최우선으로 노출 (min 2 bonds — 비교물 없이 보유 종목만으로도 표시)
+  // 정렬 기준: ① 보유 종목수 내림차순 ② 전체(보유+비보유) 종목수 내림차순
+  const top=Object.entries(byIssuer)
+    .map(([issuer,bs])=>[issuer,bs,bs.filter(b=>b.is_owned).length])
+    .filter(([,bs])=>bs.length>=2)
+    .sort((a,b)=>(b[2]-a[2])||(b[1].length-a[1].length))
+    .slice(0,12)
+    .map(([issuer,bs])=>[issuer,bs]);
+
+  const container=document.getElementById('ic');
+  container.innerHTML=top.map(([issuer,bs],idx)=>{{
+    const owned=bs.filter(b=>b.is_owned).length;
+    const extra=bs.filter(b=>!b.is_owned).length;
+    const sub=`보유 ${{owned}}개`+(extra>0?` + 비보유 ${{extra}}개`:'');
+    return`<div class="ic">
+      <div class="it">${{issuer}}</div>
+      <div class="is">${{sub}} — <span style="color:var(--ac)">● 현재</span> <span style="color:var(--am)">◆ 1M전</span> <span style="color:var(--rd)">▲ 3M전</span></div>
+      <div class="ch" style="height:260px"><canvas id="ic${{idx}}"></canvas></div></div>`;
+  }}).join('');
+
+  top.forEach(([issuer,bs],idx)=>{{
+    const color=CL[idx%CL.length];
+    const allSorted=[...bs].sort((a,b)=>a.duration-b.duration);
+
+    const datasets=[];
+
+    // Current YTM — all bonds as line
+    datasets.push({{
+      label:'현재',
+      data:allSorted.map(b=>({{x:b.duration,y:b.ytm}})),
+      borderColor:color,backgroundColor:color,
+      pointRadius:allSorted.map(b=>b.is_owned?7:5),
+      pointStyle:allSorted.map(b=>b.is_owned?'circle':'circle'),
+      pointBackgroundColor:allSorted.map(b=>b.is_owned?color:'transparent'),
+      pointBorderColor:color,
+      pointBorderWidth:allSorted.map(b=>b.is_owned?0:2),
+      pointHoverRadius:9,
+      showLine:true,tension:.3,borderWidth:2,
+    }});
+
+    // 1M ago YTM
+    const has1m=allSorted.filter(b=>b.ytm_1m_ago!=null);
+    if(has1m.length>=2){{
+      datasets.push({{
+        label:'1M전',
+        data:has1m.map(b=>({{x:b.duration,y:b.ytm_1m_ago}})),
+        borderColor:'#f59e0b',backgroundColor:'transparent',
+        pointRadius:4,pointStyle:'rect',pointBorderColor:'#f59e0b',pointBorderWidth:1.5,
+        pointHoverRadius:6,showLine:true,tension:.3,borderWidth:1.5,borderDash:[4,3],
+      }});
+    }}
+
+    // 3M ago YTM
+    const has3m=allSorted.filter(b=>b.ytm_3m_ago!=null);
+    if(has3m.length>=2){{
+      datasets.push({{
+        label:'3M전',
+        data:has3m.map(b=>({{x:b.duration,y:b.ytm_3m_ago}})),
+        borderColor:'#ef4444',backgroundColor:'transparent',
+        pointRadius:4,pointStyle:'triangle',pointBorderColor:'#ef4444',pointBorderWidth:1.5,
+        pointHoverRadius:6,showLine:true,tension:.3,borderWidth:1.5,borderDash:[2,2],
+      }});
+    }}
+
+    const ctx=document.getElementById('ic'+idx).getContext('2d');
+    new Chart(ctx,{{type:'scatter',data:{{datasets}},
+      options:{{responsive:true,maintainAspectRatio:false,
+        plugins:{{
+          legend:{{display:true,position:'top',labels:{{font:{{size:10}},padding:8}}}},
+          tooltip:{{callbacks:{{
+            label:function(c){{
+              const b=c.datasetIndex===0?allSorted[c.dataIndex]:(c.datasetIndex===1?has1m[c.dataIndex]:has3m[c.dataIndex]);
+              if(!b)return c.dataset.label+': '+c.parsed.y?.toFixed(2)+'%';
+              return b.label+' | '+c.parsed.x.toFixed(1)+'Y | '+c.parsed.y.toFixed(2)+'%';
+            }}
+          }}}}
+        }},
+        scales:{{
+          x:{{title:{{display:true,text:'듀레이션(년)',font:{{size:10}}}},
+              grid:{{color:'rgba(42,53,80,.2)'}},
+              ticks:{{callback:v=>[1,2,3,5,7,10,15,20,30].includes(Math.round(v))?Math.round(v):'',font:{{size:10}}}}}},
+          y:{{title:{{display:true,text:'YTM(%)',font:{{size:10}}}},
+              ticks:{{callback:v=>v.toFixed(1)+'%',font:{{size:10}}}},
+              grid:{{color:'rgba(42,53,80,.2)'}}}}
+        }}
+      }}
+    }});
+  }});
+
+  // Sector average curve — current only
+  const bySector={{}};
+  all.forEach(b=>{{if(b.sector&&b.duration&&b.ytm)(bySector[b.sector]=bySector[b.sector]||[]).push(b)}});
+  const sds=Object.entries(bySector).filter(([,bs])=>bs.length>=3).map(([sec,bs],i)=>{{
+    const bk={{}};bs.forEach(b=>{{const k=Math.round(b.duration);(bk[k]=bk[k]||[]).push(b.ytm)}});
+    const pts=Object.entries(bk).map(([d,ys])=>({{x:+d,y:ys.reduce((a,v)=>a+v,0)/ys.length}})).sort((a,b)=>a.x-b.x);
+    return{{label:sec,data:pts,borderColor:CL[i%CL.length],borderWidth:2,pointRadius:4,showLine:true,tension:.3}};
+  }});
+  new Chart(document.getElementById('c7').getContext('2d'),{{type:'scatter',data:{{datasets:sds}},
+    options:{{responsive:true,maintainAspectRatio:false,plugins:{{legend:{{position:'top'}}}},
+      scales:{{x:{{title:{{display:true,text:'듀레이션(년)'}},grid:{{color:'rgba(42,53,80,.3)'}}}},y:{{title:{{display:true,text:'YTM(%)'}},grid:{{color:'rgba(42,53,80,.3)'}}}}}}
+    }}
+  }});
+}}
+
 // ═══ TAB 4 ═══
 let t4r=false;
 function R4(){{
@@ -3634,64 +3747,39 @@ function EX(){{
   const e=document.getElementById('en');e.classList.add('show');setTimeout(()=>e.classList.remove('show'),2000);
 }}
 
-// ═══ TAB 9: Holdings News (+ Sector News) ═══
-function NWALL(){{
-  const h=(D.holdingsNews?.items||[]).map(i=>Object.assign({{}},i,{{_k:'H'}}));
-  const s=(D.sectorNews?.items||[]).map(i=>Object.assign({{}},i,{{_k:'S'}}));
-  // 섹터 뉴스(전일) 먼저, 보유종목 뉴스 뒤
-  return s.concat(h);
-}}
+// ═══ TAB 9: Holdings News ═══
 function RNW(){{
-  const all=NWALL();
-  const f0=document.getElementById('nwf0').value;
+  const items=(D.holdingsNews?.items||[]).slice();
   const f1=document.getElementById('nwf1').value;
   const q=(document.getElementById('nwf2').value||'').toLowerCase();
-  const filtered=all.filter(i=>
-    (f0==='ALL'||i._k===f0) &&
+  const filtered=items.filter(i=>
     (f1==='ALL'||i.cor===f1) &&
     (!q || (i.t||'').toLowerCase().includes(q) || (i.m||'').toLowerCase().includes(q))
   );
   const wrap=document.getElementById('newsCards');
   const meta=document.getElementById('newsMeta');
-  const hN=(D.holdingsNews?.items||[]).length, sN=(D.sectorNews?.items||[]).length;
-  const hD=D.holdingsNews?.date||'갱신 이력 없음', sD=D.sectorNews?.date||'갱신 이력 없음';
-  meta.innerHTML=`📰 보유종목 뉴스 ${{hN}}건 (기준일 ${{hD}}, holdings_news.json) · 섹터 뉴스 ${{sN}}건 (기준일 ${{sD}}, sector_news.json)`;
+  const dateTxt=D.holdingsNews?.date ? `기준일 ${{D.holdingsNews.date}}` : '갱신 이력 없음';
+  meta.innerHTML=`📰 보유종목 관련 뉴스 — ${{dateTxt}} · 총 ${{items.length}}건 (holdings_news.json 수동/주기적 갱신)`;
   if(!filtered.length){{
-    wrap.innerHTML='<div style="text-align:center;padding:30px;color:var(--tx3)">표시할 뉴스가 없습니다. holdings_news.json / sector_news.json을 갱신해주세요.</div>';
+    wrap.innerHTML='<div style="text-align:center;padding:30px;color:var(--tx3)">표시할 뉴스가 없습니다. holdings_news.json을 갱신해주세요.</div>';
     return;
   }}
-  wrap.innerHTML=filtered.map(i=>{{
-    const c=i._k==='S'?'#d97706':'var(--ac,#3b82f6)';
-    const bg=i._k==='S'?'#d9770622':'var(--ac,#3b82f6)22';
-    const kind=i._k==='S'?'섹터':'보유종목';
-    return `
-    <div style="background:var(--sf2);border:1px solid var(--bd);border-left:3px solid ${{c}};border-radius:8px;padding:12px 14px;">
+  wrap.innerHTML=filtered.map(i=>`
+    <div style="background:var(--sf2);border:1px solid var(--bd);border-radius:8px;padding:12px 14px;">
       <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:4px;">
-        <span>
-          <span style="font-size:10px;color:var(--tx3);margin-right:6px;">${{kind}}</span>
-          <span style="font-size:11px;font-weight:700;color:${{c}};background:${{bg}};padding:1px 8px;border-radius:4px;">${{i.cor||'-'}}</span>
-        </span>
+        <span style="font-size:11px;font-weight:700;color:var(--ac,#3b82f6);background:var(--ac,#3b82f6)22;padding:1px 8px;border-radius:4px;">${{i.cor||'-'}}</span>
         ${{i.url?`<a href="${{i.url}}" target="_blank" rel="noopener" style="font-size:10px;color:var(--tx3);text-decoration:none;">원문 →</a>`:''}}
       </div>
       <div style="font-size:13px;font-weight:600;color:var(--tx);margin-bottom:3px;">${{i.t||''}}</div>
       <div style="font-size:12px;color:var(--tx2);">${{i.m||''}}</div>
-    </div>`;
-  }}).join('');
+    </div>
+  `).join('');
 }}
 function R9(){{
-  const f0=document.getElementById('nwf0').value;
-  const all=NWALL().filter(i=>f0==='ALL'||i._k===f0);
-  const order=D.sectorNewsTags||[];
-  const secs=order.filter(t=>all.some(i=>i._k==='S'&&i.cor===t))
-    .concat([...new Set(all.filter(i=>i._k==='S'&&!order.includes(i.cor)).map(i=>i.cor).filter(Boolean))].sort());
-  const cors=[...new Set(all.filter(i=>i._k==='H').map(i=>i.cor).filter(Boolean))].sort();
+  const items=(D.holdingsNews?.items||[]);
+  const cors=[...new Set(items.map(i=>i.cor).filter(Boolean))].sort();
   const sel=document.getElementById('nwf1');
-  const prev=sel.value;
-  let html='<option value="ALL">전체</option>';
-  if(secs.length)html+='<optgroup label="섹터">'+secs.map(c=>`<option value="${{c}}">${{c}}</option>`).join('')+'</optgroup>';
-  if(cors.length)html+='<optgroup label="보유종목">'+cors.map(c=>`<option value="${{c}}">${{c}}</option>`).join('')+'</optgroup>';
-  sel.innerHTML=html;
-  if([...sel.options].some(o=>o.value===prev))sel.value=prev;
+  sel.innerHTML='<option value="ALL">전체</option>'+cors.map(c=>`<option value="${{c}}">${{c}}</option>`).join('');
   RNW();
 }}
 
@@ -3938,9 +4026,8 @@ function renderT8Chart(){{
   }});
 }}
 
-{value_js}
 // ═══ INIT ═══
-PF();R1();
+PF();initFund();R1();
 </script>
 </body>
 </html>'''
@@ -4072,7 +4159,6 @@ if __name__ == "__main__":
     parser.add_argument("--sample", action="store_true", help="샘플 데이터로 생성 (Bloomberg 무시)")
     parser.add_argument("--backfill-issuance", metavar="CSV_PATH", help="발행량 로그 웜스타트: month,totalAmtMM,dealCount 헤더의 CSV 경로")
     parser.add_argument("--overwrite", action="store_true", help="--backfill-issuance 사용 시 기존 월 데이터도 덮어쓰기")
-    parser.add_argument("--port-xlsx", metavar="XLSX_PATH", help="포트 운용 탭에 쓸 포트운용 엑셀 경로 (기본: 스크립트 폴더 최신 파일)")
     args = parser.parse_args()
 
     if args.backfill_issuance:
@@ -4107,11 +4193,8 @@ if __name__ == "__main__":
     # 발행자 재무 데이터 로드 (issuer_financials.json)
     issuer_data = load_issuer_financials()
 
-    # 포트 운용 탭 (포트운용 엑셀 → HTML 조각)
-    port_html = load_port_tab_html(args.port_xlsx)
-
     # HTML 생성
-    html_content = generate_html(data, issuer_data, port_html)
+    html_content = generate_html(data, issuer_data)
 
     # index.html로 저장 (GitHub Pages용 고정 파일명)
     script_dir = os.path.dirname(os.path.abspath(__file__))
