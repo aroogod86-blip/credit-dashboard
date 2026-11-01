@@ -1,59 +1,59 @@
 {
-  "date": "2026-10-29",
+  "date": "2026-10-30",
   "items": [
     {
+      "t": "NVDA",
+      "h": "반도체 급락 속 -4.22%, 하이퍼스케일러 2027 지출 축소 우려",
+      "m": "SOX -7.20%(Intel 가이던스 쇼크 여파). 52주 고점 대비 -12.2%, 하이퍼스케일러 2027 투자 축소 우려 부각(Yahoo). 고유 뉴스 없음. 종가 절대값 미확인.",
+      "url": "https://cappnotes.substack.com/p/closing-look-friday-october-30-2026"
+    },
+    {
       "t": "ORCL",
-      "h": "오라클 -3.45%(139.56달러), MS·알파벳 capex 하회에 AI 클라우드주 동반 하락",
-      "m": "전일 투자자의 날 +10.7% 후 차익실현 겸 MS(FQ1 capex 452억달러 vs 컨센 507억달러, 제3자 용량 인도 지연)와 알파벳(514억달러 vs 551억달러)의 capex 하회가 AI 인프라 수요 둔화 우려로 해석됨. 연초 대비 약 -27%. 신용: S&P BBB-(7/9 하향, 신규 조치 아님), FY29 FCF 300억달러 목표·신규 조달 200억달러 상한(10/28 발표). 하락률 출처별 -3%(장중)~-4%.",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/ai-cloud-stocks-fall-big-161017714.html"
-    },
-    {
-      "t": "AVGO",
-      "h": "브로드컴 -1.94%(345.00달러), SOX -1.42% 속 약세",
-      "m": "SOX 11,518.2(-1.42%, 30종목 중 20종목 하락). 알파벳 실적 쇼크와 빅테크 capex 하회로 AI 반도체 전반 약세. 10/29 브로드컴 고유 공시는 확인되지 않음.",
-      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262255000-us-stock-nasdaq-drop-alphabet-microsoft-neoclouds-lumentum-marvell-tradingkey"
-    },
-    {
-      "t": "MU",
-      "h": "마이크론 -4.98%(934.27달러), 빅테크 capex 하회에 메모리주 동반 하락",
-      "m": "MS·알파벳 capex가 컨센서스를 밑돌며 메모리 수요 기대 약화, SK하이닉스 ADR·SanDisk도 하락. 전일 SK하이닉스 사상 최대 실적 후 +5.86% 급등분 반납. 10/29 마이크론 고유 공시는 확인되지 않음.",
-      "url": "https://invezz.com/news/2026/10/29/why-are-micron-sk-hynix-and-sandisk-stocks-falling-on-thursday/"
+      "h": "자금조달 한도(주식 100억·차입 100억달러, 재융자 제외) 부각 속 약세",
+      "m": "10/28 발표: FY2030까지 추가조달 상한 200억달러(주식 100억+총차입 100억, 기존 부채 재융자 제외). FCF 흑자전환 FY28 하반기, FY29 300억달러 이상 목표. 장중(12:50ET) 130.95달러 -6.17%, 종가 미확인(보도 -6.2~-6.5%). 원인 단정 불가(기사는 발표와의 연관만 시사). S&P BBB-/안정적 유지, 신규 신평 조치 없음.",
+      "url": "https://www.tradingview.com/news/gurufocus:06747f6ad094b:0-oracle-stocks-decline-6-17-with-funding-ceiling-excluding-debt-refinancing/"
     },
     {
       "t": "META",
-      "h": "메타 +1.96%(624.52달러), 아마존과 AI 계약 언급…고유 신규 뉴스 없음",
-      "m": "아마존 3Q 발표에서 Meta·Salesforce와의 신규 AI 계약이 언급됨. 정규장 상승 배경은 출처에서 확인하지 못함. 증자(최대 950억달러, 10/27 공모 250억달러 상향 보도는 단일 출처) 부담과 3Q FCF -21억달러 이슈는 유지.",
-      "url": "https://www.fool.com/coverage/stock-market-today/2026/10/29/stock-market-today-oct-29-amazon-falls-on-q3-earnings-report-and-capex-concerns/"
+      "h": "고유 뉴스 없음, 시장 급락 동조 (52주 고점 대비 -20% 이상)",
+      "m": "Yahoo: 52주 고점 대비 -20% 이상으로 약세장 진입 표현. 당일 종가·등락률 미확인. 투자등급 스프레드 IG 86→89bp, HY 314→326bp 확대(Capp Notes).",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-friday-october-30-dow-sp-500-nasdaq-amazon-intel-ai-sell-off-191429143.html"
     },
     {
       "t": "GOOGL",
-      "h": "알파벳 -12.64%(283.82달러), 3Q 매출·이익 하회·FCF -91억달러…시총 약 5,000억달러 증발",
-      "m": "3Q 매출 1,276억달러(+25%, 컨센 소폭 하회), EPS 2.12달러(지분투자 평가손실 87억달러 포함), Cloud 307억달러(+48%, 마진 36.2%), FCF -91억달러(2Q -59억달러). capex 514억달러는 컨센(551억달러) 하회. 핵심 검색광고 성장 둔화 보도. 연간 capex 1,950~2,050억달러 유지(TradingKey, 10/28 Fortune은 가이던스 없다고 보도해 확인 필요). 6월 848억달러 증자 이력.",
-      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262255000-us-stock-nasdaq-drop-alphabet-microsoft-neoclouds-lumentum-marvell-tradingkey"
+      "h": "Q3 실적 쇼크 후 하락 지속, 당일 약 -1.4%",
+      "m": "실적 미스로 20년래 최악의 하루(전일) 이후 추가 하락. 당일 -1.4%(Reuters 계열 속보, TE 경유), 종가 미확인. 52주 고점 대비 -20% 이상.",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-friday-october-30-dow-sp-500-nasdaq-amazon-intel-ai-sell-off-191429143.html"
     },
     {
-      "t": "SPCX",
-      "h": "SpaceX -0.92%(143.89달러), 지지선 140달러 부근 횡보…고유 뉴스 없음",
-      "m": "10/22~28 보호예수 해제 여파로 약세 지속. 10/29 회사 고유 공시는 확인되지 않음. 10/26 Apollo 400억달러 칩 리스, 10/27 Anthropic 최대 1,205억달러 지급 보도(단일 출처)는 이미 반영. 가격은 Trading Economics(Movers 표) 기준.",
-      "url": "https://tradingeconomics.com/united-states/stock-market"
+      "t": "MU",
+      "h": "반도체 급락 동반 -5.30%",
+      "m": "SOX -7.20%. 소스에 따라 -5.3%~-7% 상이(속보 2개 버전). 고유 뉴스 없음.",
+      "url": "https://cappnotes.substack.com/p/closing-look-friday-october-30-2026"
+    },
+    {
+      "t": "AVGO",
+      "h": "Intel 쇼크 여파 -5.48%",
+      "m": "소스에 따라 -5.5%~-6.5% 상이. Broadcom 고유 뉴스는 확인되지 않음(Investing.com 기사 접속 실패).",
+      "url": "https://cappnotes.substack.com/p/closing-look-friday-october-30-2026"
     },
     {
       "t": "AMZN",
-      "h": "아마존 -4.25%(243.79달러) 마감, 장 마감 후 3Q 실적 후 추가 -5~7%",
-      "m": "정규장은 알파벳 쇼크로 하락. 장 마감 후 3Q: 매출 2,019억달러(+12%, 컨센 2,022억달러), 희석 EPS 1.89달러(컨센 1.97달러), AWS 460억달러(+39%, 2Q +37%), 경영진은 AWS 성장률이 2027·2028년 모두 40% 초과 전망. 4Q 매출 가이던스 2,400~2,470억달러(컨센 2,445억달러). 2026 인프라 투자 약 2,200억달러, 트레일링 FCF 마이너스 전환. 시간외 장중 -11%, 이후 -5.4%(230.64달러)~-6.7%. 반영은 10/30.",
-      "url": "https://www.fool.com/coverage/stock-market-today/2026/10/29/stock-market-today-oct-29-amazon-falls-on-q3-earnings-report-and-capex-concerns/"
+      "h": "Q3 미스·지출 확대 반응, 장 초반 급락 후 -1.4% 마감",
+      "m": "Q3 부진 및 CAPEX 증가. TTM FCF 사상 최대 순유출 420억달러 이상(Yahoo). 52주 고점 대비 -15.1%. 소스별 -1.4%~-2% 상이.",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-friday-october-30-dow-sp-500-nasdaq-amazon-intel-ai-sell-off-191429143.html"
     },
     {
-      "t": "NVDA",
-      "h": "엔비디아 -0.82%(213.61달러), 약보합…빅테크 capex 하회 영향 제한적",
-      "m": "SOX -1.42% 대비 낙폭 제한. 10/29 엔비디아 고유 공시는 확인되지 않음. MS의 '수요가 공급을 초과' 발언(CFO Hood)은 AI 수요 자체는 견조함을 시사하나 capex 시점 지연이 부담.",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/ai-cloud-stocks-fall-big-161017714.html"
+      "t": "SPCX",
+      "h": "Intel 약한 가이던스 여파 134.72달러(-6.37%) 마감",
+      "m": "Intel 4Q EPS 가이던스 0.25달러(컨센 0.44), 매출 160억달러 이하(컨센 171억). BofA는 SpaceX–Tesla 합병설이 중국 반독점 당국에 막힐 수 있다고 경고. 10/6 이후 시총 4,000억달러 이상 감소(Yahoo).",
+      "url": "https://www.fool.com/investing/2026/10/30/why-spacex-stock-dropped-today/"
     },
     {
       "t": "AAPL",
-      "h": "애플 +1.48%(348.91달러), 11/2 실적 앞두고 상승…고유 뉴스 없음",
-      "m": "기술주 약세 속 방어적 강세. 4Q 실적 발표는 11/2(MacRumors). 10/28 터치스크린 MacBook Pro 공개(2,899달러부터, 11/6 출시) 후 반등. 10/29 고유 공시는 확인되지 않음.",
-      "url": "https://tradingeconomics.com/united-states/stock-market"
+      "h": "고유 뉴스 없음, 11/2 4Q 실적 발표 대기",
+      "m": "당일 종가·등락률 미확인(소스 내 언급 없음). 시장 급락 속 방어 여부 불명.",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-friday-october-30-dow-sp-500-nasdaq-amazon-intel-ai-sell-off-191429143.html"
     }
   ]
 }
