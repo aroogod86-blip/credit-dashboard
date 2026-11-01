@@ -1,29 +1,47 @@
 {
-  "date": "2026-10-29",
+  "date": "2026-10-30",
   "items": [
     {
       "cor": "MACRO/RATES",
-      "t": "나스닥 -1.38%·S&P500 -0.30%·다우 -0.25%, 9월 PCE 근원 3.1%·헤드라인 3.6%",
-      "m": "나스닥 26,184.72(-1.38%), S&P500 7,720.39(-0.30%), 다우 52,342.56(-0.25%), 러셀2000 2,854.82(+0.86%). 9월 PCE 전년비 근원 3.1%·헤드라인 3.6%. 10년물 약 4.99%. ECB는 기준금리 2.50% 동결, 에너지 충격의 물가·성장 위험 경고. Fed는 10/28 3.75~4.00% 동결 후 12월 신호 제한적. 지수는 TradingKey·Yahoo 기준이며 Trading Economics(S&P 7,665.79)와 상이.",
-      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262255000-us-stock-nasdaq-drop-alphabet-microsoft-neoclouds-lumentum-marvell-tradingkey"
+      "t": "미 증시 6월 이후 최악의 하루, 10월 나스닥 1년 이상 만의 최악의 월",
+      "m": "S&P500 7,580.07(-1.82%), 다우 51,770.31(-1.09%), 나스닥 25,437.00(-2.86%), 러셀2000 -1.66%. 기술 섹터 -4.89%. 美10Y 4.93%(Yahoo, -6bp)/4.94%(Capp, -4bp) 소스 상이, 2Y 4.56%. 스프레드 확대: IG 86→89bp, HY 314→326bp. TE의 나스닥 수치는 나스닥100(-3.46%)으로 종합지수와 상이.",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-friday-october-30-dow-sp-500-nasdaq-amazon-intel-ai-sell-off-191429143.html"
     },
     {
       "cor": "TECH/SEMIS",
-      "t": "알파벳 -12.6%·Marvell -13.2%, 네오클라우드 약세…MS 첫 IG 회사채 250억달러 이상",
-      "m": "Marvell(218.34달러)은 Lumentum 인수 협의 보도(미확정)로 급락. MS는 capex 452억달러(컨센 507억달러)로 하회, CFO는 제3자 용량 인도 지연을 사유로 제시하고 차기 분기 500억달러 이상·역년 약 1,700억달러 전망, Azure +48%. MS가 2017년 이후 첫 투자적격 회사채를 최소 250억달러, 10개 트랜치(2~40년)로 발행 예정(TradingKey). Nebius -3%, Fastly -6%, CoreWeave 보합권. Intel은 장 마감 후 3Q 매출 165억달러·4Q 가이던스 150~160억달러로 -17.6%.",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/ai-cloud-stocks-fall-big-161017714.html"
+      "t": "Intel -28.58%, SOX -7.20%: 약한 4Q 가이던스가 AI 반도체 전반 매도 촉발",
+      "m": "Intel 3Q 호조에도 4Q EPS 0.25달러(컨센 0.44), 매출 160억달러 이하(컨센 171억). NVDA -4.22%, AVGO -5.48%, MU -5.30%. AMD -11~12%(소스 상이). Reddit 약 -29%.",
+      "url": "https://cappnotes.substack.com/p/closing-look-friday-october-30-2026"
+    },
+    {
+      "cor": "TECH/SEMIS",
+      "t": "Amazon 3Q 미스·CAPEX 확대, FCF 사상 최대 순유출",
+      "m": "AMZN 장 초반 급락 후 -1.4% 마감(소스별 -1.4~-2%). TTM FCF -420억달러 이상. 하이퍼스케일러 AI 투자 수익성 의문 확산.",
+      "url": "https://tradingeconomics.com/united-states/stock-market/news/509293"
     },
     {
       "cor": "ENERGY",
-      "t": "WTI 12월물 102.8달러 부근",
-      "m": "Yahoo 티커 기준 WTI 102.80달러, 금 4,033달러. 10/29 유가 변동 원인과 마감가는 출처에서 확인하지 못함.",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/stock-market-today-oct-29-134623155.html"
+      "t": "호르무즈 해협 유조선 공격에 유가 상승",
+      "m": "Brent 113.43달러(+2.37%), WTI 104.12달러(+2.08%) 정산.",
+      "url": "https://cappnotes.substack.com/p/closing-look-friday-october-30-2026"
+    },
+    {
+      "cor": "MACRO/RATES",
+      "t": "금 -3.3% 3,898.90달러, 약 1년 만의 최저",
+      "m": "12월물 기준. Binance 약 63억달러 보안 침해 공시, 비트코인 약 76,758달러(-1.31%), Coinbase -10.62%.",
+      "url": "https://cappnotes.substack.com/p/closing-look-friday-october-30-2026"
+    },
+    {
+      "cor": "US BANKS",
+      "t": "금융 -0.76%, Credit Acceptance -19.26%",
+      "m": "Credit Acceptance가 대출 전망을 2.91억달러 하향. 대형 은행 고유 뉴스는 확인되지 않음.",
+      "url": "https://cappnotes.substack.com/p/closing-look-friday-october-30-2026"
     },
     {
       "cor": "KP",
-      "t": "코스피 5,937.66(-1.24%) 6,000선 반납, 삼성전자 -4.13%·SK하이닉스 +2.62%",
-      "m": "코스피 -74.78p. 기관 약 4,447억원 순매도, 외국인 약 655억원·개인 약 343억원 순매수. 삼성전자는 사상 최대 3Q에도 신규 주주환원책 부재로 232,000원(-4.13%), SK하이닉스 1,526,000원(+2.62%). LG에너지솔루션은 최대주주 LG화학의 지분 매각 보도로 -8.60%. 코스닥 753.23(-2.34%). 원/달러 1,336.8원. 한국 날짜 기준이며 미국 10/29 알파벳 급락과 아마존 시간외 하락은 10/30 장에 반영.",
-      "url": "https://www.businesskorea.co.kr/news/articleView.html?idxno=280009"
+      "t": "KOSPI 5,730.74(-3.48%), KOSDAQ 724.38(-3.83%)",
+      "m": "외국인 약 1.6조원 순매도. 미국 10/30 마감 반영은 다음 한국 세션(11/2)이며, 위 수치는 한국 10/30 거래 기준.",
+      "url": "https://www.washingtontimes.com/news/2026/oct/30/wall-street-falls-worst-day-since-june-sell-tech-stocks-deepens/"
     }
   ]
 }
