@@ -1,47 +1,41 @@
 {
-  "date": "2026-10-30",
+  "date": "2026-11-02",
   "items": [
     {
       "cor": "MACRO/RATES",
-      "t": "미 증시 6월 이후 최악의 하루, 10월 나스닥 1년 이상 만의 최악의 월",
-      "m": "S&P500 7,580.07(-1.82%), 다우 51,770.31(-1.09%), 나스닥 25,437.00(-2.86%), 러셀2000 -1.66%. 기술 섹터 -4.89%. 美10Y 4.93%(Yahoo, -6bp)/4.94%(Capp, -4bp) 소스 상이, 2Y 4.56%. 스프레드 확대: IG 86→89bp, HY 314→326bp. TE의 나스닥 수치는 나스닥100(-3.46%)으로 종합지수와 상이.",
-      "url": "https://finance.yahoo.com/markets/live/stock-market-today-friday-october-30-dow-sp-500-nasdaq-amazon-intel-ai-sell-off-191429143.html"
+      "t": "S&P500 -0.51%, 나스닥 -1.07%, 다우 +0.41%: 장 초반 상승분 반납, 중간선거 앞두고 기술주 이탈",
+      "m": "S&P500 7,541.40, 다우 51,983.98, 나스닥 25,164.32, 러셀2000 2,805.88(-0.21%). ISM 제조업 55.5(전월 54.5, 예상 상회). 장기금리 하락(구체적 10Y 수치 미확인). 11/3 중간선거, 11/6 10월 고용보고서. S&P500 선행 PER 약 19배로 2023년 이후 최저(Straits Times).",
+      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-02-2026"
     },
     {
       "cor": "TECH/SEMIS",
-      "t": "Intel -28.58%, SOX -7.20%: 약한 4Q 가이던스가 AI 반도체 전반 매도 촉발",
-      "m": "Intel 3Q 호조에도 4Q EPS 0.25달러(컨센 0.44), 매출 160억달러 이하(컨센 171억). NVDA -4.22%, AVGO -5.48%, MU -5.30%. AMD -11~12%(소스 상이). Reddit 약 -29%.",
-      "url": "https://cappnotes.substack.com/p/closing-look-friday-october-30-2026"
+      "t": "Marvell, Lumentum 약 1,150억달러 규모 전액 주식 인수 발표",
+      "m": "Lumentum 1주당 Marvell 4.5주, 합병 후 Marvell 주주 지분 약 67%. Marvell -12.7%, Lumentum -18.6%(TheStreet은 -5.3%/-10.3%로 상이). SOX -3.37%. Intel -8.8%, AMD -7.5%(실적 발표 앞두고).",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262264978-us-stock-close-nasdaq-falls-dow-rises-marvell-oracle-tradingkey"
     },
     {
       "cor": "TECH/SEMIS",
-      "t": "Amazon 3Q 미스·CAPEX 확대, FCF 사상 최대 순유출",
-      "m": "AMZN 장 초반 급락 후 -1.4% 마감(소스별 -1.4~-2%). TTM FCF -420억달러 이상. 하이퍼스케일러 AI 투자 수익성 의문 확산.",
-      "url": "https://tradingeconomics.com/united-states/stock-market/news/509293"
+      "t": "Oracle 200억달러 조달 개시(주식 100억·회사채 100억)",
+      "m": "AI 인프라 및 일반 목적. 6트랜치, 최장 20년, IPT T+360bp 안팎, 예상등급 Baa2/BBB-/BBB. 주가 -8.85%(119.10달러).",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262264978-us-stock-close-nasdaq-falls-dow-rises-marvell-oracle-tradingkey"
+    },
+    {
+      "cor": "TECH/SEMIS",
+      "t": "Anthropic IPO 신고서 수정본 공개 (공시 상세 소스 간 상이)",
+      "m": "공시 정보: TradingKey는 3Q 매출 약 170억달러·순손실 233억달러·향후 지출약정 약 8,950억달러·추수감사절 전 상장 계획, TheStreet는 올해 9개월 매출 332.4억달러·순손실 1,040억달러로 순손실 수치 불일치. 수치 미검증. 참고: Anthropic은 Claude 개발사.",
+      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-02-2026"
     },
     {
       "cor": "ENERGY",
-      "t": "호르무즈 해협 유조선 공격에 유가 상승",
-      "m": "Brent 113.43달러(+2.37%), WTI 104.12달러(+2.08%) 정산.",
-      "url": "https://cappnotes.substack.com/p/closing-look-friday-october-30-2026"
+      "t": "미-이란 평화 기대에 유가 급락",
+      "m": "Brent -6.3% 106.2달러(TradingKey)/-7.6% 104.77달러(STL.News), WTI -6.4% 97.4달러(TradingKey)/-4.6% 99.35달러(TheStreet, 장중 추정) 소스 상이. 에너지 업종 -4%. 이란 대통령은 최고지도자가 협상 진전을 승인했다고 발언. 항공·크루즈 강세(United +4.8~7.4%).",
+      "url": "https://sg.headtopics.com/news/markets-close-mixed-as-oil-prices-fall-on-iran-peace-hopes-89474416"
     },
     {
       "cor": "MACRO/RATES",
-      "t": "금 -3.3% 3,898.90달러, 약 1년 만의 최저",
-      "m": "12월물 기준. Binance 약 63억달러 보안 침해 공시, 비트코인 약 76,758달러(-1.31%), Coinbase -10.62%.",
-      "url": "https://cappnotes.substack.com/p/closing-look-friday-october-30-2026"
-    },
-    {
-      "cor": "US BANKS",
-      "t": "금융 -0.76%, Credit Acceptance -19.26%",
-      "m": "Credit Acceptance가 대출 전망을 2.91억달러 하향. 대형 은행 고유 뉴스는 확인되지 않음.",
-      "url": "https://cappnotes.substack.com/p/closing-look-friday-october-30-2026"
-    },
-    {
-      "cor": "KP",
-      "t": "KOSPI 5,730.74(-3.48%), KOSDAQ 724.38(-3.83%)",
-      "m": "외국인 약 1.6조원 순매도. 미국 10/30 마감 반영은 다음 한국 세션(11/2)이며, 위 수치는 한국 10/30 거래 기준.",
-      "url": "https://www.washingtontimes.com/news/2026/oct/30/wall-street-falls-worst-day-since-june-sell-tech-stocks-deepens/"
+      "t": "Binance 해킹 후 순유출 47억달러",
+      "m": "64억달러 해킹, FBI는 북한 해커 소행으로 지목(TheStreet 단일 소스).",
+      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-02-2026"
     }
   ]
 }
