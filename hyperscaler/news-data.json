@@ -1,59 +1,59 @@
 {
-  "date": "2026-10-30",
+  "date": "2026-11-02",
   "items": [
     {
       "t": "NVDA",
-      "h": "반도체 급락 속 -4.22%, 하이퍼스케일러 2027 지출 축소 우려",
-      "m": "SOX -7.20%(Intel 가이던스 쇼크 여파). 52주 고점 대비 -12.2%, 하이퍼스케일러 2027 투자 축소 우려 부각(Yahoo). 고유 뉴스 없음. 종가 절대값 미확인.",
-      "url": "https://cappnotes.substack.com/p/closing-look-friday-october-30-2026"
+      "h": "고유 뉴스 없음, 장 초반 상승 후 반락해 -1.26% 마감",
+      "m": "SOX -3.37%(TradingKey, 오류 가능). 고유 뉴스 없음. 종가 -1.26%(StockTitan·Bloomberg 일치). [등락률: Bloomberg IMAP 종가 기준]",
+      "url": "https://www.stocktitan.net/articles/stock-market-today-live-november-2-2026"
     },
     {
       "t": "ORCL",
-      "h": "자금조달 한도(주식 100억·차입 100억달러, 재융자 제외) 부각 속 약세",
-      "m": "10/28 발표: FY2030까지 추가조달 상한 200억달러(주식 100억+총차입 100억, 기존 부채 재융자 제외). FCF 흑자전환 FY28 하반기, FY29 300억달러 이상 목표. 장중(12:50ET) 130.95달러 -6.17%, 종가 미확인(보도 -6.2~-6.5%). 원인 단정 불가(기사는 발표와의 연관만 시사). S&P BBB-/안정적 유지, 신규 신평 조치 없음.",
-      "url": "https://www.tradingview.com/news/gurufocus:06747f6ad094b:0-oracle-stocks-decline-6-17-with-funding-ceiling-excluding-debt-refinancing/"
+      "h": "주식 100억·회사채 100억달러 조달 개시, -8.85% 마감",
+      "m": "6개 트랜치, 최장 20년, 초기 가이던스 T+360bp 안팎, 예상 등급 Moody's Baa2/S&P BBB-/Fitch BBB(TradingKey). 10/28 발표한 추가조달 상한(주식 100억+차입 100억) 집행으로 해석. 종가 119.10달러, -8.85%(TradingKey). StockTitan은 마감 직전(15:59ET) -8.72%, TheStreet은 -5%(장중 추정)로 상이. S&P BBB- 하단 유지, 신규 신평 조치는 확인되지 않음.",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262264978-us-stock-close-nasdaq-falls-dow-rises-marvell-oracle-tradingkey"
     },
     {
       "t": "META",
-      "h": "고유 뉴스 없음, 시장 급락 동조 (52주 고점 대비 -20% 이상)",
-      "m": "Yahoo: 52주 고점 대비 -20% 이상으로 약세장 진입 표현. 당일 종가·등락률 미확인. 투자등급 스프레드 IG 86→89bp, HY 314→326bp 확대(Capp Notes).",
-      "url": "https://finance.yahoo.com/markets/live/stock-market-today-friday-october-30-dow-sp-500-nasdaq-amazon-intel-ai-sell-off-191429143.html"
+      "h": "달러·유로 우량채 200억달러 이상 발행 검토 보도, -1.34% 마감",
+      "m": "Citi·Morgan Stanley가 투자자 콜 주선 중(보도 기준, 미확정). TradingKey는 기존 주식 250억달러 공모와 최대 약 600억달러 ATM도 언급했으나 단일 소스로 미검증.  [등락률: Bloomberg IMAP 종가 기준]",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262264978-us-stock-close-nasdaq-falls-dow-rises-marvell-oracle-tradingkey"
     },
     {
       "t": "GOOGL",
-      "h": "Q3 실적 쇼크 후 하락 지속, 당일 약 -1.4%",
-      "m": "실적 미스로 20년래 최악의 하루(전일) 이후 추가 하락. 당일 -1.4%(Reuters 계열 속보, TE 경유), 종가 미확인. 52주 고점 대비 -20% 이상.",
-      "url": "https://finance.yahoo.com/markets/live/stock-market-today-friday-october-30-dow-sp-500-nasdaq-amazon-intel-ai-sell-off-191429143.html"
+      "h": "고유 뉴스 없음, -0.30% 마감",
+      "m": "10/29 실적 쇼크 이후 약세 지속 후 소폭 안정. [등락률: Bloomberg IMAP 종가 기준]",
+      "url": "https://www.stl.news/stock-market-today-monday-november-2-2026/"
     },
     {
       "t": "MU",
-      "h": "반도체 급락 동반 -5.30%",
-      "m": "SOX -7.20%. 소스에 따라 -5.3%~-7% 상이(속보 2개 버전). 고유 뉴스 없음.",
-      "url": "https://cappnotes.substack.com/p/closing-look-friday-october-30-2026"
+      "h": "고유 뉴스 없음, 반도체 약세 동반 -5.78% 마감",
+      "m": "SOX -3.37%(TradingKey, 오류 가능). 개별 뉴스 확인되지 않음. [등락률: Bloomberg IMAP 종가 기준]",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262264978-us-stock-close-nasdaq-falls-dow-rises-marvell-oracle-tradingkey"
     },
     {
       "t": "AVGO",
-      "h": "Intel 쇼크 여파 -5.48%",
-      "m": "소스에 따라 -5.5%~-6.5% 상이. Broadcom 고유 뉴스는 확인되지 않음(Investing.com 기사 접속 실패).",
-      "url": "https://cappnotes.substack.com/p/closing-look-friday-october-30-2026"
+      "h": "고유 뉴스 없음, -1.18% 마감",
+      "m": "Marvell(-12.7%)–Lumentum 인수 발표 등 반도체 약세 속 상대적 선방. 개별 뉴스 확인되지 않음. [등락률: Bloomberg IMAP 종가 기준]",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262264978-us-stock-close-nasdaq-falls-dow-rises-marvell-oracle-tradingkey"
     },
     {
       "t": "AMZN",
-      "h": "Q3 미스·지출 확대 반응, 장 초반 급락 후 -1.4% 마감",
-      "m": "Q3 부진 및 CAPEX 증가. TTM FCF 사상 최대 순유출 420억달러 이상(Yahoo). 52주 고점 대비 -15.1%. 소스별 -1.4%~-2% 상이.",
-      "url": "https://finance.yahoo.com/markets/live/stock-market-today-friday-october-30-dow-sp-500-nasdaq-amazon-intel-ai-sell-off-191429143.html"
+      "h": "Morgan Stanley 코멘트 후 반등, +2.20% 마감",
+      "m": "실적 후 급락 이후 반등. 종가 기준 +2.20%(StockTitan·STL.News 일치). TheStreet의 약 +4%는 장중 추정으로 판단. 종가 절대값 미확인. [등락률: Bloomberg IMAP 종가 기준]",
+      "url": "https://www.stocktitan.net/articles/stock-market-today-live-november-2-2026"
     },
     {
       "t": "SPCX",
-      "h": "Intel 약한 가이던스 여파 134.72달러(-6.37%) 마감",
-      "m": "Intel 4Q EPS 가이던스 0.25달러(컨센 0.44), 매출 160억달러 이하(컨센 171억). BofA는 SpaceX–Tesla 합병설이 중국 반독점 당국에 막힐 수 있다고 경고. 10/6 이후 시총 4,000억달러 이상 감소(Yahoo).",
-      "url": "https://www.fool.com/investing/2026/10/30/why-spacex-stock-dropped-today/"
+      "h": "고유 뉴스 없음, 종가 미확인",
+      "m": "SPX 구성종목이 아니어서 Bloomberg IMAP 미포함. 당일 종가·등락률 확인되지 않음. 10/30 종가 134.72달러(-6.37%).",
+      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262264978-us-stock-close-nasdaq-falls-dow-rises-marvell-oracle-tradingkey"
     },
     {
       "t": "AAPL",
-      "h": "고유 뉴스 없음, 11/2 4Q 실적 발표 대기",
-      "m": "당일 종가·등락률 미확인(소스 내 언급 없음). 시장 급락 속 방어 여부 불명.",
-      "url": "https://finance.yahoo.com/markets/live/stock-market-today-friday-october-30-dow-sp-500-nasdaq-amazon-intel-ai-sell-off-191429143.html"
+      "h": "FQ4 실적 컨센서스 상회, 정규장 -1.83% 마감 후 시간외 보합~-1%",
+      "m": "장 마감 후 발표: 매출 1,144.8억달러(컨센 1,134.7억), EPS 2.10달러(컨센 2.00), FY 매출 4,790억달러. 성장 둔화 우려. [등락률: Bloomberg IMAP 종가 기준]",
+      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-02-2026"
     }
   ]
 }
