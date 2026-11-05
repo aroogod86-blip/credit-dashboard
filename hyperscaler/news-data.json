@@ -1,59 +1,59 @@
 {
-  "date": "2026-11-02",
+  "date": "2026-11-04",
   "items": [
     {
       "t": "NVDA",
-      "h": "고유 뉴스 없음, 장 초반 상승 후 반락해 -1.26% 마감",
-      "m": "SOX -3.37%(TradingKey, 오류 가능). 고유 뉴스 없음. 종가 -1.26%(StockTitan·Bloomberg 일치). [등락률: Bloomberg IMAP 종가 기준]",
-      "url": "https://www.stocktitan.net/articles/stock-market-today-live-november-2-2026"
+      "h": "고유 뉴스 없음, 지수 급등 속 -3.2%(Fool 티커 기준)",
+      "m": "11/3 +2.3% 반등 후 하락. 중간선거 후 민주당의 AI 투자·데이터센터 규제 강화 우려가 초반 매도 요인으로 거론(TheStreet). 티커 스냅샷 수치로 종가 여부 미확인. 종가 절대값 미확인.",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/11/04/stock-market-today-nov-4-dow-surges-3-in-biggest-post-midterm-rally-in-44-years/"
     },
     {
       "t": "ORCL",
-      "h": "주식 100억·회사채 100억달러 조달 개시, -8.85% 마감",
-      "m": "6개 트랜치, 최장 20년, 초기 가이던스 T+360bp 안팎, 예상 등급 Moody's Baa2/S&P BBB-/Fitch BBB(TradingKey). 10/28 발표한 추가조달 상한(주식 100억+차입 100억) 집행으로 해석. 종가 119.10달러, -8.85%(TradingKey). StockTitan은 마감 직전(15:59ET) -8.72%, TheStreet은 -5%(장중 추정)로 상이. S&P BBB- 하단 유지, 신규 신평 조치는 확인되지 않음.",
-      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262264978-us-stock-close-nasdaq-falls-dow-rises-marvell-oracle-tradingkey"
+      "h": "고유 뉴스 없음, 11/4 종가 등락률 미확인",
+      "m": "11/2 주식 100억·회사채 100억달러 조달 착수(예상 등급 Baa2/BBB-/BBB) 이후 후속 보도는 확인되지 않음. 11/2 종가 119.10달러(-8.85%).",
+      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-04-2026"
     },
     {
       "t": "META",
-      "h": "달러·유로 우량채 200억달러 이상 발행 검토 보도, -1.34% 마감",
-      "m": "Citi·Morgan Stanley가 투자자 콜 주선 중(보도 기준, 미확정). TradingKey는 기존 주식 250억달러 공모와 최대 약 600억달러 ATM도 언급했으나 단일 소스로 미검증.  [등락률: Bloomberg IMAP 종가 기준]",
-      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262264978-us-stock-close-nasdaq-falls-dow-rises-marvell-oracle-tradingkey"
+      "h": "고유 뉴스 없음, +1.4%(Fool 티커 기준)",
+      "m": "11/2 보도된 달러·유로 우량채 200억달러 이상 발행 검토의 확정 여부는 확인되지 않음. 티커 스냅샷 수치로 종가 여부 미확인.",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/11/04/stock-market-today-nov-4-dow-surges-3-in-biggest-post-midterm-rally-in-44-years/"
     },
     {
       "t": "GOOGL",
-      "h": "고유 뉴스 없음, -0.30% 마감",
-      "m": "10/29 실적 쇼크 이후 약세 지속 후 소폭 안정. [등락률: Bloomberg IMAP 종가 기준]",
-      "url": "https://www.stl.news/stock-market-today-monday-november-2-2026/"
+      "h": "시장 급반등 동참, +3.18% 마감",
+      "m": "GOOG +3.25%(Fool). TheStreet 장중 +4.13%. 종가 절대값 미확인.",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/11/04/stock-market-today-nov-4-dow-surges-3-in-biggest-post-midterm-rally-in-44-years/"
     },
     {
       "t": "MU",
-      "h": "고유 뉴스 없음, 반도체 약세 동반 -5.78% 마감",
-      "m": "SOX -3.37%(TradingKey, 오류 가능). 개별 뉴스 확인되지 않음. [등락률: Bloomberg IMAP 종가 기준]",
-      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262264978-us-stock-close-nasdaq-falls-dow-rises-marvell-oracle-tradingkey"
+      "h": "고유 뉴스 없음, 종가 등락률 미확인",
+      "m": "SOX는 11/3 +3% 반등(Yahoo/Zacks). 11/4 Micron 개별 수치는 소스에서 확인되지 않음.",
+      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-04-2026"
     },
     {
       "t": "AVGO",
-      "h": "고유 뉴스 없음, -1.18% 마감",
-      "m": "Marvell(-12.7%)–Lumentum 인수 발표 등 반도체 약세 속 상대적 선방. 개별 뉴스 확인되지 않음. [등락률: Bloomberg IMAP 종가 기준]",
-      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262264978-us-stock-close-nasdaq-falls-dow-rises-marvell-oracle-tradingkey"
+      "h": "고유 뉴스 없음, 종가 등락률 미확인",
+      "m": "11/3 +3.1%. 11/4 개별 수치는 소스에서 확인되지 않음.",
+      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-04-2026"
     },
     {
       "t": "AMZN",
-      "h": "Morgan Stanley 코멘트 후 반등, +2.20% 마감",
-      "m": "실적 후 급락 이후 반등. 종가 기준 +2.20%(StockTitan·STL.News 일치). TheStreet의 약 +4%는 장중 추정으로 판단. 종가 절대값 미확인. [등락률: Bloomberg IMAP 종가 기준]",
-      "url": "https://www.stocktitan.net/articles/stock-market-today-live-november-2-2026"
+      "h": "지수 급등 주도, +6.1%(Fool 티커) / 장중 +7.22%(TheStreet)",
+      "m": "10/29 실적 후 급락 이후 반등 지속. 소스별 수치 상이(종가 여부 불명). 종가 절대값 미확인.",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/11/04/stock-market-today-nov-4-dow-surges-3-in-biggest-post-midterm-rally-in-44-years/"
     },
     {
       "t": "SPCX",
-      "h": "고유 뉴스 없음, 종가 미확인",
-      "m": "SPX 구성종목이 아니어서 Bloomberg IMAP 미포함. 당일 종가·등락률 확인되지 않음. 10/30 종가 134.72달러(-6.37%).",
-      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262264978-us-stock-close-nasdaq-falls-dow-rises-marvell-oracle-tradingkey"
+      "h": "약세, -3.8%(Fool 티커) / 초반 -5.2~-6.4%(TheStreet)",
+      "m": "프리마켓 133.92달러. 소스별 수치 상이, 종가 미확인.",
+      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-04-2026"
     },
     {
       "t": "AAPL",
-      "h": "FQ4 실적 컨센서스 상회, 정규장 -1.83% 마감 후 시간외 보합~-1%",
-      "m": "장 마감 후 발표: 매출 1,144.8억달러(컨센 1,134.7억), EPS 2.10달러(컨센 2.00), FY 매출 4,790억달러. 성장 둔화 우려. [등락률: Bloomberg IMAP 종가 기준]",
-      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-02-2026"
+      "h": "FQ4 실적 반영해 급등, +5.3%(Fool 티커) / 장중 +6.27%(TheStreet)",
+      "m": "FQ4 매출 1,144.8억달러, EPS 2.10달러(컨센 2.00), FY 매출 4,790억달러. 소스별 수치 상이(종가 여부 불명). 종가 절대값 미확인.",
+      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-04-2026"
     }
   ]
 }
