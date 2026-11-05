@@ -1,41 +1,29 @@
 {
-  "date": "2026-11-02",
+  "date": "2026-11-04",
   "items": [
     {
       "cor": "MACRO/RATES",
-      "t": "S&P500 -0.51%, 나스닥 -1.07%, 다우 +0.41%: 장 초반 상승분 반납, 중간선거 앞두고 기술주 이탈",
-      "m": "S&P500 7,541.40, 다우 51,983.98, 나스닥 25,164.32, 러셀2000 2,805.88(-0.21%). ISM 제조업 55.5(전월 54.5, 예상 상회). 장기금리 하락(구체적 10Y 수치 미확인). 11/3 중간선거, 11/6 10월 고용보고서. S&P500 선행 PER 약 19배로 2023년 이후 최저(Straits Times).",
-      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-02-2026"
-    },
-    {
-      "cor": "TECH/SEMIS",
-      "t": "Marvell, Lumentum 약 1,150억달러 규모 전액 주식 인수 발표",
-      "m": "Lumentum 1주당 Marvell 4.5주, 합병 후 Marvell 주주 지분 약 67%. Marvell -12.7%, Lumentum -18.6%(TheStreet은 -5.3%/-10.3%로 상이). SOX -3.37%. Intel -8.8%, AMD -7.5%(실적 발표 앞두고).",
-      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262264978-us-stock-close-nasdaq-falls-dow-rises-marvell-oracle-tradingkey"
-    },
-    {
-      "cor": "TECH/SEMIS",
-      "t": "Oracle 200억달러 조달 개시(주식 100억·회사채 100억)",
-      "m": "AI 인프라 및 일반 목적. 6트랜치, 최장 20년, IPT T+360bp 안팎, 예상등급 Baa2/BBB-/BBB. 주가 -8.85%(119.10달러).",
-      "url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262264978-us-stock-close-nasdaq-falls-dow-rises-marvell-oracle-tradingkey"
-    },
-    {
-      "cor": "TECH/SEMIS",
-      "t": "Anthropic IPO 신고서 수정본 공개 (공시 상세 소스 간 상이)",
-      "m": "공시 정보: TradingKey는 3Q 매출 약 170억달러·순손실 233억달러·향후 지출약정 약 8,950억달러·추수감사절 전 상장 계획, TheStreet는 올해 9개월 매출 332.4억달러·순손실 1,040억달러로 순손실 수치 불일치. 수치 미검증. 참고: Anthropic은 Claude 개발사.",
-      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-02-2026"
-    },
-    {
-      "cor": "ENERGY",
-      "t": "미-이란 평화 기대에 유가 급락",
-      "m": "Brent -6.3% 106.2달러(TradingKey)/-7.6% 104.77달러(STL.News), WTI -6.4% 97.4달러(TradingKey)/-4.6% 99.35달러(TheStreet, 장중 추정) 소스 상이. 에너지 업종 -4%. 이란 대통령은 최고지도자가 협상 진전을 승인했다고 발언. 항공·크루즈 강세(United +4.8~7.4%).",
-      "url": "https://sg.headtopics.com/news/markets-close-mixed-as-oil-prices-fall-on-iran-peace-hopes-89474416"
+      "t": "중간선거 후 다우 +3.03%, 1982년 이후 44년 만의 최대 선거 후 랠리",
+      "m": "다우 53,356.12(+3.03%), S&P500 7,688.62(+1.58~1.59%), 나스닥 25,736.51(+1.44%), 러셀2000 2,856.96(+1.58%). TheStreet 기준 민주당이 상·하원 모두 장악. 초반 AI 투자 감시 강화 우려로 하락했으나 정책 즉각 변화 가능성 낮다는 분석에 반등. 美10Y 약 4.89%(-6bp, Fool; TipRanks는 4.92%로 11/3 기준 추정). 11/6 10월 고용보고서.",
+      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-04-2026"
     },
     {
       "cor": "MACRO/RATES",
-      "t": "Binance 해킹 후 순유출 47억달러",
-      "m": "64억달러 해킹, FBI는 북한 해커 소행으로 지목(TheStreet 단일 소스).",
-      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-02-2026"
+      "t": "금 +3.38% 4,073.70달러",
+      "m": "금 선물 장초반 4,052.90달러(+2.86%), 은 +4.94%(52.21달러). Fool 마감 수치 4,073.70달러 우선 사용.",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/11/04/stock-market-today-nov-4-dow-surges-3-in-biggest-post-midterm-rally-in-44-years/"
+    },
+    {
+      "cor": "ENERGY",
+      "t": "이란 전쟁 불확실성 해소 기대에 유가 급락, Brent 장중 100달러 하회",
+      "m": "장중 Brent 약 -10달러로 수 주 만에 100달러 아래. 에너지 섹터 약세(Fool -3.96%이나 부동산 +3.96%와 크기가 동일해 오류 가능). 정산가 미확인.",
+      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-04-2026"
+    },
+    {
+      "cor": "TECH/SEMIS",
+      "t": "AMD 3Q 실적 컨센서스 상회, 시간외 +5% (11/3 발표)",
+      "m": "조정 EPS 2.09달러(컨센 1.95), 매출 134억달러(+44.6% YoY). 11/4 정규장 반응은 미확인. 11/3 SOX +3%.",
+      "url": "https://www.tipranks.com/news/stock-market-today-nov-4-futures-rise-after-democrats-sweep-midterm-elections"
     }
   ]
 }
