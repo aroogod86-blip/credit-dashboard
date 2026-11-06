@@ -1,59 +1,59 @@
 {
-  "date": "2026-11-04",
+  "date": "2026-11-05",
   "items": [
     {
       "t": "NVDA",
-      "h": "고유 뉴스 없음, 지수 급등 속 -3.2%(Fool 티커 기준)",
-      "m": "11/3 +2.3% 반등 후 하락. 중간선거 후 민주당의 AI 투자·데이터센터 규제 강화 우려가 초반 매도 요인으로 거론(TheStreet). 티커 스냅샷 수치로 종가 여부 미확인. 종가 절대값 미확인.",
-      "url": "https://www.fool.com/coverage/stock-market-today/2026/11/04/stock-market-today-nov-4-dow-surges-3-in-biggest-post-midterm-rally-in-44-years/"
+      "h": "AI·반도체 투매 속 -9.26% 마감 (181.60달러)",
+      "m": "SOX 약 -12%(Yahoo). 민주당 의회 장악에 따른 데이터센터 규제 우려와 헤지펀드 연말 이익실현이 주 원인(Nomura). 고유 뉴스 없음.",
+      "url": "https://www.stocktitan.net/articles/stock-market-today-live-november-5-2026"
     },
     {
       "t": "ORCL",
-      "h": "고유 뉴스 없음, 11/4 종가 등락률 미확인",
-      "m": "11/2 주식 100억·회사채 100억달러 조달 착수(예상 등급 Baa2/BBB-/BBB) 이후 후속 보도는 확인되지 않음. 11/2 종가 119.10달러(-8.85%).",
-      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-04-2026"
+      "h": "고유 뉴스 없음, AI 매도 동조 -6.93%",
+      "m": "11/2 조달(주식 100억+선순위채 100억달러, 상한 200억달러 소진) 이후 후속 신규 뉴스는 확인되지 않음. 참고: 11/2 Stephens가 Overweight(목표가 213달러) 상향한 직후 발행 공시, CDS는 고수익채 상단 수준으로 거래(TIKR), 총부채(리스 포함) 1,691억달러(8/31). S&P BBB-/안정적, 신규 신평 조치 없음. 등락률은 TE(CFD 기준). 종가 절대값 미확인.",
+      "url": "https://www.tikr.com/blog/oracle-sinks-7-on-20-billion-stock-and-bond-sale-to-fund-ai-buildout"
     },
     {
       "t": "META",
-      "h": "고유 뉴스 없음, +1.4%(Fool 티커 기준)",
-      "m": "11/2 보도된 달러·유로 우량채 200억달러 이상 발행 검토의 확정 여부는 확인되지 않음. 티커 스냅샷 수치로 종가 여부 미확인.",
-      "url": "https://www.fool.com/coverage/stock-market-today/2026/11/04/stock-market-today-nov-4-dow-surges-3-in-biggest-post-midterm-rally-in-44-years/"
+      "h": "고유 뉴스 없음, -3.96%",
+      "m": "장 초반 -3.95%에서 종가 -3.96%로 유사. 11/2 보도된 우량채 200억달러 이상 발행 검토의 확정 여부는 미확인. 등락률은 TE(CFD 기준). 종가 절대값 미확인.",
+      "url": "https://tradingeconomics.com/united-states/stock-market"
     },
     {
       "t": "GOOGL",
-      "h": "시장 급반등 동참, +3.18% 마감",
-      "m": "GOOG +3.25%(Fool). TheStreet 장중 +4.13%. 종가 절대값 미확인.",
-      "url": "https://www.fool.com/coverage/stock-market-today/2026/11/04/stock-market-today-nov-4-dow-surges-3-in-biggest-post-midterm-rally-in-44-years/"
+      "h": "고유 뉴스 없음, 장 초반 상승 후 반락해 -2.20%",
+      "m": "개장 전 상승했으나 하락 전환(StockTitan). 등락률은 TE(CFD 기준). 종가 절대값 미확인.",
+      "url": "https://tradingeconomics.com/united-states/stock-market"
     },
     {
       "t": "MU",
-      "h": "고유 뉴스 없음, 종가 등락률 미확인",
-      "m": "SOX는 11/3 +3% 반등(Yahoo/Zacks). 11/4 Micron 개별 수치는 소스에서 확인되지 않음.",
-      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-04-2026"
+      "h": "반도체 투매 속 -17.46% 마감 (656.39달러)",
+      "m": "SOX 약 -12%. Micron 개별 뉴스는 확인되지 않음. 고유 뉴스 없음.",
+      "url": "https://www.stocktitan.net/articles/stock-market-today-live-november-5-2026"
     },
     {
       "t": "AVGO",
-      "h": "고유 뉴스 없음, 종가 등락률 미확인",
-      "m": "11/3 +3.1%. 11/4 개별 수치는 소스에서 확인되지 않음.",
-      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-04-2026"
+      "h": "AI 반도체 투매 속 -10.43% 마감 (291.53달러)",
+      "m": "고유 뉴스 없음.",
+      "url": "https://www.stocktitan.net/articles/stock-market-today-live-november-5-2026"
     },
     {
       "t": "AMZN",
-      "h": "지수 급등 주도, +6.1%(Fool 티커) / 장중 +7.22%(TheStreet)",
-      "m": "10/29 실적 후 급락 이후 반등 지속. 소스별 수치 상이(종가 여부 불명). 종가 절대값 미확인.",
-      "url": "https://www.fool.com/coverage/stock-market-today/2026/11/04/stock-market-today-nov-4-dow-surges-3-in-biggest-post-midterm-rally-in-44-years/"
+      "h": "고유 뉴스 없음, 11/4 급등 후 -2.19%",
+      "m": "11/4 +6.1~7.2% 급등분 일부 반납. 등락률은 TE(CFD 기준). 종가 절대값 미확인.",
+      "url": "https://www.stocktitan.net/articles/stock-market-today-live-november-5-2026"
     },
     {
       "t": "SPCX",
-      "h": "약세, -3.8%(Fool 티커) / 초반 -5.2~-6.4%(TheStreet)",
-      "m": "프리마켓 133.92달러. 소스별 수치 상이, 종가 미확인.",
-      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-04-2026"
+      "h": "Tesla와 함께 9% 이상 급락 (-9.05%), 2거래일 연속 하락",
+      "m": "Yahoo: SpaceX·Tesla 각각 -9% 이상. 고유 뉴스는 확인되지 않음, 규제·AI 투매 연동으로 추정. 11/4 -3.8%(Fool 티커). 등락률은 TE(CFD 기준). 종가 절대값 미확인.",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-thursday-november-5-dow-sp-500-nasdaq-plunge-chip-stocks-melt-down-193726491.html"
     },
     {
       "t": "AAPL",
-      "h": "FQ4 실적 반영해 급등, +5.3%(Fool 티커) / 장중 +6.27%(TheStreet)",
-      "m": "FQ4 매출 1,144.8억달러, EPS 2.10달러(컨센 2.00), FY 매출 4,790억달러. 소스별 수치 상이(종가 여부 불명). 종가 절대값 미확인.",
-      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-04-2026"
+      "h": "고유 뉴스 없음, 방어적 -1.53%",
+      "m": "11/4 실적 반응 급등(+5%대) 이후 소폭 조정. 등락률은 TE(CFD 기준). 종가 절대값 미확인.",
+      "url": "https://tradingeconomics.com/united-states/stock-market"
     }
   ]
 }
