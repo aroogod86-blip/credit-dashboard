@@ -1,29 +1,29 @@
 {
-  "date": "2026-11-04",
+  "date": "2026-11-05",
   "items": [
     {
       "cor": "MACRO/RATES",
-      "t": "중간선거 후 다우 +3.03%, 1982년 이후 44년 만의 최대 선거 후 랠리",
-      "m": "다우 53,356.12(+3.03%), S&P500 7,688.62(+1.58~1.59%), 나스닥 25,736.51(+1.44%), 러셀2000 2,856.96(+1.58%). TheStreet 기준 민주당이 상·하원 모두 장악. 초반 AI 투자 감시 강화 우려로 하락했으나 정책 즉각 변화 가능성 낮다는 분석에 반등. 美10Y 약 4.89%(-6bp, Fool; TipRanks는 4.92%로 11/3 기준 추정). 11/6 10월 고용보고서.",
-      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-04-2026"
+      "t": "AI 트레이드 붕괴: S&P500 -4.36%(2025년 4월 이후 최대 낙폭), 나스닥 -5.52% 조정 진입, 11/4 선거 후 랠리 전액 반납",
+      "m": "나스닥 24,315.00(-5.52%), S&P500 7,353.73(-4.36%), 다우 51,523.06(-3.44%, 약 -1,833pt). 소스별 다우 51,321~51,523, S&P 7,337~7,354로 상이(CFD 혼재). 나스닥100 -6.4~-6.5%, SOX 약 -12%, 대형 기술주 코로나 매도 이후 최악. 원인: 민주당 의회 장악에 따른 AI 데이터센터 규제 우려, Nomura는 헤지펀드의 연말 이익실현 주도로 해석, Vanda 기준 개인 순매도 3.58억달러로 2020년 이후 최대. VIX는 Yahoo '약 +65% 급등(2024년 이후 최대 상승)', TE는 +11.57%(28.18)로 불일치.",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-thursday-november-5-dow-sp-500-nasdaq-plunge-chip-stocks-melt-down-193726491.html"
     },
     {
       "cor": "MACRO/RATES",
-      "t": "금 +3.38% 4,073.70달러",
-      "m": "금 선물 장초반 4,052.90달러(+2.86%), 은 +4.94%(52.21달러). Fool 마감 수치 4,073.70달러 우선 사용.",
-      "url": "https://www.fool.com/coverage/stock-market-today/2026/11/04/stock-market-today-nov-4-dow-surges-3-in-biggest-post-midterm-rally-in-44-years/"
-    },
-    {
-      "cor": "ENERGY",
-      "t": "이란 전쟁 불확실성 해소 기대에 유가 급락, Brent 장중 100달러 하회",
-      "m": "장중 Brent 약 -10달러로 수 주 만에 100달러 아래. 에너지 섹터 약세(Fool -3.96%이나 부동산 +3.96%와 크기가 동일해 오류 가능). 정산가 미확인.",
-      "url": "https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-nov-04-2026"
+      "t": "美10Y 4.84%로 하락, 안전자산 선호",
+      "m": "4.837~4.84%(전일 4.89~4.90%, 선거일 4.95%, 지난달 5.30% 상회). 정확한 종가 미확인(AP 장중 4.84%, TE 4.837%). 금 4,088.06달러(-0.64%), 비트코인 75,875달러(-5.66%). 영국 BOE 4%로 인상(Yahoo 단일 소스, 미검증). 10월 감원계획(Challenger) 2023년 이후 최저.",
+      "url": "https://journalarta.com/en/2026/11/06/wall-street-close-nasdaq-sinks-5-52-and-sp-500-falls-4-36-as-ai-stocks-slide/"
     },
     {
       "cor": "TECH/SEMIS",
-      "t": "AMD 3Q 실적 컨센서스 상회, 시간외 +5% (11/3 발표)",
-      "m": "조정 EPS 2.09달러(컨센 1.95), 매출 134억달러(+44.6% YoY). 11/4 정규장 반응은 미확인. 11/3 SOX +3%.",
-      "url": "https://www.tipranks.com/news/stock-market-today-nov-4-futures-rise-after-democrats-sweep-midterm-elections"
+      "t": "반도체 투매: Micron -17.46%, Broadcom -10.43%, Nvidia -9.26%",
+      "m": "NVDA 181.60달러, MU 656.39달러, AVGO 291.53달러(StockTitan 공식 종가). AMD·Lam Research·Applied Materials 급락(장중 AMD -15.9%), Marvell -10.62%, Lam -10.44%, Datadog -14.42%, 장중 CoreWeave -14.9%·GE Vernova -9.1%. AppLovin은 실적·자사주 승인 후 상승(장중 +30%, TE 종가 +10.69%로 상이).",
+      "url": "https://spectrumlocalnews.com/us/snplus/business/2026/11/05/stock-market-ai-chip-selloff"
+    },
+    {
+      "cor": "ENERGY",
+      "t": "미-이란 협상 불확실성에 유가 반등",
+      "m": "Brent 약 96.7~98달러(+2.2~4.1%), WTI 약 90.5달러(+2.75%). 전일 약 8~9% 급락분 일부 회복. 정산가 미확인.",
+      "url": "https://spectrumlocalnews.com/us/snplus/business/2026/11/05/stock-market-ai-chip-selloff"
     }
   ]
 }
