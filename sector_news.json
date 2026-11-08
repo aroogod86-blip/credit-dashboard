@@ -1,29 +1,47 @@
 {
-  "date": "2026-11-05",
+  "date": "2026-11-06",
   "items": [
     {
       "cor": "MACRO/RATES",
-      "t": "AI 트레이드 붕괴: S&P500 -4.36%(2025년 4월 이후 최대 낙폭), 나스닥 -5.52% 조정 진입, 11/4 선거 후 랠리 전액 반납",
-      "m": "나스닥 24,315.00(-5.52%), S&P500 7,353.73(-4.36%), 다우 51,523.06(-3.44%, 약 -1,833pt). 소스별 다우 51,321~51,523, S&P 7,337~7,354로 상이(CFD 혼재). 나스닥100 -6.4~-6.5%, SOX 약 -12%, 대형 기술주 코로나 매도 이후 최악. 원인: 민주당 의회 장악에 따른 AI 데이터센터 규제 우려, Nomura는 헤지펀드의 연말 이익실현 주도로 해석, Vanda 기준 개인 순매도 3.58억달러로 2020년 이후 최대. VIX는 Yahoo '약 +65% 급등(2024년 이후 최대 상승)', TE는 +11.57%(28.18)로 불일치.",
-      "url": "https://finance.yahoo.com/markets/live/stock-market-today-thursday-november-5-dow-sp-500-nasdaq-plunge-chip-stocks-melt-down-193726491.html"
+      "t": "10월 고용 +16.5만 명(예상 5.9만), 실업률 4.1%: 금리인상 기대 상승, 美10Y 4.86%",
+      "m": "임금 전월비 +0.4%. 2Y 4.51%(+5bp), 10Y 4.86%(+2bp), 30Y 5.26%(+1bp), 2s10s 약 +35bp. 12월 인상 확률 상승(구체적 수치 미확인), DXY 102.28(+0.72%). 금 약 4,079~4,081달러(-0.8%, 소스별 상이). 주간 초청구 189K.",
+      "url": "https://finance.yahoo.com/markets/live/stock-market-today-friday-november-6-dow-sp-500-nasdaq-jobs-report-earnings-135953863.html"
     },
     {
       "cor": "MACRO/RATES",
-      "t": "美10Y 4.84%로 하락, 안전자산 선호",
-      "m": "4.837~4.84%(전일 4.89~4.90%, 선거일 4.95%, 지난달 5.30% 상회). 정확한 종가 미확인(AP 장중 4.84%, TE 4.837%). 금 4,088.06달러(-0.64%), 비트코인 75,875달러(-5.66%). 영국 BOE 4%로 인상(Yahoo 단일 소스, 미검증). 10월 감원계획(Challenger) 2023년 이후 최저.",
-      "url": "https://journalarta.com/en/2026/11/06/wall-street-close-nasdaq-sinks-5-52-and-sp-500-falls-4-36-as-ai-stocks-slide/"
+      "t": "나스닥 +1.09%, S&P500 +0.31% 반등, 다우 -0.46%: 주간 기준 6월 이후 최악",
+      "m": "나스닥 24,579.42, S&P500 7,376.86, 다우 51,285.73(-237.33pt), 러셀2000 +0.89%. 주간: S&P -2.68%, 나스닥 -3.37%, 다우 -0.94%. 상승 182 vs 하락 312, VIX 25.64(산출값). Wedbush 아이브스: 빅테크 capex 성장률 정점을 2028~29년에서 2027년으로 앞당겨 전망.",
+      "url": "https://www.cnbc.com/2026/11/05/stock-market-today-live-updates.html"
     },
     {
       "cor": "TECH/SEMIS",
-      "t": "반도체 투매: Micron -17.46%, Broadcom -10.43%, Nvidia -9.26%",
-      "m": "NVDA 181.60달러, MU 656.39달러, AVGO 291.53달러(StockTitan 공식 종가). AMD·Lam Research·Applied Materials 급락(장중 AMD -15.9%), Marvell -10.62%, Lam -10.44%, Datadog -14.42%, 장중 CoreWeave -14.9%·GE Vernova -9.1%. AppLovin은 실적·자사주 승인 후 상승(장중 +30%, TE 종가 +10.69%로 상이).",
-      "url": "https://spectrumlocalnews.com/us/snplus/business/2026/11/05/stock-market-ai-chip-selloff"
+      "t": "AI·반도체 반등: AMD +11.04%(449.04달러), Lam +8.23%(250억달러 자사주), TSMC +6.26%",
+      "m": "TSMC는 11/5 -10.78%(353.10달러) 후 3D DRAM 보도로 상승. Coherent +13.58%, Microchip -10.02%. SOXX +3.51%. 기술주 주간 -8.23%(XLK).",
+      "url": "https://www.theclosingprint.net/2026/11/post-market-and-weekly-summary-2026-11-06/"
+    },
+    {
+      "cor": "TECH/SEMIS",
+      "t": "선거 후 AI 데이터센터 규제 우려: OpenAI 전력비 자체 부담 선언, 지역 투표 41건 중 40건 제한 쪽",
+      "m": "OpenAI는 11/5 '커뮤니티 컴팩트' 발표(소유·운영 캠퍼스 한정, 오라클 임대 사이트 제외 가능). OpenAI 신규 펀딩 110억달러(밸류 1.25조달러, 초기 클로징), FT는 첫 클로징 200억달러 미만으로 보도해 소스 상이. 앤트로픽 개정 S-1: 컴퓨트 약정 8,954억달러(Q2 2,650억), 3Q 영업손실 5.67억달러, 순손실 232.9억달러(주로 전환사채 평가손). 참고: Anthropic은 Claude 개발사.",
+      "url": "https://finance.yahoo.com/technology/ai/articles/openai-says-pay-data-centers-135128479.html"
+    },
+    {
+      "cor": "EU BANKS",
+      "t": "ING, 데이터센터 대출 12건(약 5억달러) 매각 입찰 착수",
+      "m": "Stargate 뉴멕시코(OpenAI·SoftBank·Oracle) 2,500만달러, Vantage·CyrusOne 관련 자산 포함, 최소 입찰 1,000만달러, 마감 11/19(Bloomberg 인용). 은행권의 AI 인프라 신용위험 분산 움직임.",
+      "url": "https://www.cnbc.com/2026/11/06/ing-ai-data-center-loans-debt.html"
     },
     {
       "cor": "ENERGY",
-      "t": "미-이란 협상 불확실성에 유가 반등",
-      "m": "Brent 약 96.7~98달러(+2.2~4.1%), WTI 약 90.5달러(+2.75%). 전일 약 8~9% 급락분 일부 회복. 정산가 미확인.",
-      "url": "https://spectrumlocalnews.com/us/snplus/business/2026/11/05/stock-market-ai-chip-selloff"
+      "t": "유가 보합권, 주간 급락",
+      "m": "WTI 약 90.3~90.8달러(-0.2%), Brent 약 97.8달러(-0.5%). 정산가 미확인. 주간 WTI 약 -13%, XLE -12%.",
+      "url": "https://www.theclosingprint.net/2026/11/post-market-and-weekly-summary-2026-11-06/"
+    },
+    {
+      "cor": "US BANKS",
+      "t": "금융 -0.59%, 크레딧 ETF 소폭 약세 (LQD -0.12%, HYG -0.06%)",
+      "m": "스트레스 급증은 보고되지 않음. IG·HY 스프레드 수치 미확인. 은행 개별 뉴스 확인되지 않음.",
+      "url": "https://cappnotes.substack.com/p/closing-look-friday-november-6-2026"
     }
   ]
 }
