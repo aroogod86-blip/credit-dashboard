@@ -1,59 +1,59 @@
 {
-  "date": "2026-11-05",
+  "date": "2026-11-06",
   "items": [
     {
       "t": "NVDA",
-      "h": "AI·반도체 투매 속 -9.26% 마감 (181.60달러)",
-      "m": "SOX 약 -12%(Yahoo). 민주당 의회 장악에 따른 데이터센터 규제 우려와 헤지펀드 연말 이익실현이 주 원인(Nomura). 고유 뉴스 없음.",
-      "url": "https://www.stocktitan.net/articles/stock-market-today-live-november-5-2026"
+      "h": "엔비디아 +2.78%(186.64달러), 美 하원 위원장 3명 젠슨 황에 비공개 브리핑 요구·中 스파이 연루 보도",
+      "m": "Foreign Affairs·China Select·Intelligence 위원장이 황 CEO의 Megaspeed 임원 관련 접촉 해명을 요구했고, NYT는 황이 中 첩보활동 표적이었다고 보도, 엔비디아는 내부 조사 착수(CNBC). 새 민주당 의회가 AI칩 수출통제·中 밀수 단속 압박을 예고(Bloomberg). 동남아 칩 추적 강화. TSMC가 엔비디아 요청으로 3D DRAM 생산 계획 중이라는 The Information 보도(미확인)도 부각. 전일 -9.26%(181.60달러, 200일선 204.7 이탈) 후 반등. 소스별 +2.78%~+3.9%.",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-stocks-rebound-6-78-165211819.html"
     },
     {
       "t": "ORCL",
-      "h": "고유 뉴스 없음, AI 매도 동조 -6.93%",
-      "m": "11/2 조달(주식 100억+선순위채 100억달러, 상한 200억달러 소진) 이후 후속 신규 뉴스는 확인되지 않음. 참고: 11/2 Stephens가 Overweight(목표가 213달러) 상향한 직후 발행 공시, CDS는 고수익채 상단 수준으로 거래(TIKR), 총부채(리스 포함) 1,691억달러(8/31). S&P BBB-/안정적, 신규 신평 조치 없음. 등락률은 TE(CFD 기준). 종가 절대값 미확인.",
-      "url": "https://www.tikr.com/blog/oracle-sinks-7-on-20-billion-stock-and-bond-sale-to-fund-ai-buildout"
+      "h": "오라클 +0.82%(116.10달러), MS 오라클 AI 클라우드 임대 계약 축소 보도·Stargate 대출 매각 부각",
+      "m": "Bloomberg: Microsoft가 갱신 거부로 수개월간 오라클 임대 용량을 중단 중. 오라클은 구세대 GPU 포함 용량이 갱신되거나 기존 대비 20% 높은 가격의 장기계약으로 타사에 판매됐다고 반박. ING가 Stargate 뉴멕시코 사이트 2,500만달러 포함 데이터센터 대출 12건(약 5억달러) 매각 입찰(마감 11/19). WSJ: 선거 후 OpenAI가 내년 데이터센터 용량 계획 재검토 논의, S&P는 OpenAI가 오라클 수주잔고 6,640억달러의 약 절반이라고 평가. 11/4 中 텐센트 70억달러 칩 임대 취소 보도, 11/5 뉴멕시코 사이트 발전 인프라 허가 시한 연장. 신용: S&P BBB-/안정적(7/9 하향), 11/2 주식·선순위채 200억달러 조달(신규 조치 아님), 총부채 약 1,670억달러. 주총 11/18.",
+      "url": "https://crypto.news/microsoft-oracle-ai-cloud-capacity-deal"
     },
     {
       "t": "META",
-      "h": "고유 뉴스 없음, -3.96%",
-      "m": "장 초반 -3.95%에서 종가 -3.96%로 유사. 11/2 보도된 우량채 200억달러 이상 발행 검토의 확정 여부는 미확인. 등락률은 TE(CFD 기준). 종가 절대값 미확인.",
-      "url": "https://tradingeconomics.com/united-states/stock-market"
+      "h": "메타 +0.84%(610.15달러), 150억달러 달러채·사상 최대 주문 유로채 발행으로 AI 자금조달 지속",
+      "m": "11/3 달러채 150억달러 5트랜치(2031 5.85%·2033 6.25%·2036 6.55%·2046 7.35%·2056 7.50%, 최대 주문 약 580억달러로 4/11 대비 수요 감소). 11/4 첫 유로채 주문 530억유로 기록. 선도매각(forward) 4,600만주로 확대(약 287억달러, 인도 시 수령). 2026 capex 1,350~1,450억달러, 장기부채 809.2억달러(9/30). 광고·AI 약관 개정을 이해관계자 협의로 보류(11/20 시행 철회).",
+      "url": "https://www.tokenpost.com/news/business/50248"
     },
     {
       "t": "GOOGL",
-      "h": "고유 뉴스 없음, 장 초반 상승 후 반락해 -2.20%",
-      "m": "개장 전 상승했으나 하락 전환(StockTitan). 등락률은 TE(CFD 기준). 종가 절대값 미확인.",
-      "url": "https://tradingeconomics.com/united-states/stock-market"
+      "h": "알파벳 +0.78%(284.78달러), Qualcomm 5.48억달러 지분 공개·말레이시아 150억달러 투자",
+      "m": "3분기 말 Qualcomm 297.7만주 보유(13F, 11/6 공개)로 데이터센터 칩 확장 지원. 11/4 말레이시아 2027~28년 150억달러 데이터센터 투자 발표, Crusoe가 와이오밍 사이트를 구글에 매각(11/6). 11/5 와이오밍 170억달러 데이터센터 전력 100% 자체 부담 약속. 3Q 매출 1,276억달러(+25%), 클라우드 307억달러(+103%)이나 10/29 실적 후 -12.6% 급락(종가 282.32달러) 이후 회복 중. Seeking Alpha: TPU 외부판매 기록(Anthropic·Oracle).",
+      "url": "https://financefeeds.com/google-stock-alphabets-15-billion-malaysia-bet-faces-ai-capex-backlash"
     },
     {
       "t": "MU",
-      "h": "반도체 투매 속 -17.46% 마감 (656.39달러)",
-      "m": "SOX 약 -12%. Micron 개별 뉴스는 확인되지 않음. 고유 뉴스 없음.",
-      "url": "https://www.stocktitan.net/articles/stock-market-today-live-november-5-2026"
+      "h": "마이크론 +5.12%(690.00달러), 대만 45억달러 공장 계획 보류 보도·TSMC 3D DRAM 검토 보도",
+      "m": "Bloomberg: 대만 45억달러 칩 공장 계획 일시 중단(TipRanks 인용, 세부 미확인). The Information: TSMC가 엔비디아 요청으로 3D DRAM 생산 계획 중(TSMC·엔비디아 미확인)으로 장 초반 SK하이닉스와 함께 하락 후 반등. 11/5 이사 Linnie Haynesworth 퇴임 공시. 전일 -17.46%(656.39달러) 후 반등. 2027 HBM 상당 부분 완판·단가 상승(9월 실적 콜).",
+      "url": "https://www.cnn.com/markets/stocks/MU"
     },
     {
       "t": "AVGO",
-      "h": "AI 반도체 투매 속 -10.43% 마감 (291.53달러)",
-      "m": "고유 뉴스 없음.",
-      "url": "https://www.stocktitan.net/articles/stock-market-today-live-november-5-2026"
+      "h": "브로드컴 +0.74%(293.69달러), 11/5 종가 291.53달러는 2025년 8월 이후 최저(기록 대비 -40%)",
+      "m": "회사 고유 발표는 없음(Trefis). 앤트로픽 TPU 임대 1,252억달러 중 최대 420억달러 전환사채 금융 제공(IPO 서류), 앤트로픽 IPO 희망 밸류에이션 1.4~1.5조 → 1.2~1.3조달러로 하향 논의(TradingKey, 단일 소스). 맞춤칩 믹스로 조정 매출총이익률 78%→75%(FQ3), FQ4 가이던스 약 73%. 다음 실적 12월. 참고: Anthropic은 Claude 개발사.",
+      "url": "https://www.fool.com/investing/2026/11/08/broadcom-stock-has-lost-nearly-40-from-its-record-i-d-buy-it-now/"
     },
     {
       "t": "AMZN",
-      "h": "고유 뉴스 없음, 11/4 급등 후 -2.19%",
-      "m": "11/4 +6.1~7.2% 급등분 일부 반납. 등락률은 TE(CFD 기준). 종가 절대값 미확인.",
-      "url": "https://www.stocktitan.net/articles/stock-market-today-live-november-5-2026"
+      "h": "아마존 -0.35%(259.30달러), Alexa 문자 쇼핑 출시·워싱턴주 WARN 해고 공시",
+      "m": "Alexa for Shopping을 문자메시지로 확대(Reuters). 워싱턴주 WARN 추가 제출, 최근 1년 해고 3만명 이상(Fast Company). AWS CEO 가먼은 선거 결과에도 포지션 양호하다고 언급. 3Q AWS 매출 460억달러(+39%), 영업이익률 38.7%, 백로그 4,960억달러(6/30). 앤트로픽 AWS 1,100억달러 약정(~2036) 있으나 자체 데이터센터 임대 확대(S-1).",
+      "url": "https://www.fastcompany.com/91637302/tech-layoffs-nov-2026-update-amazon-canva-block-inc-more"
     },
     {
       "t": "SPCX",
-      "h": "Tesla와 함께 9% 이상 급락 (-9.05%), 2거래일 연속 하락",
-      "m": "Yahoo: SpaceX·Tesla 각각 -9% 이상. 고유 뉴스는 확인되지 않음, 규제·AI 투매 연동으로 추정. 11/4 -3.8%(Fool 티커). 등락률은 TE(CFD 기준). 종가 절대값 미확인.",
-      "url": "https://finance.yahoo.com/markets/live/stock-market-today-thursday-november-5-dow-sp-500-nasdaq-plunge-chip-stocks-melt-down-193726491.html"
+      "h": "스페이스X +8.62%(134.27달러), 머스크 '정부 매출 10% 미만'·4Q 매출 +70% 발언, 11/13 스타십 15차 비행 목표",
+      "m": "머스크: 정부 계약 비중 10% 미만, 4Q 매출 3Q 대비 약 70% 증가, 2027년 12월 연환산 매출 5,000억달러 이상. Ars Technica: 스타십 Flight 15 11/13 목표. Deutsche Bank: 새 의회가 테슬라 합병을 막을 수 없음(매수 의견), Ives는 2027 합병 난도 상승. 구글 임원 Donald Harrison 이사 사임. 10/21 159.31달러 대비 -16%. 전일 -9.05%(123.62달러). 24/7 Wall St: 부채 보험(CDS) 비용 사상 최고라는 언급(수치 미검증).",
+      "url": "https://www.cnbc.com/quotes/SPCX"
     },
     {
       "t": "AAPL",
-      "h": "고유 뉴스 없음, 방어적 -1.53%",
-      "m": "11/4 실적 반응 급등(+5%대) 이후 소폭 조정. 등락률은 TE(CFD 기준). 종가 절대값 미확인.",
-      "url": "https://tradingeconomics.com/united-states/stock-market"
+      "h": "애플 -0.52%(342.37달러), 실적 후 사상 최고가 이후 숨고르기·메모리 비용 마진 부담",
+      "m": "FQ4 매출 1,144.8억달러, 12월 분기 매출총이익률 가이던스 45~46%(메모리 비용). 11/4 사상 최고가·1년 내 최대 상승 후 소폭 조정. 목표가: Daiwa 335→375, Bernstein 370→380, TheStreet 375→360(마진). 연초 대비 약 +27%. 배당 0.27달러(권리락 11/12). Duo 공급 제약.",
+      "url": "https://cnbc.com/2026/11/06/apple-is-on-a-tear-but-it-wont-be-for-long-per-daiwa-capital-markets.html"
     }
   ]
 }
