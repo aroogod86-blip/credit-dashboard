@@ -316,6 +316,50 @@ YTD_START  = datetime(END_DATE.year, 1, 1)  # 보유가중평균 G-spread 추이
 PREL_FILE_PATH = r"C:\blp\data"
 PREL_FILE_PATTERN = "PREL"
 
+# 포트 운용 탭 (export_port_tab.py + 포트운용 엑셀)
+#  - None이면 이 스크립트 폴더에서 가장 최근에 저장된 "포트운용_IG크레딧*.xlsx"를 사용
+#  - 다른 위치면 전체 경로 지정 (또는 실행 시 --port-xlsx 경로)
+PORT_XLSX_PATH = None
+PORT_XLSX_PATTERN = "포트운용_IG크레딧*.xlsx"
+
+
+def find_port_xlsx(path=None):
+    """포트운용 엑셀 경로 결정: 인자 > PORT_XLSX_PATH > 스크립트 폴더 최신 파일"""
+    import glob
+    p = path or PORT_XLSX_PATH
+    if p:
+        return p if os.path.exists(p) else None
+    folder = os.path.dirname(os.path.abspath(__file__))
+    files = [f for f in glob.glob(os.path.join(folder, PORT_XLSX_PATTERN))
+             if not os.path.basename(f).startswith("~$")]
+    return max(files, key=os.path.getmtime) if files else None
+
+
+def load_port_tab_html(path=None):
+    """포트 운용 탭 HTML 조각 생성. 실패해도 대시보드 생성은 계속되도록 안내 문구를 반환."""
+    import html as _html
+
+    def _msg(text):
+        return f'<div class="ib">📐 포트 운용 데이터를 불러오지 못했습니다 — {_html.escape(text)}</div>'
+
+    try:
+        from export_port_tab import render_port_tab
+    except ImportError:
+        print("  ⚠️  export_port_tab.py 없음 → 포트 운용 탭 비움")
+        return _msg("export_port_tab.py를 이 스크립트와 같은 폴더에 두세요.")
+    xlsx = find_port_xlsx(path)
+    if not xlsx:
+        print("  ⚠️  포트운용 엑셀 없음 → 포트 운용 탭 비움")
+        return _msg(f"{PORT_XLSX_PATTERN} 파일을 찾지 못했습니다. PORT_XLSX_PATH 또는 --port-xlsx로 지정하세요.")
+    try:
+        frag = render_port_tab(xlsx)
+        print(f"  📐 포트 운용 탭: {os.path.basename(xlsx)} "
+              f"(저장 {datetime.fromtimestamp(os.path.getmtime(xlsx)):%Y-%m-%d %H:%M})")
+        return frag
+    except Exception as e:
+        print(f"  ⚠️  포트 운용 탭 생성 실패 ({e})")
+        return _msg(str(e))
+
 
 # ══════════════════════════════════════════════
 # 1.5 PREL 워크시트 로드
@@ -538,6 +582,37 @@ def load_holdings_news():
     파일이 없으면 빈 목록으로 graceful fallback.
     """
     path = get_holdings_news_path()
+    if os.path.exists(path):
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                if isinstance(data, dict) and "items" in data:
+                    return data
+        except Exception:
+            pass
+    return {"date": None, "items": []}
+
+
+# 섹터 뉴스 태그 (cor 필드에 사용) — 이 순서대로 필터 드롭다운에 표시
+SECTOR_NEWS_TAGS = [
+    "US BANKS", "EU BANKS", "JP BANKS", "INSURANCE", "TECH/SEMIS",
+    "ENERGY", "AUTOS", "TELECOM", "KP", "MACRO/RATES",
+]
+
+
+def get_sector_news_path():
+    return os.path.join(os.path.dirname(os.path.abspath(__file__)), "sector_news.json")
+
+
+def load_sector_news():
+    """
+    섹터 뉴스 피드 ("섹터 뉴스" 트리거로 생성, 전 미국 거래일 기준).
+    holdings_news.json과 파일을 분리해 두 피드가 서로 덮어쓰지 않도록 함.
+    같은 폴더의 sector_news.json을 읽어 보유종목 뉴스 탭에 함께 표시.
+    스키마: {"date": "2026-09-29", "items": [{"cor":"US BANKS","t":"제목","m":"한줄요약(국문)","url":"..."}]}
+    cor는 SECTOR_NEWS_TAGS 중 하나. 파일이 없으면 빈 목록으로 graceful fallback.
+    """
+    path = get_sector_news_path()
     if os.path.exists(path):
         try:
             with open(path, "r", encoding="utf-8") as f:
@@ -1389,6 +1464,8 @@ def load_bloomberg_data():
         "newIssues": new_issues,
         "issuanceSupply": issuance_supply,
         "holdingsNews": load_holdings_news(),
+        "sectorNews": load_sector_news(),
+        "sectorNewsTags": SECTOR_NEWS_TAGS,
         "bdcCurrent": bdc_current,
         "bdcChanges": bdc_changes,
         "bdcTimeseries": bdc_ts,
@@ -1803,6 +1880,14 @@ def load_sample_data():
                 {"cor": "ORCL", "t": "Oracle CDS 프리미엄 사이클 고점권", "m": "클라우드 capex 부담 지속, 레버리지 우려 반영", "url": "https://example.com/news3"},
             ],
         },
+        "sectorNews": {
+            "date": END_DATE.strftime("%Y-%m-%d"),
+            "items": [
+                {"cor": "US BANKS", "t": "AI 에이전트發 예금 이탈 우려로 은행주 약세", "m": "저비용 예금 기반 잠식 가능성 부각, 선순위채 스프레드 영향은 제한적", "url": "https://example.com/sector1"},
+                {"cor": "MACRO/RATES", "t": "UST 10년 금리 보합, FOMC 의사록 대기", "m": "커브 스티프닝 기조 유지", "url": "https://example.com/sector2"},
+            ],
+        },
+        "sectorNewsTags": SECTOR_NEWS_TAGS,
         "bdcCurrent":    {meta["short"]: {"price": None, "pb": None, "nav": None} for meta in BDC_TICKERS.values()},
         "bdcChanges":    {meta["short"]: {"1d": None, "1w": None, "1m": None} for meta in BDC_TICKERS.values()},
         "bdcTimeseries": {},
@@ -1813,8 +1898,21 @@ def load_sample_data():
 # ══════════════════════════════════════════════
 # 4. HTML 템플릿 생성
 # ══════════════════════════════════════════════
-def generate_html(data, issuer_data=None):
+def generate_html(data, issuer_data=None, port_html=None):
     """데이터를 받아 standalone HTML 대시보드 문자열을 반환"""
+    port_tab_html = port_html or '<div class="ib">📐 포트 운용 데이터 없음</div>'
+    # 커브 비교 탭 (export_curve_tab.py — 발행사별 장단기 G-spread 차이)
+    try:
+        from export_curve_tab import render_curve_tab
+        curve_tab_html = render_curve_tab()
+    except Exception as e:
+        curve_tab_html = f'<div class="ib">📏 커브 비교 모듈 로드 실패: {e}</div>'
+    # 밸류에이션 시그널 (export_value_tab.py — 보유 채권 탭 고평가/저평가)
+    try:
+        from export_value_tab import render_value_html, render_value_js
+        value_html, value_js = render_value_html(), render_value_js()
+    except Exception as e:
+        value_html, value_js = f'<div class="ib">🔎 밸류에이션 모듈 로드 실패: {e}</div>', ''
 
     data_json = json.dumps(data, ensure_ascii=False)
     issuer_json = json.dumps(issuer_data or {"as_of": None, "issuers": {}}, ensure_ascii=False)
@@ -1873,17 +1971,17 @@ td.tc{{font-family:var(--ft)}}td.nm{{text-align:right}}td.ps{{color:var(--rd)}}t
 .bg{{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}}
 .bt{{padding:6px 14px;font-size:12px;font-family:var(--ft);font-weight:500;border:1px solid var(--bd);border-radius:6px;background:var(--sf2);color:var(--tx2);cursor:pointer;transition:all .15s}}
 .grp-row:hover td{{background:rgba(59,130,246,.10)!important}}
-/* 보유채권 테이블: 채권명 고정 + 줄무늬 + 행 하이라이트 (종목-값 매칭용) */
-#t1 .tw table thead th:first-child{{left:0;z-index:5}}
-#t1 .tw table tbody td:first-child{{position:sticky;left:0;z-index:2;background:var(--sf);border-right:1px solid var(--bd);box-shadow:2px 0 4px rgba(0,0,0,.25);font-weight:600}}
-#t1 .tw table tbody tr:nth-child(even) td{{background:rgba(255,255,255,.03)}}
-#t1 .tw table tbody tr:nth-child(even) td:first-child{{background:var(--sf2)}}
-#t1 .tw table tbody tr.sel td{{background:rgba(59,130,246,.14)}}
-#t1 .tw table tbody tr.sel td:first-child{{background:#1a2a4d}}
-#t1 .tw table tbody tr:hover td{{background:rgba(59,130,246,.22)}}
-#t1 .tw table tbody tr:hover td:first-child{{background:#1f3159}}
-#t1 .tw table td.cy,#t1 .tw table th.cy{{background-color:rgba(16,185,129,.07)}}
-#t1 .tw table td.cy.first,#t1 .tw table th.cy.first{{border-left:2px solid rgba(16,185,129,.5)}}
+/* 보유채권 종목별 현황 표: 채권명 고정 + 줄무늬 + 행 하이라이트 (종목-값 매칭용) */
+#th th:first-child,#th2 th:first-child{{left:0;z-index:5}}
+#tb td:first-child,#tb2 td:first-child{{position:sticky;left:0;z-index:2;background:var(--sf);border-right:1px solid var(--bd);box-shadow:2px 0 4px rgba(0,0,0,.25);font-weight:600}}
+#tb tr:nth-child(even) td,#tb2 tr:nth-child(even) td{{background:rgba(255,255,255,.03)}}
+#tb tr:nth-child(even) td:first-child,#tb2 tr:nth-child(even) td:first-child{{background:var(--sf2)}}
+#tb tr.sel td,#tb2 tr.sel td{{background:rgba(59,130,246,.14)}}
+#tb tr.sel td:first-child,#tb2 tr.sel td:first-child{{background:#1a2a4d}}
+#tb tr:hover td,#tb2 tr:hover td{{background:rgba(59,130,246,.22)}}
+#tb tr:hover td:first-child,#tb2 tr:hover td:first-child{{background:#1f3159}}
+#th th.cy,#th2 th.cy,#tb td.cy,#tb2 td.cy{{background-color:rgba(16,185,129,.07)}}
+#th th.first,#th2 th.first,#tb td.first,#tb2 td.first{{border-left:2px solid rgba(16,185,129,.5)}}
 .bt:hover{{border-color:var(--acd);color:var(--tx);background:var(--sf3)}}
 .bt.pr{{background:var(--ac);color:#fff;border-color:var(--ac)}}.bt.pr:hover{{background:#2563eb}}
 .fl{{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px}}
@@ -1915,9 +2013,10 @@ textarea:focus,.ti:focus{{border-color:var(--ac)}}
 <div class="hd"><div><h1>IG Credit Spread Dashboard</h1><div class="sub" id="hdr-sub"></div></div><a href="hyperscaler/hyperscaler-dashboard.html" style="color:var(--ac,#3b82f6);font-size:12px;font-weight:600;text-decoration:none;border:1px solid var(--ac,#3b82f6);padding:6px 14px;border-radius:20px;white-space:nowrap;margin-right:12px">🖥️ 하이퍼스케일러 →</a><div class="st" id="hdr-status"></div></div>
 <div class="tabs">
   <div class="tab active" data-tab="t1">🎯 보유 채권</div>
+  <div class="tab" data-tab="t10">📐 포트 운용</div>
   <div class="tab" data-tab="t2">📊 크레딧 지표</div>
   <div class="tab" data-tab="t9">📰 보유종목 뉴스<span id="newsBadge"></span></div>
-  <div class="tab" data-tab="t3">🏢 발행자별 곡선</div>
+  <div class="tab" data-tab="t11">📏 커브 비교</div>
   <div class="tab" data-tab="t8">💰 기업별 유동성 지표</div>
   <div class="tab" data-tab="t6">🆕 최근 발행<span id="techBadge"></span></div>
   <div class="tab" data-tab="t7">⚙️ 종목 관리</div>
@@ -1964,6 +2063,7 @@ textarea:focus,.ti:focus{{border-color:var(--ac)}}
     <div class="cd"><div class="ct2">📊 현재 G-spread 비교</div><div class="ch" style="height:280px"><canvas id="c3"></canvas></div></div>
   </div>
 
+  {value_html}
   <!-- 포트폴리오 테이블 -->
   <div class="cd">
     <div class="ct2">📋 종목별 현황 + 포트폴리오 손익 <span style="font-size:11px;color:var(--tx3);font-weight:400;margin-left:8px">컬럼 클릭=정렬 | 행 클릭=선택 | 수량은 자동 저장됩니다</span></div>
@@ -2032,12 +2132,6 @@ textarea:focus,.ti:focus{{border-color:var(--ac)}}
     <div class="cd"><div class="ct2">📉 HY / EM ETF (HYG / EMB / EMLC)</div><div class="ch" style="height:260px"><canvas id="c10"></canvas></div></div>
   </div>
 </div>
-<!-- TAB 3 -->
-<div class="tp" id="t3">
-  <div class="ib">🏢 발행자별 개별 수익률 곡선 — ● 보유  ○ 비보유</div>
-  <div class="ig" id="ic"></div>
-  <div class="cd"><div class="ct2">🏭 섹터 평균 곡선</div><div class="ch" style="height:300px"><canvas id="c7"></canvas></div></div>
-</div>
 <!-- TAB 6: New Issues -->
 <div class="tp" id="t6">
   <div class="ib">🆕 Bloomberg PREL 워크시트 기반 최근 발행 내역 — <span id="niCount"></span></div>
@@ -2066,7 +2160,8 @@ textarea:focus,.ti:focus{{border-color:var(--ac)}}
   <div class="ib" id="newsMeta">📰 보유종목 관련 뉴스 — 수동/주기적 갱신 (holdings_news.json)</div>
   <div class="cd">
     <div class="fl">
-      <label>종목</label><select id="nwf1" onchange="RNW()"><option value="ALL">전체</option></select>
+      <label>구분</label><select id="nwf0" onchange="R9()"><option value="ALL">전체</option><option value="H">보유종목</option><option value="S">섹터</option></select>
+      <label>종목/섹터</label><select id="nwf1" onchange="RNW()"><option value="ALL">전체</option></select>
       <label>검색</label><input type="text" id="nwf2" placeholder="제목/요약 검색..." oninput="RNW()" style="width:220px">
     </div>
     <div id="newsCards" style="display:flex;flex-direction:column;gap:8px;margin-top:8px"></div>
@@ -2162,6 +2257,13 @@ textarea:focus,.ti:focus{{border-color:var(--ac)}}
     </div>
   </div>
 </div>
+<!-- TAB 10: 포트 운용 (export_port_tab.py) -->
+<div class="tp" id="t11">
+{curve_tab_html}
+</div>
+<div class="tp" id="t10">
+{port_tab_html}
+</div>
 </div>
 <div class="en" id="en">✅ CSV 파일이 다운로드됩니다</div>
 <script>
@@ -2193,7 +2295,7 @@ function isTechIssue(i){{
   if(n>0)b.innerHTML=' <span style="background:var(--rd,#c0392b);color:#fff;border-radius:8px;padding:0 5px;font-size:10px;font-weight:700">'+n+'</span>';
 }})();
 (function(){{
-  const n=(D.holdingsNews?.items||[]).length;
+  const n=(D.holdingsNews?.items||[]).length+(D.sectorNews?.items||[]).length;
   const b=document.getElementById('newsBadge');
   if(n>0)b.innerHTML=' <span style="background:var(--ac,#3b82f6);color:#fff;border-radius:8px;padding:0 5px;font-size:10px;font-weight:700">'+n+'</span>';
 }})();
@@ -2201,15 +2303,16 @@ document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{{
   document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
   document.querySelectorAll('.tp').forEach(x=>x.classList.remove('active'));
   t.classList.add('active');document.getElementById(t.dataset.tab).classList.add('active');
-  if(t.dataset.tab==='t2')R2();if(t.dataset.tab==='t3')R3();
+  if(t.dataset.tab==='t2')R2();
   if(t.dataset.tab==='t6')R6();if(t.dataset.tab==='t7')R7();if(t.dataset.tab==='t8')R8();
   if(t.dataset.tab==='t9')R9();
+  if(t.dataset.tab==='t11'&&window.RCurve)RCurve();
 }}));
 
 // ═══ TAB 1 ═══
 const bonds=D.bonds;
 let sel=new Set(bonds.slice(0,12).map(b=>b.label));
-// 보유 수량 기본값 (단위: M, 8874잔고 파일 기준 ISIN별 합산) — 2026-11-05 잔고 반영
+// 보유 수량 기본값 (단위: M, 8874잔고 파일 기준 ISIN별 합산)
 const QTY_DATA={{"US302154DM88":1.0,"US65540KAK16":3.0,"US05971KAV17":10.0,"US06738ECX13":10.0,"US06738EDJ10":10.0,"US06738EDM49":5.0,"US11135FBY60":10.0,"US38141GF335":20.0,"US404280CV97":5.0,"US404280FL88":10.0,"US44891CCU53":12.0,"US44891CDD20":13.0,"US44891CDH34":5.5,"US44891CED11":1.0,"US44891CEP41":1.0,"US456837BU63":10.0,"US46647PFM32":4.0,"US48128BAU52":10.0,"US606822DS05":5.0,"US61748UAY82":20.0,"US61748UBA97":5.0,"US65535HAY53":28.09,"US65535HCL15":5.0,"US780097BG51":13.0,"US82460EAN04":5.0,"US83368TCJ51":1.0,"US86562MED83":5.0,"US95000U4H36":5.0,"US98105HAG56":17.3,"USG84228FZ63":12.0,"USH42097EN39":3.0,"USH42097FT99":1.0,"USU8531HAA87":5.0,"USY29011DG83":5.0,"USY3815NBK64":2.5,"USY5S5CGAB83":18.2,"USY5S5CGAK82":0.2,"USY5S5CGAN22":7.0,"USY7S272AG74":5.0,"USY7S27KAX02":15.0,"USY8085FBD16":44.0,"USY8085FBK58":16.8,"XS1795263281":8.8,"XS1932879130":19.5,"XS2703610050":33.5,"XS2985211569":26.0,"XS3078370726":0.5,"XS3189630372":30.0,"XS3299380850":3.0,"XS3304372868":10.0,"XS3412559299":22.5,"XS3423950230":9.0,"FR0014010FH7":20.0,"US02079KBM80":0.5,"US09659X2X97":5.0,"US38141GC365":1.0,"US44891CEA71":0.5,"US44891CER07":1.0,"US46647PEJ12":7.0,"US46647PEV40":1.0,"US46647PFD33":0.5,"US500631AE67":2.845,"US60687YDL02":1.0,"US61748UAR32":10.0,"US61748UAV44":10.0,"US61778EUR07":0.5,"US65535HCB33":0.5,"US65535HCK32":1.0,"US780097BL47":5.0,"US91282CGT27":1.0,"US91282CNC19":15.0,"US95000U3P60":5.0,"USG84228FL77":3.0,"USG84228FY98":2.0,"USH42097EV54":10.0,"USH42097FW29":5.0,"USJ5901UAH52":5.2,"USJ5903AAA28":1.7,"USJ5S39RAM64":2.0,"USY29011DM51":2.5,"USY5S5CGAR36":9.0,"USY5S5CGAV48":7.0,"USY5S80VAB27":18.0,"USY70750CB13":22.6,"USY7S272AL69":0.2,"USY7S272AM43":20.2,"USY8085FBL32":13.0,"USY8085FBU31":3.9,"USY8085FBY52":0.2,"USY8085FBZ28":7.5,"XS2559683359":10.0,"XS2739009855":19.0,"XS3017043053":25.0,"XS3028206350":20.0,"XS3030377132":20.0,"XS3412558648":10.0,"XS3423950313":12.0,"XS3448558893":0.2,"XS3504731228":0.2,"KR6065904G23":80.0,"US302154EB15":2.0,"US404280BT50":10.0,"US404280CC17":5.0,"US404280CF48":10.0,"US404280EG03":12.0,"US404280EN53":7.0,"US404280ER67":13.0,"US404280EW52":18.0,"US44891CBL63":10.5,"US44891CCE12":15.0,"US44891CCJ09":8.2,"US44891CCP68":7.4,"US44891CDB63":10.0,"US44891CDL46":10.0,"US44891CDM29":48.5,"US44891CDQ33":17.0,"US44891CDW01":0.5,"US44891CEE93":4.0,"US50050HAN61":10.5,"US500630ED65":1.0,"US50064FAY07":0.5,"US50064FBA12":0.5,"USY4899GGX52":21.1,"USY5S5CGAL65":133.0,"USY5S5CGAP79":16.5,"USY5S5CGAS19":3.0,"XS2798085416":0.2,"XS3109629371":17.6,"XS3187679041":5.2,"XS3219365635":22.223,"XS3299373996":54.4,"US05964HBG92":13.0,"US06051GMW68":5.0,"US38141GD355":10.0,"US38145GAR11":10.0,"US44891CDF77":1.0,"US44891CDG50":2.0,"US60687YDF34":5.0,"US61748UAS15":20.0,"US91282CNT44":94.0,"US91282CNW72":20.0,"US91282CNZ04":16.0,"US91282CPM72":100.0,"US91282CPZ85":40.0,"US91282CQQ77":30.0,"USY70750CC95":10.0,"XS2052998403":3.0,"XS2082472122":1.0,"XS2167007918":5.0,"XS3127996778":1.0,"US06738ECY95":15.0,"US38141GB607":0.5,"US912810UC08":8.0,"USJ5S39RAV63":5.0,"XS2565831943":5.0,"XS2982332400":2.0,"XS3268973453":3.0,"US46647PFG63":5.0,"USY7S272AK86":0.2,"HK0001277489":3.0,"HK0001319182":1.0,"HK0001325593":15.0,"US302154DG11":10.0,"US302154DY27":15.0,"US302154DZ91":0.5,"US302154ED70":0.2,"US302154EE53":0.8,"US302154EM79":10.0,"US302154EQ83":3.7,"US302154ER66":5.0,"US302154ES40":10.0,"US302154EV78":0.5,"US302154EW51":0.5,"US45604HAN70":10.0,"US45604HAQ02":0.2,"US45604HAS67":10.0,"US500630EG96":0.5,"US500630EH79":0.5,"US500630EK09":13.4,"US500630EM64":3.7,"US500630ER51":0.5,"US500630ES35":19.0,"US500630ET18":9.0,"US50066CAV19":0.2,"US98105GAP72":0.5,"USY2350DER36":4.2,"USY2387CVK89":3.2,"USY4841M6A22":0.5,"USY4841PAD43":5.0,"USY4841PAG73":3.5,"USY4841PAK85":6.0,"USY4841PAP72":15.0,"USY4872AMX28":1.0,"USY4872ATJ60":5.0,"USY48861DE86":10.0,"USY4899GHF38":6.0,"USY4907LAR34":0.2,"USY4907LAT99":0.2,"USY4907LAU62":0.2,"USY4907LAV46":2.0,"USY4938AAM19":0.2,"USY4938AAT61":0.5,"USY4938AAV18":2.2,"USY4938AAW90":0.5,"USY4938AAY56":0.2,"USY4938AAZ22":0.2,"USY4938ABA61":0.2,"USY4938ABB45":0.5,"USY49915BC76":0.5,"USY49915BF08":0.2,"USY6396XAF60":1.0,"USY6396XAG44":1.0,"USY6396XAK55":5.5,"USY6396XAL39":0.2,"USY6396XAM12":0.2,"USY7770HAE81":0.2,"USY9700WAD84":0.2,"XS1211568735":10.0,"XS2457676257":8.266,"XS2600704956":2.119,"XS2629403499":10.0,"XS2790212828":7.322,"XS2803406698":5.0,"XS2803407233":5.2,"XS2917896685":0.2,"XS3037640037":1.0,"XS3037681908":5.6,"XS3053429638":3.0,"XS3056053799":9.2,"XS3109629702":0.75,"XS3177263418":5.7,"XS3322576417":0.6,"XS3340625626":1.74,"XS3428230844":0.2,"XS3441682534":2.5,"XS3458340877":1.0,"XS3464389678":5.2,"XS3493264934":3.3,"XS3541192186":10.0,"JP541005AQB3":3700.0,"JP541005CQB9":100.0,"JP541034ARB1":100.0,"JP541034BRB9":600.0,"JP541037AS71":1000.0}};
 // CDS 포지션 (Sheet2 기준, 단위 M) — 현물과 별도 유지, 가중평균 계산에는 미포함
 const CDS_QTY_DATA={{"US302154EB15":124.4308,"US500630ED65":120.7379,"US302154EK14":116.4605,"US500630EH79":116.6667,"US50064FBA12":320,"USY7S272AG74":85.0833,"USY8085FBK58":82.75,"US44891CDL46":116.6667,"USY5S5CGAL65":158.3333,"US44891CDM29":120.4405,"KR6065904G23":123.3333,"US404280CF48":79.8333,"USY4899GGX52":45,"XS3299373996":56.5}};
@@ -3515,120 +3618,6 @@ function R2(){{
   }}  // if etNames
 }}  // R2
 
-// ═══ TAB 3: Issuer Curves (fixed) ═══
-let t3r=false;
-function R3(){{
-  if(t3r)return;t3r=true;
-  const all=D.allBonds;
-
-  // Group by issuer
-  const byIssuer={{}};
-  all.forEach(b=>{{if(b.issuer&&b.duration&&b.ytm){{(byIssuer[b.issuer]=byIssuer[b.issuer]||[]).push(b)}} }});
-
-  // 발행자 선정: 보유 채권이 많은 발행자를 최우선으로 노출 (min 2 bonds — 비교물 없이 보유 종목만으로도 표시)
-  // 정렬 기준: ① 보유 종목수 내림차순 ② 전체(보유+비보유) 종목수 내림차순
-  const top=Object.entries(byIssuer)
-    .map(([issuer,bs])=>[issuer,bs,bs.filter(b=>b.is_owned).length])
-    .filter(([,bs])=>bs.length>=2)
-    .sort((a,b)=>(b[2]-a[2])||(b[1].length-a[1].length))
-    .slice(0,12)
-    .map(([issuer,bs])=>[issuer,bs]);
-
-  const container=document.getElementById('ic');
-  container.innerHTML=top.map(([issuer,bs],idx)=>{{
-    const owned=bs.filter(b=>b.is_owned).length;
-    const extra=bs.filter(b=>!b.is_owned).length;
-    const sub=`보유 ${{owned}}개`+(extra>0?` + 비보유 ${{extra}}개`:'');
-    return`<div class="ic">
-      <div class="it">${{issuer}}</div>
-      <div class="is">${{sub}} — <span style="color:var(--ac)">● 현재</span> <span style="color:var(--am)">◆ 1M전</span> <span style="color:var(--rd)">▲ 3M전</span></div>
-      <div class="ch" style="height:260px"><canvas id="ic${{idx}}"></canvas></div></div>`;
-  }}).join('');
-
-  top.forEach(([issuer,bs],idx)=>{{
-    const color=CL[idx%CL.length];
-    const allSorted=[...bs].sort((a,b)=>a.duration-b.duration);
-
-    const datasets=[];
-
-    // Current YTM — all bonds as line
-    datasets.push({{
-      label:'현재',
-      data:allSorted.map(b=>({{x:b.duration,y:b.ytm}})),
-      borderColor:color,backgroundColor:color,
-      pointRadius:allSorted.map(b=>b.is_owned?7:5),
-      pointStyle:allSorted.map(b=>b.is_owned?'circle':'circle'),
-      pointBackgroundColor:allSorted.map(b=>b.is_owned?color:'transparent'),
-      pointBorderColor:color,
-      pointBorderWidth:allSorted.map(b=>b.is_owned?0:2),
-      pointHoverRadius:9,
-      showLine:true,tension:.3,borderWidth:2,
-    }});
-
-    // 1M ago YTM
-    const has1m=allSorted.filter(b=>b.ytm_1m_ago!=null);
-    if(has1m.length>=2){{
-      datasets.push({{
-        label:'1M전',
-        data:has1m.map(b=>({{x:b.duration,y:b.ytm_1m_ago}})),
-        borderColor:'#f59e0b',backgroundColor:'transparent',
-        pointRadius:4,pointStyle:'rect',pointBorderColor:'#f59e0b',pointBorderWidth:1.5,
-        pointHoverRadius:6,showLine:true,tension:.3,borderWidth:1.5,borderDash:[4,3],
-      }});
-    }}
-
-    // 3M ago YTM
-    const has3m=allSorted.filter(b=>b.ytm_3m_ago!=null);
-    if(has3m.length>=2){{
-      datasets.push({{
-        label:'3M전',
-        data:has3m.map(b=>({{x:b.duration,y:b.ytm_3m_ago}})),
-        borderColor:'#ef4444',backgroundColor:'transparent',
-        pointRadius:4,pointStyle:'triangle',pointBorderColor:'#ef4444',pointBorderWidth:1.5,
-        pointHoverRadius:6,showLine:true,tension:.3,borderWidth:1.5,borderDash:[2,2],
-      }});
-    }}
-
-    const ctx=document.getElementById('ic'+idx).getContext('2d');
-    new Chart(ctx,{{type:'scatter',data:{{datasets}},
-      options:{{responsive:true,maintainAspectRatio:false,
-        plugins:{{
-          legend:{{display:true,position:'top',labels:{{font:{{size:10}},padding:8}}}},
-          tooltip:{{callbacks:{{
-            label:function(c){{
-              const b=c.datasetIndex===0?allSorted[c.dataIndex]:(c.datasetIndex===1?has1m[c.dataIndex]:has3m[c.dataIndex]);
-              if(!b)return c.dataset.label+': '+c.parsed.y?.toFixed(2)+'%';
-              return b.label+' | '+c.parsed.x.toFixed(1)+'Y | '+c.parsed.y.toFixed(2)+'%';
-            }}
-          }}}}
-        }},
-        scales:{{
-          x:{{title:{{display:true,text:'듀레이션(년)',font:{{size:10}}}},
-              grid:{{color:'rgba(42,53,80,.2)'}},
-              ticks:{{callback:v=>[1,2,3,5,7,10,15,20,30].includes(Math.round(v))?Math.round(v):'',font:{{size:10}}}}}},
-          y:{{title:{{display:true,text:'YTM(%)',font:{{size:10}}}},
-              ticks:{{callback:v=>v.toFixed(1)+'%',font:{{size:10}}}},
-              grid:{{color:'rgba(42,53,80,.2)'}}}}
-        }}
-      }}
-    }});
-  }});
-
-  // Sector average curve — current only
-  const bySector={{}};
-  all.forEach(b=>{{if(b.sector&&b.duration&&b.ytm)(bySector[b.sector]=bySector[b.sector]||[]).push(b)}});
-  const sds=Object.entries(bySector).filter(([,bs])=>bs.length>=3).map(([sec,bs],i)=>{{
-    const bk={{}};bs.forEach(b=>{{const k=Math.round(b.duration);(bk[k]=bk[k]||[]).push(b.ytm)}});
-    const pts=Object.entries(bk).map(([d,ys])=>({{x:+d,y:ys.reduce((a,v)=>a+v,0)/ys.length}})).sort((a,b)=>a.x-b.x);
-    return{{label:sec,data:pts,borderColor:CL[i%CL.length],borderWidth:2,pointRadius:4,showLine:true,tension:.3}};
-  }});
-  new Chart(document.getElementById('c7').getContext('2d'),{{type:'scatter',data:{{datasets:sds}},
-    options:{{responsive:true,maintainAspectRatio:false,plugins:{{legend:{{position:'top'}}}},
-      scales:{{x:{{title:{{display:true,text:'듀레이션(년)'}},grid:{{color:'rgba(42,53,80,.3)'}}}},y:{{title:{{display:true,text:'YTM(%)'}},grid:{{color:'rgba(42,53,80,.3)'}}}}}}
-    }}
-  }});
-}}
-
 // ═══ TAB 4 ═══
 let t4r=false;
 function R4(){{
@@ -3747,39 +3736,64 @@ function EX(){{
   const e=document.getElementById('en');e.classList.add('show');setTimeout(()=>e.classList.remove('show'),2000);
 }}
 
-// ═══ TAB 9: Holdings News ═══
+// ═══ TAB 9: Holdings News (+ Sector News) ═══
+function NWALL(){{
+  const h=(D.holdingsNews?.items||[]).map(i=>Object.assign({{}},i,{{_k:'H'}}));
+  const s=(D.sectorNews?.items||[]).map(i=>Object.assign({{}},i,{{_k:'S'}}));
+  // 섹터 뉴스(전일) 먼저, 보유종목 뉴스 뒤
+  return s.concat(h);
+}}
 function RNW(){{
-  const items=(D.holdingsNews?.items||[]).slice();
+  const all=NWALL();
+  const f0=document.getElementById('nwf0').value;
   const f1=document.getElementById('nwf1').value;
   const q=(document.getElementById('nwf2').value||'').toLowerCase();
-  const filtered=items.filter(i=>
+  const filtered=all.filter(i=>
+    (f0==='ALL'||i._k===f0) &&
     (f1==='ALL'||i.cor===f1) &&
     (!q || (i.t||'').toLowerCase().includes(q) || (i.m||'').toLowerCase().includes(q))
   );
   const wrap=document.getElementById('newsCards');
   const meta=document.getElementById('newsMeta');
-  const dateTxt=D.holdingsNews?.date ? `기준일 ${{D.holdingsNews.date}}` : '갱신 이력 없음';
-  meta.innerHTML=`📰 보유종목 관련 뉴스 — ${{dateTxt}} · 총 ${{items.length}}건 (holdings_news.json 수동/주기적 갱신)`;
+  const hN=(D.holdingsNews?.items||[]).length, sN=(D.sectorNews?.items||[]).length;
+  const hD=D.holdingsNews?.date||'갱신 이력 없음', sD=D.sectorNews?.date||'갱신 이력 없음';
+  meta.innerHTML=`📰 보유종목 뉴스 ${{hN}}건 (기준일 ${{hD}}, holdings_news.json) · 섹터 뉴스 ${{sN}}건 (기준일 ${{sD}}, sector_news.json)`;
   if(!filtered.length){{
-    wrap.innerHTML='<div style="text-align:center;padding:30px;color:var(--tx3)">표시할 뉴스가 없습니다. holdings_news.json을 갱신해주세요.</div>';
+    wrap.innerHTML='<div style="text-align:center;padding:30px;color:var(--tx3)">표시할 뉴스가 없습니다. holdings_news.json / sector_news.json을 갱신해주세요.</div>';
     return;
   }}
-  wrap.innerHTML=filtered.map(i=>`
-    <div style="background:var(--sf2);border:1px solid var(--bd);border-radius:8px;padding:12px 14px;">
+  wrap.innerHTML=filtered.map(i=>{{
+    const c=i._k==='S'?'#d97706':'var(--ac,#3b82f6)';
+    const bg=i._k==='S'?'#d9770622':'var(--ac,#3b82f6)22';
+    const kind=i._k==='S'?'섹터':'보유종목';
+    return `
+    <div style="background:var(--sf2);border:1px solid var(--bd);border-left:3px solid ${{c}};border-radius:8px;padding:12px 14px;">
       <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:4px;">
-        <span style="font-size:11px;font-weight:700;color:var(--ac,#3b82f6);background:var(--ac,#3b82f6)22;padding:1px 8px;border-radius:4px;">${{i.cor||'-'}}</span>
+        <span>
+          <span style="font-size:10px;color:var(--tx3);margin-right:6px;">${{kind}}</span>
+          <span style="font-size:11px;font-weight:700;color:${{c}};background:${{bg}};padding:1px 8px;border-radius:4px;">${{i.cor||'-'}}</span>
+        </span>
         ${{i.url?`<a href="${{i.url}}" target="_blank" rel="noopener" style="font-size:10px;color:var(--tx3);text-decoration:none;">원문 →</a>`:''}}
       </div>
       <div style="font-size:13px;font-weight:600;color:var(--tx);margin-bottom:3px;">${{i.t||''}}</div>
       <div style="font-size:12px;color:var(--tx2);">${{i.m||''}}</div>
-    </div>
-  `).join('');
+    </div>`;
+  }}).join('');
 }}
 function R9(){{
-  const items=(D.holdingsNews?.items||[]);
-  const cors=[...new Set(items.map(i=>i.cor).filter(Boolean))].sort();
+  const f0=document.getElementById('nwf0').value;
+  const all=NWALL().filter(i=>f0==='ALL'||i._k===f0);
+  const order=D.sectorNewsTags||[];
+  const secs=order.filter(t=>all.some(i=>i._k==='S'&&i.cor===t))
+    .concat([...new Set(all.filter(i=>i._k==='S'&&!order.includes(i.cor)).map(i=>i.cor).filter(Boolean))].sort());
+  const cors=[...new Set(all.filter(i=>i._k==='H').map(i=>i.cor).filter(Boolean))].sort();
   const sel=document.getElementById('nwf1');
-  sel.innerHTML='<option value="ALL">전체</option>'+cors.map(c=>`<option value="${{c}}">${{c}}</option>`).join('');
+  const prev=sel.value;
+  let html='<option value="ALL">전체</option>';
+  if(secs.length)html+='<optgroup label="섹터">'+secs.map(c=>`<option value="${{c}}">${{c}}</option>`).join('')+'</optgroup>';
+  if(cors.length)html+='<optgroup label="보유종목">'+cors.map(c=>`<option value="${{c}}">${{c}}</option>`).join('')+'</optgroup>';
+  sel.innerHTML=html;
+  if([...sel.options].some(o=>o.value===prev))sel.value=prev;
   RNW();
 }}
 
@@ -4026,6 +4040,7 @@ function renderT8Chart(){{
   }});
 }}
 
+{value_js}
 // ═══ INIT ═══
 PF();initFund();R1();
 </script>
@@ -4159,6 +4174,7 @@ if __name__ == "__main__":
     parser.add_argument("--sample", action="store_true", help="샘플 데이터로 생성 (Bloomberg 무시)")
     parser.add_argument("--backfill-issuance", metavar="CSV_PATH", help="발행량 로그 웜스타트: month,totalAmtMM,dealCount 헤더의 CSV 경로")
     parser.add_argument("--overwrite", action="store_true", help="--backfill-issuance 사용 시 기존 월 데이터도 덮어쓰기")
+    parser.add_argument("--port-xlsx", metavar="XLSX_PATH", help="포트 운용 탭에 쓸 포트운용 엑셀 경로 (기본: 스크립트 폴더 최신 파일)")
     args = parser.parse_args()
 
     if args.backfill_issuance:
@@ -4193,8 +4209,11 @@ if __name__ == "__main__":
     # 발행자 재무 데이터 로드 (issuer_financials.json)
     issuer_data = load_issuer_financials()
 
+    # 포트 운용 탭 (포트운용 엑셀 → HTML 조각)
+    port_html = load_port_tab_html(args.port_xlsx)
+
     # HTML 생성
-    html_content = generate_html(data, issuer_data)
+    html_content = generate_html(data, issuer_data, port_html)
 
     # index.html로 저장 (GitHub Pages용 고정 파일명)
     script_dir = os.path.dirname(os.path.abspath(__file__))
