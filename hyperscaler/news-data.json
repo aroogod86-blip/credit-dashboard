@@ -1,59 +1,59 @@
 {
-  "date": "2026-11-06",
+  "date": "2026-11-09",
   "items": [
     {
       "t": "NVDA",
-      "h": "엔비디아 +2.78%(186.64달러), 美 하원 위원장 3명 젠슨 황에 비공개 브리핑 요구·中 스파이 연루 보도",
-      "m": "Foreign Affairs·China Select·Intelligence 위원장이 황 CEO의 Megaspeed 임원 관련 접촉 해명을 요구했고, NYT는 황이 中 첩보활동 표적이었다고 보도, 엔비디아는 내부 조사 착수(CNBC). 새 민주당 의회가 AI칩 수출통제·中 밀수 단속 압박을 예고(Bloomberg). 동남아 칩 추적 강화. TSMC가 엔비디아 요청으로 3D DRAM 생산 계획 중이라는 The Information 보도(미확인)도 부각. 전일 -9.26%(181.60달러, 200일선 204.7 이탈) 후 반등. 소스별 +2.78%~+3.9%.",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-stocks-rebound-6-78-165211819.html"
+      "h": "엔비디아 -4.27% 마감, 젠슨 황 CEO 관련 이사회 조사 보도 부담",
+      "m": "종가 178.67달러(-4.27%). 이사회가 젠슨 황 CEO와 미 당국이 중국 스파이로 의심하는 사업가의 관계를 조사 중이라는 보도가 매도 요인. 반도체지수(SOX) +5% 이상 반등장에서 홀로 하락(AMD +13%). 구글의 신규 TPU 발표도 경쟁 부담으로 거론됨. 시총 4.31조달러로 애플(5.10조달러)에 이어 2위.",
+      "url": "https://invezz.com/sg/news/2026/11/09/why-is-broadcom-avgo-stock-surging-9percent-on-monday/"
     },
     {
       "t": "ORCL",
-      "h": "오라클 +0.82%(116.10달러), MS 오라클 AI 클라우드 임대 계약 축소 보도·Stargate 대출 매각 부각",
-      "m": "Bloomberg: Microsoft가 갱신 거부로 수개월간 오라클 임대 용량을 중단 중. 오라클은 구세대 GPU 포함 용량이 갱신되거나 기존 대비 20% 높은 가격의 장기계약으로 타사에 판매됐다고 반박. ING가 Stargate 뉴멕시코 사이트 2,500만달러 포함 데이터센터 대출 12건(약 5억달러) 매각 입찰(마감 11/19). WSJ: 선거 후 OpenAI가 내년 데이터센터 용량 계획 재검토 논의, S&P는 OpenAI가 오라클 수주잔고 6,640억달러의 약 절반이라고 평가. 11/4 中 텐센트 70억달러 칩 임대 취소 보도, 11/5 뉴멕시코 사이트 발전 인프라 허가 시한 연장. 신용: S&P BBB-/안정적(7/9 하향), 11/2 주식·선순위채 200억달러 조달(신규 조치 아님), 총부채 약 1,670억달러. 주총 11/18.",
-      "url": "https://crypto.news/microsoft-oracle-ai-cloud-capacity-deal"
+      "h": "오라클 +3.24% 반등, UBS·골드만 등 투자의견 하향 속 낙폭 과대 인식",
+      "m": "종가 119.79달러(+3.24%). 전주 후반 데이터센터 규제 우려로 급락한 AI 인프라주 반등에 동참. 신용 관점: S&P BBB-(7/9 하향, 전망 안정) 유지, 총부채 약 1,670~1,690억달러, 11/2 200억달러 조달(주식 100억·채권 100억) 이후 FCF 적자 지속. 증권사 투자의견 하향 및 텐센트 계약 취소 보도는 부담 요인(단일 출처 확인 필요).",
+      "url": "https://www.marketbeat.com/instant-alerts/price-broadcom-nasdaq-avgo-shares-climb-88-should-you-buy-2026-11-09/"
     },
     {
       "t": "META",
-      "h": "메타 +0.84%(610.15달러), 150억달러 달러채·사상 최대 주문 유로채 발행으로 AI 자금조달 지속",
-      "m": "11/3 달러채 150억달러 5트랜치(2031 5.85%·2033 6.25%·2036 6.55%·2046 7.35%·2056 7.50%, 최대 주문 약 580억달러로 4/11 대비 수요 감소). 11/4 첫 유로채 주문 530억유로 기록. 선도매각(forward) 4,600만주로 확대(약 287억달러, 인도 시 수령). 2026 capex 1,350~1,450억달러, 장기부채 809.2억달러(9/30). 광고·AI 약관 개정을 이해관계자 협의로 보류(11/20 시행 철회).",
-      "url": "https://www.tokenpost.com/news/business/50248"
+      "h": "메타 급반등(+4~5%대), 인스타그램 AI 연령확인·신규 AI 모델 소식",
+      "m": "종가 약 641달러(전일 610.15 대비 +5.12%, Finnhub 기반 추정치로 공식 종가 재확인 필요). 인스타그램 AI 연령확인 도입 및 Muse Ember 관련 소식과 빅테크 전반 반등 영향. 신용 관점: 11/2 150억달러 5트랜치 USD 채권 및 유로채 발행, 자본지출 1,350~1,450억달러 가이던스는 차입 확대 요인.",
+      "url": "https://www.marketalleys.com/post/apple-rises-2-43-to-350-69-on-nov-9-2026-11-09"
     },
     {
       "t": "GOOGL",
-      "h": "알파벳 +0.78%(284.78달러), Qualcomm 5.48억달러 지분 공개·말레이시아 150억달러 투자",
-      "m": "3분기 말 Qualcomm 297.7만주 보유(13F, 11/6 공개)로 데이터센터 칩 확장 지원. 11/4 말레이시아 2027~28년 150억달러 데이터센터 투자 발표, Crusoe가 와이오밍 사이트를 구글에 매각(11/6). 11/5 와이오밍 170억달러 데이터센터 전력 100% 자체 부담 약속. 3Q 매출 1,276억달러(+25%), 클라우드 307억달러(+103%)이나 10/29 실적 후 -12.6% 급락(종가 282.32달러) 이후 회복 중. Seeking Alpha: TPU 외부판매 기록(Anthropic·Oracle).",
-      "url": "https://financefeeds.com/google-stock-alphabets-15-billion-malaysia-bet-faces-ai-capex-backlash"
+      "h": "알파벳 +1.18%, TPU 8tx·8i Max 신규 AI 시스템 공개",
+      "m": "종가 약 288.1달러(전일 284.78 대비 +1.18%, 등락률 기반 산출). 구글이 TPU 8tx(기밀 컴퓨팅·규제산업용)와 TPU 8i Max(TPU 8i 2개 패키지, 연산·메모리 대역폭 2배)를 발표, 2027년 출시 예정. 엔비디아 대항마 부각. 3분기 구글 클라우드 매출 307.1억달러(+103% YoY).",
+      "url": "https://www.fool.com/investing/2026/11/09/why-alphabet-stock-was-moving-higher-today/"
     },
     {
       "t": "MU",
-      "h": "마이크론 +5.12%(690.00달러), 대만 45억달러 공장 계획 보류 보도·TSMC 3D DRAM 검토 보도",
-      "m": "Bloomberg: 대만 45억달러 칩 공장 계획 일시 중단(TipRanks 인용, 세부 미확인). The Information: TSMC가 엔비디아 요청으로 3D DRAM 생산 계획 중(TSMC·엔비디아 미확인)으로 장 초반 SK하이닉스와 함께 하락 후 반등. 11/5 이사 Linnie Haynesworth 퇴임 공시. 전일 -17.46%(656.39달러) 후 반등. 2027 HBM 상당 부분 완판·단가 상승(9월 실적 콜).",
-      "url": "https://www.cnn.com/markets/stocks/MU"
+      "h": "마이크론 +6.25%, 반도체 반등 및 TSMC 메모리 진출 우려 완화",
+      "m": "종가 733.15달러(+6.25%). TSMC가 메모리 시장 진출 가능성을 낮춰 경쟁 우려가 완화됨. 12/9 시작 예정 350억달러 자사주 매입, 선행 PER 4배 수준 저평가 논거 부각. 대만 신규 공장 건설이 노사 분쟁으로 중단된 점은 부정 요인. 시게이트·WDC 등 스토리지주 약 +10%.",
+      "url": "https://invezz.com/news/2026/11/09/why-are-micron-and-sandisk-stocks-rising-today/"
     },
     {
       "t": "AVGO",
-      "h": "브로드컴 +0.74%(293.69달러), 11/5 종가 291.53달러는 2025년 8월 이후 최저(기록 대비 -40%)",
-      "m": "회사 고유 발표는 없음(Trefis). 앤트로픽 TPU 임대 1,252억달러 중 최대 420억달러 전환사채 금융 제공(IPO 서류), 앤트로픽 IPO 희망 밸류에이션 1.4~1.5조 → 1.2~1.3조달러로 하향 논의(TradingKey, 단일 소스). 맞춤칩 믹스로 조정 매출총이익률 78%→75%(FQ3), FQ4 가이던스 약 73%. 다음 실적 12월. 참고: Anthropic은 Claude 개발사.",
-      "url": "https://www.fool.com/investing/2026/11/08/broadcom-stock-has-lost-nearly-40-from-its-record-i-d-buy-it-now/"
+      "h": "브로드컴 +8.8% 급등, 12/9 실적발표 일정 확정·반도체 반등",
+      "m": "종가 319.48달러(+8.8%, +25.79달러). 12/9 4Q 실적 발표 확정(가이던스 매출 약 348억달러, AI 반도체 217억달러). VM API 프로젝트 CNCF 샌드박스 편입. 모건스탠리 '매도 과도' 평가. MarketBeat는 신규 기업 고유 재료보다 섹터 반등 영향이 크다고 분석. 신용 관점: Anthropic(Claude 개발사) TPU 임대 관련 최대 420억달러 전환사채 조달 이슈 지속.",
+      "url": "https://seekingalpha.com/news/4669286-broadcom-climbs-9-percent-amid-ai-and-chip-stock-rebound?feed_item_type=news"
     },
     {
       "t": "AMZN",
-      "h": "아마존 -0.35%(259.30달러), Alexa 문자 쇼핑 출시·워싱턴주 WARN 해고 공시",
-      "m": "Alexa for Shopping을 문자메시지로 확대(Reuters). 워싱턴주 WARN 추가 제출, 최근 1년 해고 3만명 이상(Fast Company). AWS CEO 가먼은 선거 결과에도 포지션 양호하다고 언급. 3Q AWS 매출 460억달러(+39%), 영업이익률 38.7%, 백로그 4,960억달러(6/30). 앤트로픽 AWS 1,100억달러 약정(~2036) 있으나 자체 데이터센터 임대 확대(S-1).",
-      "url": "https://www.fastcompany.com/91637302/tech-layoffs-nov-2026-update-amazon-canva-block-inc-more"
+      "h": "아마존 +2.94%, JP모건 포커스리스트 편입(AWS 2027~28년 40%+ 성장 전망)",
+      "m": "종가 266.93달러(+2.94%). JP모건 더그 안무스가 아마존을 AI 톱픽(Analyst Focus List)에 편입. AWS 3Q 매출 460억달러(+39.3%), 수주잔고 5,780억달러, 올해 capex 약 2,200억달러. 쿠이퍼 위성 40기를 첫 벌컨 로켓 비행에 실어 발사 예정.",
+      "url": "https://www.gurufocus.com/news/9185505/amazon-stocks-rise-405-as-jpmorgan-adds-it-to-focus-list-on-aws"
     },
     {
       "t": "SPCX",
-      "h": "스페이스X +8.62%(134.27달러), 머스크 '정부 매출 10% 미만'·4Q 매출 +70% 발언, 11/13 스타십 15차 비행 목표",
-      "m": "머스크: 정부 계약 비중 10% 미만, 4Q 매출 3Q 대비 약 70% 증가, 2027년 12월 연환산 매출 5,000억달러 이상. Ars Technica: 스타십 Flight 15 11/13 목표. Deutsche Bank: 새 의회가 테슬라 합병을 막을 수 없음(매수 의견), Ives는 2027 합병 난도 상승. 구글 임원 Donald Harrison 이사 사임. 10/21 159.31달러 대비 -16%. 전일 -9.05%(123.62달러). 24/7 Wall St: 부채 보험(CDS) 비용 사상 최고라는 언급(수치 미검증).",
-      "url": "https://www.cnbc.com/quotes/SPCX"
+      "h": "스페이스X +5.81%, NASA 달 탐사 CLPS 2 선정·스티펠 목표가 190달러",
+      "m": "종가 142.07달러(+5.81%, 일부 매체는 시간외 포함 +6.03%). NASA CLPS 2(100억달러 규모) 8개 사업자 풀 선정 및 2028 스타십 통신위성 발사 과제 수주. 스티펠 매수·목표가 190달러 유지. 11/13 스타십 15차 시험비행(부스터·우주선 동시 포획 시도) 예정. ARK 최근 약 9,600만달러 매수. IPO가 대비 -22%.",
+      "url": "https://www.gurufocus.com/news/9185525/spacex-stocks-rise-580-after-winning-spot-in-nasas-10-billion-lunar-pool"
     },
     {
       "t": "AAPL",
-      "h": "애플 -0.52%(342.37달러), 실적 후 사상 최고가 이후 숨고르기·메모리 비용 마진 부담",
-      "m": "FQ4 매출 1,144.8억달러, 12월 분기 매출총이익률 가이던스 45~46%(메모리 비용). 11/4 사상 최고가·1년 내 최대 상승 후 소폭 조정. 목표가: Daiwa 335→375, Bernstein 370→380, TheStreet 375→360(마진). 연초 대비 약 +27%. 배당 0.27달러(권리락 11/12). Duo 공급 제약.",
-      "url": "https://cnbc.com/2026/11/06/apple-is-on-a-tear-but-it-wont-be-for-long-per-daiwa-capital-markets.html"
+      "h": "애플 +2.43%, 사상 최고 종가 경신(시총 5.1조달러)",
+      "m": "종가 350.69달러(+2.43%, 사상 최고 종가). 에버코어 ISI가 Siri AI 확대 기대로 목표가 380달러 상향(Outperform 유지). 애플 인텔리전스가 중국 규제당국에 태블릿·노트북용으로 등록되었다는 보도. 11/12 기준일 배당 0.27달러(11/16 지급).",
+      "url": "https://macdailynews.com/2026/11/09/apple-shares-hit-new-all-time-closing-high-261109/"
     }
   ]
 }
