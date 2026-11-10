@@ -1,47 +1,29 @@
 {
-  "date": "2026-11-06",
+  "date": "2026-11-09",
   "items": [
     {
-      "cor": "MACRO/RATES",
-      "t": "10월 고용 +16.5만 명(예상 5.9만), 실업률 4.1%: 금리인상 기대 상승, 美10Y 4.86%",
-      "m": "임금 전월비 +0.4%. 2Y 4.51%(+5bp), 10Y 4.86%(+2bp), 30Y 5.26%(+1bp), 2s10s 약 +35bp. 12월 인상 확률 상승(구체적 수치 미확인), DXY 102.28(+0.72%). 금 약 4,079~4,081달러(-0.8%, 소스별 상이). 주간 초청구 189K.",
-      "url": "https://finance.yahoo.com/markets/live/stock-market-today-friday-november-6-dow-sp-500-nasdaq-jobs-report-earnings-135953863.html"
-    },
-    {
-      "cor": "MACRO/RATES",
-      "t": "나스닥 +1.09%, S&P500 +0.31% 반등, 다우 -0.46%: 주간 기준 6월 이후 최악",
-      "m": "나스닥 24,579.42, S&P500 7,376.86, 다우 51,285.73(-237.33pt), 러셀2000 +0.89%. 주간: S&P -2.68%, 나스닥 -3.37%, 다우 -0.94%. 상승 182 vs 하락 312, VIX 25.64(산출값). Wedbush 아이브스: 빅테크 capex 성장률 정점을 2028~29년에서 2027년으로 앞당겨 전망.",
-      "url": "https://www.cnbc.com/2026/11/05/stock-market-today-live-updates.html"
+      "cor": "TECH/SEMIS",
+      "t": "반도체 급반등: SOX +5% 이상, AMD +13%, NVDA만 -4%대",
+      "m": "전주 민주당 의회 장악에 따른 데이터센터 규제 우려 매도 이후 낙폭과대 반등. 모건스탠리 '매도 과도' 평가. 엔비디아는 CEO 관련 이사회 조사 보도로 역행. 구글 TPU 8tx·8i Max 공개로 엔비디아 경쟁 구도 부각.",
+      "url": "https://finwire.io/news/stock-markets-news/why-is-broadcom-avgo-stock-surging-9-on-monday"
     },
     {
       "cor": "TECH/SEMIS",
-      "t": "AI·반도체 반등: AMD +11.04%(449.04달러), Lam +8.23%(250억달러 자사주), TSMC +6.26%",
-      "m": "TSMC는 11/5 -10.78%(353.10달러) 후 3D DRAM 보도로 상승. Coherent +13.58%, Microchip -10.02%. SOXX +3.51%. 기술주 주간 -8.23%(XLK).",
-      "url": "https://www.theclosingprint.net/2026/11/post-market-and-weekly-summary-2026-11-06/"
-    },
-    {
-      "cor": "TECH/SEMIS",
-      "t": "선거 후 AI 데이터센터 규제 우려: OpenAI 전력비 자체 부담 선언, 지역 투표 41건 중 40건 제한 쪽",
-      "m": "OpenAI는 11/5 '커뮤니티 컴팩트' 발표(소유·운영 캠퍼스 한정, 오라클 임대 사이트 제외 가능). OpenAI 신규 펀딩 110억달러(밸류 1.25조달러, 초기 클로징), FT는 첫 클로징 200억달러 미만으로 보도해 소스 상이. 앤트로픽 개정 S-1: 컴퓨트 약정 8,954억달러(Q2 2,650억), 3Q 영업손실 5.67억달러, 순손실 232.9억달러(주로 전환사채 평가손). 참고: Anthropic은 Claude 개발사.",
-      "url": "https://finance.yahoo.com/technology/ai/articles/openai-says-pay-data-centers-135128479.html"
-    },
-    {
-      "cor": "EU BANKS",
-      "t": "ING, 데이터센터 대출 12건(약 5억달러) 매각 입찰 착수",
-      "m": "Stargate 뉴멕시코(OpenAI·SoftBank·Oracle) 2,500만달러, Vantage·CyrusOne 관련 자산 포함, 최소 입찰 1,000만달러, 마감 11/19(Bloomberg 인용). 은행권의 AI 인프라 신용위험 분산 움직임.",
-      "url": "https://www.cnbc.com/2026/11/06/ing-ai-data-center-loans-debt.html"
+      "t": "마이크론·스토리지주 반등, TSMC 메모리 진출 우려 완화",
+      "m": "MU +6.25%, 시게이트·WDC 약 +10%. 선행 PER 4배 저평가 및 12/9 시작 350억달러 자사주 매입 부각.",
+      "url": "https://invezz.com/news/2026/11/09/why-are-micron-and-sandisk-stocks-rising-today/"
     },
     {
       "cor": "ENERGY",
-      "t": "유가 보합권, 주간 급락",
-      "m": "WTI 약 90.3~90.8달러(-0.2%), Brent 약 97.8달러(-0.5%). 정산가 미확인. 주간 WTI 약 -13%, XLE -12%.",
-      "url": "https://www.theclosingprint.net/2026/11/post-market-and-weekly-summary-2026-11-06/"
+      "t": "국제유가 하락: WTI 약 87달러(-3%), 브렌트 약 94달러(-4%)",
+      "m": "유가 하락이 증시 반등과 금리 인상 우려 완화에 기여. 장중 기준 수치이며 정산가는 미확인.",
+      "url": "https://finwire.io/news/stock-markets-news/why-is-broadcom-avgo-stock-surging-9-on-monday"
     },
     {
-      "cor": "US BANKS",
-      "t": "금융 -0.59%, 크레딧 ETF 소폭 약세 (LQD -0.12%, HYG -0.06%)",
-      "m": "스트레스 급증은 보고되지 않음. IG·HY 스프레드 수치 미확인. 은행 개별 뉴스 확인되지 않음.",
-      "url": "https://cappnotes.substack.com/p/closing-look-friday-november-6-2026"
+      "cor": "MACRO/RATES",
+      "t": "미 증시 반등: SPY +2.37%, 유가 하락·기술주 매수세",
+      "m": "전주 급락 후 위험선호 회복. 고용지표 이후 금리 인상 기대와 PPI 발표 대기. 미 10년물 금리 종가는 확인하지 못함.",
+      "url": "https://www.marketalleys.com/post/apple-rises-2-43-to-350-69-on-nov-9-2026-11-09"
     }
   ]
 }
