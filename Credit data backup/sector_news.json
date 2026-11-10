@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-10",
+  "items": [
+    {
+      "cor": "MACRO/RATES",
+      "t": "10월 CPI 예상 상회(헤드라인 +0.4% m/m), 12월 금리인상 기대 강화 — 미 10년물 5% 상회",
+      "m": "헤드라인 CPI +0.4%(예상 +0.3%), 근원 +0.3%로 3개월 연속. 정부 셧다운으로 작년 10월 가격 미수집, 전년비 수치 미발표. 10년물은 장 초반 4.95%에서 CPI 이후 5% 상회(종가 미확인). 월러 Fed 이사는 12월 25bp 인상 선호, 근원 0.3% 이상이면 50bp도 고려 발언, 로건 댈러스 연은 총재는 추가 2회 인상 필요 언급. FOMC 12/8~9. 미 휘발유 평균가 4달러 하회(7월 이후 처음).",
+      "url": "https://www.stocktitan.net/articles/stock-market-today-live-november-10-2026"
+    },
+    {
+      "cor": "MACRO/RATES",
+      "t": "미 증시 하락 마감: S&P500 -0.38%, 나스닥 -0.74%, 다우 -0.30%",
+      "m": "S&P500 7,520.93(-29.01), 나스닥종합 25,065.88(-187.26), 다우 52,231.89(-157.86). 동일가중 S&P500(RSP)은 -0.03%로 보합권, 상승 246·하락 250종목으로 시총 상위주 약세 집중. 전일 S&P500 +2.4% 급반등 일부 반납.",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/11/10/stock-market-today-nov-10-wall-street-s-rally-hits-a-roadblock-as-hot-inflation-raises-the-stakes-for-the-fed/"
+    },
+    {
+      "cor": "TECH/SEMIS",
+      "t": "엔비디아 -5.5% 급락 주도, 반도체주 혼조 — 'S&P500 종목은 대체로 보합'",
+      "m": "엔비디아는 2019년 이후 가장 가파른 매도(CEO 조사 확대). 반도체지수(SOX)는 장중 -1% 이상 후 혼조 마감, 브로드컴은 상승·마이크론 -1.1%. 칩주 누적 시총 감소 5조달러에 근접했다는 보도. 11/17 엔비디아 실적이 분기점.",
+      "url": "https://finance.yahoo.com/markets/article/stock-market-today-tuesday-november-10-dow-sp-500-nasdaq-inflation-data-cpi-090627830.html"
+    },
+    {
+      "cor": "TECH/SEMIS",
+      "t": "Anthropic(Claude 개발사) IPO 가격 밴드 70~78달러·825백만주 공시, 11/20 상장 목표",
+      "m": "갱신 공시 기준 Nasdaq 상장(티커 ANT), 공모 825백만주×70~78달러(산출 시 약 578~644억달러). 앞서 70~80달러 예비 수치가 유통됐다가 철회됐다는 보도도 있어 최종 확정 전. 공급사 Alphabet(최대 200억달러)·Amazon(최대 150억달러)·Broadcom(최대 420억달러)이 총 770억달러 전환사채 한도로 백스톱 제공. 엔비디아·알파벳·마이크론의 합계 260억달러 매수 합의 보도(Fool, 단일 출처). 11/6 CNBC는 일부 투자자의 밸류에이션 눈높이 하향(1~1.25조달러) 보도.",
+      "url": "https://www.ifre.com/equities/2505731/anthropic-takes-to-stormy-waters-with-us100bn-sink-or-swim-ipo"
+    }
+  ]
+}
