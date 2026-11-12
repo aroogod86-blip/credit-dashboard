@@ -1,29 +1,47 @@
 {
-  "date": "2026-11-09",
+  "date": "2026-11-11",
   "items": [
     {
-      "cor": "TECH/SEMIS",
-      "t": "반도체 급반등: SOX +5% 이상, AMD +13%, NVDA만 -4%대",
-      "m": "전주 민주당 의회 장악에 따른 데이터센터 규제 우려 매도 이후 낙폭과대 반등. 모건스탠리 '매도 과도' 평가. 엔비디아는 CEO 관련 이사회 조사 보도로 역행. 구글 TPU 8tx·8i Max 공개로 엔비디아 경쟁 구도 부각.",
-      "url": "https://finwire.io/news/stock-markets-news/why-is-broadcom-avgo-stock-surging-9-on-monday"
-    },
-    {
-      "cor": "TECH/SEMIS",
-      "t": "마이크론·스토리지주 반등, TSMC 메모리 진출 우려 완화",
-      "m": "MU +6.25%, 시게이트·WDC 약 +10%. 선행 PER 4배 저평가 및 12/9 시작 350억달러 자사주 매입 부각.",
-      "url": "https://invezz.com/news/2026/11/09/why-are-micron-and-sandisk-stocks-rising-today/"
-    },
-    {
-      "cor": "ENERGY",
-      "t": "국제유가 하락: WTI 약 87달러(-3%), 브렌트 약 94달러(-4%)",
-      "m": "유가 하락이 증시 반등과 금리 인상 우려 완화에 기여. 장중 기준 수치이며 정산가는 미확인.",
-      "url": "https://finwire.io/news/stock-markets-news/why-is-broadcom-avgo-stock-surging-9-on-monday"
+      "cor": "MACRO/RATES",
+      "t": "미국 증시 반등 마감 — S&P500 +1.31%, 나스닥 +1.60%, VIX 17.49",
+      "m": "S&P500 7,619.38(+98.45), 나스닥 25,466.19(+400.31), 다우 52,486.49(+0.49%), 러셀2000 2,846. 나스닥100 +2.28%. 필라델피아 반도체지수 전 종목 상승. CoreWeave 호실적이 AI 트레이드를 되살리며 S&P500은 사상 최고치 대비 2.6% 이내로 복귀.",
+      "url": "https://cappnotes.substack.com/p/closing-look-wednesday-november-11"
     },
     {
       "cor": "MACRO/RATES",
-      "t": "미 증시 반등: SPY +2.37%, 유가 하락·기술주 매수세",
-      "m": "전주 급락 후 위험선호 회복. 고용지표 이후 금리 인상 기대와 PPI 발표 대기. 미 10년물 금리 종가는 확인하지 못함.",
-      "url": "https://www.marketalleys.com/post/apple-rises-2-43-to-350-69-on-nov-9-2026-11-09"
+      "t": "베테랑스데이로 美 국채시장 휴장 — 10년물 11/10 기준 약 5%, 12월 금리인상 확률 100%에 근접",
+      "m": "11/11 국채 거래 없음. 10년물은 11/10 종가 약 4.99~5.00%, 2년물 4.75%(CNBC). 10월 CPI 헤드라인 +0.4% m/m(예상 0.3%), 근원 +0.3%(예상 0.2%). Schwab 인용 CME FedWatch 기준 12월 인상 확률 거의 100%. 11/10 10년물 입찰은 부진(BMO). 11/12 30년물 입찰, 11/13 PPI 예정.",
+      "url": "https://www.cnbc.com/2026/11/10/us-bonds-treasurys-yields.html"
+    },
+    {
+      "cor": "TECH/SEMIS",
+      "t": "CoreWeave 3Q 호실적·가이던스 상향 — 2027년까지 parent 무담보채 미발행, 선수금 90억달러",
+      "m": "매출 36.6억달러(+168%), 백로그 1,325억달러, 조정영업이익 3.79억달러(가이던스 2.0~2.6억달러 상회). 2026 매출 가이던스 130~133억달러로 상향. 부채 약 470억달러, 3Q 순손실 7.09억달러·이자비용 8.46억달러, 4Q 이자비용 10.5~11.5억달러 가이던스. CFO는 현 금리에서 parent 무담보채 발행 계획이 없고 parent 레벨 조달은 50억달러 미만이라고 언급. 11/11 CRWV +24.71%.",
+      "url": "https://www.cnbc.com/2026/11/10/coreweave-crwv-q3-earnings-report-2026.html"
+    },
+    {
+      "cor": "TECH/SEMIS",
+      "t": "Anthropic(Claude 개발사) IPO 공모가 $70~78, 사모배정 260억달러 — 11/18 가격 결정·11/19 상장 보도",
+      "m": "11/10 개정 S-1: Nasdaq ANT, Class A 8.25억주, 공모가 $70~78(완전희석 기준 최대 약 1.4조달러). 7개 전략투자자가 IPO가로 비의결권주 260억달러 사모배정(Nvidia·Google 각 약 100억달러). 가격 결정 11/18, 거래 개시 11/19 보도(미확정). 이전 초안의 $70~80은 부정확했다고 은행에 통지. 북은 기준 범위에서 이미 커버됐다는 CNBC 보도.",
+      "url": "https://www.cnbc.com/2026/11/10/anthropic-sets-price-range-of-70-to-78-in-upcoming-ipo.html"
+    },
+    {
+      "cor": "ENERGY",
+      "t": "AI 전력수요 테마 — Oklo 반응로 DOE 승인, Talen 750MW 7년 용량계약",
+      "m": "Oklo는 Groves-1 시험로가 DOE로부터 제약 없는 운영 승인을 받아 상승. Talen Energy는 투자적격 거래상대방과 PJM 2029/30~2035/36 인도연도 750MW 장기 용량계약(연 약 1억달러) 체결.",
+      "url": "https://investrade.com/market-review-november-11-2026/"
+    },
+    {
+      "cor": "ENERGY",
+      "t": "유가 반등 — 이란 불확실성 재부각, Brent·WTI 장중 +2%대(종가 미확인)",
+      "m": "장중 기준 Brent 93.64달러(+2.35%), WTI 87.73달러(+1.96%). 11/10에는 Brent가 8월 이후 처음 90달러 하회. 종가 수치는 확인하지 못함.",
+      "url": "https://eurasiabusinessnews.com/2026/11/11/stock-market-today-dow-jones-nasdaq-sp-500-rally-on-november-11-2026-oil-rises-gold-slips/"
+    },
+    {
+      "cor": "INSURANCE",
+      "t": "Hartford(HIG) Wells Fargo 투자의견 Equal weight 하향 — 산재보험 변동성",
+      "m": "Wells Fargo가 HIG를 Equal weight로 하향. 산재보험(workers' comp) 부문 변동성 확대와 소규모 상업보험 라인 변동성 우려를 근거로 제시. 회사는 3Q 콜에서 산재보험 빈도 상승 추세를 언급.",
+      "url": "https://investrade.com/market-review-november-11-2026/"
     }
   ]
 }
