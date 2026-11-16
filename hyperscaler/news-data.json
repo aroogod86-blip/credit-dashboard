@@ -1,59 +1,59 @@
 {
-  "date": "2026-11-11",
+  "date": "2026-11-13",
   "items": [
     {
       "t": "NVDA",
-      "h": "NVDA +2.87%(173.73달러) 반등 — CoreWeave 호실적에 AI 트레이드 복귀, Baird 투자의견 하향·장 마감 후 추가 의혹 보도",
-      "m": "11/11 종가 173.73달러(+2.87%), 거래량 2.67억주(3개월 평균 2배 상회). 11/10(-5.47%)까지 2거래일 하락 후 CoreWeave 3Q 실적 호조로 반등. Baird는 젠슨 황 CEO 불확실성·대중국 수출 제한 가능성·2027년 하이퍼스케일러 capex 둔화를 이유로 중립 하향, Morgan Stanley는 Top Pick에서 제외. 장 마감 후 NYT가 황 CEO와 직속 임원 간 관계 의혹을 보도, 시간외 약 3% 하락(Nvidia 공식 입장 없음). 11/17 실적 발표 예정. Anthropic(Claude 개발사) IPO 사모배정에 약 100억달러($74 기준 1.35억주) 참여.",
-      "url": "https://www.fool.com/coverage/stock-market-today/2026/11/11/stock-market-today-nov-11-nvidia-rebounds-as-coreweave-earnings-reignite-the-ai-trade/"
+      "h": "NVDA -2.01%(162.85달러) 6주 연속 주간 하락 — HSBC Hold 하향(목표가 170달러), 황 CEO 사임 후폭풍",
+      "m": "11/13 종가 162.85달러(-2.01%), 거래량 3.61억주. 11/12 젠슨 황 CEO 사임 발표(-4.34%, 166.19달러)에 이어 HSBC가 Buy→Hold 하향·목표가 375→170달러로 인하(영구 CEO 확정 전까지 부진 전망). Bernstein도 11/12 Market-Perform 하향(목표가 400→200달러). 이사회는 CFO 콜레트 크레스를 임시 CEO로 지명했고, FT는 이사회가 Arm의 르네 하스 CEO에 후임 의사를 타진했다고 보도. 주간 -13%, 6주 연속 하락(2012년 10월 이후 최장), 시총 4조달러 하회. 11/17(화) 장 마감 후 실적 발표. 출처 상이: Yahoo -3.12%(시간외 포함), 일부 -2.64%·-2.15%.",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/11/13/stock-market-today-nov-13-nvidia-slides-after-hsbc-downgrades-stock-to-hold-on-ceo-uncertainty/"
     },
     {
       "t": "ORCL",
-      "h": "ORCL 약 +8.8%(≈128달러) 급등 — CoreWeave '무담보채 미발행' 선언에 AI 부채 우려 완화, Bernstein Outperform 재확인",
-      "m": "전일 종가 117.98달러(-1.51%) 대비 약 +8.8%, 장중 고가 130.77달러. 정확한 종가는 미확인(Fool 기준 +8.81%, 약 128달러). CoreWeave가 현 금리 수준에서 무담보 차입 미발행·고객 선수금 약 90억달러 수취를 밝히며 AI 클라우드 조달 우려 완화. Bernstein은 Outperform·목표가 325달러 재확인(OpenAI 계약 3,000억달러는 RPO의 48% 미만, FY28 FCF 전환 전망). 11/2 발행 신규 선순위채(쿠폰 7.000~8.650%, 가중평균 약 7.77%)·주식 100억달러(주당 116달러) 대비 주가 상회. 신용 관점: S&P BBB- 유지 중이며 11/11 CDS·채권 스프레드 수치는 확인되지 않음.",
-      "url": "https://www.fool.com/investing/2026/11/11/oracle-stock-just-surged-after-coreweave-earnings-here-s-why-one-analyst-says-it-s-built-for-the-data-center-backlash/"
+      "h": "ORCL -1.38%(125.35달러) — Microsoft AI 클라우드 임차 계약 종료 보도, 설비투자·FCF 우려",
+      "m": "종가 125.35달러(-1.38%), 전일 127.11달러. Bloomberg는 Microsoft가 Oracle과의 AI 컴퓨팅 임차 계약을 종료하는 중이라고 보도(자체 데이터센터 우선 전략). Oracle은 해당 GPU를 원 가격 대비 약 20% 프리미엄에 재임대한 것으로 알려짐. 약 70억달러 규모 Tencent 칩 리스 계약 상실 보도도 부담. 11/2 발행 신규채(쿠폰 7.000~8.650%)·주식 100억달러(주당 116달러) 이후 시가총액 약 3,790억달러. 신용 관점: S&P BBB- 유지 중이며 11/13 CDS 수치는 확인되지 않음. 출처 상이: TradingKey -3.85%(장중 기준).",
+      "url": "https://www.fool.com/investing/2026/11/13/microsoft-just-piled-onto-the-bad-news-for-neoclouds/"
     },
     {
       "t": "META",
-      "h": "META -0.35%(639.16달러) 약보합 — 브라질 선거법원 과태료, 덴마크 경쟁당국 EC 회부",
-      "m": "종가 639.16달러(-0.35%, 단일 출처 TradersUnion 기준). 브라질 연방선거법원이 대선 관련 법원 명령 미이행으로 750만 헤알(약 134만달러) 과태료 부과(고의적 선거 개입 시도는 없다고 판단). 덴마크 경쟁당국이 Meta의 신규 상업 약관을 유럽집행위원회에 회부, 스웨덴 당국은 조사 종결(MLex). 주요 기술주 반등 속 상대 부진. 신용 관련 신규 발행 소식은 확인되지 않음.",
-      "url": "https://tradersunion.com/news/stocks/show/4200488-meta-platforms-slips-0-35percent-to/"
+      "h": "META +2.90%(641.69달러) — 유로 100억달러급 6트랜치 채권 결제 완료, JPMorgan Focus List 편입 효과 지속",
+      "m": "종가 641.69달러(+2.90%), 전일 623.61달러(11/12 -2.4%). 11/12 Meta가 €90억 유로 선순위채(6트랜치, 2031~2065년 만기, 쿠폰 4.300~6.400%, 가중평균 약 5.32%) 발행을 결제 완료(가격 결정은 11/4, 주문 €530억 기록). 스프레드는 Alphabet 유로채 대비 1.39~1.50배(Bloomberg)로 하이퍼스케일러 중 약한 크레딧으로 평가. 11/5에는 USD 150억달러 5트랜치 발행. 2026 capex 가이던스 1,350~1,450억달러. 장 마감 후 이탈리아 당국의 €8.05억 과징금 보도(11/16 첫 시장 반응 대기, 세부 내용 미확인).",
+      "url": "https://ppc.land/meta-borrows-eur9bn-in-euros-at-up-to-6-4-until-2065/"
     },
     {
       "t": "GOOGL",
-      "h": "GOOGL +2.11%(293.45달러) — Anthropic 개정 S-1에 Google 약 100억달러 Class N 매입 명시",
-      "m": "종가 293.45달러(+2.11%), 전일 287.38달러. Anthropic(Claude 개발사) 개정 S-1에 Google이 IPO가로 비의결권 Class N 약 100억달러($74 기준 약 1.35억주)를 매입하며, 이는 기존 'Google 2026 NPA' 약정의 일부 이행으로 기재. 보유지분 가치 약 1,324억달러(중간값 기준, TradingKey 추정). 3Q 클라우드 백로그 5,610억달러이나 FCF는 마이너스 전환. 5/19~7/16 매수자 대상 증권집단소송 선임원고 신청 마감 12/1.",
-      "url": "https://www.gurufocus.com/news/9192795/alphabet-stocks-rise-as-google-commits-10-billion-to-anthropic-ipo"
+      "h": "GOOGL -0.98%(295.77달러) — 장중 305달러 저항 후 반락, Larry Page 신탁 1.48억달러 매도 신고",
+      "m": "종가 295.77달러(-0.98%), 전일 298.70달러. 장중 고가 304.97달러(10월 실적 후 갭하락 구간 저항) 터치 후 반락, 시간외 -0.6~2.2%(출처 상이). Larry Page 신탁이 11/12 장 마감 후 10b5-1 계획에 따라 Class A·C 약 1.48억달러 매도 예정 Form 144 제출. HSBC는 6개월 -26% 하락을 매수 기회로 평가. 아시아 시장 30억달러 채권 발행 보도(일자 미확인). 5/19~7/16 매수자 대상 증권집단소송 선임원고 신청 마감 12/1. GOOG 종가 292.52달러.",
+      "url": "https://www.investing.com/equities/google-inc"
     },
     {
       "t": "MU",
-      "h": "MU +13.6%(823.86달러) 급등 — CoreWeave 호실적에 메모리 수요 기대, Anthropic 사모배정 10억달러 참여",
-      "m": "종가 823.86달러(GuruFocus, 전일 725.11달러 대비 +13.6%). 출처 상이: Fool은 +11.89%로 표기(장중 기준 추정). CoreWeave의 capex 확대가 메모리 수요 증가로 이어질 것이라는 기대로 메모리주(MU·SNDK·WDC 등)가 반도체 내 최대 상승. 11/10 공시된 Anthropic 사모배정에 10억달러(약 1,350만주) 참여. Goldman Sachs 목표가 1,250달러 재확인(11/10).",
-      "url": "https://www.gurufocus.com/news/9193176/micron-technology-mu-shares-surge-13-amid-tech-sector-rally-on-november-11-2026"
+      "h": "MU -2.52%(778.31달러) — 황 CEO 사임 여파로 메모리주 동반 약세, Nvidia 최대 고객 의존 부각",
+      "m": "종가 778.31달러(-2.52%), 전일 798.44달러. 장중 한때 -5.4%(VanEck 반도체 ETF -5.3%). Nvidia가 Micron 최대 고객이어서 Nvidia 리더십 불확실성이 AI 메모리 수요 우려로 연결. SK하이닉스·Sandisk·WDC(-6.6%)도 하락. 직전 분기 매출 542.3억달러·GAAP 매출총이익률 86.8%로 펀더멘털은 양호. 출처 상이: TradingKey -4.69%~-4.91%(장중), 종가는 -2.52% 사용.",
+      "url": "https://stockanalysis.com/stocks/mu/"
     },
     {
       "t": "AVGO",
-      "h": "AVGO +5.96%(351.77달러) — Goldman Top Pick 편입·'낙폭 과대' 평가, Anthropic 10억달러 지분 확정",
-      "m": "종가 351.77달러(JKN, +19.78달러). 출처 상이: Yahoo Finance는 +4.08%(시간외 포함 표기). Goldman Sachs가 Top Pick에 편입하며 AI 매도가 과도했다고 평가(2028년 무성장 가정 시 13배). Broadcom이 Anthropic IPO에 10억달러 투자하는 내용이 공시되며 커스텀칩 관계에 지분 연결. Anthropic 대상 장비금융 익스포저 부각(Yahoo). 12/9 실적 발표 예정.",
-      "url": "https://www.gurufocus.com/news/9192799/broadcom-stocks-climb-518-as-goldman-calls-chips-oversold-and-anthropic-stake-lands"
+      "h": "AVGO -4.76%(347.01달러) — Rothschild Redburn 중립 하향(목표가 398달러), AI 고객 금융보증 리스크 지적",
+      "m": "종가 347.01달러(-4.76%), 전일 364.36달러. 장중 최대 -7.3%. Rothschild & Co Redburn이 Buy→Neutral 하향·목표가 595→398달러로 인하. 근거는 AI 랩 고객에 대한 금융 지원 노출: Broadcom이 Anthropic(Claude 개발사)의 칩 구매에 최대 630억달러, OpenAI에 약 500억달러 규모 금융보증·백스톱 제공. Anthropic은 2027년 Broadcom XPU 최대 구매처로 전망. 직전 4거래일 +20% 급등 후 차익실현 성격. 시간외 340.20달러.",
+      "url": "https://www.fool.com/investing/2026/11/13/why-broadcom-stock-dove-today/"
     },
     {
       "t": "AMZN",
-      "h": "AMZN -1.74%(266.17달러) — 반등장 속 역행, AWS 칠레 데이터센터 계획 발표",
-      "m": "종가 266.17달러(-1.74%), 전일 270.87달러(11/10 +1.5%). 장중 274달러 상회 후 하락 반전. MarketBeat는 AI 데이터센터 구축 비용·제약 우려를 약세 배경으로 언급. AWS 칠레 신규 데이터센터 구축 계획 및 기후기술 스타트업 대상 액셀러레이터(2027년 1월 접수) 발표. 종목 고유의 뚜렷한 가격 촉매는 확인되지 않음. 출처 상이: Massive 최종가 266.44 vs 종가 표기 266.17.",
-      "url": "https://www.marketbeat.com/instant-alerts/price-amazoncom-nasdaq-amzn-stock-falls-17-heres-why-2026-11-11/"
+      "h": "AMZN -0.29%(266.66달러) — 전 상품 카탈로그 구축 계획(Reuters), Leo 위성 Vulcan 발사 연기",
+      "m": "종가 266.66달러(-0.29%), 전일 267.44달러. 장중 범위 263.91~270.05달러. Reuters는 Amazon이 자사 미취급 상품까지 포함해 전 세계 거의 모든 상품 데이터를 제공하는 카탈로그를 구축해 Google·Walmart와 경쟁할 계획이라고 보도. Alexa 쇼핑 AI 기능 업데이트 발표. FT는 Amazon이 Fermi와의 계약에서 하이퍼스케일러로 지목됐다고 보도. Amazon Leo 위성 40기를 실을 Vulcan 발사는 질소 공급 설비 정전으로 11/13·11/14 연기(11/15로 재설정).",
+      "url": "https://stockanalysis.com/stocks/amzn/"
     },
     {
       "t": "SPCX",
-      "h": "SPCX -2.33%(139.75달러) — Starship 15차 시험비행(11/13) 앞두고 반락, FCC 스펙트럼 신청 수리",
-      "m": "종가 139.75달러(-2.33%), 거래량 1.11억주(3개월 평균 대비 약 15% 상회). 개장 전 FCC가 Grain Management의 800MHz 스펙트럼 라이선스 인수 신청을 정식 수리한 호재로 강세였으나, 11/13 Starship Flight 15(발사탑 포획 시도)에 따른 실행 리스크와 12월 내부자 락업 해제 부담으로 반락. 출처 상이: Yahoo -3.17%(시간외 포함 추정). 공모가 135달러 상회 유지.",
-      "url": "https://www.fool.com/coverage/stock-market-today/2026/11/11/stock-market-today-nov-11-spacex-shares-slip-amid-upcoming-starship-test-flight-jitters/"
+      "h": "SPCX -0.59%(139.11달러) — Starship Flight 15 발사 전 소폭 하락, 장 마감 후 궤도 진입·Starlink V3 26기 배치",
+      "m": "종가 139.11달러(-0.59%), 전일 139.94달러, 거래량 7,850만주. 장중은 Tesla 합병 가능성에 대한 정치적 검증 부담과 시험비행 대기 속 약세. Flight 15는 장 마감 후 5:47pm ET 발사, 상단 Starship은 궤도에 진입해 Starlink V3 26기 배치를 시작했고 Super Heavy 부스터는 타워 포획 대신 해상 낙하 후 화염(포획 실패). 시간외 약 -2%. 상단 Starship의 궤도 복귀 포획 성공 보도가 있으며 11/16이 첫 시장 반응. 12/8 내부자 락업 마지막 해제 예정. 공모가 135달러 대비 약 3% 상회.",
+      "url": "https://www.aol.com/articles/spacex-caught-starship-orbit-robot-180500000.html"
     },
     {
       "t": "AAPL",
-      "h": "AAPL 사상 최고가 경신(≈355달러, +약 2%) — China Renaissance 매수 상향(목표가 425달러), 시총 5.16조달러",
-      "m": "전일 종가 348.51달러 대비 약 +1.96%, 장중 고가 355.42달러(52주·사상 최고). 정확한 종가는 미확인(전일 종가×상승률 역산 ≈355.3). China Renaissance가 보유→매수 상향, 목표가 425달러(폴더블 iPhone 등 성장 기대). 최근 75억달러 투자적격 회사채 발행(피크 주문 약 310억달러), 자금은 자사주 매입 등 일반 목적. 시총 5.16조달러로 역대 최고.",
-      "url": "https://www.benzinga.com/markets/tech/26/11/63157383/whats-going-on-with-apple-stock-wednesday-4"
+      "h": "AAPL +0.39%(356.27달러) — 사상 최고 종가 경신 추정, 장중 360.83달러",
+      "m": "종가 356.27달러(+0.39%), 전일 354.88달러. 장중 고가 360.83달러. 11/12 종가가 직전 12개월 최고 종가 대비 0.1% 낮았다는 Trefis 자료로 볼 때 11/13 종가는 신고 종가로 추정(공식 확인 아님). 11/12 배당락(분기 배당 0.27달러). 지난 화요일 Apple Support Community 포럼 영구 폐쇄 발표. 12월 분기 매출총이익률 가이던스 45~46%(9월 분기 47.9%)로 메모리 비용 부담 언급. China Renaissance 매수 상향(목표가 425달러, 11/11). 시총 약 5.18조달러.",
+      "url": "https://stockanalysis.com/stocks/aapl/"
     }
   ]
 }
