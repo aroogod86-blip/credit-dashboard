@@ -1,47 +1,47 @@
 {
-  "date": "2026-11-11",
+  "date": "2026-11-13",
   "items": [
     {
       "cor": "MACRO/RATES",
-      "t": "미국 증시 반등 마감 — S&P500 +1.31%, 나스닥 +1.60%, VIX 17.49",
-      "m": "S&P500 7,619.38(+98.45), 나스닥 25,466.19(+400.31), 다우 52,486.49(+0.49%), 러셀2000 2,846. 나스닥100 +2.28%. 필라델피아 반도체지수 전 종목 상승. CoreWeave 호실적이 AI 트레이드를 되살리며 S&P500은 사상 최고치 대비 2.6% 이내로 복귀.",
-      "url": "https://cappnotes.substack.com/p/closing-look-wednesday-november-11"
+      "t": "美 증시 혼조 마감 — S&P500 -0.40%, 나스닥 -0.91%, 다우 +0.10%, 주간으로는 4주 연속 하락 마감",
+      "m": "S&P500 7,561.67(-30.73), 나스닥 25,136.27(-229.82), 다우 52,347.55(+50.46), 나스닥100 27,943.74(-1.22%), 러셀2000 2,790.49. 주간 S&P500 +2.51%·나스닥 +2.27%로 4주 연속 하락세 마감. S&P500 상승 314종목·하락 185종목, 동일가중 ETF(RSP) +0.2%. 기술(XLK) -2%가 지수 하락 주도, 필수소비재(XLP) +1.39% 강세. 10월 PPI +0.3% m/m(예상 0.4%), 근원 +0.3%, 전년비 +6.5%(2022년 11월 이후 최고).",
+      "url": "https://cappnotes.substack.com/p/closing-look-friday-november-13-2026"
     },
     {
       "cor": "MACRO/RATES",
-      "t": "베테랑스데이로 美 국채시장 휴장 — 10년물 11/10 기준 약 5%, 12월 금리인상 확률 100%에 근접",
-      "m": "11/11 국채 거래 없음. 10년물은 11/10 종가 약 4.99~5.00%, 2년물 4.75%(CNBC). 10월 CPI 헤드라인 +0.4% m/m(예상 0.3%), 근원 +0.3%(예상 0.2%). Schwab 인용 CME FedWatch 기준 12월 인상 확률 거의 100%. 11/10 10년물 입찰은 부진(BMO). 11/12 30년물 입찰, 11/13 PPI 예정.",
-      "url": "https://www.cnbc.com/2026/11/10/us-bonds-treasurys-yields.html"
+      "t": "美 10년물 5.15%·2년물 4.88% — 주간 +29bp/+37bp, 12월 금리인상 기대 강화",
+      "m": "PPI 후 10년물 5.15%(CNBC 5.139~5.15%), 30년물 약 5.47%. 11/6 대비 10년물 +29bp·2년물 +37bp로 단기물 주도 약세(2s10s 27bp, -8bp). 10년 실질금리 2.91%(+28bp). 헤드라인 PPI는 예상 하회했으나 연율 6.5%로 인상 경로 기대 유지. VIX 19.39(+3.7%).",
+      "url": "https://www.cnbc.com/amp/2026/11/13/treasury-yields-fed-rates.html"
     },
     {
       "cor": "TECH/SEMIS",
-      "t": "CoreWeave 3Q 호실적·가이던스 상향 — 2027년까지 parent 무담보채 미발행, 선수금 90억달러",
-      "m": "매출 36.6억달러(+168%), 백로그 1,325억달러, 조정영업이익 3.79억달러(가이던스 2.0~2.6억달러 상회). 2026 매출 가이던스 130~133억달러로 상향. 부채 약 470억달러, 3Q 순손실 7.09억달러·이자비용 8.46억달러, 4Q 이자비용 10.5~11.5억달러 가이던스. CFO는 현 금리에서 parent 무담보채 발행 계획이 없고 parent 레벨 조달은 50억달러 미만이라고 언급. 11/11 CRWV +24.71%.",
-      "url": "https://www.cnbc.com/2026/11/10/coreweave-crwv-q3-earnings-report-2026.html"
+      "t": "Nvidia CEO 사임 여파로 AI 인프라주 동반 급락 — AMD -8.8%, Broadcom -4.8%, 네오클라우드·Dell 약세",
+      "m": "AMD -8.75%, Broadcom -4.76%, Nvidia -2.01%(Stocktitan 종가 기준). Nebius -9.1%, Dell -7.3%(Bloomberg 보도: 고객 22곳이 우려 제기), WDC -6.6%, LRCX -4.4%. Cisco는 메모리 가격 상승에 따른 제품 마진 압박 언급으로 -6.2%. Applied Materials는 회계 4Q 실적이 전 항목 예상 상회했으나 주가 하락. 비반도체 업종은 상대적으로 양호(S&P 11개 업종 중 7개 상승).",
+      "url": "https://www.stocktitan.net/articles/stock-market-today-live-november-13-2026"
     },
     {
       "cor": "TECH/SEMIS",
-      "t": "Anthropic(Claude 개발사) IPO 공모가 $70~78, 사모배정 260억달러 — 11/18 가격 결정·11/19 상장 보도",
-      "m": "11/10 개정 S-1: Nasdaq ANT, Class A 8.25억주, 공모가 $70~78(완전희석 기준 최대 약 1.4조달러). 7개 전략투자자가 IPO가로 비의결권주 260억달러 사모배정(Nvidia·Google 각 약 100억달러). 가격 결정 11/18, 거래 개시 11/19 보도(미확정). 이전 초안의 $70~80은 부정확했다고 은행에 통지. 북은 기준 범위에서 이미 커버됐다는 CNBC 보도.",
-      "url": "https://www.cnbc.com/2026/11/10/anthropic-sets-price-range-of-70-to-78-in-upcoming-ipo.html"
+      "t": "Anthropic(Claude 개발사) IPO 주문 약 6배 초과 — 11/18 가격 결정·11/19 Nasdaq 거래 개시 예정",
+      "m": "Bloomberg(11/12 보도): 공모 8.25억주 규모(주당 $70~78, 최대 644억달러) 주문이 공급의 약 6배. 로드쇼는 11/18까지 진행. AMD·Broadcom·Google·Micron·Microsoft·Nvidia·TSMC가 IPO가로 260억달러 비의결권주 사모배정에 참여. 기존 투자자 우선 배정으로 일부 투자자는 요청보다 적게 배정받을 수 있음. 상한 기준 기업가치 약 1.4조달러(FT: 은행들이 1.5조달러 이상 검토 보도). 수치는 모두 보도 기준이며 변경 가능.",
+      "url": "https://stockanalysis.com/news/anthropic-ipo-six-times-oversubscribed/"
     },
     {
       "cor": "ENERGY",
-      "t": "AI 전력수요 테마 — Oklo 반응로 DOE 승인, Talen 750MW 7년 용량계약",
-      "m": "Oklo는 Groves-1 시험로가 DOE로부터 제약 없는 운영 승인을 받아 상승. Talen Energy는 투자적격 거래상대방과 PJM 2029/30~2035/36 인도연도 750MW 장기 용량계약(연 약 1억달러) 체결.",
-      "url": "https://investrade.com/market-review-november-11-2026/"
-    },
-    {
-      "cor": "ENERGY",
-      "t": "유가 반등 — 이란 불확실성 재부각, Brent·WTI 장중 +2%대(종가 미확인)",
-      "m": "장중 기준 Brent 93.64달러(+2.35%), WTI 87.73달러(+1.96%). 11/10에는 Brent가 8월 이후 처음 90달러 하회. 종가 수치는 확인하지 못함.",
-      "url": "https://eurasiabusinessnews.com/2026/11/11/stock-market-today-dow-jones-nasdaq-sp-500-rally-on-november-11-2026-oil-rises-gold-slips/"
+      "t": "유가 보합권 — WTI 약 88.6~89.0달러, Brent 약 95.8~96.1달러, 미국 원유 시추기 3기 감소(601기)",
+      "m": "Dec WTI 정산 88.56달러(-2.5%, Investomine) 또는 연속월물 종가 88.92달러(+0.2%, Goodman Macro)로 출처 간 방향 상이. Brent 약 95.84~96.08달러. IEA는 10월 공급이 일평균 230만배럴 증가했다며 4분기 공급 과잉 전망. Baker Hughes 원유·가스 시추기 수는 3기 감소한 601기로 10월 2일 이후 최저. 에너지 업종(XLE)은 주간 +5.37%.",
+      "url": "https://investomine.substack.com/p/weekly-market-report13-november-2026"
     },
     {
       "cor": "INSURANCE",
-      "t": "Hartford(HIG) Wells Fargo 투자의견 Equal weight 하향 — 산재보험 변동성",
-      "m": "Wells Fargo가 HIG를 Equal weight로 하향. 산재보험(workers' comp) 부문 변동성 확대와 소규모 상업보험 라인 변동성 우려를 근거로 제시. 회사는 3Q 콜에서 산재보험 빈도 상승 추세를 언급.",
-      "url": "https://investrade.com/market-review-november-11-2026/"
+      "t": "Generali 영업이익 시장 예상 하회 — 주가 약 -1.5%",
+      "m": "이탈리아 보험사 Generali가 영업이익이 시장 예상에 못 미쳐 약 1.5% 하락(유럽장 11/13 기준). 세부 수치는 확인하지 못함.",
+      "url": "https://www.stl.news/overseas-stock-markets-for-friday-nov-13-2026/"
+    },
+    {
+      "cor": "EU BANKS",
+      "t": "Barclays, 뉴욕·런던 투자은행 인력 약 200명 감축",
+      "m": "Barclays가 투자은행 부문 뉴욕·런던 인력 약 200명을 감축한다고 보도(비용 압박 반영). 규모가 작고 단일 출처 보도로 신용 영향은 제한적. 영국 은행임을 감안해 EU BANKS로 분류.",
+      "url": "https://www.everhint.com/stock-market-news-november-13-2026-friday-evening-last-12-hours-pacific-time/"
     }
   ]
 }
