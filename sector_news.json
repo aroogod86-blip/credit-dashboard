@@ -1,65 +1,53 @@
 {
-  "date": "2026-11-17",
+  "date": "2026-11-18",
   "items": [
     {
       "cor": "MACRO/RATES",
-      "t": "美 증시 3거래일 연속 약세 — S&P500 -1.03%(5개월 저점), 다우 -1.64%, 나스닥 -0.74%",
-      "m": "다우 -1.64%(약 -849p), S&P500 -1.03%, 나스닥 24,328.38(-0.74%), 러셀2000 -1.49%. 11개 업종 전부 하락, 하락종목이 상승종목의 5배 이상. 소프트웨어(Salesforce·Intuit·ServiceNow)와 Home Depot 등 구경제 업종이 부진. 10월 소매판매 +0.2%(9월 +0.8%)로 견조, Goldman은 3분기 성장률 전망을 3.8%로 상향. VIX 약 25.5(+11%, 단일 출처). 장 마감 후 Nvidia 실적 호조. 출처 상이: S&P500 -1.00~-1.05%.",
-      "url": "https://cappnotes.substack.com/p/closing-look-tuesday-november-17"
+      "t": "S&P500 5거래일 연속 하락(-0.23%), 다우 -1.11%·나스닥 +0.42% — 건강보험주 급락이 다우 압박",
+      "m": "S&P500 7,323.63(-0.23%, 6월 이후 최장 하락 행진), 다우 50,198.17(-561.25p, -1.11%, 6월 이후 최저 종가), 나스닥 24,429.89(+0.42%), 러셀2000 +0.52%. UnitedHealth(-10.21%)가 다우 최대 낙폭. Nvidia 실적 반응과 Fed 의사록 공개 후 S&P500이 상승분을 반납. 달러지수 19개월 고점. 출처 상이: 일부 출처의 S&P500 -0.14%·7,353은 장중 수치로 추정.",
+      "url": "https://lufkindailynews.com/news_reuters/business/wall-street-ends-mixed-after-nvidia-earnings-fed-minutes/article_757d7e1e-451b-5fc3-914c-44086229e225.html"
     },
     {
       "cor": "MACRO/RATES",
-      "t": "美 10년물 5.10~5.14%, 2년물 4.80~4.85% 보합권 — 12월 연준 25bp 인상 확률 약 90%",
-      "m": "10년물 5.10%(-2bp, Treasury 데이터·TradingEconomics), 2년물 4.80%(-3bp), 30년물 5.46%. 일부 집계는 10년물 5.131%·2년물 4.830%로 상이(집계 시점 차이). 소매판매 호조 직후 일시 상승했다가 증시 하락에 따른 안전자산 수요로 반락. 주택지표 14년 저점. 시장은 12월 25bp 인상 확률을 약 90%로 반영.",
-      "url": "https://tradingeconomics.com/united-states/government-bond-yield"
+      "t": "Fed 10월 의사록·Waller 발언 — 추가 인상 기조 확인, 美 10년물 5.06~5.07%",
+      "m": "의사록에서 거의 모든 위원이 경제가 예상대로 전개되면 추가 인상이 필요하다고 보았고 일부는 50bp 인상 가능성도 언급. Waller는 인플레이션 대응을 위한 적극적 조치를 촉구(12월 50bp 인상 또는 2027년 가속 시사 보도). 10년물 5.064~5.07%(-3~-4bp, Treasury 데이터), 2년물 4.80%(+1bp), 30년물 5.41%. 12월 25bp 인상 확률 약 92~95%. 출처 상이: IC 보고서의 10년물 5.109%·2년물 4.804%는 의사록 발표 전 수치로 추정.",
+      "url": "https://www.cnbc.com/2026/11/18/treasury-yields-bonds-fed.html"
     },
     {
       "cor": "TECH/SEMIS",
-      "t": "Nvidia, 황 CEO 사임 후 첫 실적에서 매출·EPS·가이던스 모두 컨센서스 상회",
-      "m": "3분기 매출 1,158.4억달러(컨센서스 1,091.0억달러), 조정 EPS 2.68달러(2.48달러), 4분기 매출 가이던스 약 1,300억달러(1,251억달러), 매출총이익률 71~72%. 시간외 약 +3%이며 AMD·Broadcom·TSMC도 동반 상승. 정규장은 -0.44%(155.46달러)로 마감.",
-      "url": "https://www.marketscreener.com/news/nvidia-earnings-beat-estimates-attention-turns-to-call-ce785edcdf88ff2c"
+      "t": "Nvidia 이사회, 황 CEO 복귀 배제 — 실적 호조에도 5거래일 연속 하락, 네오클라우드 동반 약세",
+      "m": "이사회 의장 Harvey Jones가 실적 콜에서 황 전 CEO를 복귀시킬 의사가 없다고 발언. Nvidia -2.89%(150.96달러), CoreWeave -3.49%, Iren 하락. AMD +5.83%·Broadcom +3.64%·TSM +1.7%는 상승해 반도체 내 차별화. 후속 CEO 선임과 중국 규제가 불확실성 요인.",
+      "url": "https://www.cnbc.com/2026/11/18/nvidia-stock-earnings.html"
     },
     {
       "cor": "TECH/SEMIS",
-      "t": "Anthropic(Claude 개발사) IPO 서류 3차 정정 — 하이퍼스케일러 컴퓨트 약정 공개, 11/18 가격 결정·11/19 Nasdaq 상장 예정",
-      "m": "공모 8.25억주, 희망가 70~78달러(최대 약 643.5억달러), 11/17 S-1/A 3차 정정 제출, 티커 ANT. 서류상 컴퓨트 약정은 Google 최소 1,213억달러(2026.4~2033.7), Amazon 최소 1,100억달러, Microsoft 472~492억달러. Nvidia와 Google이 각각 약 100억달러 규모를 매입할 계획. 확정 공모가는 11/18 저녁(ET) 결정 예정으로 아직 미확정.",
-      "url": "https://www.gurufocus.com/news/9205444/alphabet-stocks-move-lower-as-anthropic-ipo-filing-shows-1213-billion-google-commitment"
+      "t": "Anthropic(Claude 개발사) IPO 공모가 83달러 확정 보도 — 상단(78달러) 상회, 역대 최대 규모, 11/19 Nasdaq 상장",
+      "m": "CNN·CNBC는 980M주를 주당 83달러에 매각해 813억달러를 조달한다고 보도(SpaceX 750억달러 초과, 별도 260억달러 사모는 공모가로 마감 예정). Fool은 공모가는 Reuters·Bloomberg·CNBC 인용 보도이며 최종 규모와 가치는 공식 확정 전이라고 지적하고, Invezz는 11/18 밤 현재 424B4 미게재라고 설명. 시총은 기존 목표 1.4조달러 초과 전망. 로드쇼 주문은 6~7배 초과청약 보도. 거래는 11/19 Nasdaq 'ANT'로 개시 예정.",
+      "url": "https://www.cnbc.com/2026/11/18/anthropic-ipo-ai-offering-price.html"
     },
     {
       "cor": "TECH/SEMIS",
-      "t": "SpaceX, 400억달러 AI 칩 금융 일부를 ABS로 조기 발행 추진 — Goldman·Apollo 주관",
-      "m": "Bloomberg에 따르면 Apollo 계열 Atlas SP의 SPV가 Nvidia 칩을 매입하고 ABS를 발행하는 오프밸런스 구조로, SpaceX의 투자등급 신용등급 유지를 위한 설계. 이번 주 중 일부 판매 가능. 별도로 약 470억달러 Nvidia 칩 리스(선지급 70억달러, 약 5년)도 보도. 하이퍼스케일러·AI 인프라 조달의 자산유동화·리스 확산 사례.",
-      "url": "https://finance.yahoo.com/technology/ai/articles/spacex-debt-ai-chips-hit-145310043.html"
+      "t": "Fitch: 하이퍼스케일러 발행이 IG 회사채 시장 변동성·집중도 확대 — PIMCO는 데이터센터 연계채 스프레드 146bp로 축소 언급",
+      "m": "Fitch에 따르면 올해 1~10월 美 비금융 IG 회사채 발행은 9,400억달러로 전년 대비 +33%이며 AI 관련 발행이 주도해 기술·통신·소매 업종 집중도가 확대. 향후에도 AI 연계 IG 발행이 이어질 것으로 전망. PIMCO는 하이퍼스케일러 임차 데이터센터 IG 채권이 해당 임차인 채권 대비 146bp 넓게 거래된다고 밝혔으며 이는 9월 말 약 180bp에서 축소된 수준. 인허가 제약으로 신규 공급이 줄면 추가 축소 가능성 언급.",
+      "url": "https://www.businesstoday.com.my/2026/11/18/booming-hyperscaler-issuance-set-to-raise-bond-market-volatility-fitch/"
     },
     {
       "cor": "TECH/SEMIS",
-      "t": "HSBC, 180억달러 Oracle 연계 Project Jupiter 대출 지분을 액면 대비 약 85센트에 매각(Bloomberg)",
-      "m": "HSBC가 보유한 약 3억달러 지분을 약 85센트에 처분한 사실이 공개됨(11/17 신규 매각은 아님). 대출 투자자의 AI 데이터센터 익스포저 재평가 신호로 Oracle 주가 -3.43%(115.00달러). Applied Digital의 Oracle·Meta 대상 전력 보증 요구(11/15 Bloomberg)와 맞물려 데이터센터 금융 스프레드 변동성 확대 우려.",
-      "url": "https://financefeeds.com/oracle-stock-hsbc-sold-its-300-million-slice-of-an-18-billion-data-center-loan-in-the-mid-80s/"
-    },
-    {
-      "cor": "US BANKS",
-      "t": "미국 은행주 약세 — KBW 은행지수 '데드크로스' 임박, JPMorgan 소비자뱅킹 기술 오류",
-      "m": "JPMorgan은 11/17 장중 -2.65%(329.24달러, GuruFocus)로 KBW 은행지수 약세 반영. 11/16에는 JPMorgan·Goldman·Morgan Stanley가 각각 2% 이상 하락(금융업종 -0.85%). JPMorgan이 일시적 소프트웨어 오류로 일부 거래 지연을 공지(사이버 공격 징후 없음, 복수 은행 동시 장애 정황 없음). 신임 CFO로 Bregje de Best 내정(Barnum은 부회장). 종가 기준 수치는 미확인.",
-      "url": "https://www.gurufocus.com/news/9205870/jpmorgan-chase-jpm-shares-fall-amid-bank-sector-technical-concerns"
-    },
-    {
-      "cor": "EU BANKS",
-      "t": "Deutsche Bank 약 -4.6~-5% — 유출 문서 기반 Epstein 연계 약 5.82억달러 의심 거래 보도",
-      "m": "Stoxx 600 내 최대 낙폭. 국제 공동 취재 보도로 과거 거래·고객 관련 평판 리스크가 재부각되었고 은행은 과거 사안이며 약 70억달러 규모 통제 투자를 했다고 반박. 신용 영향은 아직 구체적으로 확인되지 않음.",
-      "url": "https://www.cnbc.com/2026/11/16/stock-market-today-live-updates.html"
+      "t": "Anthropic(Claude 개발사), 상장 후 신용등급이 IG일지 투기등급일지가 관건(9fin)",
+      "m": "9fin은 Anthropic이 시총 1조달러 규모로 상장하지만 투자등급을 받지 못할 수 있다고 분석. 주요 신평사의 등급이 IG 채권시장(저비용·고유동성) 또는 하이일드 시장 중 어디서 자금을 조달할지를 좌우하며, 투자등급 확보 과정에서 최근 몇 주간 난관이 있었다고 설명. 등급 결과는 확인되지 않음.",
+      "url": "https://www.9fin.com/insights/anthropic-ig-or-junk"
     },
     {
       "cor": "INSURANCE",
-      "t": "美 건강보험주 하락 — Medicare Advantage 감사 확대 제안",
-      "m": "Medicare Advantage 감사 범위 확대 제안이 알려지며 건강보험주가 하락. 단일 출처(종가 요약)로 종목별 수치와 구체 내용은 미확인.",
-      "url": "https://cappnotes.substack.com/p/closing-look-tuesday-november-17"
+      "t": "美 건강보험주 이틀째 급락 — CMS Medicare Advantage 감사 확대 제안(UNH -10.2%, Humana -13.0%)",
+      "m": "UnitedHealth 349.90달러(-10.21%, 다우 최대 낙폭), Humana 385.78달러(-12.98%, S&P500 최대 낙폭), Elevance -7.6%, Centene -7.0%, CVS -5.2%. 병원·투석 업체 HCA(-4.97%)·DaVita로 확산. 11/17에도 UNH -5.4%(389달러). CMS가 Medicare Advantage의 부당 지급 환수·감사를 확대하는 제안을 내놓은 데 따른 것이며 신규 공시나 정부 조치는 확인되지 않음.",
+      "url": "https://thewallstreetrepublic.substack.com/p/nvidia-falls-289-as-the-board-rules"
     },
     {
       "cor": "ENERGY",
-      "t": "유가 소폭 반등 — WTI 86.01달러(+0.34%), Brent 93.14달러(+0.76%), 이란 Bahrain 드론 공격",
-      "m": "전일 3%대 급락 후 반등. Brent +0.76%(93.14달러)는 이란의 Bahrain 드론 공격 영향. 금 선물은 3,851.90달러(-0.03%)와 12월물 3,864.20달러(+0.29%)로 출처 상이. 출처 상이: IC 보고서의 Brent 91.82달러(-4.19%)·WTI 85.72달러는 11/16 수치로 보여 제외.",
-      "url": "https://investrade.com/market-review-november-17-2026/"
+      "t": "WTI -3.2%(83.26달러) 8/26 이후 최저 마감 — 美 원유재고 338만배럴 증가, 금 1년 저점권",
+      "m": "WTI 83.26달러(-3.20%), Brent 91.95달러(-1.28%). 美 원유재고가 338만배럴 증가(일부 출처 528만배럴 증가 표기). 금은 달러 강세·인상 기대로 약 3,725달러(-3.22%, 단일 출처)로 1년 이상 만의 최저권이며 은도 2025년 9월 이후 최저. 출처 상이: IC의 WTI 85.50달러·Brent 92.92달러는 장 시작 전 수치로 추정.",
+      "url": "https://finwire.io/news/forex-news/financial-forex-market-recap-nov-18-2026"
     }
   ]
 }
