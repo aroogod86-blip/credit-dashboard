@@ -1,59 +1,59 @@
 {
-  "date": "2026-11-17",
+  "date": "2026-11-18",
   "items": [
     {
       "t": "NVDA",
-      "h": "NVDA -0.44%(155.46달러) 실적 발표 전 약세 마감 — 장 마감 후 매출·EPS·가이던스 모두 컨센서스 상회, 시간외 약 +3%",
-      "m": "정규장 종가 155.46달러(-0.44%, 52주 저점 148.80달러 근접). 11/17 장 마감 후 황 CEO 사임(11/12) 이후 첫 실적 발표: 매출 1,158.4억달러(컨센서스 1,091.0억달러), 조정 EPS 2.68달러(2.48달러), 4분기 매출 가이던스 약 1,300억달러(LSEG 컨센서스 1,251억달러), 매출총이익률 가이던스 71~72%(Vera Rubin 램프업). 임시 CEO Kress는 Vera Rubin이 '폭발적 출발'이라고 언급. 시간외 약 +3%(시간외 수치는 정규장 종가와 구분). 황 전 CEO는 이사회가 요청하면 복귀할 의사를 밝혔으나 이사회는 즉각 수용하지 않을 것으로 전해짐. 11/16 종가는 156.14달러(-4.12%)로 확인.",
-      "url": "https://www.fool.com/coverage/stock-market-today/2026/11/17/stock-market-today-nov-17-nvidia-slides-ahead-of-earnings-but-soars-in-after-hours-trading/"
+      "h": "NVDA -2.89%(150.96달러) 5거래일 연속 하락 — 실적 호조에도 이사회 의장 '황 CEO 복귀 불가' 발언으로 장전 +4% 상승분 반납",
+      "m": "정규장 종가 150.96달러(-2.89%, 전일 155.46달러), 2025년 7월 이후 최저 수준·최근 1주 -13% 이상. 장전 약 +4%, 장중 고점 159.70달러까지 올랐으나 실적 콜에서 신임 이사회 의장 Harvey Jones가 황 전 CEO를 CEO로 복귀시킬 의사가 없다고 밝히며 상승분 반납. 임시 CEO Kress는 임직원 이탈 우려에 '높은 신뢰'를 언급. 3분기 매출 1,158.4억달러(전년비 +103%), 메모리·파운드리 공급 약정이 2,790억달러에서 3,900억달러로 증가(대부분 다년 메모리 구매). 후속 CEO 인선 불확실성과 중국 규제 리스크가 부담. Nvidia 약세에 CoreWeave(-3.49%)·Iren 등 네오클라우드 동반 하락. 시간외 150.60달러(-0.24%).",
+      "url": "https://www.cnbc.com/2026/11/18/nvidia-stock-earnings.html"
     },
     {
       "t": "ORCL",
-      "h": "ORCL -3.43%(115.00달러) — HSBC의 180억달러 Project Jupiter 대출 지분 약 85센트 매각 보도 및 Applied Digital 보증 요구로 신용 우려 지속",
-      "m": "종가 115.00달러(-3.43%, 전일 119.09달러), 52주 저점 109.21달러·연초 대비 약 -40%. Bloomberg가 HSBC가 180억달러 규모 Project Jupiter 데이터센터 대출 중 약 3억달러 지분을 액면 대비 약 85센트에 매각했다고 공개(11/17 신규 매각 아님, 이전 거래). 이에 대출 투자자의 AI 인프라 익스포저 재평가 우려가 부각. 11/15 Bloomberg가 보도한 Applied Digital의 보증 요구도 지속 부담. Oracle은 부채 1,250억달러 이상, FY26 FCF 적자. Michael Burry는 11/16 Oracle 풋옵션을 청산했다고 밝힘. 출처 상이: TradersUnion 종가 표기 116.89달러(상이), TradingKey -3.48%. 11/16 종가는 119.09달러(-4.99%)로 정정 필요(전일 파일의 120.57달러 오기).",
-      "url": "https://financefeeds.com/oracle-stock-hsbc-sold-its-300-million-slice-of-an-18-billion-data-center-loan-in-the-mid-80s/"
+      "h": "ORCL 종가 미확인(장중 약 115.3달러, 전일 115.00달러 부근) — Bernstein '데이터센터 가치 0 가정해도 133달러' 평가, 주주총회·임상시험 AI 에이전트 출시",
+      "m": "종가 미확인(Yahoo 11/18 115.31달러는 거래량 259만주로 장중 스냅샷 추정, 장중 저가 113.55달러, 11/17 종가 115.00달러). Bernstein은 AI 데이터센터 사업이 사라지고 관련 부채만 남는 최악의 시나리오에서도 주당 가치를 133달러로 추정(MarketWatch 인용). Oracle은 11월 주식 매각가 약 116달러 부근에서 거래되며 최대 8.65% 금리로 차입 중이고 연초 대비 약 -38%. 11/18 장전 임상시험 팀용 AI 어시스턴트 출시로 +1%. 연례 주주총회 11/18 개최. 신용 관점: 11/17 HSBC의 Project Jupiter 대출 지분 85센트 매각 공개 후 데이터센터 금융 우려가 이어짐(11/17 파일 참조). 12/9 실적 발표 예정.",
+      "url": "https://qz.com/bernstein-oracle-stock-cheap-ai-data-center-111826"
     },
     {
       "t": "META",
-      "h": "META 장중 -0.7~-1.4%(≈615~620달러, 종가 미확인) — 이탈리아 8.87억달러 과징금 부담 속 UBS 신규 커버리지 Buy(목표가 815달러)",
-      "m": "종가 미확인(11/16 종가 626.41달러 대비 장중 저가 613.51달러, 3:20pm ET 620.54달러 -0.94%, 3:49pm -0.65% 등 출처별 상이). UBS가 Buy·목표가 815달러로 커버리지를 개시. Muse·Meta Business Agents에 대한 긍정적 투자심리가 CAPEX 부담·마이너스 FCF·자금조달 필요를 상쇄할 것으로 평가(2027 GAAP EPS 기준 약 20배). 이탈리아 당국이 안드로이드 사진 갤러리 접근 관련 약 8.87억달러(€8.05억) 과징금을 부과한 점은 규제·재무 부담. Meta 2026 CAPEX 가이던스 1,350~1,450억달러.",
-      "url": "https://www.marketbeat.com/instant-alerts/price-meta-platforms-nasdaq-meta-stock-price-down-12-heres-why-2026-11-17/"
+      "h": "META 종가 미확인(장중 약 617~622달러, 전일 618.87달러 부근) — 마이너스 FCF·4,545억달러 비취소 약정 부각, UBS Buy 개시",
+      "m": "종가 미확인(11/17 종가 618.87달러(-1.20%) 확인. 11/18 Investing 초반 617.23달러(-0.27%), Robinhood 장중 622.23달러). Zacks는 3분기 영업현금흐름 327.9억달러에도 FCF -21.2억달러, 비취소 계약 약정 4,545억달러와 미개시 리스 약 3,557억달러(클라우드·컴퓨팅·데이터센터·에너지)를 부담 요인으로 지적. UBS는 Buy·목표가 815달러로 커버리지 개시(Muse·Meta Business Agents 기대). Daniel Loeb의 Third Point는 3분기 Meta를 최대 보유종목으로 확대. COO Olivan이 10b5-1 계획에 따라 약 100만달러 매도. 호주에서 Muse 출시.",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/zacks-analyst-blog-highlights-meta-103800669.html"
     },
     {
       "t": "GOOGL",
-      "h": "GOOGL -1.24%(280.20달러) — Anthropic IPO 서류에 Google 컴퓨트 약정 1,213억달러 명시",
-      "m": "종가 280.20달러(-1.24%, Google Finance), 전일 283.72달러. Anthropic(Claude 개발사) IPO 서류(S-1/A)에 2026년 4월~2033년 7월 기간 최소 1,213억달러의 컴퓨트가 Google에 약정된 것으로 공개되어 Google이 최대 공급사로 확인(Amazon 최소 1,100억달러, Microsoft 472~492억달러). 약정은 실제 사용량과 무관한 확정 성격으로 Google Cloud의 매출 가시성을 높이는 요인. Google은 사전 사모로 Anthropic 약 1.35억주(약 100억달러)를 매입. 5/19~7/16 매수자 대상 증권집단소송 선임원고 신청 마감 12/1. Duquesne(Druckenmiller)은 3분기 Alphabet 지분을 전량 매도. 출처 상이: StockAnalysis -1.27%, TradersUnion 280.51달러.",
-      "url": "https://www.gurufocus.com/news/9205444/alphabet-stocks-move-lower-as-anthropic-ipo-filing-shows-1213-billion-google-commitment"
+      "h": "GOOGL 종가 미확인(Fool 표기 +0.80%, 약 282달러) — Anthropic IPO $83 확정으로 지분 평가 부각, 마이너스 FCF 우려 지속",
+      "m": "종가 미확인(11/17 종가 280.20달러(-1.24%) 확인. 11/18 Fool 종가 시점 표기 +0.80%, Bloomberg 장중 284.03달러(+1.37%), Investing 장중 280.84달러(+0.23%)로 출처 상이). Anthropic(Claude 개발사) IPO가 공모가 83달러로 확정되며 Google 보유 지분의 평가가 부각(Reuters 계산: 공모가 상단 78달러 기준 Amazon·Google 합산 지분 약 4,110억달러, 시총 대비 Amazon 약 9.3%·Alphabet 약 3.9%). 3분기 CAPEX 514억달러가 영업현금흐름을 초과해 FCF 적자이며, Trefis는 자사주 매입이 급감하고 부채·주식 발행이 늘었다고 분석. 고점(5월 408.61달러) 대비 약 -31%. 5/19~7/16 매수자 집단소송 선임원고 신청 마감 12/1.",
+      "url": "https://www.fool.com/investing/2026/11/18/why-isn-t-alphabet-stock-taking-off-after-reporting-record-cloud-growth/"
     },
     {
       "t": "MU",
-      "h": "MU 종가 미확인(Fool 표기 -0.92%) — NAND 내년 공급과잉 우려, Nvidia 리더십 리스크 지속; Tepper는 3분기 지분 확대",
-      "m": "종가 미확인(11/16 종가 719.02달러, -7.62%. 11/17 장중 -2~-3.5%, Fool 종가 시점 표기 -0.92%). NAND 시장의 내년 공급과잉 우려가 부각되며 GF Securities가 목표가를 하향(DRAM/HBM 비중이 높아 영향은 제한적이라는 평가). Nvidia CEO 사임 이후 최대 고객 의사결정 불확실성도 부담. 11월 들어 약 -22%. 13F 상 Appaloosa(Tepper)는 3분기 Micron 지분을 28% 늘려 125만주(13.3억달러, 최대 보유종목)로 확대. 출처 상이: FXLeaders '670달러 근접' 표기는 다른 출처와 불일치. 11/16 종가는 719.02달러(-7.62%)로 정정 필요(전일 파일의 728.70달러 오기).",
-      "url": "https://invezz.com/news/2026/11/17/micron-stock-falls-2-why-this-analyst-cut-target-price/"
+      "h": "MU 종가 미확인(장중 -1~-2%, 약 697~705달러) — Nvidia 메모리 약정 3,900억달러에도 약세, CEO '공급 부족 2028년까지'",
+      "m": "종가 미확인(11/17 종가 712.42달러(-0.92%, 장중 저가 666.88달러) 확인. 11/18 장전 724.50달러(+1.7%)까지 올랐다가 장중 저가 687.33달러, 오후 약 -2% 수준으로 반락). TomorrowX Summit에서 2027년 생산능력의 75%가 이미 계약되었고 2028년 협의가 진행 중이며, CEO Mehrotra는 수요가 2028년까지 공급을 웃돈다는 기존 전망을 유지. Nvidia의 메모리·파운드리 공급 약정은 2,790억달러에서 3,900억달러로 증가(다년 메모리 구매 중심). Raymond James는 Outperform 유지. Chips Act 조건상 12/9부터 대규모 자사주 매입 가능. 출처 상이: Micron 종가는 확인되지 않음.",
+      "url": "https://www.tipranks.com/news/micron-still-sees-memory-supply-shortage-through-2028-mu-stock-falls"
     },
     {
       "t": "AVGO",
-      "h": "AVGO +2.46%(341.60달러) — Nvidia 리더십 이슈 속 AI 칩 분산 수혜·12/9 실적 발표일 부각, 시간외 +2.5%",
-      "m": "종가 341.60달러(+2.46%, Google Finance), 전일 333.40달러. 시간외 350.14달러(+2.5%, 시간외 수치는 정규장 종가와 구분). 맞춤형 AI 칩 분산 수요와 Nvidia 실적 호조 기대가 반등 요인. 12/9 FY4Q 실적 발표 예정. 11/13 Rothschild Redburn의 Neutral 하향(AI 딜 금융 구조 우려)은 지속 리스크. Appaloosa는 3분기 Broadcom 지분을 전량 매도. 신용 관점: Anthropic(Claude 개발사)·OpenAI 금융보증 노출은 11/13 파일 참조. 11/16 종가는 333.40달러(-3.92%)로 정정 필요(전일 파일의 330.23달러 오기).",
-      "url": "https://www.marketbeat.com/instant-alerts/price-broadcom-nasdaq-avgo-shares-climb-25-should-you-buy-2026-11-17/"
+      "h": "AVGO +3.64%(354.05달러) — Nvidia 가이던스가 AI 지출 우려 완화, AMD +5.8%와 동반 반등",
+      "m": "종가 354.05달러(+3.64%, Google Finance·Cappnotes 일치), 전일 341.60달러. 시간외 357.00달러(+0.83%, 시간외 수치는 정규장 종가와 구분). Nvidia 실적·가이던스가 AI 지출 지속에 대한 안도감을 주며 AMD(+5.83%)와 함께 강세. 12/9 FY4Q 실적 발표 예정. Trefis는 Broadcom의 영업현금흐름이 순이익의 1.1배로 Nvidia(0.4배)보다 견조하나 매출채권이 1년 새 111% 증가한 점을 지적. 출처 상이: StockAnalysis 354.80달러(+3.86%)·Investing +4.29%는 장중 수치로 추정.",
+      "url": "https://finance.yahoo.com/markets/stocks/article/amd-broadcom-tsmc-stocks-rise-on-nvidia-earnings-coreweave-nebius-shares-also-rally-220159436.html"
     },
     {
       "t": "AMZN",
-      "h": "AMZN 종가 미확인(장중 약 -0.3~-0.8%, 약 255.7~258달러) — 인도 재생에너지 70억달러 투자 발표, Anthropic IPO 서류상 AWS 최소 1,100억달러 약정",
-      "m": "종가 미확인(11/16 종가 257.75달러 대비 장중 255.73달러 -0.78%, Investing 표기 약 -0.3~-0.5%). 2030년까지 인도 재생에너지에 70억달러를 추가 투자(풍력·태양광 4개 프로젝트, 934MW). Anthropic(Claude 개발사) IPO 서류상 Amazon(AWS) 대상 컴퓨트 약정은 최소 1,100억달러. 11/16 발표된 Blackstone(BXDC)의 AWS 데이터센터 JV 75% 인수(50억달러, 12년 재임차)는 BXDC 주가 급등으로 이어짐. Reuters는 3분기 13F상 데이터센터 관련주에서 투자자 이탈이 나타났다고 보도.",
-      "url": "https://blockonomi.com/amazon-amzn-stock-expands-india-clean-energy-push-with-7-billion-plan/"
+      "h": "AMZN 종가 미확인(장중·시간외 약 +3.3~+3.8%) — Anthropic IPO $83 확정으로 지분 가치 부각, UBS 목표가 340달러로 하향",
+      "m": "종가 미확인(11/17 종가 257.89달러(+0.05%) 확인. 11/18 Cappnotes +3.82%, Morningstar 5:29pm 266.26달러(+3.25%), TradingKey +3.28%로 출처 상이). Anthropic(Claude 개발사) IPO가 83달러로 확정되며 Amazon 보유 지분에 공개 시장 평가가 부여됨(Amazon 누적 투자 약 180억달러, 공모가 범위 기준 평가액 약 1,500억달러, 올해 3분기까지 평가이익 628억달러 인식). UBS는 Buy 유지·목표가 352→340달러로 하향하며 2027 AWS 매출 성장률 추정을 48%→43%, 영업이익률을 45%→40%로 낮춤. Jassy는 데이터센터 투자 축소는 '역사적 실수'라고 발언. 신용 관점: Anthropic의 AWS 컴퓨트 약정 최소 1,100억달러(2026.5~2036.4).",
+      "url": "https://www.tradingview.com/news/gurufocus:2a9154722094b:0-amazon-stocks-rise-0-89-premarket-after-ubs-trims-target-to-340-but-keeps-buy/"
     },
     {
       "t": "SPCX",
-      "h": "SPCX 종가 미확인(장중 약 +3.2~+3.5%) — Nvidia 13F상 최대 보유종목 부각, 400억달러 AI 칩 ABS 이번 주 발행 가능",
-      "m": "종가 미확인(11/16 종가 137.36달러(-1.26%) 대비 장중 +2.6~+3.5%). Nvidia 13F에서 SpaceX 보유가 1.305억주로 확대되어 최대 공개 보유종목이 되었고 Appaloosa는 지분을 약 17배 확대. Bloomberg에 따르면 AI 칩 구매용 400억달러 금융 중 일부가 이번 주 매각될 수 있음(Goldman·Apollo 주관, Apollo 계열 Atlas SP의 SPV가 Nvidia 칩을 매입해 ABS 발행, 투자등급 유지를 위한 오프밸런스 구조). 약 470억달러 규모 Nvidia 칩 리스(선지급 70억달러, 약 5년, 2032년까지)도 보도. Cantor 목표가 345달러(Buy). 12/8 내부자 락업 해제 예정. 출처 상이: 일부 매체 11/16 종가 138.92달러 표기.",
-      "url": "https://finance.yahoo.com/technology/ai/articles/spacex-debt-ai-chips-hit-145310043.html"
+      "h": "SPCX +1.27%(143.50달러) — Texas 240억달러 AI 데이터센터·발전소 승인, Blavatnik 50억달러 지분 보도",
+      "m": "종가 143.50달러(+1.27%, MarketScreener 4pm 종가 표기, 전일 141.70달러(+3.16%) 확인). Texas가 AI 시설 인허가를 재개하며 Rio Grande Valley의 SpaceX 240억달러 규모 데이터센터·가스 발전소 사업을 승인. Bloomberg는 Len Blavatnik이 약 50억달러 지분을 보유 중이라고 보도. 11/17 CFO Johnsen이 우주 기반 AI 컴퓨팅 계획을 설명. 신용 관점: 11/17 보도된 400억달러 AI 칩 금융 중 일부의 ABS 발행(Goldman·Apollo 주관, 이번 주 가능)은 진행 상황 미확인. Anthropic(Claude 개발사) IPO(약 813억달러)가 SpaceX IPO(750억달러)를 넘어 역대 최대 규모가 됨.",
+      "url": "https://www.marketscreener.com/news/billionaire-blavatnik-takes-5-billion-spacex-stake-bloomberg-reports-ce785edddc8cf52c"
     },
     {
       "t": "AAPL",
-      "h": "AAPL -0.25%(351.91달러) — Nvidia 약세 속 시총 1위 부각, 서비스 장애 보고",
-      "m": "종가 351.91달러(-0.25%, MarketScreener·Fool 표기), 전일 352.78달러(11/16 종가 -0.98%로 확인). Nvidia 시총이 약 4조달러로 하락하며 Apple(약 5.2조달러)이 세계 최대 기업으로 부각. AI 설비투자 부담이 작은 자본 경량 모델이 방어주 성격으로 평가. 11/17 오후 Downdetector에 Apple 서비스 장애 급증 보고(원인·규모 미확인). 출처 상이: 일부 시세 -0.6~-0.7%는 시간외 표기로 추정.",
-      "url": "https://www.fool.com/investing/2026/11/17/apple-is-now-the-worlds-largest-company-time-to-buy-the-stock/"
+      "h": "AAPL +0.15%(352.45달러) — 일주일 새 두 번째 서비스 장애(내부 업데이트 원인), Magnificent 7 중 유일하게 기록 근접",
+      "m": "종가 352.45달러(+0.15%, MarketScreener 4pm 종가 표기), 전일 351.91달러. 11/17 Apple Account 로그인 불가·소매점 결제 불능 등 서비스 장애가 발생했으며 Apple은 사이버 공격이 아닌 내부 업데이트가 원인이라고 설명. 사상 최고 종가(11/13, 356.27달러) 대비 약 -1.1%로 Magnificent 7 중 유일하게 고점 부근. AI 설비투자 부담이 적은 점이 방어적 매력으로 평가. 시총 약 5.1조달러. 출처 상이: Investing·Yahoo +0.55~+0.57%는 장중 수치로 추정.",
+      "url": "https://www.vantagemarkets.com/market-news/apple-stock-price-second-services-outage-in-a-week-november-18-2026/"
     }
   ]
 }
