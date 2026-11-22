@@ -1,53 +1,35 @@
 {
-  "date": "2026-11-19",
+  "date": "2026-11-20",
   "items": [
     {
       "cor": "MACRO/RATES",
-      "t": "美 증시 급락 — 다우 -1,101p(-2.19%), S&P500 -2.0%(6거래일 연속), 나스닥 -2.25%; Anthropic 상장에도 AI 매도 지속",
-      "m": "S&P500 7,175.83(-147.80), 다우 49,097.06(-1,101.11, 조정 진입 직전), 나스닥 23,879.20(-550.69), 나스닥100 -2.2%. 개장 직후 S&P500은 최대 +1.3% 상승했으나 Anthropic(Claude 개발사) 거래 개시 이후 상승분을 모두 반납. VIX 28.44(단일 출처). 출처 상이: Fool 본문의 나스닥 23,886(-2.23%)과 표 수치 23,879.20(-2.25%) 차이는 집계 시점 차이로 추정.",
-      "url": "https://www.fool.com/coverage/stock-market-today/2026/11/19/stock-market-today-nov-19-stock-market-today-nov-19-alphabet-shares-fall-as-anthropic-nasdaq-debut-puts-fresh-value-on-google-s-stake/"
+      "t": "美 증시 폭락 — S&P500 -3.70%(조정 진입, 7거래일 연속 하락·주간 -8.6%), 나스닥 -5.28%(연초 대비 마이너스 전환), 다우 -1.93%",
+      "m": "S&P500 6,910.39(-265.44, 10/6 사상 최고 대비 -10% 초과), 나스닥 22,617.73(-1,261.47), 다우 48,147.33(-949.73), 러셀2000 -2.76%, 필라델피아 반도체지수 -10.7%, VIX 35.89(단일 출처). S&P500 주간 낙폭은 2025년 4월 이후 최대, 나스닥 주간 -10%. 유럽도 약세(Dax -2.6%, Eurostoxx600 -2.0%). 출처 상이: 장중 반도체지수 -7%는 종가 아님.",
+      "url": "https://stockinvest.us/digest/digest-us-market-close-2026-11-20"
     },
     {
       "cor": "MACRO/RATES",
-      "t": "美 10년물 5.04~5.05%·2년물 4.76~4.78% — Barr '물가 너무 높다', 12월 인상 확률 96~100%",
-      "m": "10년물 5.04%(-3bp, Treasury 데이터)~5.051%(-1.4bp), 2년물 4.76%(-4bp)~4.777%, 30년물 5.40%. Barr 연준 이사가 물가가 너무 높아 정책 조정이 더 필요하다고 발언, 12월 인상은 사실상 반영(96~100%). 190억달러 규모 10년 TIPS 재발행 낙찰금리 2.903%로 2002년 이후 최고. 달러지수는 약 103.9 부근의 고점. 출처 상이: 일부 출처의 10년물 5.07~5.08%·2년물 4.80%는 전일 또는 장중 수치로 추정.",
-      "url": "https://theweekendspread.substack.com/p/the-close-thursday-november-19-2026"
+      "t": "美 국채금리 급락 — 10년물 4.94%(-10bp)·2년물 4.65%(-13bp), 안전자산 선호가 주식 매도 못 막아",
+      "m": "10년물 4.944%(investingLive)·2년물 4.649%·30년물 5.33%로 10년물이 5% 아래로 복귀. Cook 연준 이사가 긴축 필요성을 주장했으나 2년물은 13bp 하락. 달러지수 103.84. 출처 상이: Investing.com 10년물 4.912%, ETF Trends 4.92%, 주간 요약 4.95%로 소폭 차이(채권 마감 집계 시점 차이로 추정, 4.94% 채택). 금은 안전자산 역할을 못하고 -2.5%(약 3,532달러, ABC 스팟 기준), 비트코인은 6만달러 하회.",
+      "url": "https://investinglive.com/news/investinglive-americas-fx-news-wrap-20-nov-stocks-get-hammered-as-nasdaq-plunges-5-28/"
     },
     {
       "cor": "TECH/SEMIS",
-      "t": "Anthropic(Claude 개발사) Nasdaq 데뷔 — 시초가 111.50달러(+34%) 후 97.17달러(+17.1%) 마감, 완전희석 시총 1.76조달러",
-      "m": "공모가 83달러에 980M주를 매각해 813억달러 조달(별도 260억달러 사모 포함 시 약 1,070억달러), 역대 최대 IPO. 11:48 ET 첫 거래(111.50달러), 장중 고가 115.10달러·저가 92.72달러, 거래량 8.46억주(SpaceX 첫날 5.22억주 상회). 청약 수요 약 5,000억달러·개인 청약 80% 이상 미배정, 개인 투자자 거래 활발. 공모 종료(closing)는 11/20 예정. 사모 260억달러에는 Broadcom·Micron 등 7개 전략 투자자가 공모가로 참여.",
-      "url": "https://www.cnn.com/2026/11/19/business/live-news/anthropic-ipo"
+      "t": "Anthropic(Claude 개발사) 상장 2일차 88.91달러(-8.5%) 마감, 장중 83.05달러로 공모가 근접 — IPO 총 935억달러로 종료",
+      "m": "ANT 종가 88.91달러(전일 97.17달러, Fool·Bloomberg/Yahoo 인용), 장중 저가 83.05달러(공모가 83달러+5센트). 출처 상이: 일부 출처는 88.30달러(-9.1%)로 표기(마감 직전 수치로 추정, 88.91달러 채택). 공모는 11/20 종료, 그린슈 147M주 포함 1.127B주 × 83달러 = 약 935억달러로 역대 최대 IPO(상장 보도 기준). Bloomberg는 개인 청약 수요가 1,150억~1,200억달러였다고 보도. 직전 분기 매출은 전분기 대비 47% 증가했으나 컴퓨트 비용이 더 빠르게 늘어 영업이익에서 영업손실로 전환(Fool). Moody's·S&P·Fitch 등급은 여전히 미부여(11/19 기준 확인).",
+      "url": "https://www.fool.com/investing/2026/11/20/why-anthropic-stock-is-falling-today/"
     },
     {
       "cor": "TECH/SEMIS",
-      "t": "AMD -7.72%(489.19달러)·Nvidia 52주 저점 — 반도체 약세",
-      "m": "AMD -7.72%는 Fool·Yahoo 종가 기준. 하락 사유로 거론된 '공매도 보고서'는 Cappnotes 단일 출처이며 별도 확인 못함. 11월 들어 AMD는 AI 밸류에이션 부담·Google TPU 경쟁·Burry의 나스닥100 풋 확대 등으로 약세. Nvidia는 CEO 스캔들 법적 리스크와 Daiwa 목표가 하향이 겹침. Broadcom -2.09%, Micron -2.10%(Bloomberg 화면).",
-      "url": "https://cappnotes.substack.com/p/closing-look-thursday-november-19"
+      "t": "반도체·AI 인프라 동반 급락 — NVDA -14.0%, AVGO -12.2%, MU -13.9%, AMD -13.3%, CoreWeave -12.0%, ARM -14.1%",
+      "m": "Nvidia SEC 회계 조사 보도, Google의 Broadcom TPU 주문 축소 보도(Kuo), TrendForce의 NAND 가격 하락 전망이 겹치며 반도체 전반 투매. Western Digital -12.0%, Seagate -12.4% 등 메모리·스토리지 동반 급락. Trump의 미국 기업 해외 데이터센터 건설 금지 공언(TipRanks) 보도도 AI 인프라 심리에 부담. 신용 관련: CoreWeave 등 네오클라우드·데이터센터 금융 스프레드 변동성 확대 가능성(11/11 Morgan Stanley 전망 참조).",
+      "url": "https://cappnotes.substack.com/p/closing-look-friday-november-20-2026"
     },
     {
       "cor": "ENERGY",
-      "t": "유가 보합권 — WTI 83.21~83.86달러·Brent 91.98~92.27달러, 금은 3% 안팎 급락",
-      "m": "WTI 83.21달러(-0.06%, 8/26 이후 최저, Cappnotes)~83.86달러(+0.72%), Brent 91.98달러(+0.03%)~92.27달러(+0.35%)로 출처별 정산 기준이 상이. 호르무즈 유조선 보도가 공급 과잉 우려를 상쇄. 금 선물은 강달러와 인상 기대로 -1.4~-3.0%(약 3,628~3,675달러)로 2025년 9월 이후 최저권. 출처 상이: 금 종가는 장 마감 직후 집계 편차가 커 확정 불가.",
-      "url": "https://cappnotes.substack.com/p/closing-look-thursday-november-19"
-    },
-    {
-      "cor": "TECH/SEMIS",
-      "t": "Anthropic(Claude 개발사) 신용등급 미부여 — 150억달러 담보부 리볼버는 투자등급 취득 시까지 담보 유지, KBRA BB+",
-      "m": "424B4(SEC)상 Anthropic은 2026년 9월 150억달러 선순위 담보부 리볼버로 개정, 9/30 현재 차입 0·스탠바이 신용장 2.05억달러. 약정상 투자등급 취득 이후 담보 해제 조항 존재. 11/19 기준 Moody's·S&P·Fitch 미등급(단일 출처 확인). KBRA는 6월 BB+(안정적, 투기등급 최상위) 부여. Blackstone은 10/30 투자자에게 '하이 더블B' 예상을 전달(FT 보도 인용). Morgan Stanley·Goldman 뱅커가 상장 직후 투자등급 부여를 Moody's·S&P에 타진 중(cryptobriefing). 630억달러 칩 금융의 선순위(420억달러 초과)는 Broadcom A- 보증에 의존(2차 출처). Gundlach는 투자등급 기대를 '터무니없다'고 평가.",
-      "url": "https://www.sec.gov/Archives/edgar/data/0002130357/000162828026074944/anthropicpbc-424b4.htm"
-    },
-    {
-      "cor": "US BANKS",
-      "t": "Barr 연준 이사 '감독·규제 완화로 금융시스템 취약해질 수 있다' — 연준 은행감독 인력 약 1/3 감축 위기 언급",
-      "m": "Barr 이사는 11/19 FinRegLab 행사에서 연준 내 규제 변경이 향후 시장 문제를 식별·대응하기 어렵게 만들 수 있다고 경고('당장의 우려는 아님'). 워싱턴 연준 은행감독 인력의 약 1/3이 감축 대상이라고 언급. 같은 발언에서 물가가 너무 높아 통화정책 추가 조정이 필요하다고 재확인. 다음 FOMC는 12/8~9. 은행주 개별 종가는 미확인(Bloomberg 화면상 JPM -1.20%, BAC -0.70%).",
-      "url": "https://www.investing.com/news/economy-news/feds-barr-worried-regulation-changes-may-increase-financial-sector-risks-5039831"
-    },
-    {
-      "cor": "MACRO/RATES",
-      "t": "하이퍼스케일러 채권 공급 부담 지속 — Goldman 2026년 2,960억달러·2027년 4,400억달러 전망",
-      "m": "11/19 당일 신규 하이퍼스케일러 채권 발행은 확인되지 않음. 배경: 10/29~11/4 5건 약 669억달러(Oracle 100억달러 8.65% 포함, Meta 달러 150억달러·유로 90억유로 등) 발행. Morgan Stanley(11/11)는 우량 하이퍼스케일러 채권의 진입 매력이 개선됐으나 데이터센터·네오클라우드 채권은 스프레드 변동성이 클 것으로 전망. 11/18 FOMC 의사록은 거의 모든 위원이 추가 인상이 적절할 가능성을 판단했고 일부는 50bp 인상도 언급.",
-      "url": "https://www.cnbc.com/2026/11/11/morgan-stanley-ai-bonds-hyperscalers-credit.html"
+      "t": "유가 소폭 상승 — WTI 83.98달러·Brent 92.57달러, 미-이란 긴장 재부각(호르무즈)",
+      "m": "Kitco 기준 WTI 83.98달러, Brent 92.57달러 정산. 미-이란 갈등 재고조 우려로 위험자산과 반대로 유가가 소폭 올랐다고 investingLive가 전함. 전일(11/19) WTI는 8/26 이후 최저 수준(83.21달러)이었음. 출처 상이: 일부 출처의 WTI 82.75~84.30달러는 장중 범위.",
+      "url": "https://www.kitco.com/news/article/2026-11-20/gold-falls-toward-3500-silver-slides-stock-markets-enter-correction"
     }
   ]
 }
