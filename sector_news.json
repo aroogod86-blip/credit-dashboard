@@ -1,35 +1,35 @@
 {
-  "date": "2026-11-20",
+  "date": "2026-11-23",
   "items": [
     {
       "cor": "MACRO/RATES",
-      "t": "美 증시 폭락 — S&P500 -3.70%(조정 진입, 7거래일 연속 하락·주간 -8.6%), 나스닥 -5.28%(연초 대비 마이너스 전환), 다우 -1.93%",
-      "m": "S&P500 6,910.39(-265.44, 10/6 사상 최고 대비 -10% 초과), 나스닥 22,617.73(-1,261.47), 다우 48,147.33(-949.73), 러셀2000 -2.76%, 필라델피아 반도체지수 -10.7%, VIX 35.89(단일 출처). S&P500 주간 낙폭은 2025년 4월 이후 최대, 나스닥 주간 -10%. 유럽도 약세(Dax -2.6%, Eurostoxx600 -2.0%). 출처 상이: 장중 반도체지수 -7%는 종가 아님.",
-      "url": "https://stockinvest.us/digest/digest-us-market-close-2026-11-20"
+      "t": "美 증시 사상 최대급 반등 — S&P500 +4.73%(조정 탈출), 나스닥 +6.51%, 다우 +3.01%; Nvidia CEO 복귀가 촉매",
+      "m": "S&P500 7,237.17(+326.78), 나스닥 24,089.56(+1,471.82), 다우 49,595.31(+1,447.98), 모두 2025년 4월 이후 최고의 하루이며 S&P500은 7거래일 연속 하락을 마감. Nasdaq-100 +약 6.9%(출처별 6.9~7.0%). BTIG는 반등이 이어지기 어려울 수 있다고 평가(CNBC). VIX는 여전히 높은 수준(24/7 Wall St). 출처 상이: 24/7 Wall St 장중 표기(7,243.94 등)는 종가 아님, CNBC·Fool·AP 인용치 채택.",
+      "url": "https://www.cnbc.com/2026/11/22/stock-market-today-live-updates.html"
     },
     {
       "cor": "MACRO/RATES",
-      "t": "美 국채금리 급락 — 10년물 4.94%(-10bp)·2년물 4.65%(-13bp), 안전자산 선호가 주식 매도 못 막아",
-      "m": "10년물 4.944%(investingLive)·2년물 4.649%·30년물 5.33%로 10년물이 5% 아래로 복귀. Cook 연준 이사가 긴축 필요성을 주장했으나 2년물은 13bp 하락. 달러지수 103.84. 출처 상이: Investing.com 10년물 4.912%, ETF Trends 4.92%, 주간 요약 4.95%로 소폭 차이(채권 마감 집계 시점 차이로 추정, 4.94% 채택). 금은 안전자산 역할을 못하고 -2.5%(약 3,532달러, ABC 스팟 기준), 비트코인은 6만달러 하회.",
-      "url": "https://investinglive.com/news/investinglive-americas-fx-news-wrap-20-nov-stocks-get-hammered-as-nasdaq-plunges-5-28/"
+      "t": "美 단기금리 반등 — 2년물 4.69%(+8bp)·10년물 4.93~4.94%, 커브 플래트닝; Williams '추가 긴축 가능성', 12월 인상 확률 92~95%",
+      "m": "2년물 4.694%(+8.3bp, MarketScreener)·10년물 4.936%(+2.7bp)로 위험선호 회복에 따라 주말 이후 금리 반등(CNBC 10년물 4.932%). 장기물은 장 후반 회복해 곡선은 플래트닝(Newsquawk). Williams 뉴욕연준 총재는 추가 긴축이 필요해 보인다고 발언(investorideas). 12월 FOMC 인상 확률 92~95%. 달러지수는 19개월 최고인 104.30(Investing.com). 출처 상이: 10년물 종가 4.919%(Investrade)~4.94%.",
+      "url": "https://www.cnbc.com/amp/2026/11/23/treasury-yields-bonds-fed.html"
     },
     {
       "cor": "TECH/SEMIS",
-      "t": "Anthropic(Claude 개발사) 상장 2일차 88.91달러(-8.5%) 마감, 장중 83.05달러로 공모가 근접 — IPO 총 935억달러로 종료",
-      "m": "ANT 종가 88.91달러(전일 97.17달러, Fool·Bloomberg/Yahoo 인용), 장중 저가 83.05달러(공모가 83달러+5센트). 출처 상이: 일부 출처는 88.30달러(-9.1%)로 표기(마감 직전 수치로 추정, 88.91달러 채택). 공모는 11/20 종료, 그린슈 147M주 포함 1.127B주 × 83달러 = 약 935억달러로 역대 최대 IPO(상장 보도 기준). Bloomberg는 개인 청약 수요가 1,150억~1,200억달러였다고 보도. 직전 분기 매출은 전분기 대비 47% 증가했으나 컴퓨트 비용이 더 빠르게 늘어 영업이익에서 영업손실로 전환(Fool). Moody's·S&P·Fitch 등급은 여전히 미부여(11/19 기준 확인).",
-      "url": "https://www.fool.com/investing/2026/11/20/why-anthropic-stock-is-falling-today/"
+      "t": "Nvidia 복귀로 AI·반도체 전반 급등 — NVDA +31.5%, MU +19.0%, DELL +18.8%, MRVL +18.7%, ARM +16.8%, TSM +14.8%; Anthropic(Claude 개발사)은 -1.43%로 역행",
+      "m": "8-K상 Nvidia 이사회 만장일치 복귀(미 정부 의견 수렴). Nasdaq-100 시총이 약 2조달러 증가(Yahoo). ANT는 87.64달러(-1.43%, 공모가 83달러 대비 +5.6%)로 랠리에 동참하지 못했고(Bloomberg·Yahoo), 상장 후 첫 거래일이던 11/19 종가(97.17달러) 대비 -9.8%. 11/23부터 ANT 옵션 거래 개시 및 레버리지·인버스 ETF 13종 상장(Yahoo, Reuters). 상장 직후 Wolfe(목표가 135달러), Needham(150달러) 등 매수 개시. 등급은 Moody's·S&P·Fitch 미부여 상태(11/19 확인).",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-23/anthropic-shares-churn-defying-ai-trade-rally-on-huang-s-return"
     },
     {
       "cor": "TECH/SEMIS",
-      "t": "반도체·AI 인프라 동반 급락 — NVDA -14.0%, AVGO -12.2%, MU -13.9%, AMD -13.3%, CoreWeave -12.0%, ARM -14.1%",
-      "m": "Nvidia SEC 회계 조사 보도, Google의 Broadcom TPU 주문 축소 보도(Kuo), TrendForce의 NAND 가격 하락 전망이 겹치며 반도체 전반 투매. Western Digital -12.0%, Seagate -12.4% 등 메모리·스토리지 동반 급락. Trump의 미국 기업 해외 데이터센터 건설 금지 공언(TipRanks) 보도도 AI 인프라 심리에 부담. 신용 관련: CoreWeave 등 네오클라우드·데이터센터 금융 스프레드 변동성 확대 가능성(11/11 Morgan Stanley 전망 참조).",
-      "url": "https://cappnotes.substack.com/p/closing-look-friday-november-20-2026"
+      "t": "AI 인프라 금융 — Oracle OpenAI 계약 자금조달 완료 주장, SpaceX 440억달러 GPU 노트 가격 결정",
+      "m": "Oracle은 OpenAI 3,000억달러 계약의 자금(주식 100억달러+채권 100억달러)을 확보했다고 발표(GuruFocus, 원문 미확인)했으나 부채 1,250억달러 이상·FCF 마이너스는 그대로. SpaceX는 Apollo·Goldman 주관 약 440억달러 GPU 금융 노트를 가격 결정(Fool·GlobeNewswire 제목), 11/19 약 320억달러 채권(최대 트랜치 8.259%)과의 관계는 미확인. 두 건 모두 투자자 수요가 있었음에도 상장 AI주는 주 초반 급락 후 반등한 상태.",
+      "url": "https://financefeeds.com/orcl-stock-openai-contract-fully-funded/"
     },
     {
       "cor": "ENERGY",
-      "t": "유가 소폭 상승 — WTI 83.98달러·Brent 92.57달러, 미-이란 긴장 재부각(호르무즈)",
-      "m": "Kitco 기준 WTI 83.98달러, Brent 92.57달러 정산. 미-이란 갈등 재고조 우려로 위험자산과 반대로 유가가 소폭 올랐다고 investingLive가 전함. 전일(11/19) WTI는 8/26 이후 최저 수준(83.21달러)이었음. 출처 상이: 일부 출처의 WTI 82.75~84.30달러는 장중 범위.",
-      "url": "https://www.kitco.com/news/article/2026-11-20/gold-falls-toward-3500-silver-slides-stock-markets-enter-correction"
+      "t": "유가 급락 — WTI 80.17달러(-3.24달러)·Brent 89.37달러(-3.20달러), WTI 장중 8/26 이후 최저(79.95달러)",
+      "m": "Newsquawk 정산 기준 WTI(1월물) 80.17달러, Brent(1월물) 89.37달러. 위험선호 회복과 호르무즈 프리미엄 축소가 겹침. 금은 전주 큰 폭 하락 후 반등(스팟 +약 2.7%, 금요일 종가 3,538.19달러 기준 약 3,630달러대, 장중 3,631달러). 출처 상이: investingLive 등 일부 장중 WTI 80.76달러·Brent 89.96달러는 오후 시점 수치.",
+      "url": "https://www.newsquawk.com/headlines/newsquawk-daily-asia-pac-opening-news---24th-november-2026"
     }
   ]
 }
