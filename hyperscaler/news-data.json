@@ -1,59 +1,59 @@
 {
-  "date": "2026-11-24",
+  "date": "2026-11-25",
   "items": [
     {
       "t": "NVDA",
-      "h": "Nvidia, 황 CEO 복귀 다음 날 -5.86%… 트럼프 \"내가 성사\" 발언·Goldman \"숏커버링\" 지적",
-      "m": "11/24 종가 155.38달러(-5.86%). 전일 +31.48% 급등분 일부 반납, 시총 약 2,400억달러 감소. 트럼프는 11/23 CNBC 인터뷰에서 이사회에 직·간접적으로 복귀를 설득했다고 발언(법무장관·DNI와 사전 협의 언급). Goldman은 월요일 급등을 숏커버링 영향으로 보고 '클리어링 이벤트 아님'으로 평가. SEC 회계 검토 보도, 12/1~2 하원 청문 등 거버넌스 이슈는 미해결.",
-      "url": "https://www.fool.com/coverage/stock-market-today/2026/11/24/stock-market-today-nov-24-nvidia-gives-back-usd240-billion-in-market-value-despite-wall-street-upgrade-signaling-29-upside/"
+      "h": "S&P, Nvidia(AA) CreditWatch Negative 등재… 황 CEO 복귀 후에도 이사회 감독 우려",
+      "m": "11/25 종가 149.30달러(-3.91%). 장중 최대 -8%대(141.43)까지 밀린 뒤 낙폭 축소. S&P Global Ratings는 발행자·선순위무담보 AA 모두 CreditWatch Negative로 지정하고 90일 내 1노치 하향 가능성을 시사(임원 행동강령에 대한 이사회 감독 의문 해소 불충분). Moody's는 11/18 Aa1 확인·전망 positive→stable로 조정(보도). WSJ: 미 당국이 베이징 지시 정황을 확인하지 못했다고 보도. GuruFocus는 황 CEO가 직원에게 행동강령 위반을 사과했다고 전했으나 회사 공시는 없음. 황 CEO 하원 비공개 면담은 12월 예정.",
+      "url": "https://www.investing.com/news/stock-market-news/sp-global-places-nvidia-rating-on-creditwatch-negative-on-rising-management-and-governance-risks-5051352"
     },
     {
       "t": "ORCL",
-      "h": "Oracle, 월요일 +12.3% 반등분 일부 반납… 증자가($116) 하회 지속, 벤더금융 분산 강조",
-      "m": "11/24 종가 미확인(장중 108.2~112.3달러, 약 -4%대; Tradingkey -4.50%). 11/23 종가 113.68달러(+12.34%)는 Investing 이력으로 확정. 11월 신주 8,620만주($116)·채권 $100억(7.000~8.650%) 발행 후 주가가 증자가 하회. JPM(Chatterjee): Oracle이 $200억 조달을 'one and done'으로 설명, 벤더금융 대부분은 Investor Day 이전 확정, Nvidia 포함 특정 공급사 과의존 없음. 마이너스 FCF·부채 부담 우려 지속.",
-      "url": "https://www.benzinga.com/trading-ideas/long-ideas/26/11/63591986/nvidia-oracle-ai-financing"
+      "h": "Oracle, 5년 CDS 사상 최고(356bp)… 52주 신저가 터치 후 -5.1% 마감",
+      "m": "11/25 종가 약 103.9달러(-5.13%; Fool 등락률·Finviz 일치, Yahoo 이력 103.19·JKN 102.68은 상이해 종가 미확인). 장중 99.34달러까지 하락해 52주 신저가 경신(11월 증자가 $116 대비 약 -14%). 5년 CDS 356bp는 S&P Global Market Intelligence 기준 사상 최고(Reuters). S&P는 OpenAI가 Oracle 수주잔고의 약 절반이라고 지적. JPM은 Buy·목표가 $200 유지(11/23). 정정: 11/24 종가는 109.50달러(-3.68%)로 확정.",
+      "url": "https://unusualwhales.com/news/oracle-stock-falls-new-52-week-low-2026-11-25"
     },
     {
       "t": "META",
-      "h": "Meta, Class C 주식 발행 중단으로 600억달러 ATM 지연… JPM 목표가 $940→$775",
-      "m": "11/24 종가 589.82달러(-1.30%). 11/23 8-K: 델라웨어 주주소송(정식재판 2027.4.19) 기간 중 Class C 미발행 → 예정된 약 $600억 ATM 프로그램 지연(AI 투자 재원 조달 변수). JPM은 목표가 $940→$775로 하향(Overweight 유지). 영국 FCA는 AI 에이전트의 금융서비스 제공 시 규제 조치 가능성을 경고, Meta는 조정판 Muse 출시.",
-      "url": "https://www.benzinga.com/markets/equities/26/11/63571514/meta-stock-dips-premarket-as-class-c-share-pause-delays-60-billion-ai-funding-plan"
+      "h": "Meta, Amazon과 Muse 접근 복원 협상 보도(Fortune)에 +3.40%… Class C 발행 중단 이슈는 잔존",
+      "m": "11/25 종가 609.89달러(+3.40%; Yahoo·Marketalleys 마감 테이프 일치). 장중 567.75달러까지 하락 후 반등. Fortune: 9월 Amazon의 차단 이후 2개월 만에 복원 협상, 양사 CEO 승인 필요, 쟁점은 Amazon 광고사업(연 $686억) 보호. Zuckerberg는 Muse 사용자의 25% 이상이 쇼핑에 활용(평균 구매액 $200+)한다고 언급. 11/23 8-K의 Class C 발행 중단에 따른 약 $600억 ATM 지연은 해소되지 않음.",
+      "url": "https://finance.yahoo.com/technology/article/amazon-and-meta-are-negotiating-the-future-of-ai-shopping-consumers-arent-quite-there-yet-144215428.html"
     },
     {
       "t": "GOOGL",
-      "h": "Alphabet, Broadcom TPU 주문 축소설·Gemini 3.5 집단소송 공고… 11/19 USD 4트랜치 채권 결제",
-      "m": "11/24 종가 279.05달러(-1.08%, Finviz 3:59pm; Yahoo 이력의 276.82는 장중 수치로 제외). Ming-Chi Kuo(TF Intl) 보도: 구글이 2027년 TPU 8i 물량을 약 100만개(20%) 축소하고 MediaTek 물량 확대(양사 미확인). Gemini 3.5 Pro 일정 관련 증권집단소송 공고 확산(주도원고 신청 12/1). 11/19 가격 결정 USD 채권(4.100% 2029, 4.800% 2034, 5.325% 2038, 6.000% 2066) 결제일 11/24. C$60억 캐나다달러채도 11/24 결제 예정.",
-      "url": "https://www.sec.gov/Archives/edgar/data/0001652044/000119312526469213/d21316dfwp.htm"
+      "h": "Alphabet, 5년 CDS 사상 최고… 말레이시아 규제당국 소송 겹쳐 장중 52주 신저가",
+      "m": "11/25 종가 약 273.1달러(-2.13%; Fool 등락률 환산, GOOG는 270.98달러 -2.02% 확인, GOOGL 종가 직접 확인은 미흡). 장중 262.73달러(52주 신저가, 약 -5.8%) 후 낙폭 축소. 5년 CDS는 S&P Global Market Intelligence 기준 사상 최고(Reuters). 3분기 캡엑스 $514억·FCF -$91억. 말레이시아 통신멀티미디어위(MCMC)가 YouTube 유해 콘텐츠 관련 소송 2건(합산 약 $1.46억) 제기. Gemini 3.5 관련 집단소송 주도원고 신청 마감 12/1. 11/24 종가 279.05달러(-1.08%) 확정.",
+      "url": "https://www.fool.com/investing/2026/11/25/why-alphabet-stock-is-down-today/"
     },
     {
       "t": "MU",
-      "h": "Micron, BNP Paribas 투자의견 하향(Neutral)·목표가 $1,700→$775에 -11%",
-      "m": "11/24 종가 미확인(약 629.8달러, 종가 기준 -11.01% 환산치; GuruFocus 630.90은 장중 값). BNP Paribas Karl Ackerman이 Outperform→Neutral로 하향하고 목표가를 $1,700→$775로 인하. 중국 클라우드 NAND 주문 둔화·HBM 사양 축소 가능성 보고서 언급(출처 단일, 미확인). HPE는 메모리·NAND 부족이 2028년 하반기까지 지속될 수 있다고 경고.",
-      "url": "https://247wallst.com/investing/2026/11/24/micron-just-hit-a-700-ceiling-caught-a-downgrade-and-is-down-10-today-is-mu-a-toxic-stock-or-a-prime-bargain/"
+      "h": "Micron, 장중 -13%(548.13) 후 -4.5% 마감… BNP 하향 여파·NAND 둔화 우려",
+      "m": "11/25 종가 601.25달러(-4.53%; MarketBeat·Stocktitan 일치, Yahoo -4.41%는 소폭 상이). 11/23(707.70) 대비 2거래일 -15%, 6/25 기록적 종가 대비 약 -50%. 11/24 종가 629.79달러(-11.01%) 확정(전일 파일의 '약 629.8' 확정). BNP Paribas Exane: Neutral 하향·목표가 $1,700→$775, 메모리 수급이 2027년 중반부터 균형에 근접할 것으로 전망. TrendForce는 2027년 전망을 낮추되 DRAM 타이트 지속으로 평가.",
+      "url": "https://www.marketbeat.com/instant-alerts/price-micron-technology-nasdaq-mu-stock-falls-45-after-analyst-downgrade-2026-11-25/"
     },
     {
       "t": "AVGO",
-      "h": "Broadcom, Google TPU-8i 주문 20% 축소설 재부각… 12/9 실적 앞두고 -3.98%",
-      "m": "11/24 종가 301.08달러(-3.98%; Google Finance 마감가와 시간외 변동분 역산이 일치, Yahoo 일부 페이지의 303.98·-2.69%는 장중 스냅샷으로 판단). 11/20 -12.19%(304.41), 11/23 +3.00%(313.55)에 이은 3일 변동. 구글·브로드컴 모두 보도 미확인. 실적 발표 12/9(AI 매출 가이던스 $217억). Anthropic(Claude 개발사)에 칩 리스용 최대 $420억 대출 제공 관련 공시 보도(상세 미확인).",
-      "url": "https://www.marketbeat.com/instant-alerts/price-broadcom-nasdaq-avgo-stock-price-down-4-should-you-sell-2026-11-24/"
+      "h": "Broadcom, 장중 52주 신저가(약 278) 후 보합권 회복… 12/9 실적 앞두고 변동성",
+      "m": "11/25 종가 미확인(Yahoo 등락률 -0.30% 환산 약 300.2달러; JKN·Yahoo CA의 287.2달러는 장중 값으로 제외). 장중 저점 약 278달러(-7.7%)로 52주 신저가 경신. 11/24 종가 301.08달러(-3.98%) 확정(Investing). Redburn은 11/13 Buy→Neutral·목표가 $595→$398로 하향. 커스텀 실리콘 수요 가시성·고객 집중 우려와 실적(12/9) 전 헤지 수요가 변동성 요인.",
+      "url": "https://www.marketbeat.com/instant-alerts/price-broadcom-nasdaq-avgo-sets-new-52-week-low-should-you-sell-2026-11-25/"
     },
     {
       "t": "AMZN",
-      "h": "Amazon, Decart 최적화 기술 인수(약 75억달러 보도)로 Trainium 소프트웨어 보강",
-      "m": "11/24 종가 252.29달러(-1.21%). 11/23 Amazon 발표: Decart Optimization Stack 기술 인수 및 공동창업자 3인·연구진 합류(금액은 Bloomberg 보도 기준 약 $75억, 규제 승인 필요). Anthropic(Claude 개발사)도 비슷한 규모로 인수를 시도했다는 보도. Alphabet·Amazon 합산 Anthropic 지분 약 28%, 클라우드 약정 $2,300억+ 보도(MarketBeat 인용 리포트).",
-      "url": "https://techcrunch.com/2026/11/24/amazons-decart-acquisition-is-a-bet-on-using-software-to-narrow-the-gap-with-nvidia-in-the-ai-chip-race/"
+      "h": "Amazon, AWS 연말 사용량 둔화 경고(Bernstein)·임원 매도·AI 투자 부담에 -3.1%",
+      "m": "11/25 종가 244.43달러(-3.12%; Investing 마감가·Marketalleys 일치). 장중 235.96달러까지 하락. Bernstein: AWS 포함 사용량 기반 클라우드 플랫폼의 웹 활동이 3분기 대비 약 16% 낮음. 최근 12개월 캡엑스 $2,152억, 후행 FCF -$424억(GuruFocus). Jassy CEO·Olsavsky CFO·Garman AWS CEO 등 6인이 10b5-1 계획에 따라 약 $1,660만 매각(11/24 Form 4). Meta Muse 접근 복원 협상 보도(Fortune)도 병행. 11/24 종가 252.29달러 확정.",
+      "url": "https://moneycheck.com/amazon-amzn-stock-drops-5-as-aws-holiday-slowdown-warning-meets-ai-selloff"
     },
     {
       "t": "SPCX",
-      "h": "SpaceX, Tesla 합병 협상위 구성(FT)·NYT '컴퓨팅 임대' 보도에 -5.65%",
-      "m": "11/24 종가 125.81달러(-5.65%; Google Finance, Fool 등락률 일치). FT: 양사 이사 5인(Tesla 3·SpaceX 2)·IB 3곳이 약 $3.5조 전주식 합병 협상, 연내 타결 목표, Tesla 주주 과반 승인 필요. NYT(11/23): Musk가 8월 직원들에게 AI 경쟁 실패를 언급, Anthropic(Claude 개발사) 월 약 $31억·Google 월 약 $8억 컴퓨팅 임대. JPM은 합병 시 S&P500 편입 가능성 언급.",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/spacex-tesla-directors-negotiate-potential-062339987.html"
+      "h": "SpaceX, 장중 -9.4% 후 +1.3% 마감… 5년 CDS 사상 최고, FCC 궤도 데이터센터 위성 100만기 승인",
+      "m": "11/25 종가 127.44달러(+1.30%; Fool). 장중 저점 약 114달러. 5년 CDS는 S&P Global Market Intelligence 기준 사상 최고(Reuters). FCC가 궤도 AI 데이터센터용 위성 최대 100만기 배치를 승인. Gary Black: Tesla 인수 시 25% 프리미엄 지급·주식수 52% 증가 가능성 지적. 초당적 상원 법안이 비경쟁 계약 제한을 겨냥. 12/8 락업 해제 예정. 11/24 종가 125.81달러(-5.65%) 확정(Yahoo).",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/11/25/stock-market-today-nov-25-spacex-gets-historic-fcc-approval-for-1-million-satellites-is-this-its-next-growth-engine/"
     },
     {
       "t": "AAPL",
-      "h": "Apple, Samsung과 4~5년 DRAM 장기공급 계약 임박(매일경제)… 메모리 원가가 핵심 변수",
-      "m": "11/24 종가 354.07달러(+1.43%; Marketalleys 마감 테이프·Investing 일치, TradersUnion 353.94는 소폭 상이). 정정: 11/23 종가는 349.08달러(+1.90%, Apple IR 공식)이며 직전 발송분의 350.69는 11/9 종가였음. 매일경제(11/17): 2027년 상반기부터 4~5년, 최소 물량 보장·가격은 시장 연동, SK hynix와도 유사 계약 체결. 11/2 실적콜에서 메모리 비용을 핵심 비용 요인으로 언급.",
-      "url": "https://www.macrumors.com/2026/11/17/apple-rare-long-term-memory-deal-samsung/"
+      "h": "Apple, AI 매도 속 3거래일 연속 상승… 메모리 원가·Siri 합의금이 변수",
+      "m": "11/25 종가 355.58달러(+0.43%; JournalArta·Fool 일치, StockAnalysis 354.25는 장중). FY26 FCF $1,360억(+38%)으로 AI 인프라 투자 부담이 큰 동종 대비 방어적. 12월 분기 매출총이익률 가이던스 45~46%로 메모리 가격 급등 영향(단일 출처). Siri AI 광고 관련 집단소송 합의 $2.5억(최소 $61/대, 청구 12/21까지, 법원 심리 2027.2/24). 삼성전자와 4~5년 DRAM 장기공급 계약 협상 진행(매일경제 11/17). 11/24 종가 354.07달러 확정.",
+      "url": "https://www.fool.com/investing/2026/11/25/tech-stock-sell-off-here-s-why-apple-has-been-immune/"
     }
   ]
 }
