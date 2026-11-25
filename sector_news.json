@@ -1,35 +1,71 @@
 {
-  "date": "2026-11-23",
+  "date": "2026-11-24",
   "items": [
     {
       "cor": "MACRO/RATES",
-      "t": "美 증시 사상 최대급 반등 — S&P500 +4.73%(조정 탈출), 나스닥 +6.51%, 다우 +3.01%; Nvidia CEO 복귀가 촉매",
-      "m": "S&P500 7,237.17(+326.78), 나스닥 24,089.56(+1,471.82), 다우 49,595.31(+1,447.98), 모두 2025년 4월 이후 최고의 하루이며 S&P500은 7거래일 연속 하락을 마감. Nasdaq-100 +약 6.9%(출처별 6.9~7.0%). BTIG는 반등이 이어지기 어려울 수 있다고 평가(CNBC). VIX는 여전히 높은 수준(24/7 Wall St). 출처 상이: 24/7 Wall St 장중 표기(7,243.94 등)는 종가 아님, CNBC·Fool·AP 인용치 채택.",
-      "url": "https://www.cnbc.com/2026/11/22/stock-market-today-live-updates.html"
+      "t": "미국 11월 소비자신뢰지수 103.3, 2025년 1월 이후 최고",
+      "m": "Conference Board 지수 91.9→103.3(+11.4p), 시장 예상(약 92) 크게 상회. 중간선거 이후 불확실성 완화·고용 인식 개선이 주도. 인플레 기대는 5.7%로 하락. 11/25(수) 추수감사절 직전 PCE 발표 예정.",
+      "url": "https://www.prnewswire.com/news-releases/us-consumer-confidence-surged-in-november-302949447.html"
     },
     {
       "cor": "MACRO/RATES",
-      "t": "美 단기금리 반등 — 2년물 4.69%(+8bp)·10년물 4.93~4.94%, 커브 플래트닝; Williams '추가 긴축 가능성', 12월 인상 확률 92~95%",
-      "m": "2년물 4.694%(+8.3bp, MarketScreener)·10년물 4.936%(+2.7bp)로 위험선호 회복에 따라 주말 이후 금리 반등(CNBC 10년물 4.932%). 장기물은 장 후반 회복해 곡선은 플래트닝(Newsquawk). Williams 뉴욕연준 총재는 추가 긴축이 필요해 보인다고 발언(investorideas). 12월 FOMC 인상 확률 92~95%. 달러지수는 19개월 최고인 104.30(Investing.com). 출처 상이: 10년물 종가 4.919%(Investrade)~4.94%.",
-      "url": "https://www.cnbc.com/amp/2026/11/23/treasury-yields-bonds-fed.html"
+      "t": "5년물 입찰 13연속 tail, 외국인(간접) 수요 2020.3월 이후 최저… 연준 윌리엄스 인플레 경고",
+      "m": "$700억 5년물 낙찰금리 4.719%(WI 4.716% 대비 0.3bp tail). 간접입찰 비중 2020.3월 이후 최저, 직접입찰은 기록적. 윌리엄스 NY연은 총재는 인플레 경고 연설. 10년물은 장중 4.90~4.93%대(종가 미확인). 12월 연준 25bp 인상 확률 약 93%(금요일 OIS 기준). IG OAS 94bp(-2bp), HY 356bp(-11bp)로 주식 급락에도 타이트닝(Cappnotes 단일 출처).",
+      "url": "https://pro.thestreet.com/stock-market-today/2026-11-24#update-wp:33408"
     },
     {
       "cor": "TECH/SEMIS",
-      "t": "Nvidia 복귀로 AI·반도체 전반 급등 — NVDA +31.5%, MU +19.0%, DELL +18.8%, MRVL +18.7%, ARM +16.8%, TSM +14.8%; Anthropic(Claude 개발사)은 -1.43%로 역행",
-      "m": "8-K상 Nvidia 이사회 만장일치 복귀(미 정부 의견 수렴). Nasdaq-100 시총이 약 2조달러 증가(Yahoo). ANT는 87.64달러(-1.43%, 공모가 83달러 대비 +5.6%)로 랠리에 동참하지 못했고(Bloomberg·Yahoo), 상장 후 첫 거래일이던 11/19 종가(97.17달러) 대비 -9.8%. 11/23부터 ANT 옵션 거래 개시 및 레버리지·인버스 ETF 13종 상장(Yahoo, Reuters). 상장 직후 Wolfe(목표가 135달러), Needham(150달러) 등 매수 개시. 등급은 Moody's·S&P·Fitch 미부여 상태(11/19 확인).",
-      "url": "https://www.bloomberg.com/news/articles/2026-11-23/anthropic-shares-churn-defying-ai-trade-rally-on-huang-s-return"
+      "t": "HPE -16.3%·ADI -17.4%… 실적 호조에도 마진 우려로 반도체·서버 동반 약세",
+      "m": "HPE 40.18달러(-16.33%): FY27 매출 가이던스 상향에도 Cloud&AI 마진 하락, 메모리·NAND 부족 2028년 하반기까지 지속 경고. ADI 312.95달러(-17.37%): 기록적 4분기 매출 $43.7억에도 1분기 EPS 가이던스 부진. 반도체 ETF SOXX -8.27%(Cappnotes 단일 출처). Nasdaq -1.48%, S&P 기술 섹터 -2.77%.",
+      "url": "https://avaloncapitalresearch.substack.com/p/closing-bell-nasdaq-falls-15-as-analog"
     },
     {
       "cor": "TECH/SEMIS",
-      "t": "AI 인프라 금융 — Oracle OpenAI 계약 자금조달 완료 주장, SpaceX 440억달러 GPU 노트 가격 결정",
-      "m": "Oracle은 OpenAI 3,000억달러 계약의 자금(주식 100억달러+채권 100억달러)을 확보했다고 발표(GuruFocus, 원문 미확인)했으나 부채 1,250억달러 이상·FCF 마이너스는 그대로. SpaceX는 Apollo·Goldman 주관 약 440억달러 GPU 금융 노트를 가격 결정(Fool·GlobeNewswire 제목), 11/19 약 320억달러 채권(최대 트랜치 8.259%)과의 관계는 미확인. 두 건 모두 투자자 수요가 있었음에도 상장 AI주는 주 초반 급락 후 반등한 상태.",
-      "url": "https://financefeeds.com/orcl-stock-openai-contract-fully-funded/"
+      "t": "Anthropic(Claude 개발사), 상장 4거래일 만에 공모가($83) 하회 마감",
+      "m": "11/24 종가 81.91달러(-6.5%), 시총 약 $1.5조(Bloomberg). 11/19 첫날 종가 97.17달러 대비 약 -16%. WSJ 보도: 주관사 그린슈 조기 행사로 가격 방어 여력이 없었다는 투자자 불만. 장중 저점 약 $76(Benzinga 79.06 등 출처별 상이). 옵션 거래 급증, Wedbush·Canaccord 커버리지 개시(매수). 크레딧 관점: 무등급·KBRA BB+ 수준 차입 구조(담보부 리볼버·Broadcom 보증 등)와 주가 연동 점검 필요.",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-24/anthropic-breaks-below-83-ipo-price-in-premarket-trading"
     },
     {
       "cor": "ENERGY",
-      "t": "유가 급락 — WTI 80.17달러(-3.24달러)·Brent 89.37달러(-3.20달러), WTI 장중 8/26 이후 최저(79.95달러)",
-      "m": "Newsquawk 정산 기준 WTI(1월물) 80.17달러, Brent(1월물) 89.37달러. 위험선호 회복과 호르무즈 프리미엄 축소가 겹침. 금은 전주 큰 폭 하락 후 반등(스팟 +약 2.7%, 금요일 종가 3,538.19달러 기준 약 3,630달러대, 장중 3,631달러). 출처 상이: investingLive 등 일부 장중 WTI 80.76달러·Brent 89.96달러는 오후 시점 수치.",
-      "url": "https://www.newsquawk.com/headlines/newsquawk-daily-asia-pac-opening-news---24th-november-2026"
+      "t": "유가 $90 하회 지속, 휘발유 한 달간 약 70센트 하락… 천연가스는 강세",
+      "m": "Brent 장중 $88~91 등락, WTI $79~82(정산가 출처별 상이로 미확인). Brent는 8월 말 이후 최저 수준. 페르시아만 원유 수출 정상화·협상 기대로 중동 공급 우려 완화. 미 휘발유 평균 $3.61/갤런(AAA). 천연가스는 상승(Henry Hub 약 $3.4~3.6).",
+      "url": "https://www.axios.com/2026/11/24/crude-oil-gasoline-prices-down"
+    },
+    {
+      "cor": "US BANKS",
+      "t": "미 은행주 반등 시도 속 혼조… 전주 KBW 은행지수 -9.5%(2025.4월 이후 최악)",
+      "m": "전주(11/16~20) KBW Bank Index -9.5%, Goldman·Morgan Stanley 각 -13% 이상. 벤더 사이버 사고(JPM·Visa·Mastercard)·AI 급락·추가 금리인상 베팅이 요인. 11/24 장중 BAC·WFC·SCHW 상승, JPM·C 하락(마감 수치 미확인).",
+      "url": "https://ceoeconomy.com/article/bank-stocks-worst-week-since-april-2025"
+    },
+    {
+      "cor": "JP BANKS",
+      "t": "BOJ 12월 인상 기대 유지… 우에다 \"기조적 물가 목표 상회 가능\"",
+      "m": "우에다 총재는 11/19 상원 보고에서 금리 인상 지속 기조 재확인. MUFG Research: Fed·ECB·BOJ 모두 12월 인상 기대가 쉽게 꺼지지 않을 전망. 전 BOJ 위원 Adachi는 11/24 추가 인상 가능성을 말하면서도 소비 부진에 따른 정치적 부담을 지적. 대형 3행 순이자마진에는 우호적 요인(당사 해석).",
+      "url": "https://www.mufgresearch.com/rates/japan-economic-financial-weekly-24-november-2026"
+    },
+    {
+      "cor": "INSURANCE",
+      "t": "EIOPA 의장, \"보험업계 AI 기반 시스템 사이버공격 대응 미흡\" 경고",
+      "m": "11/24 EIOPA 의장은 글로벌 보험시장이 AI로 강화된 시스템적 사이버공격에 충분히 대비되지 않았을 수 있다고 경고. 11/20 Allianz Commercial도 AI 관련 클레임이 실제 노출을 과소 반영한다고 언급.",
+      "url": "https://law360.com/insurance-uk/articles/2558620"
+    },
+    {
+      "cor": "AUTOS",
+      "t": "미 정부, 미국 투자 완성차 업체 대상 관세 완화 검토… 구조·시기 불명확",
+      "m": "Toyota·BMW·Audi가 대미 투자 연계 관세 완화를 요청 중. 수입 의존도 높은 외국 브랜드가 수혜 가능하다는 분석. 11/19 Moody's는 Toyota 전망을 긍정적으로 상향. 캐나다 관련 50% 관세 위협 변수는 별도 잔존.",
+      "url": "https://www.autonews.com/manufacturing/an-auto-tariff-relief-structure-1124/"
+    },
+    {
+      "cor": "TELECOM",
+      "t": "Musk \"Starlink가 AT&T·Verizon 매출 잠식\"… SpaceX, Boost Mobile 관련 딜 탐색 보도",
+      "m": "AT&T·Verizon은 AST SpaceMobile, T-Mobile은 SpaceX와 위성 직접연결 제휴. SpaceX가 Boost Mobile 관련 거래를 탐색 중이라는 보도(AT&T·T-Mobile망 의존이 변수). 11/23 3대 이통사 데드존 해소 JV 발표 보도도 병행.",
+      "url": "https://www.thestreet.com/retail/verizon-and-att-may-have-a-bigger-elon-musk-problem-than-expected"
+    },
+    {
+      "cor": "KP",
+      "t": "한국 정부, 내년 1월 약 30억달러 규모 달러채 발행 검토",
+      "m": "재정부 관계자: 이달 초 RFP를 발송했고 이번 주 은행 프레젠테이션을 받아 주관사 선정 예정. 규모는 약 $30억 가능성, 확정 아님.",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-24/south-korea-considers-potential-3-billion-dollar-bond-sale"
     }
   ]
 }
