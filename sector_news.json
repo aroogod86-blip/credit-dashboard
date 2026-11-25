@@ -1,71 +1,65 @@
 {
-  "date": "2026-11-24",
+  "date": "2026-11-25",
   "items": [
     {
       "cor": "MACRO/RATES",
-      "t": "미국 11월 소비자신뢰지수 103.3, 2025년 1월 이후 최고",
-      "m": "Conference Board 지수 91.9→103.3(+11.4p), 시장 예상(약 92) 크게 상회. 중간선거 이후 불확실성 완화·고용 인식 개선이 주도. 인플레 기대는 5.7%로 하락. 11/25(수) 추수감사절 직전 PCE 발표 예정.",
-      "url": "https://www.prnewswire.com/news-releases/us-consumer-confidence-surged-in-november-302949447.html"
+      "t": "10월 PCE 3.8%·근원 3.3%(예상 3.2%), 12월 인상 기정사실화",
+      "m": "헤드라인 PCE 3.8%(전월 3.6~3.7%, 출처별 상이), 근원 3.3%로 예상 상회. 3분기 GDP는 잠정치보다 크게 상향. 12월 25bp 인상 확률 95~98%. JPM은 12·1·3월 연속 인상(정책금리 4.50~4.75%) 전망, Waller 이사는 100bp 이상 또는 즉각 50bp 가능성 언급, Musalem 총재는 최대 4회 인상 가능성 언급(요약 보도). 국채금리는 안전자산 선호로 하락: 10년 약 4.82%(-7bp), 2년 약 4.59%(-8bp), 30년 약 5.24%(장중·종가 미확인).",
+      "url": "https://www.cnbc.com/2026/11/25/pce-inflation-report-october-2026.html"
     },
     {
       "cor": "MACRO/RATES",
-      "t": "5년물 입찰 13연속 tail, 외국인(간접) 수요 2020.3월 이후 최저… 연준 윌리엄스 인플레 경고",
-      "m": "$700억 5년물 낙찰금리 4.719%(WI 4.716% 대비 0.3bp tail). 간접입찰 비중 2020.3월 이후 최저, 직접입찰은 기록적. 윌리엄스 NY연은 총재는 인플레 경고 연설. 10년물은 장중 4.90~4.93%대(종가 미확인). 12월 연준 25bp 인상 확률 약 93%(금요일 OIS 기준). IG OAS 94bp(-2bp), HY 356bp(-11bp)로 주식 급락에도 타이트닝(Cappnotes 단일 출처).",
-      "url": "https://pro.thestreet.com/stock-market-today/2026-11-24#update-wp:33408"
+      "t": "미국, 중국·EU 등 14개국 대상 신규 관세 최대 20% 제안",
+      "m": "USTR 11/25 발표: 과잉설비 조사 결과로 중국 20%(휴전 불이행 시 40%), EU 15%(조건 미이행 시 20%). 일본·한국·스위스 등은 딜 상한 15%. 기존 관세 위에 중첩 적용, 공개의견 수렴 후 내년 1월 이후 시행. 앞서 대법원이 2월 기존 관세를 위헌 판결. 시장 반응은 제한적이었다는 평가(Newsquawk).",
+      "url": "https://time.com/article/2026/11/25/trump-administration-new-tariffs-china-european-union-india/"
+    },
+    {
+      "cor": "EU BANKS",
+      "t": "유럽 은행주 약 -3%… 금리인상 우려·AI 불안·신규 관세",
+      "m": "Stoxx 600은 장 초반 상승분을 반납하고 -1.06%(626.03) 마감. 금리 민감 은행업종은 평균 약 3% 하락(Business Times 인용, 단일 출처). 신규 관세 EU 딜 상한 15%.",
+      "url": "https://urgent.news/2026/11/25/european-stocks-end-lower-as-rate-hike-fears-ai-doubts-hammer-banks"
     },
     {
       "cor": "TECH/SEMIS",
-      "t": "HPE -16.3%·ADI -17.4%… 실적 호조에도 마진 우려로 반도체·서버 동반 약세",
-      "m": "HPE 40.18달러(-16.33%): FY27 매출 가이던스 상향에도 Cloud&AI 마진 하락, 메모리·NAND 부족 2028년 하반기까지 지속 경고. ADI 312.95달러(-17.37%): 기록적 4분기 매출 $43.7억에도 1분기 EPS 가이던스 부진. 반도체 ETF SOXX -8.27%(Cappnotes 단일 출처). Nasdaq -1.48%, S&P 기술 섹터 -2.77%.",
-      "url": "https://avaloncapitalresearch.substack.com/p/closing-bell-nasdaq-falls-15-as-analog"
+      "t": "AI 인프라 차입기업 5년 CDS 동반 사상 최고… CoreWeave 5년 부도확률 68% 시사",
+      "m": "S&P Global Market Intelligence(Reuters 인용): Oracle 356bp, Alphabet·SpaceX 사상 최고, CoreWeave 1,314bp(5년 내 부도확률 68% 내재). SoftBank CDS는 2022.10월 이후 최대. Nvidia CDS도 최고 수준이라는 보도는 단일 출처. AI 투자 수익 지연 시 차입 상환 능력 훼손 우려가 배경.",
+      "url": "https://www.investing.com/news/stock-market-news/ai-credit-default-swap-spreads-widen-on-unease-over-cash-flow-5049729"
     },
     {
       "cor": "TECH/SEMIS",
-      "t": "Anthropic(Claude 개발사), 상장 4거래일 만에 공모가($83) 하회 마감",
-      "m": "11/24 종가 81.91달러(-6.5%), 시총 약 $1.5조(Bloomberg). 11/19 첫날 종가 97.17달러 대비 약 -16%. WSJ 보도: 주관사 그린슈 조기 행사로 가격 방어 여력이 없었다는 투자자 불만. 장중 저점 약 $76(Benzinga 79.06 등 출처별 상이). 옵션 거래 급증, Wedbush·Canaccord 커버리지 개시(매수). 크레딧 관점: 무등급·KBRA BB+ 수준 차입 구조(담보부 리볼버·Broadcom 보증 등)와 주가 연동 점검 필요.",
-      "url": "https://www.bloomberg.com/news/articles/2026-11-24/anthropic-breaks-below-83-ipo-price-in-premarket-trading"
+      "t": "AI·반도체 장중 급락 후 반등… Nasdaq 장중 -4.7%→마감 -0.62%",
+      "m": "S&P500 7,182.78(-0.25%), 나스닥 23,585.80(-0.62%), 다우 50,182.95(+0.33%, 장중 -1,100p 이상 후 반전). 필라델피아 반도체지수 장중 -5.8%. 마감 기준 Lam Research -5.71%, Sandisk -5.57%, Nvidia -3.91%, HP Inc +11.44%(실적). 자금은 기술주에서 경기방어·소형주로 이동(Russell 2000 +0.7%).",
+      "url": "https://stocktitan.net/articles/stock-market-today-live-november-25-2026"
+    },
+    {
+      "cor": "TECH/SEMIS",
+      "t": "Anthropic(Claude 개발사), 장중 -8% 후 반등해 82.79달러 마감… 공모가(83달러) 하회 지속",
+      "m": "11/25 종가 82.79달러(+1.08%). 프리마켓 77.58달러(-5.3%)까지 밀린 뒤 장중 84.50달러까지 반등했으나 공모가 아래 마감. 시총 약 1.07~1.09조달러(Trefis·Yahoo). 정정: 11/24 파일의 '약 1.5조달러'는 출처 상이. 11/24 종가 81.91달러(-6.5%)·장중 저점 75.61달러 확정. Wedbush($120)·Oppenheimer($150)·Arete($300) 매수 커버리지 개시, 컨센서스 목표가 $136.33.",
+      "url": "https://finance.yahoo.com/markets/stocks/article/anthropic-stock-sinks-further-below-ipo-price-as-investors-sour-on-the-amodei-ai-bet-100918869.html"
     },
     {
       "cor": "ENERGY",
-      "t": "유가 $90 하회 지속, 휘발유 한 달간 약 70센트 하락… 천연가스는 강세",
-      "m": "Brent 장중 $88~91 등락, WTI $79~82(정산가 출처별 상이로 미확인). Brent는 8월 말 이후 최저 수준. 페르시아만 원유 수출 정상화·협상 기대로 중동 공급 우려 완화. 미 휘발유 평균 $3.61/갤런(AAA). 천연가스는 상승(Henry Hub 약 $3.4~3.6).",
-      "url": "https://www.axios.com/2026/11/24/crude-oil-gasoline-prices-down"
-    },
-    {
-      "cor": "US BANKS",
-      "t": "미 은행주 반등 시도 속 혼조… 전주 KBW 은행지수 -9.5%(2025.4월 이후 최악)",
-      "m": "전주(11/16~20) KBW Bank Index -9.5%, Goldman·Morgan Stanley 각 -13% 이상. 벤더 사이버 사고(JPM·Visa·Mastercard)·AI 급락·추가 금리인상 베팅이 요인. 11/24 장중 BAC·WFC·SCHW 상승, JPM·C 하락(마감 수치 미확인).",
-      "url": "https://ceoeconomy.com/article/bank-stocks-worst-week-since-april-2025"
-    },
-    {
-      "cor": "JP BANKS",
-      "t": "BOJ 12월 인상 기대 유지… 우에다 \"기조적 물가 목표 상회 가능\"",
-      "m": "우에다 총재는 11/19 상원 보고에서 금리 인상 지속 기조 재확인. MUFG Research: Fed·ECB·BOJ 모두 12월 인상 기대가 쉽게 꺼지지 않을 전망. 전 BOJ 위원 Adachi는 11/24 추가 인상 가능성을 말하면서도 소비 부진에 따른 정치적 부담을 지적. 대형 3행 순이자마진에는 우호적 요인(당사 해석).",
-      "url": "https://www.mufgresearch.com/rates/japan-economic-financial-weekly-24-november-2026"
-    },
-    {
-      "cor": "INSURANCE",
-      "t": "EIOPA 의장, \"보험업계 AI 기반 시스템 사이버공격 대응 미흡\" 경고",
-      "m": "11/24 EIOPA 의장은 글로벌 보험시장이 AI로 강화된 시스템적 사이버공격에 충분히 대비되지 않았을 수 있다고 경고. 11/20 Allianz Commercial도 AI 관련 클레임이 실제 노출을 과소 반영한다고 언급.",
-      "url": "https://law360.com/insurance-uk/articles/2558620"
-    },
-    {
-      "cor": "AUTOS",
-      "t": "미 정부, 미국 투자 완성차 업체 대상 관세 완화 검토… 구조·시기 불명확",
-      "m": "Toyota·BMW·Audi가 대미 투자 연계 관세 완화를 요청 중. 수입 의존도 높은 외국 브랜드가 수혜 가능하다는 분석. 11/19 Moody's는 Toyota 전망을 긍정적으로 상향. 캐나다 관련 50% 관세 위협 변수는 별도 잔존.",
-      "url": "https://www.autonews.com/manufacturing/an-auto-tariff-relief-structure-1124/"
+      "t": "유가 전일 +2% 급등 후 추가 반등 시도… OPEC+ 회의 앞두고 공급과잉 vs 중동 리스크",
+      "m": "11/24 정산가는 Brent $91.40·WTI $82.05로 각각 2% 이상 상승(정정: 전일 파일의 '하회·하락' 표현은 오류). 11/25 아시아장은 공급과잉 우려로 소폭 하락했으나 미국장에서 반등(Jan Brent 약 $93.8, WTI 약 $83.6, 정산가 미확인). IEA 보고서 이후 공급과잉 인식, OPEC+는 일요일(11/29) 2027년 생산정책 논의 예정.",
+      "url": "https://www.cnbc.com/amp/2026/11/25/oil-wti-brent-hormuz-middle-east.html"
     },
     {
       "cor": "TELECOM",
-      "t": "Musk \"Starlink가 AT&T·Verizon 매출 잠식\"… SpaceX, Boost Mobile 관련 딜 탐색 보도",
-      "m": "AT&T·Verizon은 AST SpaceMobile, T-Mobile은 SpaceX와 위성 직접연결 제휴. SpaceX가 Boost Mobile 관련 거래를 탐색 중이라는 보도(AT&T·T-Mobile망 의존이 변수). 11/23 3대 이통사 데드존 해소 JV 발표 보도도 병행.",
-      "url": "https://www.thestreet.com/retail/verizon-and-att-may-have-a-bigger-elon-musk-problem-than-expected"
+      "t": "Charter 약 +8% 급등, Comcast·AT&T·Verizon 동반 강세… 방어주 순환",
+      "m": "Longbridge 집계 기준 Charter 마감 +8.39%. 별도 회사 뉴스는 확인되지 않음(GuruFocus). 11월 초 8개 시리즈 채권 tender offer 완료, 3분기 순손실 $24억(프랜차이즈 손상 $63억 포함). AI 매도 속 통신·케이블로 자금 이동.",
+      "url": "https://unusualwhales.com/news/charter-communications-stock-rises-afternoon-trading-2026-11-25"
+    },
+    {
+      "cor": "JP BANKS",
+      "t": "일본 증시 급락 속 Mizuho -3.71%… 닛케이 약 -2.8%",
+      "m": "11/25 도쿄 마감: Mizuho FG 7,425엔(-3.71%). 닛케이225는 -2.8% 안팎(TradingEconomics 본문 -2.80%/-1,643p, 제목 수치 -3.79%·TradingKey -2.78%로 출처 간 상이). SoftBank·Kioxia 14% 이상 급락. 11/19 BOJ 총재의 추가 인상 시사에도 은행주 약세(엔화 160 부근, MUFG 데이터 유출 이슈) 흐름 지속.",
+      "url": "https://tradingeconomics.com/japan/stock-market"
     },
     {
       "cor": "KP",
-      "t": "한국 정부, 내년 1월 약 30억달러 규모 달러채 발행 검토",
-      "m": "재정부 관계자: 이달 초 RFP를 발송했고 이번 주 은행 프레젠테이션을 받아 주관사 선정 예정. 규모는 약 $30억 가능성, 확정 아님.",
-      "url": "https://www.bloomberg.com/news/articles/2026-11-24/south-korea-considers-potential-3-billion-dollar-bond-sale"
+      "t": "KOSPI -6.16%(4,697.51) 매도 사이드카… 삼성전자 -9.87%·SK하이닉스 -11.05%",
+      "m": "1/13 이후 최저 종가. 외국인 순매도 약 1.95조원(삼성전자 1.01조·SK하이닉스 5,596억). 삼성전자 170,700원, SK하이닉스 약 103만원. Goldman은 SK하이닉스 목표가 350만→200만원, 삼성전자 50만→35만원으로 하향. 국고채 3년 3.583%(-5.7bp), 5년 3.648%(-6bp). 원화는 달러 대비 강세.",
+      "url": "https://en.sedaily.com/market/2026/11/25/kospi-sinks-below-4700-lowest-close-since-jan-13"
     }
   ]
 }
