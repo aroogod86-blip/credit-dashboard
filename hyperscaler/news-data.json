@@ -1,59 +1,59 @@
 {
-  "date": "2026-11-23",
+  "date": "2026-11-24",
   "items": [
     {
       "t": "NVDA",
-      "h": "NVDA +31.48%(165.05달러) 사상 최대 일간 시총 증가(약 9,500억달러) — 이사회 만장일치로 황 CEO 복귀 결정, SEC 관련 보도는 미해소",
-      "m": "종가 165.05달러(전일 125.53달러), 시총 약 3.98조달러. 이사회는 11/23 8-K로 황을 사장·CEO·이사로 즉시 복귀시켰다고 발표(만장일치). 이사회는 '미 정부 고위급 의견을 수렴했고 국가안보 위험이 없다고 확신'한다고 밝힘. Yahoo 라이브는 Trump가 이사회를 설득했다고 보도(단일 보도, 8-K에는 미반영). 11/17 '복귀 불가' 방침을 6일 만에 번복. 미해소 쟁점: 이사회 독립조사 지속, 정부 조사 협조 중, Reuters의 SEC 회계 검토 보도(Fri)에 대한 언급 없음(Trefis), 황·법무총괄은 12/1~2 하원 3개 위원회 비공개 청문 예정(NPR). 정규장 종가 기준 사상 최고 종가 대비 -31%. 출처 상이: Yahoo 표기 +31.6%는 시간외 포함 수치로 추정, +31.48% 채택.",
-      "url": "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000090/nov23pressrelease.htm"
+      "h": "Nvidia, 황 CEO 복귀 다음 날 -5.86%… 트럼프 \"내가 성사\" 발언·Goldman \"숏커버링\" 지적",
+      "m": "11/24 종가 155.38달러(-5.86%). 전일 +31.48% 급등분 일부 반납, 시총 약 2,400억달러 감소. 트럼프는 11/23 CNBC 인터뷰에서 이사회에 직·간접적으로 복귀를 설득했다고 발언(법무장관·DNI와 사전 협의 언급). Goldman은 월요일 급등을 숏커버링 영향으로 보고 '클리어링 이벤트 아님'으로 평가. SEC 회계 검토 보도, 12/1~2 하원 청문 등 거버넌스 이슈는 미해결.",
+      "url": "https://www.fool.com/coverage/stock-market-today/2026/11/24/stock-market-today-nov-24-nvidia-gives-back-usd240-billion-in-market-value-despite-wall-street-upgrade-signaling-29-upside/"
     },
     {
       "t": "ORCL",
-      "h": "ORCL 약 +12.3%(약 113.7달러, 종가 확인 중) 7거래일 연속 하락 종료 — 'OpenAI 3,000억달러 계약 자금조달 완료' 발표, 부채 1,250억달러 이상은 그대로",
-      "m": "종가 약 113.68달러(+12.34%, GuruFocus 4pm 이후 표기). 24/7 Wall St는 113.77달러(+12.43%), JKN은 같은 날 113.68·114.70달러로 상이해 종가 미확인(약 113.7달러). 시가 116.24달러(+14.9%, TradingView)로 11월 공모가(116달러) 회복 후 상승분 일부 반납. Oracle은 OpenAI 계약(약 3,000억달러) 필요 자금을 확보했다고 발표: 주식 100억달러+채권 100억달러(총 200억달러 조달 패키지) 기준, '이번 투자 사이클에서 자금조달을 마친 첫 하이퍼스케일러'라고 주장(GuruFocus, 회사 발표 원문 미확인). Abilene 거의 완공, 차기 기가와트급 시설 인허가, Nvidia 랙 인도 순조(Invezz). 신용 포인트: 부채 1,253억달러(8월 말), FY26 CAPEX 557억달러·FCF 마이너스(FX Leaders), 데이터센터 임대약정 약 2,880억달러는 그대로. 차기 실적 12/9(Benzinga).",
-      "url": "https://financefeeds.com/orcl-stock-openai-contract-fully-funded/"
+      "h": "Oracle, 월요일 +12.3% 반등분 일부 반납… 증자가($116) 하회 지속, 벤더금융 분산 강조",
+      "m": "11/24 종가 미확인(장중 108.2~112.3달러, 약 -4%대; Tradingkey -4.50%). 11/23 종가 113.68달러(+12.34%)는 Investing 이력으로 확정. 11월 신주 8,620만주($116)·채권 $100억(7.000~8.650%) 발행 후 주가가 증자가 하회. JPM(Chatterjee): Oracle이 $200억 조달을 'one and done'으로 설명, 벤더금융 대부분은 Investor Day 이전 확정, Nvidia 포함 특정 공급사 과의존 없음. 마이너스 FCF·부채 부담 우려 지속.",
+      "url": "https://www.benzinga.com/trading-ideas/long-ideas/26/11/63591986/nvidia-oracle-ai-financing"
     },
     {
       "t": "META",
-      "h": "META +6.55%(597.60달러) — 반도체 반등에 동반 상승, Goldman '헤지펀드 선호 AI주' 지목; Class C 주식 소송·FCF 부담은 지속",
-      "m": "종가 597.60달러(전일 560.84달러, aroundprague·GuruFocus 일치), 장중 579.78~602.46달러. Goldman Sachs가 3분기 헤지펀드 보유가 늘어난 선호 AI주로 Meta를 언급(GuruFocus). 지난주 하락은 Delaware 주주소송(Class C 의결권 없는 신주 계획 관련)과 Reuters 보도가 거론됨(Wisevoter 인용, 세부 미확인). 3분기 FCF 286억달러(Rollingout), 2026 CAPEX 1,350억~1,450억달러. 출처 상이: JKN은 589.26달러(+5.07%)로 표기했으나 다른 3곳의 597.60달러와 불일치해 미채택.",
-      "url": "https://aroundprague.cz/en/news/us/why-is-meta-stock-up-today-shares-jump-6-55-to-597-60-as-ai-trade-rebounds-on"
+      "h": "Meta, Class C 주식 발행 중단으로 600억달러 ATM 지연… JPM 목표가 $940→$775",
+      "m": "11/24 종가 589.82달러(-1.30%). 11/23 8-K: 델라웨어 주주소송(정식재판 2027.4.19) 기간 중 Class C 미발행 → 예정된 약 $600억 ATM 프로그램 지연(AI 투자 재원 조달 변수). JPM은 목표가 $940→$775로 하향(Overweight 유지). 영국 FCA는 AI 에이전트의 금융서비스 제공 시 규제 조치 가능성을 경고, Meta는 조정판 Muse 출시.",
+      "url": "https://www.benzinga.com/markets/equities/26/11/63571514/meta-stock-dips-premarket-as-class-c-share-pause-delays-60-billion-ai-funding-plan"
     },
     {
       "t": "GOOGL",
-      "h": "GOOGL +6.34%(282.10달러) — 52주 저점 이후 반등, Truist '매수·목표가 410달러' 재확인(Wells Fargo는 365달러로 하향)",
-      "m": "종가 282.10달러(전일 265.29달러, MarketBeat·aroundprague 일치, GuruFocus 4pm 표기), 거래량 평균 대비 38% 상회. Truist는 11/23 Buy·목표가 410달러를 재확인하며 매도가 과도하다고 평가, Wells Fargo는 목표가 371→365달러 하향·Overweight 유지. 2026 CAPEX 가이던스 1,950억~2,050억달러, 1~3분기 자사주 매입 없음(Parameter). 11월 중 유로·캐나다달러 채권 약 109억달러 발행은 11/20 파일 참조. 출처 상이: JKN 281.08달러(+5.95%), GOOG 279.53달러는 다른 클래스/상이 수치로 GOOGL 282.10달러 채택.",
-      "url": "https://www.marketbeat.com/instant-alerts/price-alphabet-nasdaq-googl-shares-climb-63-heres-what-happened-2026-11-23/"
+      "h": "Alphabet, Broadcom TPU 주문 축소설·Gemini 3.5 집단소송 공고… 11/19 USD 4트랜치 채권 결제",
+      "m": "11/24 종가 279.05달러(-1.08%, Finviz 3:59pm; Yahoo 이력의 276.82는 장중 수치로 제외). Ming-Chi Kuo(TF Intl) 보도: 구글이 2027년 TPU 8i 물량을 약 100만개(20%) 축소하고 MediaTek 물량 확대(양사 미확인). Gemini 3.5 Pro 일정 관련 증권집단소송 공고 확산(주도원고 신청 12/1). 11/19 가격 결정 USD 채권(4.100% 2029, 4.800% 2034, 5.325% 2038, 6.000% 2066) 결제일 11/24. C$60억 캐나다달러채도 11/24 결제 예정.",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001652044/000119312526469213/d21316dfwp.htm"
     },
     {
       "t": "MU",
-      "h": "MU +19.04%(707.70달러) — 반도체 반등 주도, Citi '메모리 AI 지출 우려 과도'·2027 생산능력 75% 계약",
-      "m": "종가 707.70달러(전일 594.51달러, Fool 4pm·GuruFocus 일치), 거래량 4,950만주(3개월 평균 2,820만주). Citi는 메모리 업종에 대한 AI 지출 우려가 과도하다고 평가(GuruFocus), 회사는 2027 생산능력의 약 75%가 계약 완료라고 밝힌 바 있음. 다만 TrendForce의 내년 초 NAND 계약가 하락 전망이 부담으로 남음. 직전 약세 요인(11/20): NAND 가격 전망·반도체 투매. 차기 실적 12/16~17(출처별 상이). 출처 상이: GuruFocus 다른 기사 709.92달러, JKN 697.29달러는 미채택.",
-      "url": "https://www.fool.com/coverage/stock-market-today/2026/11/23/stock-market-today-nov-23-micron-surges-19-as-nvidia-ceo-change-calms-ai-spending-fears/"
+      "h": "Micron, BNP Paribas 투자의견 하향(Neutral)·목표가 $1,700→$775에 -11%",
+      "m": "11/24 종가 미확인(약 629.8달러, 종가 기준 -11.01% 환산치; GuruFocus 630.90은 장중 값). BNP Paribas Karl Ackerman이 Outperform→Neutral로 하향하고 목표가를 $1,700→$775로 인하. 중국 클라우드 NAND 주문 둔화·HBM 사양 축소 가능성 보고서 언급(출처 단일, 미확인). HPE는 메모리·NAND 부족이 2028년 하반기까지 지속될 수 있다고 경고.",
+      "url": "https://247wallst.com/investing/2026/11/24/micron-just-hit-a-700-ceiling-caught-a-downgrade-and-is-down-10-today-is-mu-a-toxic-stock-or-a-prime-bargain/"
     },
     {
       "t": "AVGO",
-      "h": "AVGO +3.00%(313.55달러) — 반등폭은 반도체 대비 제한, Google TPU 주문 축소 보도(Kuo)는 미확인 상태",
-      "m": "종가 313.55달러(전일 304.41달러, TradingKey 'closed up 3.00%'·GuruFocus·MarketBeat 일치), 장중 304.56~324.44달러. 11/20 급락 요인인 Ming-Chi Kuo의 'Google 2027 TPU 8i 주문 약 100만개 축소' 보도는 양사 모두 확인하지 않은 상태. Goldman은 11/18 목표가를 540→460달러로 하향(Buy 유지). 12/9 실적 발표 예정(TradingKey). 신용 포인트: Broadcom은 Anthropic(Claude 개발사) 지분 약 1,300만주(약 10억달러)를 보유하고, Apollo·Blackstone과 구성한 금융 플랫폼으로 6월 Anthropic 1GW 배치용 350억달러 1차 딜을 종결(Trefis, 2차 출처). 출처 상이: FinanceFeeds 309.89달러(+1.8%)는 오후 2:46 장중 수치.",
-      "url": "https://www.tradingkey.com/news/market-movers/262318798-market-movers-avgo-20261123"
+      "h": "Broadcom, Google TPU-8i 주문 20% 축소설 재부각… 12/9 실적 앞두고 -3.98%",
+      "m": "11/24 종가 301.08달러(-3.98%; Google Finance 마감가와 시간외 변동분 역산이 일치, Yahoo 일부 페이지의 303.98·-2.69%는 장중 스냅샷으로 판단). 11/20 -12.19%(304.41), 11/23 +3.00%(313.55)에 이은 3일 변동. 구글·브로드컴 모두 보도 미확인. 실적 발표 12/9(AI 매출 가이던스 $217억). Anthropic(Claude 개발사)에 칩 리스용 최대 $420억 대출 제공 관련 공시 보도(상세 미확인).",
+      "url": "https://www.marketbeat.com/instant-alerts/price-broadcom-nasdaq-avgo-stock-price-down-4-should-you-sell-2026-11-24/"
     },
     {
       "t": "AMZN",
-      "h": "AMZN +3.47%(255.39달러) — Decart 인수 합의(추정 75억달러) 및 Oppenheimer 목표가 310달러 상향",
-      "m": "종가 255.39달러(전일 246.82달러, MarketScreener 'Market Closed 4:00pm' 기준, 시간외 256.55달러는 정규장 종가와 구분). Amazon은 AI 스타트업 Decart를 약 75억달러(Bloomberg 업계 추정, 현금)에 인수하기로 합의했고 Decart 공동창업자 3인과 연구팀이 합류, 규제 승인 조건부(MarketScreener·Blockonomi). 목적은 자체 Trainium 칩 추론 가속. Oppenheimer는 목표가 285→310달러 상향(Outperform). 신용 포인트: 2026 현금 CAPEX 약 2,200억달러, FCF 마이너스. 출처 상이: Yahoo/Investing 장중 +3.7~4.2%는 종가 아님.",
-      "url": "https://www.marketscreener.com/news/amazon-com-inc-signed-an-agreement-to-acquire-decart-ai-ltd-for-an-estimated-7-5-billion-ce7851dadf8af726"
+      "h": "Amazon, Decart 최적화 기술 인수(약 75억달러 보도)로 Trainium 소프트웨어 보강",
+      "m": "11/24 종가 252.29달러(-1.21%). 11/23 Amazon 발표: Decart Optimization Stack 기술 인수 및 공동창업자 3인·연구진 합류(금액은 Bloomberg 보도 기준 약 $75억, 규제 승인 필요). Anthropic(Claude 개발사)도 비슷한 규모로 인수를 시도했다는 보도. Alphabet·Amazon 합산 Anthropic 지분 약 28%, 클라우드 약정 $2,300억+ 보도(MarketBeat 인용 리포트).",
+      "url": "https://techcrunch.com/2026/11/24/amazons-decart-acquisition-is-a-bet-on-using-software-to-narrow-the-gap-with-nvidia-in-the-ai-chip-race/"
     },
     {
       "t": "SPCX",
-      "h": "SPCX +4.35%(133.35달러) IPO가(135달러) 하회 지속 — Apollo·Goldman 440억달러 GPU 노트 가격 결정, 버지니아·오리건주 Grok 소송",
-      "m": "종가 133.35달러(전일 127.79달러, MarketScreener 'Market Closed' 기준·Fool +4.35% 일치), 시간외 133.88달러(정규장 종가와 구분). 신용 핵심: Fool(11/23)은 Apollo·Goldman이 Nvidia 칩 및 관련 장비 금융용 약 440억달러 노트를 가격 결정했다고 정리(11/19 약 320억달러 채권 발행분 포함 여부 미확인, 규모 상이 지속). 규제·소송: 버지니아·오리건주가 Grok AI의 아동 대상 성적 이미지 생성 방지 실패를 이유로 SpaceX를 제소(Fool). 12/8 약 7.98억주 락업 해제 예정. Jefferies 매수 개시(목표가 210달러), Mizuho Outperform 205달러. 기타: Starlink의 Tesla 차량 탑재 구상, 텍사스 240억달러 투자 제안(FX Leaders, 단일 출처). 출처 상이: 장중 +9.7%(Fool)는 종가 아님.",
-      "url": "https://www.fool.com/investing/2026/11/23/why-spacex-stock-is-gaining-today/"
+      "h": "SpaceX, Tesla 합병 협상위 구성(FT)·NYT '컴퓨팅 임대' 보도에 -5.65%",
+      "m": "11/24 종가 125.81달러(-5.65%; Google Finance, Fool 등락률 일치). FT: 양사 이사 5인(Tesla 3·SpaceX 2)·IB 3곳이 약 $3.5조 전주식 합병 협상, 연내 타결 목표, Tesla 주주 과반 승인 필요. NYT(11/23): Musk가 8월 직원들에게 AI 경쟁 실패를 언급, Anthropic(Claude 개발사) 월 약 $31억·Google 월 약 $8억 컴퓨팅 임대. JPM은 합병 시 S&P500 편입 가능성 언급.",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/spacex-tesla-directors-negotiate-potential-062339987.html"
     },
     {
       "t": "AAPL",
-      "h": "AAPL 약 +2.37%(350.69달러, 종가 일부 상이) — China Renaissance 매수 상향(목표가 425달러), 중국 Apple Intelligence 등록",
-      "m": "종가 350.69달러(+2.37%, Perplexity 'At close 4:00:01 PM'·Fool 등락률 일치, 전일 342.56달러). 출처 상이: MarketBeat·FinanceFeeds는 349.08달러(+1.9%), Investing 일간표는 348.70달러(+1.79%, 거래량 2,557만주로 장중 수치 추정)로 미채택. China Renaissance가 Hold→Buy로 상향, Street 최고 목표가 425달러 제시(폴더블 아이폰 Duo의 업그레이드 사이클 기대). Apple Intelligence가 중국에서 iPad·Mac용으로 등록됐고 12월 Alibaba Qwen 기반으로 출시 예정(Perplexity 요약). Apple은 대규모 AI 설비투자를 피해 AI 투매 국면에서 상대적으로 견조했다는 평가(Fool).",
-      "url": "https://www.perplexity.ai/finance/AAPL"
+      "h": "Apple, Samsung과 4~5년 DRAM 장기공급 계약 임박(매일경제)… 메모리 원가가 핵심 변수",
+      "m": "11/24 종가 354.07달러(+1.43%; Marketalleys 마감 테이프·Investing 일치, TradersUnion 353.94는 소폭 상이). 정정: 11/23 종가는 349.08달러(+1.90%, Apple IR 공식)이며 직전 발송분의 350.69는 11/9 종가였음. 매일경제(11/17): 2027년 상반기부터 4~5년, 최소 물량 보장·가격은 시장 연동, SK hynix와도 유사 계약 체결. 11/2 실적콜에서 메모리 비용을 핵심 비용 요인으로 언급.",
+      "url": "https://www.macrumors.com/2026/11/17/apple-rare-long-term-memory-deal-samsung/"
     }
   ]
 }
